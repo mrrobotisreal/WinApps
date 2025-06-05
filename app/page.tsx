@@ -1,103 +1,728 @@
-import Image from "next/image";
+import Layout from "@/components/layout"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
+import { Badge } from "@/components/ui/badge"
+import { Separator } from "@/components/ui/separator"
+import { ActionButtons } from "@/components/action-buttons"
+import Link from "next/link"
+import Image from "next/image"
+import SpotlightCard from "@/components/blocks/Components/SpotlightCard/SpotlightCard"
+
+// from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <Layout>
+      <div className="container mx-auto px-4 py-8 space-y-12">
+        {/* Hero Section */}
+        <section className="text-center space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold">
+            <span className="bg-gradient-to-b dark:from-white dark:to-gray-400 from-gray-400 to-black bg-clip-text text-transparent">
+              Welcome to{" "}
+            </span>
+            <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent">
+              Win
+            </span>
+            <span className="bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">
+              Apps
+            </span>
+            !
+          </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          {/* Intro Video */}
+          <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
+            <video
+              src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/IntroducingMitchellWintrow_1080.mp4"
+              autoPlay
+              muted
+              playsInline
+              controls
+              className="w-full h-auto"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Welcome to WinApps.io! My name is{" "}
+              <span className="font-semibold bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">Mitchell</span>{" "}
+              <span className="font-semibold bg-gradient-to-b from-orange-300 to-orange-800 bg-clip-text text-transparent">Wintrow</span>{" "}
+              and this my personal website where I detail everything about who I am as a software engineer
+              and as a person, provide many examples of projects I&apos;ve previously worked on and am currently
+              working on, publish all kinds of tech blogs and tutorials, and provide you with my contact
+              information. Please have a look at the top navigation bar to see all the different pages and
+              sections of this website, and you&apos;ll see some easily accessible links below of my work
+              experience, projects I&apos;ve worked on, and blog posts I&apos;ve written.
+            </p>
+          </div>
+        </section>
+
+        {/* Quick Links Grid */}
+        <section className="grid md:grid-cols-2 gap-6">
+          {/* Work Experience */}
+          <Card>
+            <CardHeader>
+              <div className="flex flex-col items-center justify-center">
+                <CardTitle>Work Experience</CardTitle>
+                <p className="text-sm text-muted-foreground italic">
+                  Hover over the links if you want to see more details before clicking.
+                </p>
+              </div>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/amazon-connect-customer-profiles"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Amazon Connect Customer Profiles
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ConnectLogo.webp" alt="Amazon Connect Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Amazon Connect Customer Profiles</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I was a frontend focused software engineer
+                            working on the Amazon Connect Customer Profiles team using React, TypeScript, Node.js, Java 11, Python, & AWS.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            August 2022 - November 2024
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/vmware"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        VMware
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VMwareLogo.webp" alt="VMware Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">VMware</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I was a purely backend focused software engineer apprentice
+                            working on the VMware team using Java 17, Spring Boot, Hibernate, PostgreSQL, H2, Docker, Kubernetes, and GitLab CI/CD.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                              June 2022 - August 2022
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/double-raven-solutions"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Double Raven Solutions LLC
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp" alt="Double Raven Solutions LLC Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Double Raven Solutions LLC</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I was a full stack software engineer
+                            working with Double Raven Solutions LLC from its inception using Go, Python, React, TypeScript, GraphQL, Node.js, Docker, Kubernetes, and Github Actions CI/CD.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            June 2020 - January 2022
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Projects */}
+          <Card>
+            <CardHeader>
+              <div className="flex flex-col items-center justify-center">
+                <CardTitle>Projects</CardTitle>
+                <p className="text-sm text-muted-foreground italic">
+                  Hover over the links if you want to see more details before clicking.
+                </p>
+              </div>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://github.com/mrrobotisreal/JourneyAppWeb"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        JourneyApp.me (Web)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp" alt="JourneyApp Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">JourneyApp.me (Web)</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            The Github repo for the JourneyApp.me website, a journaling app that allows you to write journal entries with text formatting, images, locations, tags, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, shadcn/ui, TailwindCSS, Vercel, Firebase, Go, MySQL, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/projects/journey-app"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        JourneyApp.me (iOS)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp" alt="JourneyApp Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">JourneyApp.me (iOS)</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            The project page for the JourneyApp.me iOS app, a journaling app that allows you to write journal entries with text formatting, images, locations, tags, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Swift, SwiftUI, UIKit, Go, MongoDB, MySQL, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/projects/voizy"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Voizy (Android)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VoizyLogo.webp" alt="Voizy Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Voizy (Android)</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            The project page for the Voizy app, a social media app that allows you to create posts, upload and share images, join groups, upload music, track post analytics, connect with friends, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Kotlin, Jetpack Compose, Firebase, Go, MySQL, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/aspire-to-expand"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Aspire To Expand
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/AspireToExpandLogo.webp" alt="Aspire To Expand Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Aspire To Expand</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            The project page for the Aspire To Expand app, a desktop app for a language learning platform that allows you to connect with teachers and other students, track your progress, attend live video classes, securely pay for classes, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, MUI, Electron, Node.js, Go, MongoDB, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Live Demos */}
+          <Card>
+            <CardHeader>
+              <div className="flex flex-col items-center justify-center">
+                <CardTitle>
+                  Live Demos
+                </CardTitle>
+                <p className="text-sm text-muted-foreground italic">
+                  Hover over the links if you want to see more details before clicking.
+                </p>
+              </div>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://wintrow.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Media Manipulator Pro (Media Converter)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/MediaManipulatorProLogo.webp" alt="Media Manipulator Pro Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Media Manipulator Pro</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            A media converter that allows you to crop images, trim videos, apply stunning filters, convert formats, adjust speed and volume—all with professional-grade tools in a simple drag-and-drop interface.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, shadcn/ui, TailwindCSS, Vercel, Go, Gin, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://ui.qr-gen.winapps.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Quantum River (Custom QR Code Generator)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/QuantumRiverLogo.webp" alt="Quantum River Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Quantum River</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            Quantum River is a custom QR code generator that allows you to create QR codes with custom colors, logos, and text.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, shadcn/ui, TailwindCSS, Vercel and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://ui.formatter.winapps.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Text Formatter (Site-Agnostic Text Formatter)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/TextFormatterLogo.webp" alt="Text Formatter Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Text Formatter</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            A site-agnostic text formatter that allows you to format text with bold, italic, underline, strikethrough, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, shadcn/ui, TailwindCSS, Vercel, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://www.rss-today.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        RSS Today (RSS News Feed Reader)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/RSSTodayLogo.webp" alt="RSS Today Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">RSS Today</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            RSS Today is a RSS news feed reader that allows you to read RSS feeds from your favorite websites.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, shadcn/ui, TailwindCSS, Vercel, Firebase, Go, Gin, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://carvana.ui.winapps.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        CarvanaServer (GraphQL Cursor-Based Pagination)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/CarvanaLogo.webp" alt="Carvana Logo" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">CarvanaServer</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            CarvanaServer is a GraphQL cursor-based pagination server that allows you to paginate through data.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React, TypeScript, GraphQL, shadcn/ui, TailwindCSS, Vercel, Node.js, MongoDB, and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Blog Posts */}
+          <Card>
+            <CardHeader>
+              <div className="flex flex-col items-center justify-center">
+                <CardTitle>Blog Posts</CardTitle>
+                <p className="text-sm text-muted-foreground italic">
+                  Hover over the links if you want to see more details before clicking.
+                </p>
+              </div>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        11 JavaScript Power-Ups You Probably Aren&apos;t Using (Yet)
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/PepeSilviaMeme.webp" alt="11 JavaScript Power-Ups You Probably Aren't Using (Yet)" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">11 JavaScript Power-Ups You Probably Aren&apos;t Using (Yet)</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            A blog post about 11 JavaScript power-ups you probably aren&apos;t using (yet) and how they&apos;ll turbo-boost your code.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Published on Medium.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="https://medium.com/@90mitchwintrow/optimize-your-multimedia-and-make-your-readmes-pop-on-github-866a018c1e13"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                      >
+                        Optimize Your Multimedia and Make Your READMEs Pop on GitHub
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/OptimizeMultimedia.webp" alt="Optimize Your Multimedia and Make Your READMEs Pop on GitHub background image" width={48} height={48} className="rounded-full" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">Optimize Your Multimedia and Make Your READMEs Pop on GitHub</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            A blog post about how to optimize your multimedia and make your READMEs pop on GitHub using powerful tools like ffmpeg, gifsicle, imagemagick, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Published on Medium.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Profile and Action Buttons */}
+        <section>
+          <SpotlightCard className="bg-transparent" spotlightColor="rgba(42, 73, 142, 0.75)">
+            <div className="flex flex-col items-center space-y-8">
+              <div className="relative">
+                <Image
+                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/LinkedIn_ProfilePic.png"
+                  alt="Mitchell Wintrow Profile Picture"
+                  width={256}
+                  height={256}
+                  className="rounded-full shadow-lg"
+                />
+              </div>
+
+              <ActionButtons />
+            </div>
+          </SpotlightCard>
+        </section>
+
+        {/* Skills Sections */}
+        <section className="space-y-12">
+          {/* Backend Skills */}
+          <div className="text-center space-y-6">
+            <h2 className="text-3xl font-bold">Backend Skills</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/JavaLogo.webp" alt="Java" width={16} height={16} className="mr-2" />
+                Java
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/PythonLogo.webp" alt="Python" width={16} height={16} className="mr-2" />
+                Python
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/LightFM_Logo.webp" alt="LightFM" width={16} height={16} className="mr-2" />
+                LightFM
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/GoLogo.png" alt="Go" width={16} height={16} className="mr-2" />
+                Go
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/DockerLogo.webp" alt="Docker" width={16} height={16} className="mr-2" />
+                Docker
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/KubernetesLogo.webp" alt="Kubernetes" width={16} height={16} className="mr-2" />
+                Kubernetes
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/PostgresLogo.webp" alt="PostgreSQL" width={16} height={16} className="mr-2" />
+                PostgreSQL
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/mysql_logo.webp" alt="MySQL" width={16} height={16} className="mr-2" />
+                MySQL
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/MongoLeaf.webp" alt="MongoDB" width={16} height={16} className="mr-2" />
+                MongoDB
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/firebase_logo.webp" alt="Firebase" width={16} height={16} className="mr-2" />
+                Firebase
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/GraphQLLogo.webp" alt="GraphQL" width={16} height={16} className="mr-2" />
+                GraphQL
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/LetsEncryptLogo.webp" alt="LetsEncrypt" width={16} height={16} className="mr-2" />
+                LetsEncrypt
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/Kotlin_Icon.webp" alt="Kotlin" width={16} height={16} className="mr-2" />
+                Kotlin
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/Vercel_logo.svg" alt="Vercel" width={16} height={16} className="mr-2" />
+                Vercel
+              </Badge>
+            </div>
+          </div>
+
+          {/* Frontend Skills */}
+          <div className="text-center space-y-6">
+            <h2 className="text-3xl font-bold">Frontend Skills</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/TypescriptLogo.webp" alt="TypeScript" width={16} height={16} className="mr-2" />
+                TypeScript
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/JavaScriptLogo.webp" alt="JavaScript" width={16} height={16} className="mr-2" />
+                JavaScript
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/ReactLogo.png" alt="React" width={16} height={16} className="mr-2" />
+                React
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/ReactQueryLogo.webp" alt="ReactQuery" width={16} height={16} className="mr-2" />
+                ReactQuery
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/TestingLibraryLogo.webp" alt="Testing Library" width={16} height={16} className="mr-2" />
+                TestingLibrary
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/CypressLogo.webp" alt="Cypress" width={16} height={16} className="mr-2" />
+                Cypress
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/Svelte_Logo.webp" alt="Svelte" width={16} height={16} className="mr-2" />
+                Svelte
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/WebpackLogo.webp" alt="Webpack" width={16} height={16} className="mr-2" />
+                Webpack
+              </Badge>
+            </div>
+          </div>
+
+          {/* Mobile Skills */}
+          <div className="text-center space-y-6">
+            <h2 className="text-3xl font-bold">Mobile Skills</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/Kotlin_Icon.webp" alt="Kotlin" width={16} height={16} className="mr-2" />
+                Kotlin
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/SwiftLogo.webp" alt="Swift" width={16} height={16} className="mr-2" />
+                Swift
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/DartLogo.webp" alt="Dart" width={16} height={16} className="mr-2" />
+                Dart
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/FlutterLogo.webp" alt="Flutter" width={16} height={16} className="mr-2" />
+                Flutter
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/TypescriptLogo.webp" alt="TypeScript" width={16} height={16} className="mr-2" />
+                TypeScript
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/JavaScriptLogo.webp" alt="JavaScript" width={16} height={16} className="mr-2" />
+                JavaScript
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/ReactLogo.png" alt="React Native" width={16} height={16} className="mr-2" />
+                React Native
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/ReactQueryLogo.webp" alt="ReactQuery" width={16} height={16} className="mr-2" />
+                ReactQuery
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <Image src="/ExpoLogoWithBackground.webp" alt="Expo" width={16} height={16} className="mr-2" />
+                Expo
+              </Badge>
+            </div>
+          </div>
+        </section>
+      </div>
+    </Layout>
+  )
 }
