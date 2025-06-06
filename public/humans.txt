@@ -1,0 +1,40 @@
+/* TEAM */
+Developer: Mitchell Wintrow
+Contact: mitchellwintrow@gmail.com
+Location: Seattle, WA, USA
+
+/* SITE */
+Last update: 2025-06-06
+Standards: HTML5, CSS3, ES2020+
+Components: React, TypeScript, Next.js
+Doctype: HTML5
+IDE: Cursor, VS Code
+
+/* TECHNOLOGIES */
+Frontend Framework: React 19
+Build Tool: Next.js
+Language: TypeScript
+Styling: Tailwind CSS
+State Management: TanStack Query
+Analytics: Firebase Analytics, Google Analytics
+Monetization: Google AdSense
+Icons: Lucide React
+UI Components: shadcn/ui, Radix UI
+Utilities: Class Variance Authority, clsx
+Development: ESLint, PostCSS
+
+/* INFRASTRUCTURE */
+Hosting: Vercel
+Domain: wintrow.dev
+CDN: Modern web hosting with global distribution
+
+/* CONTACT ORGANIZATION */
+Organization: WinApps Solutions LLC
+Website: https://winapps.io
+Main Product: Media Manipulator Pro - File Converter
+
+          .-.
+         /   \
+        | @ @ |    Thank you for visiting!
+         \   /     I built this with ❤️
+          '-'      for the developer community.

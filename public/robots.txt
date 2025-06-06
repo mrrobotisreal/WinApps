@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Important files
+Sitemap: https://www.wintrow.dev/sitemap.xml
+
+# Allow crawling of main assets
+Allow: /fonts/
+Allow: /images/
+Allow: /WinApps_Logo_Medium.webp
+Allow: /MitchellWintrow_Resume.docx
+Allow: /MitchellWintrow_Resume.pdf
+Allow: /*.css
+Allow: /*.js
+
+# Disallow admin and private areas (if any exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1
+
+# Block specific bots that might be problematic (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
