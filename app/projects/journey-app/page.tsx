@@ -148,8 +148,8 @@ export default function JourneyAppPage() {
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <Link href="/portfolio" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300">
-                  Portfolio
+                <Link href="/projects" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300">
+                  Projects
                 </Link>
               </div>
             </li>
@@ -179,11 +179,11 @@ export default function JourneyAppPage() {
           {/* Main Content Card */}
           <Card>
             <CardContent className="p-6 space-y-8">
-              {/* Cover Image */}
+              {/* Banner Image */}
               <div className="w-full">
                 <Image
                   src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
-                  alt="JourneyApp Cover"
+                  alt="JourneyApp Banner"
                   width={1200}
                   height={600}
                   className="w-full rounded-lg"
@@ -202,7 +202,7 @@ export default function JourneyAppPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Start & End Dates</h2>
                   <p className="text-muted-foreground">
-                    {new Date("2025-01-02T00:00:00Z").toLocaleDateString()} - {new Date("2025-06-01T00:00:00Z").toLocaleDateString()}
+                    {new Date("2025-02-02T00:00:00Z").toLocaleDateString()} - {new Date("2025-03-18T00:00:00Z").toLocaleDateString()}
                   </p>
                 </div>
 
