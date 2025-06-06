@@ -182,7 +182,7 @@ export default function JourneyAppPage() {
               {/* Cover Image */}
               <div className="w-full">
                 <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyAppDocumentationCoverImage.png"
+                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
                   alt="JourneyApp Cover"
                   width={1200}
                   height={600}
