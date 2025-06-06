@@ -13,131 +13,91 @@ import Image from "next/image"
 
 const iPhoneScreenshots: { image: string; text: string }[] = [
   {
-    text: "Login Screen",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/1xl_iPhone_LoginScreen.gif",
-  },
-  {
-    text: "Create New Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/2xl_iPhone_CreateNewEntry.gif",
-  },
-  {
-    text: "Search and Filters",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/3xl_iPhone_SearchAndFilters.gif",
-  },
-  {
-    text: "View and Edit Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/4xl_iPhone_ViewAndEdit.gif",
-  },
-  {
-    text: "Download from the AppStore here!",
+    text: "Download in the AppStore!",
     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
   },
   {
-    text: "Create Account and Login",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone001_xl.png",
+    text: "Login",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone01.webp",
   },
   {
-    text: "Home Screen (Journal Entries List)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone002_xl.png",
+    text: "Home",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone02.webp",
   },
   {
-    text: "Search and Filters",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone003_xl.png",
+    text: "Filters",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone03.webp",
   },
   {
-    text: "Text Search (With Highlight)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone004_xl.png",
+    text: "Search",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone04.webp",
   },
   {
     text: "Location Picker",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone005_xl.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone05.webp",
   },
   {
-    text: "Create a New Entry (Writing View with Markdown)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone006_xl.png",
-  },
-  {
-    text: "Create a New Entry (With Location, Tags, and Images Added)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone007_xl.png",
+    text: "Create Entry (Write)",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone06.webp",
   },
   {
     text: "View Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone008_xl.png",
-  },
-  {
-    text: "View Entry (With Expanded Image View)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone010_xl.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone07.webp",
   },
   {
     text: "Edit Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPhone009_xl.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone08.webp",
+  },
+  {
+    text: "View Image",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/iphone10.webp",
   },
 ]
 
 const iPadScreenshots: { image: string; text: string }[] = [
   {
-    text: "Login Screen",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/1xl_iPad_LoginScreen.gif",
-  },
-  {
-    text: "Create New Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/2xl_iPad_CreateNewEntry.gif",
-  },
-  {
-    text: "Search and Filters",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/3xl_iPad_SearchAndFilters.gif",
-  },
-  {
-    text: "View and Edit Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/4xl_iPad_ViewAndEdit.gif",
-  },
-  {
-    text: "Download from the AppStore here!",
+    text: "Download in the AppStore!",
     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
   },
   {
-    text: "Download from the AppStore here!",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
+    text: "Login",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad01.webp",
   },
   {
-    text: "Create Account and Login",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad001.png",
+    text: "Home",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad02.webp",
   },
   {
-    text: "Home Screen (Journal Entries List)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad002.png",
+    text: "Filters",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad03.webp",
   },
   {
-    text: "Search and Filters",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad003.png",
+    text: "Search",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad04.webp",
   },
   {
-    text: "Text Search (With Highlight)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad004.png",
-  },
-  {
-    text: "Create a New Entry (Writing View with Markdown)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad005.png",
+    text: "Create Entry (Write)",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad05.webp",
   },
   {
     text: "Location Picker",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad006.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad06.webp",
   },
   {
-    text: "Create a New Entry (With Location, Tags, and Images Added)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad007.png",
+    text: "Create Entry (Preview)",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad07.webp",
   },
   {
     text: "View Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad008.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad08.webp",
   },
   {
-    text: "View Entry (With Expanded Image View)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad009.png",
+    text: "View Image",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad09.webp",
   },
   {
     text: "Edit Entry",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/products/journey-app/JourneyApp_iPad010.png",
+    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/ipad10.webp",
   },
 ]
 
@@ -242,7 +202,7 @@ export default function JourneyAppPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Start & End Dates</h2>
                   <p className="text-muted-foreground">
-                    {new Date("2025-01-02T00:00:00Z").toLocaleDateString()} - Present
+                    {new Date("2025-01-02T00:00:00Z").toLocaleDateString()} - {new Date("2025-06-01T00:00:00Z").toLocaleDateString()}
                   </p>
                 </div>
 
@@ -479,7 +439,7 @@ export default function JourneyAppPage() {
                       bend={2}
                       textColor="#ffffff"
                       borderRadius={0.05}
-                      font="bold 30px DM Sans"
+                      font="bold 30px ubuntu"
                     />
                   </div>
 
