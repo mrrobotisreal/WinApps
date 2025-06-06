@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Android voice-to-text translation app.
+                Android social media app.
               </p>
             </CardContent>
           </Card>
@@ -41,7 +41,51 @@ export default function ProjectsPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Goal-setting and productivity app.
+                Language learning platform on desktop, web, and mobile.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Media Manipulator Pro</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Web app for multimedia conversions and editing.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Quantum River</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Web app for generating custom QR codes.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Text Formatter</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Web app for formatting text that stays formatted across websites like LinkedIn, Twitter, Facebook, etc.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>RSS Today</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                RSS news reader web app.
               </p>
             </CardContent>
           </Card>
