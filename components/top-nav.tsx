@@ -99,8 +99,8 @@ export default function TopNav() {
           href="/"
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
-          <Image src="/logo_black_shadow_yellow.svg" alt="WinApps Logo" className="hidden dark:block" width={56} height={56} />
-          <Image src="/logo_transparent_shadow.svg" alt="WinApps Logo" className="block dark:hidden" width={56} height={56} />
+          <Image src="/WinApps_Logo_Medium.webp" alt="WinApps Logo" className="hidden dark:block" width={56} height={56} />
+          <Image src="/WinApps_Logo_Medium.webp" alt="WinApps Logo" className="block dark:hidden" width={56} height={56} />
           <span className="text-xl font-semibold text-white hidden md:block">
             WinApps
           </span>

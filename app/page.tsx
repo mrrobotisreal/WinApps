@@ -582,59 +582,87 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Backend Skills</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <Badge className="text-sm py-2 px-4">
-                <Image src="/JavaLogo.webp" alt="Java" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaLogo.webp" alt="Java" sizes="24px" fill className="object-contain" />
+                </div>
                 Java
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/PythonLogo.webp" alt="Python" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PythonLogo.webp" alt="Python" sizes="24px" fill className="object-contain" />
+                </div>
                 Python
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/LightFM_Logo.webp" alt="LightFM" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LightFM_Logo.webp" alt="LightFM" sizes="24px" fill className="object-contain" />
+                </div>
                 LightFM
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/GoLogo.png" alt="Go" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GoLogo.png" alt="Go" sizes="24px" fill className="object-contain" />
+                </div>
                 Go
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/DockerLogo.webp" alt="Docker" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DockerLogo.webp" alt="Docker" sizes="24px" fill className="object-contain" />
+                </div>
                 Docker
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/KubernetesLogo.webp" alt="Kubernetes" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/KubernetesLogo.webp" alt="Kubernetes" sizes="24px" fill className="object-contain" />
+                </div>
                 Kubernetes
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/PostgresLogo.webp" alt="PostgreSQL" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PostgresLogo.webp" alt="PostgreSQL" sizes="24px" fill className="object-contain" />
+                </div>
                 PostgreSQL
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/mysql_logo.webp" alt="MySQL" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/mysql_logo.webp" alt="MySQL" sizes="24px" fill className="object-contain" />
+                </div>
                 MySQL
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/MongoLeaf.webp" alt="MongoDB" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/MongoLeaf.webp" alt="MongoDB" sizes="24px" fill className="object-contain" />
+                </div>
                 MongoDB
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/firebase_logo.webp" alt="Firebase" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/firebase_logo.webp" alt="Firebase" sizes="24px" fill className="object-contain" />
+                </div>
                 Firebase
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/GraphQLLogo.webp" alt="GraphQL" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GraphQLLogo.webp" alt="GraphQL" sizes="24px" fill className="object-contain" />
+                </div>
                 GraphQL
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/LetsEncryptLogo.webp" alt="LetsEncrypt" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LetsEncryptLogo.webp" alt="LetsEncrypt" sizes="24px" fill className="object-contain" />
+                </div>
                 LetsEncrypt
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/Kotlin_Icon.webp" alt="Kotlin" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp" alt="Kotlin" sizes="24px" fill className="object-contain" />
+                </div>
                 Kotlin
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/Vercel_logo.svg" alt="Vercel" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Vercel_logo.svg" alt="Vercel" sizes="24px" fill className="object-contain" />
+                </div>
                 Vercel
               </Badge>
             </div>
@@ -645,35 +673,51 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Frontend Skills</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <Badge className="text-sm py-2 px-4">
-                <Image src="/TypescriptLogo.webp" alt="TypeScript" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp" alt="TypeScript" sizes="24px" fill className="object-contain" />
+                </div>
                 TypeScript
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/JavaScriptLogo.webp" alt="JavaScript" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp" alt="JavaScript" sizes="24px" fill className="object-contain" />
+                </div>
                 JavaScript
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/ReactLogo.png" alt="React" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png" alt="React" sizes="24px" fill className="object-contain" />
+                </div>
                 React
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/ReactQueryLogo.webp" alt="ReactQuery" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp" alt="ReactQuery" sizes="24px" fill className="object-contain" />
+                </div>
                 ReactQuery
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/TestingLibraryLogo.webp" alt="Testing Library" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TestingLibraryLogo.webp" alt="Testing Library" sizes="24px" fill className="object-contain" />
+                </div>
                 TestingLibrary
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/CypressLogo.webp" alt="Cypress" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/CypressLogo.webp" alt="Cypress" sizes="24px" fill className="object-contain" />
+                </div>
                 Cypress
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/Svelte_Logo.webp" alt="Svelte" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Svelte_Logo.webp" alt="Svelte" sizes="24px" fill className="object-contain" />
+                </div>
                 Svelte
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/WebpackLogo.webp" alt="Webpack" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/WebpackLogo.webp" alt="Webpack" sizes="24px" fill className="object-contain" />
+                </div>
                 Webpack
               </Badge>
             </div>
@@ -684,39 +728,57 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Mobile Skills</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <Badge className="text-sm py-2 px-4">
-                <Image src="/Kotlin_Icon.webp" alt="Kotlin" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp" alt="Kotlin" sizes="24px" fill className="object-contain" />
+                </div>
                 Kotlin
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/SwiftLogo.webp" alt="Swift" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/SwiftLogo.webp" alt="Swift" sizes="24px" fill className="object-contain" />
+                </div>
                 Swift
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/DartLogo.webp" alt="Dart" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DartLogo.webp" alt="Dart" sizes="24px" fill className="object-contain" />
+                </div>
                 Dart
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/FlutterLogo.webp" alt="Flutter" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/FlutterLogo.webp" alt="Flutter" sizes="24px" fill className="object-contain" />
+                </div>
                 Flutter
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/TypescriptLogo.webp" alt="TypeScript" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp" alt="TypeScript" sizes="24px" fill className="object-contain" />
+                </div>
                 TypeScript
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/JavaScriptLogo.webp" alt="JavaScript" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp" alt="JavaScript" sizes="24px" fill className="object-contain" />
+                </div>
                 JavaScript
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/ReactLogo.png" alt="React Native" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png" alt="React Native" sizes="24px" fill className="object-contain" />
+                </div>
                 React Native
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/ReactQueryLogo.webp" alt="ReactQuery" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp" alt="ReactQuery" sizes="24px" fill className="object-contain" />
+                </div>
                 ReactQuery
               </Badge>
               <Badge className="text-sm py-2 px-4">
-                <Image src="/ExpoLogoWithBackground.webp" alt="Expo" width={16} height={16} className="mr-2" />
+                <div className="relative w-6 h-6 mr-2">
+                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ExpoLogoWithBackground.webp" alt="Expo" sizes="24px" fill className="object-contain" />
+                </div>
                 Expo
               </Badge>
             </div>
