@@ -473,13 +473,15 @@ export default function JourneyAppPage() {
                     </ToggleGroup>
                   </div>
 
-                  <CircularGallery
-                    items={screenshots}
-                    bend={3}
-                    textColor="#ffffff"
-                    borderRadius={0.05}
-                    font="bold 30px DM Sans"
-                  />
+                  <div className="w-full h-full">
+                    <CircularGallery
+                      items={screenshots}
+                      bend={2}
+                      textColor="#ffffff"
+                      borderRadius={0.05}
+                      font="bold 30px DM Sans"
+                    />
+                  </div>
 
                   {/* Screenshot Gallery */}
                   {/* <div className="flex items-center gap-4">
