@@ -104,35 +104,13 @@ const iPadScreenshots: { image: string; text: string }[] = [
 export default function JourneyAppPage() {
   const [device, setDevice] = useState<string>("iPhone")
   const [screenshots, setScreenshots] = useState<{ image: string; text: string }[]>(iPhoneScreenshots)
-  // const [screenshotIndex, setScreenshotIndex] = useState<number>(0)
-  // const [, setIsLoadingImage] = useState<boolean>(true)
 
   const handleDeviceChange = (newDevice: string) => {
     if (newDevice && newDevice !== device) {
       setDevice(newDevice)
       setScreenshots(newDevice === "iPhone" ? iPhoneScreenshots : iPadScreenshots)
-      // setScreenshotIndex(0)
-      // setIsLoadingImage(true)
     }
   }
-
-  // const onBack = () => {
-  //   if (screenshotIndex === 0) {
-  //     setScreenshotIndex(screenshots.length - 1)
-  //   } else {
-  //     setScreenshotIndex(screenshotIndex - 1)
-  //   }
-  //   setIsLoadingImage(true)
-  // }
-
-  // const onNext = () => {
-  //   if (screenshotIndex === screenshots.length - 1) {
-  //     setScreenshotIndex(0)
-  //   } else {
-  //     setScreenshotIndex(screenshotIndex + 1)
-  //   }
-  //   setIsLoadingImage(true)
-  // }
 
   return (
     <Layout>
@@ -442,51 +420,6 @@ export default function JourneyAppPage() {
                       font="bold 30px ubuntu"
                     />
                   </div>
-
-                  {/* Screenshot Gallery */}
-                  {/* <div className="flex items-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={onBack}
-                      className="flex-shrink-0"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </Button>
-
-                    <div className="flex-1 space-y-4">
-                      <h3 className="text-lg font-semibold text-center">
-                        ({screenshotIndex + 1} of {screenshots.length}) {screenshots[screenshotIndex].title}
-                      </h3>
-
-                      <div className="relative w-full max-h-[800px] min-h-[400px] flex items-center justify-center bg-muted rounded-lg overflow-hidden">
-                        {isLoadingImage && (
-                          <div className="absolute inset-0 flex items-center justify-center z-10">
-                            <Loader2 className="w-8 h-8 animate-spin" />
-                          </div>
-                        )}
-                        <Image
-                          src={screenshots[screenshotIndex].path}
-                          alt={screenshots[screenshotIndex].title}
-                          width={800}
-                          height={600}
-                          className={`max-w-full max-h-full object-contain transition-opacity duration-300 ${
-                            isLoadingImage ? "opacity-0" : "opacity-100"
-                          }`}
-                          onLoad={() => setIsLoadingImage(false)}
-                        />
-                      </div>
-                    </div>
-
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={onNext}
-                      className="flex-shrink-0"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </Button>
-                  </div> */}
                 </div>
               </div>
             </CardContent>

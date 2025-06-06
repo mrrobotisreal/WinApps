@@ -76,35 +76,13 @@ const desktopScreenshots: { image: string; text: string }[] = [
 export default function AspireToExpandPage() {
   const [device, setDevice] = useState<string>("desktop")
   const [screenshots, setScreenshots] = useState<{ image: string; text: string }[]>(desktopScreenshots)
-  // const [screenshotIndex, setScreenshotIndex] = useState<number>(0)
-  // const [, setIsLoadingImage] = useState<boolean>(true)
 
   const handleDeviceChange = (newDevice: string) => {
     if (newDevice && newDevice !== device) {
       setDevice(newDevice)
       setScreenshots(newDevice === "mobile" ? mobileScreenshots : desktopScreenshots)
-      // setScreenshotIndex(0)
-      // setIsLoadingImage(true)
     }
   }
-
-  // const onBack = () => {
-  //   if (screenshotIndex === 0) {
-  //     setScreenshotIndex(screenshots.length - 1)
-  //   } else {
-  //     setScreenshotIndex(screenshotIndex - 1)
-  //   }
-  //   setIsLoadingImage(true)
-  // }
-
-  // const onNext = () => {
-  //   if (screenshotIndex === screenshots.length - 1) {
-  //     setScreenshotIndex(0)
-  //   } else {
-  //     setScreenshotIndex(screenshotIndex + 1)
-  //   }
-  //   setIsLoadingImage(true)
-  // }
 
   return (
     <Layout>
