@@ -7,13 +7,23 @@ export default function AboutPage() {
     <Layout>
       <div className="container mx-auto px-4 py-8">
         <div className="text-center space-y-6 mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold">About Mitchell Wintrow</h1>
+          <h1 className="text-4xl md:text-6xl font-bold">
+          <span className="bg-gradient-to-b dark:from-white dark:to-gray-400 from-gray-400 to-black bg-clip-text text-transparent">
+              About{" "}
+            </span>
+            <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent">
+              Mitchell{" "}
+            </span>
+            <span className="bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">
+              Wintrow
+            </span>
+          </h1>
           <div className="max-w-4xl mx-auto">
             <Image
-              src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/LinkedIn_ProfilePic.png"
+              src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
               alt="Mitchell Wintrow"
-              width={200}
-              height={200}
+              width={256}
+              height={256}
               className="rounded-full mx-auto mb-8 shadow-lg"
             />
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -33,7 +43,7 @@ export default function AboutPage() {
               <ul className="space-y-2 text-muted-foreground">
                 <li>• Software Engineer at Amazon Web Services</li>
                 <li>• Software Engineer at VMware</li>
-                <li>• Freelance Developer at Double Raven Solutions LLC</li>
+                <li>• Software Engineer at Double Raven Solutions LLC</li>
                 <li>• Full-stack Development Specialist</li>
               </ul>
             </CardContent>
@@ -45,10 +55,10 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Mobile Development (iOS, Android, React Native)</li>
-                <li>• Web Development (React, Next.js, TypeScript)</li>
-                <li>• Backend Development (Java, Python, Go)</li>
-                <li>• Cloud Services (AWS, Docker, Kubernetes)</li>
+                <li>• Mobile Development (iOS, Android, React Native, Expo, Kotlin, Swift, Flutter)</li>
+                <li>• Web Development (React, Next.js, TypeScript, Svelte, Tailwind CSS)</li>
+                <li>• Backend Development (Java, Python, Go, Node.js, MySQL, PostgreSQL, MongoDB, Redis, RabbitMQ, Kafka)</li>
+                <li>• Cloud Services (AWS, Docker, Kubernetes, Google Cloud Platform, Vercel)</li>
               </ul>
             </CardContent>
           </Card>
@@ -59,10 +69,10 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Journey App - iOS journaling application</li>
-                <li>• Voizy - Android voice translation app</li>
+                <li>• Journey App - iOS journaling application and website</li>
+                <li>• Voizy - Android social media app</li>
+                <li>• RSS Today - RSS news reader web app and mobile app</li>
                 <li>• Various web tools and utilities</li>
-                <li>• Open source contributions</li>
               </ul>
             </CardContent>
           </Card>
@@ -73,10 +83,10 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Continuous learner in emerging technologies</li>
+                <li>• Bachelor of Science in Computer Science from WGU</li>
                 <li>• Active in the developer community</li>
                 <li>• Technical blog writer and educator</li>
-                <li>• Conference attendee and participant</li>
+                <li>• Conference attendee and participant (AWS re:Invent, Web Summit, etc.)</li>
               </ul>
             </CardContent>
           </Card>
@@ -94,7 +104,6 @@ export default function AboutPage() {
               </p>
               <div className="space-y-2">
                 <p>Email: mitchellwintrow@gmail.com</p>
-                <p>Contact: contact@winapps.io</p>
               </div>
             </CardContent>
           </Card>

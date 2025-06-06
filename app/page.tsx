@@ -562,7 +562,7 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-8">
               <div className="relative">
                 <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/LinkedIn_ProfilePic.png"
+                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
                   alt="Mitchell Wintrow Profile Picture"
                   width={256}
                   height={256}
