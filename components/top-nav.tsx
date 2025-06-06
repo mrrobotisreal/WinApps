@@ -1,6 +1,6 @@
 "use client"
 
-import { Sun, Languages } from "lucide-react"
+import { Sun, Languages, MenuIcon } from "lucide-react"
 import { MoonIcon as Moon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
 import {
@@ -22,6 +22,9 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
 import Image from "next/image"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
+import { Separator } from "./ui/separator"
 
 const ThemeToggle = () => {
   const { setTheme, theme } = useTheme()
@@ -306,6 +309,166 @@ export default function TopNav() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+
+        <Sheet>
+          <SheetTrigger className="md:hidden" asChild>
+            <Button variant="ghost" size="icon">
+              <MenuIcon className="h-12 w-12 text-orange-300 dark:text-gray-100" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle className="flex justify-center text-2xl font-bold">Menu</SheetTitle>
+            </SheetHeader>
+            <SheetDescription className="text-center">
+              Site navigation menu.
+            </SheetDescription>
+            <Separator className="w-full" />
+            <div className="flex flex-col gap-2 p-2">
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="projects">
+                  <AccordionTrigger className="text-lg font-bold pl-2">
+                    <span className="bg-gradient-to-b from-purple-300 dark:from-orange-300 to-purple-900 dark:to-orange-900 bg-clip-text text-transparent">
+                      Projects
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-2">
+                      <Link
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/projects"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          Current Projects
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Explore my latest mobile apps and web applications.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/projects/journey-app"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">Journey App</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Customized journaling app for iOS|Android|Web.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/projects/voizy"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">Voizy</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Android social media app.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/projects/aspire-to-expand"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">Aspire To Expand</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Educational language learning app with video conferencing.
+                        </p>
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="portfolio">
+                  <AccordionTrigger className="text-lg font-bold pl-2">
+                    <span className="bg-gradient-to-b from-purple-300 dark:from-orange-300 to-purple-900 dark:to-orange-900 bg-clip-text text-transparent">
+                      Portfolio
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-2">
+                      <Link
+                        href="/portfolio/amazon-connect-customer-profiles"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">Amazon Connect</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Customer Profiles service at Amazon Web Services.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/portfolio/vmware"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">VMware</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Software engineering work at VMware (backend).
+                        </p>
+                      </Link>
+                      <Link
+                        href="/portfolio/double-raven-solutions"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">Double Raven Solutions</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Full-stack development work.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/portfolio"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">View All</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          See my complete portfolio and work history.
+                        </p>
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="blog">
+                  <AccordionTrigger className="text-lg font-bold pl-2">
+                    <span className="bg-gradient-to-b from-purple-300 dark:from-orange-300 to-purple-900 dark:to-orange-900 bg-clip-text text-transparent">
+                      Blog
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-2">
+                      <Link
+                        href="/blog"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">All Posts</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Browse all my technical blog posts and tutorials.
+                        </p>
+                      </Link>
+                      <Link
+                        href="/blog/react-query-tutorial"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">React Query Guide</div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          My favorite data fetching and caching solution.
+                        </p>
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="about">
+                  <AccordionTrigger className="text-lg font-bold pl-2">
+                    <span className="bg-gradient-to-b from-purple-300 dark:from-orange-300 to-purple-900 dark:to-orange-900 bg-clip-text text-transparent">
+                      About
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-2">
+                      <Link href="/about" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">About Me</div>
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </SheetContent>
+        </Sheet>
 
         {/* Right side controls */}
         <div className="flex items-center space-x-2">
