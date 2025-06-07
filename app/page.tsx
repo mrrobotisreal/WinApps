@@ -1,12 +1,13 @@
+"use client"
+
 import Layout from "@/components/layout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { ActionButtons } from "@/components/action-buttons"
 import Link from "next/link"
 import Image from "next/image"
-import SpotlightCard from "@/components/blocks/Components/SpotlightCard/SpotlightCard"
+import ProfileCard from "@/components/blocks/Components/ProfileCard/ProfileCard"
 
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
@@ -556,23 +557,20 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Profile and Action Buttons */}
-        <section>
-          <SpotlightCard className="bg-transparent" spotlightColor="rgba(42, 73, 142, 0.75)">
-            <div className="flex flex-col items-center space-y-8">
-              <div className="relative">
-                <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
-                  alt="Mitchell Wintrow Profile Picture"
-                  width={256}
-                  height={256}
-                  className="rounded-full shadow-lg"
-                />
-              </div>
-
-              <ActionButtons />
-            </div>
-          </SpotlightCard>
+        {/* Profile Card */}
+        <section className="flex justify-center items-center">
+          <ProfileCard
+            name="Mitch Wintrow"
+            title="Software Engineer"
+            handle="mitchwintrow"
+            avatarUrl="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/NewProfilePic.webp"
+            iconUrl="/WinAppsBackground.webp"
+            status="github/mrrobotisreal"
+            contactText="Contact Me"
+            showUserInfo={true}
+            enableTilt={true}
+            onContactClick={() => console.log('Contact clicked')}
+          />
         </section>
 
         {/* Skills Sections */}

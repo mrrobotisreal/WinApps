@@ -181,7 +181,7 @@ export function ActionButtons() {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4">
+    <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button

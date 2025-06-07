@@ -7,75 +7,94 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Smartphone, Computer } from "lucide-react"
-import CircularGallery from "@/components/blocks/Components/CircularGallery/CircularGallery"
+// import CircularGallery from "@/components/blocks/Components/CircularGallery/CircularGallery"
+import RollingGallery from "@/components/blocks/Components/RollingGallery/RollingGallery"
 import Link from "next/link"
 import Image from "next/image"
 
-const mobileScreenshots: { image: string; text: string }[] = [
-  {
-    text: "Login",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile1.webp",
-  },
-  {
-    text: "Home (Activity)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile3.webp",
-  },
-  {
-    text: "Home (Performance)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile2.webp",
-  },
-  {
-    text: "App Settings",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile4.webp",
-  },
-  {
-    text: "Profile Settings",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile5.webp",
-  },
-]
+// const mobileScreenshots: { image: string; text: string }[] = [
+//   {
+//     text: "Login",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile1.webp",
+//   },
+//   {
+//     text: "Home (Activity)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile3.webp",
+//   },
+//   {
+//     text: "Home (Performance)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile2.webp",
+//   },
+//   {
+//     text: "App Settings",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile4.webp",
+//   },
+//   {
+//     text: "Profile Settings",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile5.webp",
+//   },
+// ]
+const mobileScreenshots: string[] = [
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile1.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile3.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile2.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile4.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspireMobile5.webp"
+];
 
-const desktopScreenshots: { image: string; text: string }[] = [
-  {
-    text: "Login",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire0.webp",
-  },
-  {
-    text: "Class (Camera 1)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire1.webp",
-  },
-  {
-    text: "Class (Camera 2)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire2.webp",
-  },
-  {
-    text: "Class (Joined)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire3.webp",
-  },
-  {
-    text: "Chatbot",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire4.webp",
-  },
-  {
-    text: "Chat",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire5.webp",
-  },
-  {
-    text: "Chat (Voice recording)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire6.webp",
-  },
-  {
-    text: "Add Lessons",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire7.webp",
-  },
-  {
-    text: "Secure Checkout (via Stripe)",
-    image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire8.webp",
-  },
+// const desktopScreenshots: { image: string; text: string }[] = [
+//   {
+//     text: "Login",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire0.webp",
+//   },
+//   {
+//     text: "Class (Camera 1)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire1.webp",
+//   },
+//   {
+//     text: "Class (Camera 2)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire2.webp",
+//   },
+//   {
+//     text: "Class (Joined)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire3.webp",
+//   },
+//   {
+//     text: "Chatbot",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire4.webp",
+//   },
+//   {
+//     text: "Chat",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire5.webp",
+//   },
+//   {
+//     text: "Chat (Voice recording)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire6.webp",
+//   },
+//   {
+//     text: "Add Lessons",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire7.webp",
+//   },
+//   {
+//     text: "Secure Checkout (via Stripe)",
+//     image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire8.webp",
+//   },
+// ]
+const desktopScreenshots: string[] = [
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire0.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire1.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire2.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire3.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire4.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire5.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire6.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire7.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/aspire8.webp"
 ]
 
 export default function AspireToExpandPage() {
   const [device, setDevice] = useState<string>("desktop")
-  const [screenshots, setScreenshots] = useState<{ image: string; text: string }[]>(desktopScreenshots)
+  const [screenshots, setScreenshots] = useState<string[]>(desktopScreenshots)
 
   const handleDeviceChange = (newDevice: string) => {
     if (newDevice && newDevice !== device) {
@@ -341,12 +360,10 @@ export default function AspireToExpandPage() {
                   </div>
 
                   <div className="w-full h-full">
-                    <CircularGallery
-                      items={screenshots}
-                      bend={2}
-                      textColor="#ffffff"
-                      borderRadius={0.05}
-                      font="bold 30px ubuntu"
+                    <RollingGallery
+                      images={screenshots}
+                      autoplay={true}
+                      pauseOnHover={true}
                     />
                   </div>
                 </div>
