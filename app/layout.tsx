@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "WinApps.io - Mitchell Wintrow",
     description: "Software engineer specializing in mobile apps, web development, and cloud solutions",
-    images: ['https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg'],
+    images: ['https://www.wintrow.dev/WinAppsOpenGraph.jpg'],
   },
   robots: {
     index: true,
