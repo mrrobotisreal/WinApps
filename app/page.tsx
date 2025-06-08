@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import Layout from "@/components/layout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
@@ -12,13 +13,57 @@ import { AiFillMediumSquare, AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, 
 import { SiLinktree } from "react-icons/si";
 import { Button } from "@/components/ui/button"
 import { ResumeButtons } from "@/components/resume-buttons"
+import AdBanner from "@/components/ad-banner"
+import {
+  trackPageView,
+  trackUserSession,
+  trackExternalLink,
+  trackProjectView,
+  trackVideoInteraction
+} from "@/lib/analytics"
 
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
 export default function Home() {
+  useEffect(() => {
+    trackPageView('Home');
+
+    // Set user session data
+    const isReturningUser = localStorage.getItem('hasVisited') === 'true';
+    trackUserSession({
+      user_type: isReturningUser ? 'returning' : 'new'
+    });
+
+    if (!isReturningUser) {
+      localStorage.setItem('hasVisited', 'true');
+    }
+  }, []);
+
+  const handleExternalLinkClick = (url: string, text: string) => {
+    trackExternalLink(url, text);
+  };
+
+  const handleProjectClick = (projectName: string, projectType: 'portfolio' | 'project' | 'demo') => {
+    trackProjectView(projectName, projectType);
+  };
+
+  const handleVideoPlay = () => {
+    trackVideoInteraction('intro_video', 'play');
+  };
+
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8 space-y-12">
+        <div className="flex justify-center">
+          <AdBanner
+            adSlot="6671038874"
+            adFormat="leaderboard"
+            adPosition="header"
+            className="w-full max-w-6xl"
+            style={{ minHeight: '90px' }}
+          />
+        </div>
+
         {/* Hero Section */}
         <section className="text-center space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold">
@@ -43,6 +88,7 @@ export default function Home() {
               playsInline
               controls
               className="w-full h-auto"
+              onPlay={handleVideoPlay}
             >
               Your browser does not support the video tag.
             </video>
@@ -64,37 +110,79 @@ export default function Home() {
 
           <div className="flex flex-row gap-4 justify-center">
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://www.linkedin.com/in/mitchell-wintrow/" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://www.linkedin.com/in/mitchell-wintrow/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://www.linkedin.com/in/mitchell-wintrow/", "LinkedIn")}
+              >
                 <AiFillLinkedin />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://github.com/mrrobotisreal" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://github.com/mrrobotisreal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://github.com/mrrobotisreal", "GitHub")}
+              >
                 <AiFillGithub />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://medium.com/@90mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://medium.com/@90mitchwintrow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://medium.com/@90mitchwintrow", "Medium")}
+              >
                 <AiFillMediumSquare />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8">
-              <Link href="https://x.com/mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://x.com/mitchwintrow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://x.com/mitchwintrow", "Twitter")}
+              >
                 <AiFillTwitterSquare />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://www.youtube.com/@mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://www.youtube.com/@mitchwintrow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://www.youtube.com/@mitchwintrow", "YouTube")}
+              >
                 <AiFillYoutube />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://linktr.ee/wintrow" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://linktr.ee/wintrow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://linktr.ee/wintrow", "Linktree")}
+              >
                 <SiLinktree />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://winapps.io/" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link
+                href="https://winapps.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+                onClick={() => handleExternalLinkClick("https://winapps.io/", "WinApps")}
+              >
                 <Image src="/WinAppsIcon.webp" alt="WinApps Logo" width={18} height={18} className="rounded-full" />
               </Link>
             </Button>
@@ -104,6 +192,26 @@ export default function Home() {
             <ResumeButtons />
           </div>
         </section>
+
+        <div className="lg:hidden flex justify-center">
+          <AdBanner
+            adSlot="7449783987"
+            adFormat="rectangle"
+            adPosition="mobile_content_top"
+            className="w-full max-w-md"
+            style={{ minHeight: '250px' }}
+          />
+        </div>
+
+        <div className="hidden lg:block lg:col-span-2">
+          <AdBanner
+            adSlot="7449783987"
+            adFormat="rectangle"
+            adPosition="sidebar_main"
+            className="w-full h-full"
+            style={{ minHeight: '400px' }}
+          />
+        </div>
 
         {/* Quick Links Grid */}
         <section className="grid md:grid-cols-2 gap-6">
@@ -126,6 +234,7 @@ export default function Home() {
                       <Link
                         href="/portfolio/amazon-connect-customer-profiles"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("Amazon Connect Customer Profiles", "portfolio")}
                       >
                         Amazon Connect Customer Profiles
                       </Link>
@@ -156,6 +265,7 @@ export default function Home() {
                       <Link
                         href="/portfolio/vmware"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("VMware", "portfolio")}
                       >
                         VMware
                       </Link>
@@ -186,6 +296,7 @@ export default function Home() {
                       <Link
                         href="/portfolio/double-raven-solutions"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("Double Raven Solutions LLC", "portfolio")}
                       >
                         Double Raven Solutions LLC
                       </Link>
@@ -235,6 +346,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("JourneyApp.me (Web)", "project");
+                          handleExternalLinkClick("https://github.com/mrrobotisreal/JourneyAppWeb", "JourneyApp.me Web GitHub");
+                        }}
                       >
                         JourneyApp.me (Web)
                       </Link>
@@ -264,6 +379,7 @@ export default function Home() {
                       <Link
                         href="/projects/journey-app"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("JourneyApp.me (iOS)", "project")}
                       >
                         JourneyApp.me (iOS)
                       </Link>
@@ -293,6 +409,7 @@ export default function Home() {
                       <Link
                         href="/projects/voizy"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("Voizy (Android)", "project")}
                       >
                         Voizy (Android)
                       </Link>
@@ -322,6 +439,7 @@ export default function Home() {
                       <Link
                         href="/portfolio/aspire-to-expand"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleProjectClick("Aspire To Expand", "project")}
                       >
                         Aspire To Expand
                       </Link>
@@ -349,6 +467,16 @@ export default function Home() {
             </CardContent>
           </Card>
 
+          <div className="lg:col-span-2">
+            <AdBanner
+              adSlot="6568479981"
+              adFormat="rectangle"
+              adPosition="content_middle"
+              className="w-full h-full"
+              style={{ minHeight: '400px' }}
+            />
+          </div>
+
           {/* Live Demos */}
           <Card>
             <CardHeader>
@@ -372,6 +500,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("Media Manipulator Pro (Media Converter)", "demo");
+                          handleExternalLinkClick("https://wintrow.io", "Media Manipulator Pro");
+                        }}
                       >
                         Media Manipulator Pro (Media Converter)
                       </Link>
@@ -403,6 +535,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("Quantum River (Custom QR Code Generator)", "demo");
+                          handleExternalLinkClick("https://ui.qr-gen.winapps.io", "Quantum River");
+                        }}
                       >
                         Quantum River (Custom QR Code Generator)
                       </Link>
@@ -434,6 +570,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("Text Formatter", "demo");
+                          handleExternalLinkClick("https://ui.formatter.winapps.io", "Text Formatter");
+                        }}
                       >
                         Text Formatter (Site-Agnostic Text Formatter)
                       </Link>
@@ -465,6 +605,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("RSS Today", "demo");
+                          handleExternalLinkClick("https://www.rss-today.com", "RSS Today");
+                        }}
                       >
                         RSS Today (RSS News Feed Reader)
                       </Link>
@@ -496,6 +640,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("CarvanaServer (GraphQL Cursor-Based Pagination)", "demo");
+                          handleExternalLinkClick("https://carvana.ui.winapps.io", "CarvanaServer");
+                        }}
                       >
                         CarvanaServer (GraphQL Cursor-Based Pagination)
                       </Link>
@@ -544,6 +692,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleExternalLinkClick("https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7", "JavaScript Power-Ups Blog")}
                       >
                         11 JavaScript Power-Ups You Probably Aren&apos;t Using (Yet)
                       </Link>
@@ -575,6 +724,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => handleExternalLinkClick("https://medium.com/@90mitchwintrow/optimize-your-multimedia-and-make-your-readmes-pop-on-github-866a018c1e13", "Optimize Multimedia Blog")}
                       >
                         Optimize Your Multimedia and Make Your READMEs Pop on GitHub
                       </Link>
@@ -828,6 +978,16 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="flex justify-center">
+          <AdBanner
+            adSlot="3633827902"
+            adFormat="leaderboard"
+            adPosition="footer"
+            className="w-full max-w-6xl"
+            style={{ minHeight: '90px' }}
+          />
+        </div>
       </div>
     </Layout>
   )
