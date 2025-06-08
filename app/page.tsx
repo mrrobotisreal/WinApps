@@ -63,34 +63,38 @@ export default function Home() {
 
           <div className="flex flex-row gap-4 justify-center">
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://www.linkedin.com/in/mitchell-wintrow/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/mitchell-wintrow/" target="_blank" rel="noopener noreferrer" className="text-white">
                 <AiFillLinkedin />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://github.com/mrrobotisreal" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/mrrobotisreal" target="_blank" rel="noopener noreferrer" className="text-white">
                 <AiFillGithub />
               </Link>
             </Button>
-
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://medium.com/@90mitchwintrow" target="_blank" rel="noopener noreferrer">
+              <Link href="https://medium.com/@90mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
                 <AiFillMediumSquare />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8">
-              <Link href="https://x.com/mitchwintrow" target="_blank" rel="noopener noreferrer">
+              <Link href="https://x.com/mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
                 <AiFillTwitterSquare />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://www.youtube.com/@mitchwintrow" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.youtube.com/@mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-white">
                 <AiFillYoutube />
               </Link>
             </Button>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link href="https://linktr.ee/wintrow" target="_blank" rel="noopener noreferrer">
+              <Link href="https://linktr.ee/wintrow" target="_blank" rel="noopener noreferrer" className="text-white">
                 <SiLinktree />
+              </Link>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://winapps.io/" target="_blank" rel="noopener noreferrer" className="text-white">
+                <Image src="/WinAppsIcon.webp" alt="WinApps Logo" width={18} height={18} className="rounded-full" />
               </Link>
             </Button>
           </div>
