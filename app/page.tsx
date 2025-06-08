@@ -232,7 +232,7 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
-                        href="/portfolio/amazon-connect-customer-profiles"
+                        href="/portfolio/amazon-connect"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
                         onClick={() => handleProjectClick("Amazon Connect Customer Profiles", "portfolio")}
                       >
@@ -294,7 +294,7 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
-                        href="/portfolio/double-raven-solutions"
+                        href="/portfolio/double-raven"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
                         onClick={() => handleProjectClick("Double Raven Solutions LLC", "portfolio")}
                       >
