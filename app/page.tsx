@@ -13,7 +13,7 @@ import { AiFillMediumSquare, AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, 
 import { SiLinktree } from "react-icons/si";
 import { Button } from "@/components/ui/button"
 import { ResumeButtons } from "@/components/resume-buttons"
-import AdBanner from "@/components/ad-banner"
+// import AdBanner from "@/components/ad-banner"
 import {
   trackPageView,
   trackUserSession,
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8 space-y-12">
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <AdBanner
             adSlot="6671038874"
             adFormat="leaderboard"
@@ -62,7 +62,7 @@ export default function Home() {
             className="w-full max-w-6xl"
             style={{ minHeight: '90px' }}
           />
-        </div>
+        </div> */}
 
         {/* Hero Section */}
         <section className="text-center space-y-6">
@@ -193,7 +193,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="lg:hidden flex justify-center">
+        {/* <div className="lg:hidden flex justify-center">
           <AdBanner
             adSlot="7449783987"
             adFormat="rectangle"
@@ -201,9 +201,9 @@ export default function Home() {
             className="w-full max-w-md"
             style={{ minHeight: '250px' }}
           />
-        </div>
+        </div> */}
 
-        <div className="hidden lg:block lg:col-span-2">
+        {/* <div className="hidden lg:col-span-2 lg:flex lg:justify-center">
           <AdBanner
             adSlot="7449783987"
             adFormat="rectangle"
@@ -211,7 +211,7 @@ export default function Home() {
             className="w-full h-full"
             style={{ minHeight: '400px' }}
           />
-        </div>
+        </div> */}
 
         {/* Quick Links Grid */}
         <section className="grid md:grid-cols-2 gap-6">
@@ -467,7 +467,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <div className="lg:col-span-2">
+          {/* <div className="lg:col-span-2 lg:flex lg:justify-center">
             <AdBanner
               adSlot="6568479981"
               adFormat="rectangle"
@@ -475,7 +475,7 @@ export default function Home() {
               className="w-full h-full"
               style={{ minHeight: '400px' }}
             />
-          </div>
+          </div> */}
 
           {/* Live Demos */}
           <Card>
@@ -979,7 +979,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <AdBanner
             adSlot="3633827902"
             adFormat="leaderboard"
@@ -987,7 +987,7 @@ export default function Home() {
             className="w-full max-w-6xl"
             style={{ minHeight: '90px' }}
           />
-        </div>
+        </div> */}
       </div>
     </Layout>
   )
