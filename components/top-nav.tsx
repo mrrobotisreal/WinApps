@@ -185,12 +185,12 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/portfolio/amazon-connect-customer-profiles"
+                        href="/portfolio/amazon-connect"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">Amazon Connect</div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customer Profiles service at Amazon Web Services.
+                          Customer Profiles service at Amazon Web Services (frontend).
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -211,7 +211,7 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/portfolio/double-raven-solutions"
+                        href="/portfolio/double-raven"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">Double Raven Solutions</div>
@@ -384,12 +384,12 @@ export default function TopNav() {
                   <AccordionContent>
                     <div className="flex flex-col gap-2">
                       <Link
-                        href="/portfolio/amazon-connect-customer-profiles"
+                        href="/portfolio/amazon-connect"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">Amazon Connect</div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customer Profiles service at Amazon Web Services.
+                          Customer Profiles service at Amazon Web Services (frontend).
                         </p>
                       </Link>
                       <Link
@@ -402,7 +402,7 @@ export default function TopNav() {
                         </p>
                       </Link>
                       <Link
-                        href="/portfolio/double-raven-solutions"
+                        href="/portfolio/double-raven"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">Double Raven Solutions</div>
