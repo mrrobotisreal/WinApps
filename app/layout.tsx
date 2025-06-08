@@ -21,17 +21,26 @@ export const metadata: Metadata = {
   creator: "Mitchell Wintrow",
   publisher: "WinApps.io",
   openGraph: {
-    title: "WinApps Solutions LLC - Mitchell Wintrow",
+    title: "WinApps.io - Mitchell Wintrow",
     description: "Software engineer specializing in mobile apps, web development, and cloud solutions",
     type: "website",
     locale: "en_US",
-    url: "https://winapps.io",
+    url: "https://www.wintrow.dev",
     siteName: "WinApps.io",
+    images: [
+      {
+        url: 'https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mitchell Wintrow',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WinApps.io - Mitchell Wintrow",
     description: "Software engineer specializing in mobile apps, web development, and cloud solutions",
+    images: ['https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg'],
   },
   robots: {
     index: true,

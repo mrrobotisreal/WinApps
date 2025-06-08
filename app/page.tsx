@@ -8,6 +8,9 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Image from "next/image"
 import ProfileCard from "@/components/blocks/Components/ProfileCard/ProfileCard"
+import { AiFillMediumSquare, AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, AiFillYoutube } from "react-icons/ai";
+import { SiLinktree } from "react-icons/si";
+import { Button } from "@/components/ui/button"
 
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
@@ -56,6 +59,40 @@ export default function Home() {
               sections of this website, and you&apos;ll see some easily accessible links below of my work
               experience, projects I&apos;ve worked on, and blog posts I&apos;ve written.
             </p>
+          </div>
+
+          <div className="flex flex-row gap-4 justify-center">
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://www.linkedin.com/in/mitchell-wintrow/" target="_blank" rel="noopener noreferrer">
+                <AiFillLinkedin />
+              </Link>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://github.com/mrrobotisreal" target="_blank" rel="noopener noreferrer">
+                <AiFillGithub />
+              </Link>
+            </Button>
+
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://medium.com/@90mitchwintrow" target="_blank" rel="noopener noreferrer">
+                <AiFillMediumSquare />
+              </Link>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-8">
+              <Link href="https://x.com/mitchwintrow" target="_blank" rel="noopener noreferrer">
+                <AiFillTwitterSquare />
+              </Link>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://www.youtube.com/@mitchwintrow" target="_blank" rel="noopener noreferrer">
+                <AiFillYoutube />
+              </Link>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-8" asChild>
+              <Link href="https://linktr.ee/wintrow" target="_blank" rel="noopener noreferrer">
+                <SiLinktree />
+              </Link>
+            </Button>
           </div>
         </section>
 

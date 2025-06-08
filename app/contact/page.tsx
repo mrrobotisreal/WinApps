@@ -24,7 +24,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/GMailBanner.gif" alt="GMail Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Email me at: <a href="mailto:mitchellwintrow@gmail.com" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">mitchellwintrow@gmail.com →</a>
+                  Email me at: <a href="mailto:mitchellwintrow@gmail.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">mitchellwintrow@gmail.com →</a>
                 </p>
               </div>
             </CardContent>
@@ -43,7 +43,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/GithubBanner.gif" alt="GitHub Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Find me on GitHub at: <a href="https://github.com/mrrobotisreal" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">mrrobotisreal →</a>
+                  Find me on GitHub at: <a href="https://github.com/mrrobotisreal" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">mrrobotisreal →</a>
                 </p>
               </div>
             </CardContent>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/LinkedInBanner.gif" alt="LinkedIn Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Find me on LinkedIn at: <a href="https://www.linkedin.com/in/mitchell-wintrow/" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">Mitchell Wintrow →</a>
+                  Find me on LinkedIn at: <a href="https://www.linkedin.com/in/mitchell-wintrow/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">Mitchell Wintrow →</a>
                 </p>
               </div>
             </CardContent>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/XBanner.gif" alt="X (Twitter) Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Find me on X (Twitter) at: <a href="https://x.com/mitchwintrow" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">@mitchwintrow →</a>
+                  Find me on X (Twitter) at: <a href="https://x.com/mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">@mitchwintrow →</a>
                 </p>
               </div>
             </CardContent>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/MediumBanner.gif" alt="Medium Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Read my articles on Medium at: <a href="https://medium.com/@90mitchwintrow" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">@90mitchwintrow →</a>
+                  Read my articles on Medium at: <a href="https://medium.com/@90mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">@90mitchwintrow →</a>
                 </p>
               </div>
             </CardContent>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                   <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/YouTubeBanner.gif" alt="YouTube Banner" width={1500} height={300} className="rounded-md" />
                 </div>
                 <p className="text-muted-foreground">
-                  Watch my videos on YouTube at: <a href="https://www.youtube.com/@mitchwintrow" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">Mitch Wintrow →</a>
+                  Watch my videos on YouTube at: <a href="https://www.youtube.com/@mitchwintrow" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2">Mitch Wintrow →</a>
                 </p>
               </div>
             </CardContent>
