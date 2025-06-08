@@ -12,20 +12,16 @@ import Link from "next/link"
 import Image from "next/image"
 
 const images: string[] = [
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr01.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr02.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr03.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr04.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr05.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr06.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr07.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr08.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr09.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr10.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr11.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt01.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt02.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt03.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt04.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt05.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt06.webp",
+  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/rt07.webp",
 ];
 
-export default function QuantumRiverPage() {
+export default function RSSTodayPage() {
   const [device, setDevice] = useState<string>("web")
   const [screenshots, setScreenshots] = useState<string[]>(images)
 
@@ -58,7 +54,7 @@ export default function QuantumRiverPage() {
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <span className="text-muted-foreground">Quantum River</span>
+                <span className="text-muted-foreground">RSS Today</span>
               </div>
             </li>
           </ol>
@@ -69,11 +65,11 @@ export default function QuantumRiverPage() {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent">
-                Quantum
+                RSS
               </span>
               {" "}
               <span className="bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">
-                River
+                Today
               </span>
             </h1>
           </div>
@@ -84,8 +80,8 @@ export default function QuantumRiverPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp"
-                  alt="Quantum River Banner"
+                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/RSSTodayBanner.webp"
+                  alt="RSS Today Banner"
                   width={1200}
                   height={600}
                   className="w-full rounded-lg"
@@ -97,7 +93,7 @@ export default function QuantumRiverPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Position</h2>
                   <p className="text-muted-foreground">
-                    Frontend Software Engineer
+                    Fullstack Engineer (Front End, Back End)
                   </p>
                 </div>
 
@@ -116,11 +112,15 @@ export default function QuantumRiverPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span>Design the entire backend architecture of the application from scratch.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span>Build an intuitive, engaging, fast, and efficient UI.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span>Deploy the frontend on Vercel, properly configured with TLS/SSL.</span>
+                      <span>Deploy both backend and frontend on custom non-cloud servers, properly configured with TLS/SSL, rate limiting, and other security measures.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -137,6 +137,25 @@ export default function QuantumRiverPage() {
                   </p>
 
                   <Accordion type="multiple" className="w-full">
+                    {/* Backend */}
+                    <AccordionItem value="backend">
+                      <AccordionTrigger className="text-xl font-semibold">
+                        Build the Backend for the App
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <Accordion type="multiple" className="w-full">
+                          <AccordionItem value="backend">
+                            <AccordionTrigger>
+                              Build the Backend for the App
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              I built the backend for the app that continuously monitors RSS feeds for new content and updates the database with the new content. This backend is built with <Badge variant="secondary">Go</Badge> and <Badge variant="secondary">Gin</Badge> for the REST API, and <Badge variant="secondary">PostgreSQL</Badge> for the database.
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      </AccordionContent>
+                    </AccordionItem>
+
                     {/* Frontend */}
                     <AccordionItem value="frontend">
                       <AccordionTrigger className="text-xl font-semibold">
@@ -149,7 +168,7 @@ export default function QuantumRiverPage() {
                               Build the Frontend for the App
                             </AccordionTrigger>
                             <AccordionContent>
-                              I built the frontend for the app that allows users to generate customizable QR codes for websites, contact information, wifi, SMS, and more. This frontend is built with <Badge variant="secondary">Vite</Badge>, <Badge variant="secondary">TypeScript</Badge>, <Badge variant="secondary">React</Badge>, <Badge variant="secondary">shadcn/ui & Radix UI</Badge>, and <Badge variant="secondary">Tailwind CSS</Badge>.
+                              I built the frontend for the app that allows users to get real-time news and updates from their favorite news sources via RSS feeds, including the ability to search for news sources by name and create alerts for specific news sources and subjects. It does require an account to use, but it is free to use, and the account registration and login is implemented securely with <Badge variant="secondary">Firebase</Badge>. This frontend is built with <Badge variant="secondary">Vite</Badge>, <Badge variant="secondary">TypeScript</Badge>, <Badge variant="secondary">React</Badge>, <Badge variant="secondary">shadcn/ui & Radix UI</Badge>, and <Badge variant="secondary">Tailwind CSS</Badge>.
                             </AccordionContent>
                           </AccordionItem>
                         </Accordion>
@@ -168,7 +187,7 @@ export default function QuantumRiverPage() {
                               Deploy the App and Monetize with Google AdSense and Google Analytics
                             </AccordionTrigger>
                             <AccordionContent>
-                              I deployed the app on Vercel, pointed DNS to the Vercel servers, properly configured with TLS/SSL. I also integrated with <Badge variant="secondary">Google AdSense</Badge> and <Badge variant="secondary">Google Analytics</Badge> for monetization, analytics, and metrics.
+                              I deployed the app on custom non-cloud servers for the backend API and Vercel for the frontend, pointed DNS to the servers, properly configured with TLS/SSL, rate limiting, and other security measures. I also integrated with <Badge variant="secondary">Google AdSense</Badge> and <Badge variant="secondary">Google Analytics</Badge> for monetization, analytics, and metrics.
                             </AccordionContent>
                           </AccordionItem>
 
@@ -192,7 +211,7 @@ export default function QuantumRiverPage() {
                   <p className="text-muted-foreground mb-6">
                     You can{" "}
                     <Link
-                      href="https://ui.qr-gen.winapps.io/"
+                      href="https://www.rss-today.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold inline-flex items-center gap-1"
