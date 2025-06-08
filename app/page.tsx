@@ -11,6 +11,7 @@ import ProfileCard from "@/components/blocks/Components/ProfileCard/ProfileCard"
 import { AiFillMediumSquare, AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, AiFillYoutube } from "react-icons/ai";
 import { SiLinktree } from "react-icons/si";
 import { Button } from "@/components/ui/button"
+import { ResumeButtons } from "@/components/resume-buttons"
 
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
@@ -97,6 +98,10 @@ export default function Home() {
                 <Image src="/WinAppsIcon.webp" alt="WinApps Logo" width={18} height={18} className="rounded-full" />
               </Link>
             </Button>
+          </div>
+
+          <div className="flex justify-center">
+            <ResumeButtons />
           </div>
         </section>
 
