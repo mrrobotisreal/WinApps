@@ -578,7 +578,7 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
-                        href="/portfolio/aspire-to-expand"
+                        href="/projects/aspire-to-expand"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
                         onClick={() =>
                           handleProjectClick("Aspire To Expand", "project")
