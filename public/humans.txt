@@ -25,12 +25,12 @@ Development: ESLint, PostCSS
 
 /* INFRASTRUCTURE */
 Hosting: Vercel
-Domain: wintrow.dev
+Domain: winapps.io
 CDN: Modern web hosting with global distribution
 
 /* CONTACT ORGANIZATION */
 Organization: WinApps Solutions LLC
-Website: https://winapps.io
+Website: https://www.winapps.io
 Main Product: Media Manipulator Pro - File Converter
 
           .-.
