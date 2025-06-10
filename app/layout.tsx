@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       "Software engineer specializing in mobile apps, web development, and cloud solutions",
     type: "website",
     locale: "en_US",
-    url: "https://www.wintrow.dev",
+    url: "https://www.winapps.io",
     siteName: "WinApps.io",
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "WinApps.io - Mitchell Wintrow",
     description:
       "Software engineer specializing in mobile apps, web development, and cloud solutions",
-    images: ["https://www.wintrow.dev/WinAppsOpenGraph.jpg"],
+    images: ["https://www.winapps.io/WinAppsOpenGraph.jpg"],
   },
   robots: {
     index: true,
