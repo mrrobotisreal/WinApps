@@ -1,8 +1,25 @@
-import Layout from "@/components/layout"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import Image from "next/image"
-import Link from "next/link"
+import Layout from "@/components/layout";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import Link from "next/link";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata({
+  title: "Projects - WinApps.io",
+  description:
+    "Explore Mitchell Wintrow's latest mobile apps and web applications including Voizy, Journey App, Aspire To Expand, and more.",
+  path: "projects",
+  keywords: [
+    "projects",
+    "mobile apps",
+    "web applications",
+    "Voizy",
+    "Journey App",
+    "Aspire To Expand",
+    "portfolio",
+  ],
+});
 
 export default function ProjectsPage() {
   return (
@@ -11,22 +28,27 @@ export default function ProjectsPage() {
         <div className="text-center space-y-6 mb-12">
           <h1 className="text-4xl md:text-6xl font-bold">Current Projects</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore my latest mobile apps and web applications that I&apos;m currently working on.
+            Explore my latest mobile apps and web applications that I&apos;m
+            currently working on.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="flex justify-center">
-                Journey App
-              </CardTitle>
+              <CardTitle className="flex justify-center">Journey App</CardTitle>
               <Separator />
             </CardHeader>
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp" alt="Journey App" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
+                    alt="Journey App"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   iOS journaling app for personal growth and reflection.
@@ -43,15 +65,19 @@ export default function ProjectsPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="flex justify-center">
-                Voizy
-              </CardTitle>
+              <CardTitle className="flex justify-center">Voizy</CardTitle>
               <Separator />
             </CardHeader>
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/VoizyBanner.webp" alt="Voizy" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/VoizyBanner.webp"
+                    alt="Voizy"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   Android social media app.
@@ -76,7 +102,13 @@ export default function ProjectsPage() {
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/AspireToExpandBanner.webp" alt="Aspire To Expand" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/AspireToExpandBanner.webp"
+                    alt="Aspire To Expand"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   Language learning platform on desktop, web, and mobile.
@@ -101,7 +133,13 @@ export default function ProjectsPage() {
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp" alt="Media Manipulator Pro" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp"
+                    alt="Media Manipulator Pro"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   Web app for multimedia conversions and editing.
@@ -126,7 +164,13 @@ export default function ProjectsPage() {
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp" alt="Quantum River" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp"
+                    alt="Quantum River"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   Web app for generating custom QR codes.
@@ -151,10 +195,17 @@ export default function ProjectsPage() {
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/TextFormatterBanner.webp" alt="Text Formatter" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/TextFormatterBanner.webp"
+                    alt="Text Formatter"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
-                  Web app for formatting text that stays formatted across websites like LinkedIn, Twitter, Facebook, etc.
+                  Web app for formatting text that stays formatted across
+                  websites like LinkedIn, Twitter, Facebook, etc.
                 </p>
                 <Link
                   href="/projects/text-formatter"
@@ -168,15 +219,19 @@ export default function ProjectsPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="flex justify-center">
-                RSS Today
-              </CardTitle>
+              <CardTitle className="flex justify-center">RSS Today</CardTitle>
               <Separator />
             </CardHeader>
             <CardContent>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
-                  <Image src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/RSSTodayBanner.webp" alt="RSS Today" width={1500} height={300} className="rounded-md" />
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/RSSTodayBanner.webp"
+                    alt="RSS Today"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
                 </div>
                 <p className="text-muted-foreground">
                   RSS news reader web app.
@@ -193,5 +248,5 @@ export default function ProjectsPage() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }

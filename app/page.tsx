@@ -232,7 +232,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="text-white"
                 onClick={() =>
-                  handleExternalLinkClick("https://winapps.io/", "WinApps")
+                  handleExternalLinkClick("https://www.winapps.io/", "WinApps")
                 }
               >
                 <Image
@@ -493,9 +493,13 @@ export default function Home() {
                       <Link
                         href="/projects/journey-app"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
-                        onClick={() =>
-                          handleProjectClick("JourneyApp.me (iOS)", "project")
-                        }
+                        onClick={() => {
+                          handleProjectClick("JourneyApp.me (iOS)", "project");
+                          handleExternalLinkClick(
+                            "https://apps.apple.com/us/app/journeyapp-me/id6741499202?platform=iphone",
+                            "JourneyApp.me iOS App Store"
+                          );
+                        }}
                       >
                         JourneyApp.me (iOS)
                       </Link>
@@ -517,7 +521,7 @@ export default function Home() {
                           </h4>
                           <Separator />
                           <p className="text-sm">
-                            The project page for the JourneyApp.me iOS app, a
+                            The AppStore page for the JourneyApp.me iOS app, a
                             journaling app that allows you to write journal
                             entries with text formatting, images, locations,
                             tags, and more.
@@ -651,7 +655,7 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
-                        href="https://wintrow.io"
+                        href="https://www.media-manipulator.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
@@ -661,7 +665,7 @@ export default function Home() {
                             "demo"
                           );
                           handleExternalLinkClick(
-                            "https://wintrow.io",
+                            "https://www.media-manipulator.com",
                             "Media Manipulator Pro"
                           );
                         }}

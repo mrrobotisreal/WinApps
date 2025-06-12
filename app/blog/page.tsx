@@ -1,6 +1,22 @@
-import Layout from "@/components/layout"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from "next/link"
+import Layout from "@/components/layout";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata({
+  title: "Blog - WinApps.io",
+  description:
+    "Technical blog posts, tutorials, and insights about software development by Mitchell Wintrow.",
+  path: "blog",
+  keywords: [
+    "blog",
+    "software development",
+    "tutorials",
+    "React",
+    "Next.js",
+    "programming",
+  ],
+});
 
 export default function BlogPage() {
   return (
@@ -9,7 +25,8 @@ export default function BlogPage() {
         <div className="text-center space-y-6 mb-12">
           <h1 className="text-4xl md:text-6xl font-bold">Blog</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Technical blog posts, tutorials, and insights about software development.
+            Technical blog posts, tutorials, and insights about software
+            development.
           </p>
         </div>
 
@@ -29,7 +46,8 @@ export default function BlogPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Discover advanced JavaScript features and techniques that can supercharge your code.
+                Discover advanced JavaScript features and techniques that can
+                supercharge your code.
               </p>
             </CardContent>
           </Card>
@@ -49,7 +67,8 @@ export default function BlogPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Learn how to create engaging GitHub READMEs with optimized multimedia content.
+                Learn how to create engaging GitHub READMEs with optimized
+                multimedia content.
               </p>
             </CardContent>
           </Card>
@@ -60,7 +79,8 @@ export default function BlogPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                My favorite data fetching and caching solution for React applications.
+                My favorite data fetching and caching solution for React
+                applications.
               </p>
             </CardContent>
           </Card>
@@ -82,23 +102,27 @@ export default function BlogPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Getting started with mobile development using React Native and Expo.
+                Getting started with mobile development using React Native and
+                Expo.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>How Custom Apps Can Transform Your Business in 2025</CardTitle>
+              <CardTitle>
+                How Custom Apps Can Transform Your Business in 2025
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Exploring the impact of custom software solutions on modern businesses.
+                Exploring the impact of custom software solutions on modern
+                businesses.
               </p>
             </CardContent>
           </Card>
         </div>
       </div>
     </Layout>
-  )
+  );
 }

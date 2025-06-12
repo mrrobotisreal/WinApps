@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Mitchell Wintrow" }],
   creator: "Mitchell Wintrow",
   publisher: "WinApps.io",
+  alternates: {
+    canonical: "https://www.winapps.io",
+  },
   openGraph: {
     title: "WinApps.io - Mitchell Wintrow",
     description:
