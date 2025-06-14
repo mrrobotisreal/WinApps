@@ -925,6 +925,62 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
+                        href="https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() =>
+                          handleExternalLinkClick(
+                            "https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374",
+                            "The React Files Blog"
+                          )
+                        }
+                      >
+                        The React Files: What{" "}
+                        <span className="italic">&quot;They&quot;</span>{" "}
+                        Don&apos;t Want You to Know
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/react-files-hover-card.webp"
+                            alt="The React Files: What They Don't Want You to Know"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">
+                            The React Files: What{" "}
+                            <span className="italic">&quot;They&quot;</span>{" "}
+                            Don&apos;t Want You to Know
+                          </h4>
+                          <Separator />
+                          <p className="text-sm">
+                            An entertaining and informative blog post about
+                            React and what{" "}
+                            <span className="italic">&quot;they&quot;</span>{" "}
+                            don&apos;t want you to know.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Published on Medium via the{" "}
+                            <span className="font-semibold">
+                              JavaScript In Plain English
+                            </span>{" "}
+                            publication.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
                         href="https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7"
                         target="_blank"
                         rel="noopener noreferrer"
