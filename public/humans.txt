@@ -17,7 +17,7 @@ Language: TypeScript
 Styling: Tailwind CSS
 State Management: TanStack Query
 Analytics: Firebase Analytics, Google Analytics
-Monetization: Google AdSense
+Monetization: Google AdSense, Infoclicks, Carbon Ads, Propeller Ads
 Icons: Lucide React
 UI Components: shadcn/ui, Radix UI
 Utilities: Class Variance Authority, clsx
@@ -31,10 +31,9 @@ CDN: Modern web hosting with global distribution
 /* CONTACT ORGANIZATION */
 Organization: WinApps Solutions LLC
 Website: https://www.winapps.io
-Main Product: Media Manipulator Pro - File Converter
 
           .-.
          /   \
         | @ @ |    Thank you for visiting!
          \   /     I built this with ❤️
-          '-'      for the developer community.
+          '-'      as my portfolio to share with you.
