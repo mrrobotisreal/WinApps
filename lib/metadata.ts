@@ -9,7 +9,16 @@ interface MetadataOptions {
   openGraph?: {
     title?: string;
     description?: string;
-    image?: string;
+    type?: string;
+    locale?: string;
+    url?: string;
+    siteName?: string;
+    images?: {
+      url: string;
+      width: number;
+      height: number;
+      alt: string;
+    }[];
   };
 }
 
@@ -36,7 +45,7 @@ export function generateMetadata(options: MetadataOptions): Metadata {
           description: openGraph.description || description,
           url: canonicalUrl,
           siteName: "WinApps.io",
-          images: openGraph.image ? [openGraph.image] : undefined,
+          images: openGraph.images ? openGraph.images : undefined,
           type: "website",
           locale: "en_US",
         }

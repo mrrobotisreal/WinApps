@@ -2,6 +2,8 @@ import Layout from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 export const metadata = createMetadata({
   title: "Blog - WinApps.io",
@@ -15,7 +17,36 @@ export const metadata = createMetadata({
     "React",
     "Next.js",
     "programming",
+    "JavaScript",
+    "TypeScript",
+    "React Native",
+    "Tailwind CSS",
+    "Node.js",
+    "Go",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS",
+    "Cloud",
+    "Vite",
   ],
+  openGraph: {
+    title: "WinApps.io - Mitchell Wintrow",
+    description:
+      "Software engineer specializing in mobile apps, web development, and cloud solutions",
+    type: "website",
+    locale: "en_US",
+    url: "https://www.winapps.io",
+    siteName: "WinApps.io",
+    images: [
+      {
+        url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mitchell Wintrow",
+      },
+    ],
+  },
 });
 
 export default function BlogPage() {
@@ -33,92 +64,141 @@ export default function BlogPage() {
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>
+              <CardTitle className="flex justify-center">
+                The React Files: What{" "}
+                <span className="italic pr-1">&quot;They&quot;</span> Don&apos;t
+                Want You to Know
+              </CardTitle>
+              <Separator className="my-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/TheReactFilesBanner.webp"
+                    alt="The React Files: What They Don't Want You to Know"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  An entertaining and informative blog post about React and what{" "}
+                  <span className="italic">&quot;they&quot;</span> don&apos;t
+                  want you to know.
+                </p>
+                <Link
+                  href="https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
+                >
+                  Check it out →
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex justify-center">
+                11 JavaScript Power-Ups You Probably Aren&apos;t Using (Yet)
+              </CardTitle>
+              <Separator className="my-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/PepeSilviaBanner.webp"
+                    alt="11 JavaScript Power-Ups You Probably Aren't Using (Yet)"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  Discover advanced JavaScript features and techniques that can
+                  supercharge your code.
+                </p>
                 <Link
                   href="https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-600 transition-colors"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
                 >
-                  11 JavaScript Power-Ups You Probably Aren&apos;t Using (Yet)
+                  Check it out →
                 </Link>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Discover advanced JavaScript features and techniques that can
-                supercharge your code.
-              </p>
+              </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>
+              <CardTitle className="flex justify-center">
+                Optimize Your Multimedia and Make Your READMEs Pop on GitHub
+              </CardTitle>
+              <Separator className="my-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/OptimizeMultimediaBanner.webp"
+                    alt="Optimize Your Multimedia and Make Your READMEs Pop on GitHub"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  Learn how to create engaging GitHub READMEs with optimized
+                  multimedia content.
+                </p>
                 <Link
                   href="https://medium.com/@90mitchwintrow/optimize-your-multimedia-and-make-your-readmes-pop-on-github-866a018c1e13"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-600 transition-colors"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
                 >
-                  Optimize Your Multimedia and Make Your READMEs Pop on GitHub
+                  Check it out →
                 </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex justify-center">
+                How to Set Up an EC2 Instance With TLS/SSL to Securely Serve
+                HTTPS
               </CardTitle>
+              <Separator className="my-2" />
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                Learn how to create engaging GitHub READMEs with optimized
-                multimedia content.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>React Query Tutorial</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                My favorite data fetching and caching solution for React
-                applications.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Databases: The Sequel (SQL)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                A comprehensive guide to SQL and relational database concepts.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>React Native & Expo Introduction</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Getting started with mobile development using React Native and
-                Expo.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                How Custom Apps Can Transform Your Business in 2025
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Exploring the impact of custom software solutions on modern
-                businesses.
-              </p>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/EC2LetsEncryptBanner.webp"
+                    alt="How to Set Up an EC2 Instance With TLS/SSL to Securely Serve HTTPS"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  Learn how to set up an EC2 instance with TLS/SSL to securely
+                  serve HTTPS.
+                </p>
+                <Link
+                  href="https://medium.com/@90mitchwintrow/how-to-set-up-an-ec2-instance-with-tls-ssl-to-securely-serve-https-ea15f8399273"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
+                >
+                  Check it out →
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </div>
