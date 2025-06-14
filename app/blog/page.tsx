@@ -65,9 +65,8 @@ export default function BlogPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex justify-center">
-                The React Files: What{" "}
-                <span className="italic pr-1">&quot;They&quot;</span> Don&apos;t
-                Want You to Know
+                The React Files: What &quot;They&quot; Don&apos;t Want You to
+                Know
               </CardTitle>
               <Separator className="my-2" />
             </CardHeader>

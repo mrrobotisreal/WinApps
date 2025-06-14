@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { Sun, Languages, MenuIcon } from "lucide-react"
-import { MoonIcon as Moon } from "@radix-ui/react-icons"
-import { Button } from "@/components/ui/button"
+import { Sun, Languages, MenuIcon } from "lucide-react";
+import { MoonIcon as Moon } from "@radix-ui/react-icons";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,18 +16,30 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { useTheme } from "next-themes"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { useState } from "react"
-import Image from "next/image"
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
-import { Separator } from "./ui/separator"
+} from "@/components/ui/navigation-menu";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+import Image from "next/image";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+import { Separator } from "./ui/separator";
 
 const ThemeToggle = () => {
-  const { setTheme, theme } = useTheme()
+  const { setTheme, theme } = useTheme();
 
   return (
     <Button
@@ -36,15 +48,18 @@ const ThemeToggle = () => {
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="rounded-full !bg-transparent hover:!bg-gray-700 dark:hover:!bg-gray-800"
     >
-      <Sun size={48} className="h-12 w-12 rotate-0 scale-100 transition-all text-orange-300 dark:text-gray-100 dark:-rotate-90 dark:scale-0" />
+      <Sun
+        size={48}
+        className="h-12 w-12 rotate-0 scale-100 transition-all text-orange-300 dark:text-gray-100 dark:-rotate-90 dark:scale-0"
+      />
       <Moon className="absolute h-12 w-12 rotate-90 scale-0 transition-all text-orange-300 dark:text-gray-100 dark:rotate-0 dark:scale-100" />
       <span className="sr-only">Toggle theme</span>
     </Button>
-  )
-}
+  );
+};
 
 const LanguageToggle = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("English")
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
 
   const languages = [
     { code: "en", name: "English" },
@@ -61,7 +76,7 @@ const LanguageToggle = () => {
     { code: "he", name: "עברית" },
     { code: "vi", name: "Tiếng Việt" },
     { code: "uk", name: "Українська мова" },
-  ]
+  ];
 
   return (
     <DropdownMenu>
@@ -71,7 +86,10 @@ const LanguageToggle = () => {
           size="icon"
           className="rounded-full !bg-transparent hover:!bg-gray-700 dark:hover:!bg-gray-800"
         >
-          <Languages size={48} className="h-12 w-12 text-orange-300 dark:text-gray-100" />
+          <Languages
+            size={48}
+            className="h-12 w-12 text-orange-300 dark:text-gray-100"
+          />
           <span className="sr-only">Change language</span>
         </Button>
       </DropdownMenuTrigger>
@@ -90,8 +108,8 @@ const LanguageToggle = () => {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};
 
 export default function TopNav() {
   return (
@@ -102,8 +120,20 @@ export default function TopNav() {
           href="/"
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
-          <Image src="/WinApps_Logo_Medium.webp" alt="WinApps Logo" className="hidden dark:block" width={56} height={56} />
-          <Image src="/WinApps_Logo_Medium.webp" alt="WinApps Logo" className="block dark:hidden" width={56} height={56} />
+          <Image
+            src="/WinApps_Logo_Medium.webp"
+            alt="WinApps Logo"
+            className="hidden dark:block"
+            width={56}
+            height={56}
+          />
+          <Image
+            src="/WinApps_Logo_Medium.webp"
+            alt="WinApps Logo"
+            className="block dark:hidden"
+            width={56}
+            height={56}
+          />
           <span className="text-xl font-semibold text-white hidden md:block">
             WinApps
           </span>
@@ -139,7 +169,9 @@ export default function TopNav() {
                         href="/projects/journey-app"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Journey App</div>
+                        <div className="text-sm font-medium leading-none">
+                          Journey App
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Customized journaling app for iOS|Android|Web.
                         </p>
@@ -152,7 +184,9 @@ export default function TopNav() {
                         href="/projects/voizy"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Voizy</div>
+                        <div className="text-sm font-medium leading-none">
+                          Voizy
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Android social media app.
                         </p>
@@ -165,9 +199,12 @@ export default function TopNav() {
                         href="/projects/aspire-to-expand"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Aspire To Expand</div>
+                        <div className="text-sm font-medium leading-none">
+                          Aspire To Expand
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Educational language learning app with video conferencing.
+                          Educational language learning app with video
+                          conferencing.
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -188,9 +225,12 @@ export default function TopNav() {
                         href="/portfolio/amazon-connect"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Amazon Connect</div>
+                        <div className="text-sm font-medium leading-none">
+                          Amazon Connect
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customer Profiles service at Amazon Web Services (frontend).
+                          Customer Profiles service at Amazon Web Services
+                          (frontend).
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -201,7 +241,9 @@ export default function TopNav() {
                         href="/portfolio/vmware"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">VMware</div>
+                        <div className="text-sm font-medium leading-none">
+                          VMware
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Software engineering work at VMware (backend).
                         </p>
@@ -214,7 +256,9 @@ export default function TopNav() {
                         href="/portfolio/double-raven"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Double Raven Solutions</div>
+                        <div className="text-sm font-medium leading-none">
+                          Double Raven Solutions
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Full-stack development work.
                         </p>
@@ -227,7 +271,9 @@ export default function TopNav() {
                         href="/portfolio"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">View All</div>
+                        <div className="text-sm font-medium leading-none">
+                          View All
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           See my complete portfolio and work history.
                         </p>
@@ -250,7 +296,9 @@ export default function TopNav() {
                         href="/blog"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">All Posts</div>
+                        <div className="text-sm font-medium leading-none">
+                          All Posts
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Browse all my technical blog posts and tutorials.
                         </p>
@@ -260,12 +308,21 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/blog/react-query-tutorial"
+                        href="https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">React Query Guide</div>
+                        <div className="text-sm font-medium leading-none">
+                          The React Files: What{" "}
+                          <span className="italic pr-1">&quot;They&quot;</span>{" "}
+                          Don&apos;t Want You to Know
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          My favorite data fetching and caching solution.
+                          An entertaining and informative blog post about React
+                          and what{" "}
+                          <span className="italic">&quot;they&quot;</span>{" "}
+                          don&apos;t want you to know.
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -273,12 +330,18 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/blog/databases-the-sequel-sql"
+                        href="https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">SQL Tutorial</div>
+                        <div className="text-sm font-medium leading-none">
+                          11 JavaScript Power-Ups You Probably Aren&apos;t Using
+                          (Yet)
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Databases: The Sequel (SQL) - A comprehensive guide.
+                          Discover advanced JavaScript features and techniques
+                          that can supercharge your code.
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -286,12 +349,16 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/blog/react-native-expo-intro"
+                        href="https://medium.com/@90mitchwintrow/optimize-your-multimedia-and-make-your-readmes-pop-on-github-866a018c1e13"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">React Native & Expo</div>
+                        <div className="text-sm font-medium leading-none">
+                          Optimize Your Multimedia and Make Your READMEs Pop on
+                          GitHub
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Introduction to mobile development with React Native.
+                          Learn how to create engaging GitHub READMEs with
+                          optimized multimedia content.
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -302,7 +369,10 @@ export default function TopNav() {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/about" className="text-white font-semibold bg-transparent hover:bg-white/10 focus:bg-white/10 px-4 py-2 rounded-md transition-colors">
+                <Link
+                  href="/about"
+                  className="text-white font-semibold bg-transparent hover:bg-white/10 focus:bg-white/10 px-4 py-2 rounded-md transition-colors"
+                >
                   About
                 </Link>
               </NavigationMenuLink>
@@ -318,7 +388,9 @@ export default function TopNav() {
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle className="flex justify-center text-2xl font-bold">Menu</SheetTitle>
+              <SheetTitle className="flex justify-center text-2xl font-bold">
+                Menu
+              </SheetTitle>
             </SheetHeader>
             <SheetDescription className="text-center">
               Site navigation menu.
@@ -349,7 +421,9 @@ export default function TopNav() {
                         href="/projects/journey-app"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Journey App</div>
+                        <div className="text-sm font-medium leading-none">
+                          Journey App
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Customized journaling app for iOS|Android|Web.
                         </p>
@@ -358,7 +432,9 @@ export default function TopNav() {
                         href="/projects/voizy"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Voizy</div>
+                        <div className="text-sm font-medium leading-none">
+                          Voizy
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Android social media app.
                         </p>
@@ -367,9 +443,12 @@ export default function TopNav() {
                         href="/projects/aspire-to-expand"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Aspire To Expand</div>
+                        <div className="text-sm font-medium leading-none">
+                          Aspire To Expand
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Educational language learning app with video conferencing.
+                          Educational language learning app with video
+                          conferencing.
                         </p>
                       </Link>
                     </div>
@@ -387,16 +466,21 @@ export default function TopNav() {
                         href="/portfolio/amazon-connect"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Amazon Connect</div>
+                        <div className="text-sm font-medium leading-none">
+                          Amazon Connect
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customer Profiles service at Amazon Web Services (frontend).
+                          Customer Profiles service at Amazon Web Services
+                          (frontend).
                         </p>
                       </Link>
                       <Link
                         href="/portfolio/vmware"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">VMware</div>
+                        <div className="text-sm font-medium leading-none">
+                          VMware
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Software engineering work at VMware (backend).
                         </p>
@@ -405,7 +489,9 @@ export default function TopNav() {
                         href="/portfolio/double-raven"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">Double Raven Solutions</div>
+                        <div className="text-sm font-medium leading-none">
+                          Double Raven Solutions
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Full-stack development work.
                         </p>
@@ -414,7 +500,9 @@ export default function TopNav() {
                         href="/portfolio"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">View All</div>
+                        <div className="text-sm font-medium leading-none">
+                          View All
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           See my complete portfolio and work history.
                         </p>
@@ -434,18 +522,44 @@ export default function TopNav() {
                         href="/blog"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">All Posts</div>
+                        <div className="text-sm font-medium leading-none">
+                          All Posts
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                           Browse all my technical blog posts and tutorials.
                         </p>
                       </Link>
                       <Link
-                        href="/blog/react-query-tutorial"
+                        href="https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
-                        <div className="text-sm font-medium leading-none">React Query Guide</div>
+                        <div className="text-sm font-medium leading-none">
+                          The React Files: What{" "}
+                          <span className="italic pr-1">&quot;They&quot;</span>{" "}
+                          Don&apos;t Want You to Know
+                        </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          My favorite data fetching and caching solution.
+                          An entertaining and informative blog post about React
+                          and what{" "}
+                          <span className="italic">&quot;they&quot;</span>{" "}
+                          don&apos;t want you to know.
+                        </p>
+                      </Link>
+                      <Link
+                        href="https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">
+                          11 JavaScript Power-Ups You Probably Aren&apos;t Using
+                          (Yet)
+                        </div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                          Discover advanced JavaScript features and techniques
+                          that can supercharge your code.
                         </p>
                       </Link>
                     </div>
@@ -459,8 +573,13 @@ export default function TopNav() {
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="flex flex-col gap-2">
-                      <Link href="/about" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">About Me</div>
+                      <Link
+                        href="/about"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">
+                          About Me
+                        </div>
                       </Link>
                     </div>
                   </AccordionContent>
@@ -477,5 +596,5 @@ export default function TopNav() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
