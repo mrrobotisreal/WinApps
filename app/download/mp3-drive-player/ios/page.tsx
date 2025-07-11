@@ -11,7 +11,8 @@ export default function IOSDownloadPage() {
     // Start download immediately
     const downloadFile = () => {
       const link = document.createElement("a");
-      link.href = "/mp3-drive-player/mobile/ios/build-1752218174811.ipa";
+      link.href =
+        "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/MP3-Drive-Player-iOS.ipa";
       link.download = "MP3-Drive-Player-iOS.ipa";
       document.body.appendChild(link);
       link.click();

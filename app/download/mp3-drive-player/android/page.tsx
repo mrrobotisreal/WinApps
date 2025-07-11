@@ -11,7 +11,8 @@ export default function AndroidDownloadPage() {
     // Start download immediately
     const downloadFile = () => {
       const link = document.createElement("a");
-      link.href = "/mp3-drive-player/mobile/android/build-1752253523167.apk";
+      link.href =
+        "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/MP3-Drive-Player-Android.apk";
       link.download = "MP3-Drive-Player-Android.apk";
       document.body.appendChild(link);
       link.click();
