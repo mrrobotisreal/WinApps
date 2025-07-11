@@ -34,8 +34,8 @@ export default function AndroidDownloadPage() {
         setCountdown(countdown - 1);
       }, 1000);
     } else if (countdown === 0) {
-      // Close the page
-      window.close();
+      // Redirect to homepage since window.close() doesn't work for direct navigation
+      window.location.href = "/";
     }
     return () => clearTimeout(timer);
   }, [isDownloading, countdown]);
@@ -98,7 +98,7 @@ export default function AndroidDownloadPage() {
         ) : (
           <div className="mt-4 text-xl">
             <span className="bg-gradient-to-b dark:from-white dark:to-gray-400 from-gray-400 to-black bg-clip-text text-transparent">
-              This page will automatically close in{" "}
+              Redirecting to homepage in{" "}
             </span>
             <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent font-bold">
               {countdown}
