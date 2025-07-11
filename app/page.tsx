@@ -31,6 +31,13 @@ import {
   trackProjectView,
   trackVideoInteraction,
 } from "@/lib/analytics";
+import mixpanel from "mixpanel-browser";
+
+mixpanel.init(process.env.NEXT_PUBLIC_MP_TOKEN || "", {
+  debug: false,
+  track_pageview: true,
+  persistence: "localStorage",
+});
 
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
@@ -287,6 +294,104 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/flashmock"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() =>
+                          handleProjectClick("FlashMock", "portfolio")
+                        }
+                      >
+                        FlashMock
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-flashmock-logo.png"
+                            alt="FlashMock Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">FlashMock</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I&apos;m the lead senior frontend and mobile
+                            software engineer at FlashMock. I&apos;m responsible
+                            for the design, architecture, development, and
+                            deployment of staging and production of the frontend
+                            and mobile app. This includes landing pages,
+                            marketing pages, app features such as AI-assitant,
+                            job q&a generation, events and event registration,
+                            chat, video streaming, Stripe payments, and more.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            May 2025 - Present
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/double-raven"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() =>
+                          handleProjectClick(
+                            "Double Raven Solutions LLC",
+                            "portfolio"
+                          )
+                        }
+                      >
+                        Double Raven Solutions LLC
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp"
+                            alt="Double Raven Solutions LLC Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">
+                            Double Raven Solutions LLC
+                          </h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I was the part-time lead frontend and mobile
+                            software engineer at Double Raven Solutions LLC. I
+                            was responsible for the design, and development of
+                            the frontend and mobile digital police sketch app
+                            where witnesses can provide an audio or written
+                            description of a suspect&apos;s or missing
+                            person&apos;s face, which is then analyzed by AI for
+                            keywords and descriptors that can be matched against
+                            a database of facial features, then generate a 3D
+                            facial sketch which the witness can then either
+                            confirm or make adjustments to until it is correct.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            January 2025 - May 2025
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>
