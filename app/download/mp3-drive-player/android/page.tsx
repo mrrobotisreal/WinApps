@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Loader } from "lucide-react";
+import Image from "next/image";
 
 export default function AndroidDownloadPage() {
   const [isDownloading, setIsDownloading] = useState(true);
@@ -52,6 +53,17 @@ export default function AndroidDownloadPage() {
           >
             <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z" />
           </svg>
+        </div>
+
+        {/* MP3 Drive Player Logo */}
+        <div className="mb-8 flex justify-center">
+          <Image
+            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/LanguagesChannelImage.png"
+            alt="MP3 Drive Player Icon"
+            width={256}
+            height={256}
+            className="rounded-lg"
+          />
         </div>
 
         {/* Title Text */}
