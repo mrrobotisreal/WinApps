@@ -304,7 +304,10 @@ export default function Home() {
                           handleProjectClick("FlashMock", "portfolio")
                         }
                       >
-                        FlashMock
+                        FlashMock{" "}
+                        <span className="text-xs font-normal italic">
+                          (Current)
+                        </span>
                       </Link>
                     </HoverCardTrigger>
                     <HoverCardContent>
@@ -319,7 +322,12 @@ export default function Home() {
                           />
                         </div>
                         <div className="flex flex-col">
-                          <h4 className="text-sm font-semibold">FlashMock</h4>
+                          <h4 className="text-sm font-semibold">
+                            FlashMock{" "}
+                            <span className="text-xs font-normal italic">
+                              (Current)
+                            </span>
+                          </h4>
                           <Separator />
                           <p className="text-sm">
                             I&apos;m the lead senior frontend and mobile
@@ -542,6 +550,53 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/projects/mp3-drive-player"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("MP3 Drive Player", "project");
+                        }}
+                      >
+                        MP3 Drive Player
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/LanguagesChannelImage.png"
+                            alt="MP3 Drive Player Icon"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">
+                            MP3 Drive Player
+                          </h4>
+                          <Separator />
+                          <p className="text-sm">
+                            A language learning mobile app (and soon web app
+                            too!) with numerous Pimsleur audio courses for
+                            multiple languages & skill levels, a dashboard for
+                            tracking your listening progress & other stats,
+                            Duolingo style games, & a chat feature for
+                            connecting with other users.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            React Native, TypeScript, Expo, Google Drive API,
+                            PostHog + Mixpanel analytics, Firebase auth and
+                            Firestore, Stream Chat (by GetStream.io), and more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>

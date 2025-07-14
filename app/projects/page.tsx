@@ -20,7 +20,7 @@ export const metadata = createMetadata({
     "portfolio",
   ],
 });
-
+// https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/mp3-drive-player-banner.png
 export default function ProjectsPage() {
   return (
     <Layout>
@@ -34,6 +34,38 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex justify-center">
+                MP3 Drive Player
+              </CardTitle>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/mp3-drive-player-banner.png"
+                    alt="MP3 Drive Player"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  A language learning mobile app (and soon web app too!) with
+                  Pimsleur audio courses, stats dashboard, games, and chat.
+                </p>
+                <Link
+                  href="/projects/mp3-drive-player"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
+                >
+                  View Project Page →
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle className="flex justify-center">Journey App</CardTitle>
