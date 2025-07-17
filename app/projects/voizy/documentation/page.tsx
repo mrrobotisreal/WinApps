@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Layout from "@/components/layout"
-import { Card, CardContent } from "@/components/ui/card"
-import Link from "next/link"
-import Image from "next/image"
+import Layout from "@/components/layout";
+import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function VoizyDocumentationPage() {
   return (
@@ -13,14 +13,20 @@ export default function VoizyDocumentationPage() {
         <nav className="flex mb-8" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
-              <Link href="/" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300">
+              <Link
+                href="/"
+                className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300"
+              >
                 Home
               </Link>
             </li>
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <Link href="/projects" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300">
+                <Link
+                  href="/projects"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300"
+                >
                   Projects
                 </Link>
               </div>
@@ -28,7 +34,10 @@ export default function VoizyDocumentationPage() {
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <Link href="/projects/voizy" className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300">
+                <Link
+                  href="/projects/voizy"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300"
+                >
                   Voizy (Android)
                 </Link>
               </div>
@@ -48,8 +57,7 @@ export default function VoizyDocumentationPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent">
                 Voizy
-              </span>
-              {" "}
+              </span>{" "}
               <span className="bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">
                 (Android)
               </span>
@@ -62,7 +70,7 @@ export default function VoizyDocumentationPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/voizy/VoizyDocumentationCoverImage.png"
+                  src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VoizyBanner.webp"
                   alt="Voizy Documentation Cover"
                   width={1200}
                   height={600}
@@ -95,5 +103,5 @@ export default function VoizyDocumentationPage() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }

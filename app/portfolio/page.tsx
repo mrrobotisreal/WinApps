@@ -58,7 +58,8 @@ export default function PortfolioPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/AmazonConnectBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/AmazonConnectBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_AmazonConnectBanner.webp"
                     alt="Amazon Connect"
                     width={1500}
                     height={300}
@@ -88,7 +89,8 @@ export default function PortfolioPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/vmware/VMwareBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/vmware/VMwareBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VMwareBanner.webp"
                     alt="VMware"
                     width={1500}
                     height={300}
@@ -120,7 +122,8 @@ export default function PortfolioPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/DoubleRavenBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/DoubleRavenBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenBanner.webp"
                     alt="Double Raven"
                     width={1500}
                     height={300}
@@ -152,7 +155,8 @@ export default function PortfolioPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ProjectsBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ProjectsBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_ProjectsBanner.webp"
                     alt="Personal Projects"
                     width={1500}
                     height={300}

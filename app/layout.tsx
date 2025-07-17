@@ -52,7 +52,8 @@ export const metadata: Metadata = {
     siteName: "WinApps.io",
     images: [
       {
-        url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
+        // url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
+        url: "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinAppsOpenGraph.jpg",
         width: 1200,
         height: 630,
         alt: "Mitchell Wintrow",
@@ -64,7 +65,10 @@ export const metadata: Metadata = {
     title: "WinApps.io - Mitchell Wintrow",
     description:
       "Software engineer specializing in mobile apps, web development, and cloud solutions",
-    images: ["https://www.winapps.io/WinAppsOpenGraph.jpg"],
+    // images: ["https://www.winapps.io/WinAppsOpenGraph.jpg"],
+    images: [
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinAppsOpenGraph.jpg",
+    ],
   },
   robots: {
     index: true,

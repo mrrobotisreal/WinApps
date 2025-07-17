@@ -75,7 +75,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_JourneyAppBanner.webp"
                     alt="Journey App"
                     width={1500}
                     height={300}
@@ -104,7 +105,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/VoizyBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/VoizyBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VoizyBanner.webp"
                     alt="Voizy"
                     width={1500}
                     height={300}
@@ -135,7 +137,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/AspireToExpandBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/aspire-to-expand/AspireToExpandBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_AspireToExpandBanner.webp"
                     alt="Aspire To Expand"
                     width={1500}
                     height={300}
@@ -166,7 +169,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_MediaManipulatorProBanner.webp"
                     alt="Media Manipulator Pro"
                     width={1500}
                     height={300}
@@ -197,7 +201,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_QuantumRiverBanner.webp"
                     alt="Quantum River"
                     width={1500}
                     height={300}
@@ -228,7 +233,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/TextFormatterBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/TextFormatterBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_TextFormatterBanner.webp"
                     alt="Text Formatter"
                     width={1500}
                     height={300}
@@ -258,7 +264,8 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/RSSTodayBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/rss-today/RSSTodayBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_RSSTodayBanner.webp"
                     alt="RSS Today"
                     width={1500}
                     height={300}

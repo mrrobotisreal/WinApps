@@ -102,7 +102,7 @@ export default function Home() {
           {/* Intro Video */}
           <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
             <video
-              src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/IntroducingMitchellWintrow_1080.mp4"
+              src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/IntroducingMitchellWintrow_4k.mp4"
               autoPlay
               muted
               playsInline
@@ -367,7 +367,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenLogo.webp"
                             alt="Double Raven Solutions LLC Logo"
                             width={48}
                             height={48}
@@ -420,7 +421,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ConnectLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ConnectLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_ConnectLogo.webp"
                             alt="Amazon Connect Logo"
                             width={48}
                             height={48}
@@ -462,7 +464,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VMwareLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VMwareLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VMwareLogo.webp"
                             alt="VMware Logo"
                             width={48}
                             height={48}
@@ -506,7 +509,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/DoubleRavenLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenLogo.webp"
                             alt="Double Raven Solutions LLC Logo"
                             width={48}
                             height={48}
@@ -620,7 +624,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_JourneyAppLogo.webp"
                             alt="JourneyApp Logo"
                             width={48}
                             height={48}
@@ -668,7 +673,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/JourneyAppLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_JourneyAppLogo.webp"
                             alt="JourneyApp Logo"
                             width={48}
                             height={48}
@@ -711,7 +717,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VoizyLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/VoizyLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VoizyLogo.webp"
                             alt="Voizy Logo"
                             width={48}
                             height={48}
@@ -755,7 +762,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/AspireToExpandLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/AspireToExpandLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_AspireToExpandLogo.webp"
                             alt="Aspire To Expand Logo"
                             width={48}
                             height={48}
@@ -837,7 +845,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/MediaManipulatorProLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/MediaManipulatorProLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_MediaManipulatorProLogo.webp"
                             alt="Media Manipulator Pro Logo"
                             width={48}
                             height={48}
@@ -891,7 +900,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/QuantumRiverLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/QuantumRiverLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_QuantumRiverLogo.webp"
                             alt="Quantum River Logo"
                             width={48}
                             height={48}
@@ -940,7 +950,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/TextFormatterLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/TextFormatterLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_TextFormatterLogo.webp"
                             alt="Text Formatter Logo"
                             width={48}
                             height={48}
@@ -989,7 +1000,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/RSSTodayLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/RSSTodayLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_RSSTodayLogo.webp"
                             alt="RSS Today Logo"
                             width={48}
                             height={48}
@@ -1038,7 +1050,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/CarvanaLogo.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/CarvanaLogo.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_CarvanaLogo.webp"
                             alt="Carvana Logo"
                             width={48}
                             height={48}
@@ -1105,7 +1118,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/react-files-hover-card.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/react-files-hover-card.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_react-files-hover-card.webp"
                             alt="The React Files: What They Don't Want You to Know"
                             width={48}
                             height={48}
@@ -1160,7 +1174,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/PepeSilviaMeme.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/PepeSilviaMeme.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_PepeSilviaMeme.webp"
                             alt="11 JavaScript Power-Ups You Probably Aren't Using (Yet)"
                             width={48}
                             height={48}
@@ -1209,7 +1224,8 @@ export default function Home() {
                       <div className="flex justify-between gap-4">
                         <div className="h-48 w-48">
                           <Image
-                            src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/OptimizeMultimedia.webp"
+                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/OptimizeMultimedia.webp"
+                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_OptimizeMultimedia.webp"
                             alt="Optimize Your Multimedia and Make Your READMEs Pop on GitHub background image"
                             width={48}
                             height={48}
@@ -1246,7 +1262,8 @@ export default function Home() {
             name="Mitch Wintrow"
             title="Software Engineer"
             handle="mitchwintrow"
-            avatarUrl="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/NewProfilePic.webp"
+            // avatarUrl="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/NewProfilePic.webp"
+            avatarUrl="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_MyProfilePicture.png"
             iconUrl="/WinAppsBackground.webp"
             status="github/mrrobotisreal"
             contactText="Contact Me"
@@ -1265,7 +1282,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AJavaLogo.webp"
                     alt="Java"
                     sizes="24px"
                     fill
@@ -1277,7 +1295,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PythonLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PythonLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3APythonLogo.webp"
                     alt="Python"
                     sizes="24px"
                     fill
@@ -1289,7 +1308,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LightFM_Logo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LightFM_Logo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ALightFM_Logo.webp"
                     alt="LightFM"
                     sizes="24px"
                     fill
@@ -1301,7 +1321,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GoLogo.png"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GoLogo.png"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AGoLogo.webp"
                     alt="Go"
                     sizes="24px"
                     fill
@@ -1313,7 +1334,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DockerLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DockerLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ADockerLogo.webp"
                     alt="Docker"
                     sizes="24px"
                     fill
@@ -1325,7 +1347,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/KubernetesLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/KubernetesLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AKubernetesLogo.webp"
                     alt="Kubernetes"
                     sizes="24px"
                     fill
@@ -1337,7 +1360,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PostgresLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/PostgresLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3APostgresLogo.webp"
                     alt="PostgreSQL"
                     sizes="24px"
                     fill
@@ -1349,7 +1373,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/mysql_logo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/mysql_logo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3Amysql_logo.webp"
                     alt="MySQL"
                     sizes="24px"
                     fill
@@ -1361,7 +1386,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/MongoLeaf.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/MongoLeaf.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AMongoLeaf.webp"
                     alt="MongoDB"
                     sizes="24px"
                     fill
@@ -1373,7 +1399,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/firebase_logo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/firebase_logo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3Afirebase_logo.webp"
                     alt="Firebase"
                     sizes="24px"
                     fill
@@ -1385,7 +1412,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GraphQLLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/GraphQLLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AGraphQLLogo.webp"
                     alt="GraphQL"
                     sizes="24px"
                     fill
@@ -1397,7 +1425,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LetsEncryptLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/LetsEncryptLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ALetsEncryptLogo.webp"
                     alt="LetsEncrypt"
                     sizes="24px"
                     fill
@@ -1409,7 +1438,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AKotlin_Icon.webp"
                     alt="Kotlin"
                     sizes="24px"
                     fill
@@ -1421,7 +1451,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Vercel_logo.svg"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Vercel_logo.svg"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AVercel_logo.svg"
                     alt="Vercel"
                     sizes="24px"
                     fill
@@ -1440,7 +1471,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ATypescriptLogo.webp"
                     alt="TypeScript"
                     sizes="24px"
                     fill
@@ -1452,7 +1484,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AJavaScriptLogo.webp"
                     alt="JavaScript"
                     sizes="24px"
                     fill
@@ -1464,7 +1497,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AReactLogo.webp"
                     alt="React"
                     sizes="24px"
                     fill
@@ -1476,7 +1510,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AReactQueryLogo.webp"
                     alt="ReactQuery"
                     sizes="24px"
                     fill
@@ -1488,7 +1523,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TestingLibraryLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TestingLibraryLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ATestingLibraryLogo.webp"
                     alt="Testing Library"
                     sizes="24px"
                     fill
@@ -1500,7 +1536,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/CypressLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/CypressLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ACypressLogo.webp"
                     alt="Cypress"
                     sizes="24px"
                     fill
@@ -1512,7 +1549,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Svelte_Logo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Svelte_Logo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ASvelte_Logo.webp"
                     alt="Svelte"
                     sizes="24px"
                     fill
@@ -1524,7 +1562,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/WebpackLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/WebpackLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AWebpackLogo.webp"
                     alt="Webpack"
                     sizes="24px"
                     fill
@@ -1532,6 +1571,18 @@ export default function Home() {
                   />
                 </div>
                 Webpack
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <div className="relative w-6 h-6 mr-2">
+                  <Image
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3Avite_Logo.svg"
+                    alt="Vite"
+                    sizes="24px"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                Vite
               </Badge>
             </div>
           </div>
@@ -1543,7 +1594,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/Kotlin_Icon.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AKotlin_Icon.webp"
                     alt="Kotlin"
                     sizes="24px"
                     fill
@@ -1555,7 +1607,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/SwiftLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/SwiftLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ASwiftLogo.webp"
                     alt="Swift"
                     sizes="24px"
                     fill
@@ -1567,7 +1620,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DartLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/DartLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ADartLogo.webp"
                     alt="Dart"
                     sizes="24px"
                     fill
@@ -1579,7 +1633,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/FlutterLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/FlutterLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AFlutterLogo.webp"
                     alt="Flutter"
                     sizes="24px"
                     fill
@@ -1591,7 +1646,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/TypescriptLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ATypescriptLogo.webp"
                     alt="TypeScript"
                     sizes="24px"
                     fill
@@ -1603,7 +1659,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/JavaScriptLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AJavaScriptLogo.webp"
                     alt="JavaScript"
                     sizes="24px"
                     fill
@@ -1615,7 +1672,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactLogo.png"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AReactLogo.webp"
                     alt="React Native"
                     sizes="24px"
                     fill
@@ -1627,7 +1685,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ReactQueryLogo.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AReactQueryLogo.webp"
                     alt="ReactQuery"
                     sizes="24px"
                     fill
@@ -1639,7 +1698,8 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ExpoLogoWithBackground.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/badges/ExpoLogoWithBackground.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3AExpoLogoWithBackground.webp"
                     alt="Expo"
                     sizes="24px"
                     fill

@@ -31,7 +31,8 @@ export default function AboutPage() {
           </h1>
           <div className="max-w-4xl mx-auto">
             <Image
-              src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
+              // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
+              src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_mitchProfilePic.webp"
               alt="Mitchell Wintrow"
               width={256}
               height={256}

@@ -40,7 +40,8 @@ export const metadata = createMetadata({
     siteName: "WinApps.io",
     images: [
       {
-        url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
+        // url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
+        url: "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinAppsOpenGraph.jpg",
         width: 1200,
         height: 630,
         alt: "Mitchell Wintrow",
@@ -74,7 +75,8 @@ export default function BlogPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/TheReactFilesBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/TheReactFilesBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_TheReactFilesBanner.webp"
                     alt="The React Files: What They Don't Want You to Know"
                     width={1500}
                     height={300}
@@ -109,7 +111,8 @@ export default function BlogPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/PepeSilviaBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/PepeSilviaBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_PepeSilviaBanner.webp"
                     alt="11 JavaScript Power-Ups You Probably Aren't Using (Yet)"
                     width={1500}
                     height={300}
@@ -143,7 +146,8 @@ export default function BlogPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/OptimizeMultimediaBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/OptimizeMultimediaBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_OptimizeMultimediaBanner.webp"
                     alt="Optimize Your Multimedia and Make Your READMEs Pop on GitHub"
                     width={1500}
                     height={300}
@@ -178,7 +182,8 @@ export default function BlogPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-center w-full">
                   <Image
-                    src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/EC2LetsEncryptBanner.webp"
+                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/blogs/EC2LetsEncryptBanner.webp"
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_EC2LetsEncryptBanner.webp"
                     alt="How to Set Up an EC2 Instance With TLS/SSL to Securely Serve HTTPS"
                     width={1500}
                     height={300}

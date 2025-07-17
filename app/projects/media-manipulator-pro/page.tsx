@@ -17,38 +17,38 @@ import Link from "next/link";
 import Image from "next/image";
 
 const images: string[] = [
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp01.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp02.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp03.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp04.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp05.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp06.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp07.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp08.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp09.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp10.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp11.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp12.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp13.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp14.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp15.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp16.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp17.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp18.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp19.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp20.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp21.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp22.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp23.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp24.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp25.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp26.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp27.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp28.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp29.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp30.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp31.webp",
-  "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp32.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp01.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp02.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp03.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp04.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp05.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp06.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp07.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp08.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp09.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp10.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp11.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp12.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp13.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp14.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp15.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp16.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp17.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp18.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp19.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp20.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp21.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp22.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp23.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp24.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp25.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp26.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp27.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp28.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp29.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp30.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp31.webp",
+  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/mmp32.webp",
 ];
 
 export default function MediaManipulatorProPage() {
@@ -117,7 +117,8 @@ export default function MediaManipulatorProPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp"
+                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/media-manipulator/MediaManipulatorProBanner.webp"
+                  src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_MediaManipulatorProBanner.webp"
                   alt="Media Manipulator Pro Banner"
                   width={1200}
                   height={600}
@@ -307,6 +308,13 @@ export default function MediaManipulatorProPage() {
                     </Link>
                     !
                   </p>
+
+                  <div className="flex justify-center mb-6">
+                    <span className="text-yellow-300 font-bold text-lg">
+                      Note: There are currently issues accessing these images,
+                      they will be back up soon.
+                    </span>
+                  </div>
 
                   {/* Device Toggle */}
                   <div className="flex justify-center mb-6">
