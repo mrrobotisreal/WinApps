@@ -1575,6 +1575,18 @@ export default function Home() {
               <Badge className="text-sm py-2 px-4">
                 <div className="relative w-6 h-6 mr-2">
                   <Image
+                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3ANextJS_Logo.jpeg"
+                    alt="Next.js"
+                    sizes="24px"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                Next.js
+              </Badge>
+              <Badge className="text-sm py-2 px-4">
+                <div className="relative w-6 h-6 mr-2">
+                  <Image
                     src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps%3Askills%3Avite_Logo.svg"
                     alt="Vite"
                     sizes="24px"
