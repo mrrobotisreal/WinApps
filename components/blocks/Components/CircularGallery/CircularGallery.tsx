@@ -2,7 +2,7 @@
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import {
   Renderer,
   Camera,
@@ -48,7 +48,7 @@ function createTextTexture(
   gl: GL,
   text: string,
   font: string = "bold 30px monospace",
-  color: string = "black",
+  color: string = "black"
 ): { texture: Texture; width: number; height: number } {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
@@ -116,7 +116,7 @@ class Title {
       this.gl,
       this.text,
       this.font,
-      this.textColor,
+      this.textColor
     );
     const geometry = new Plane(this.gl);
     const program = new Program(this.gl, {
@@ -180,6 +180,7 @@ interface MediaProps {
   textColor: string;
   borderRadius?: number;
   font?: string;
+  originalImage?: string;
 }
 
 class Media {
@@ -321,6 +322,18 @@ class Media {
         img.naturalHeight,
       ];
     };
+    img.onerror = (e) => {
+      console.error(`Failed to load image: ${this.image}`, e);
+      // Try to load a fallback image or handle the error gracefully
+      const fallbackImg = new Image();
+      fallbackImg.crossOrigin = "anonymous";
+      fallbackImg.src =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="; // 1x1 transparent pixel
+      fallbackImg.onload = () => {
+        texture.image = fallbackImg;
+        this.program.uniforms.uImageSizes.value = [1, 1];
+      };
+    };
   }
 
   createMesh() {
@@ -344,7 +357,7 @@ class Media {
 
   update(
     scroll: { current: number; last: number },
-    direction: "right" | "left",
+    direction: "right" | "left"
   ) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
@@ -442,7 +455,7 @@ class App {
   scene!: Transform;
   planeGeometry!: Plane;
   medias: Media[] = [];
-  mediasImages: { image: string; text: string }[] = [];
+  mediasImages: { image: string; text: string; originalImage?: string }[] = [];
   screen!: { width: number; height: number };
   viewport!: { width: number; height: number };
   raf: number = 0;
@@ -464,7 +477,7 @@ class App {
       textColor = "#ffffff",
       borderRadius = 0,
       font = "bold 30px DM Sans",
-    }: AppConfig,
+    }: AppConfig
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
@@ -505,11 +518,13 @@ class App {
   }
 
   createMedias(
-    items: { image: string; text: string }[] | undefined,
+    items:
+      | { image: string; text: string; originalImage?: string }[]
+      | undefined,
     bend: number = 1,
     textColor: string,
     borderRadius: number,
-    font: string,
+    font: string
   ) {
     const defaultItems = [
       {
@@ -579,6 +594,7 @@ class App {
         textColor,
         borderRadius,
         font,
+        originalImage: data.originalImage,
       });
     });
   }
@@ -629,7 +645,7 @@ class App {
     this.viewport = { width, height };
     if (this.medias) {
       this.medias.forEach((media) =>
-        media.onResize({ screen: this.screen, viewport: this.viewport }),
+        media.onResize({ screen: this.screen, viewport: this.viewport })
       );
     }
   }
@@ -638,7 +654,7 @@ class App {
     this.scroll.current = lerp(
       this.scroll.current,
       this.scroll.target,
-      this.scroll.ease,
+      this.scroll.ease
     );
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
     if (this.medias) {
@@ -683,14 +699,14 @@ class App {
       this.renderer.gl.canvas.parentNode
     ) {
       this.renderer.gl.canvas.parentNode.removeChild(
-        this.renderer.gl.canvas as HTMLCanvasElement,
+        this.renderer.gl.canvas as HTMLCanvasElement
       );
     }
   }
 }
 
 interface CircularGalleryProps {
-  items?: { image: string; text: string }[];
+  items?: { image: string; text: string; originalImage?: string }[];
   bend?: number;
   textColor?: string;
   borderRadius?: number;
@@ -722,6 +738,92 @@ export default function CircularGallery({
     <div
       className="w-auto h-160 overflow-hidden cursor-grab active:cursor-grabbing"
       ref={containerRef}
+    />
+  );
+}
+
+// Add this new component to help with CORS issues
+export function CircularGalleryWithPreload({
+  items,
+  bend = 3,
+  textColor = "#ffffff",
+  borderRadius = 0.05,
+  font = "bold 30px DM Sans",
+}: CircularGalleryProps) {
+  const [preloadedItems, setPreloadedItems] = useState<
+    { image: string; text: string; originalImage?: string }[]
+  >([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!items || items.length === 0) {
+      setIsLoading(false);
+      return;
+    }
+
+    // Create a blob URL for each image to bypass CORS
+    const preloadImages = async () => {
+      try {
+        const loadedItems = await Promise.all(
+          items.map(async (item) => {
+            try {
+              const response = await fetch(item.image, { mode: "cors" });
+              if (!response.ok)
+                throw new Error(`Failed to load image: ${item.image}`);
+
+              const blob = await response.blob();
+              const blobUrl = URL.createObjectURL(blob);
+
+              return {
+                ...item,
+                originalImage: item.image,
+                image: blobUrl,
+              };
+            } catch (error) {
+              console.error(`Error preloading image: ${item.image}`, error);
+              // Return the original item if there's an error
+              return item;
+            }
+          })
+        );
+
+        setPreloadedItems(loadedItems);
+      } catch (error) {
+        console.error("Error preloading images:", error);
+        setPreloadedItems(items);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    preloadImages();
+
+    // Clean up blob URLs when component unmounts
+    return () => {
+      preloadedItems.forEach((item) => {
+        if (item.originalImage && item.image !== item.originalImage) {
+          URL.revokeObjectURL(item.image);
+        }
+      });
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
+
+  if (isLoading) {
+    return (
+      <div className="w-auto h-160 flex items-center justify-center">
+        Loading gallery...
+      </div>
+    );
+  }
+
+  return (
+    <CircularGallery
+      items={preloadedItems.length > 0 ? preloadedItems : items}
+      bend={bend}
+      textColor={textColor}
+      borderRadius={borderRadius}
+      font={font}
     />
   );
 }
