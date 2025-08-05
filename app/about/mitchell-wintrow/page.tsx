@@ -12,7 +12,6 @@ import {
   trackButtonClick,
   trackFeatureUsage,
 } from "@/lib/analytics";
-import mixpanel from "mixpanel-browser";
 
 export default function AboutPage() {
   const [pageStartTime] = useState(Date.now());
@@ -20,13 +19,7 @@ export default function AboutPage() {
   const lastScrollUpdate = useRef(0);
 
   useEffect(() => {
-    // Enhanced tracking with both Mixpanel and our dual analytics
-    mixpanel.track("Page View", {
-      page_name: "About",
-      page_path: "/about",
-    });
-
-    trackPageView("About");
+    trackPageView("About Mitchell Wintrow");
 
     // Set user session data
     const isReturningUser = localStorage.getItem("hasVisited") === "true";
