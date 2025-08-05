@@ -18,59 +18,40 @@ import Image from "next/image";
 import { useCanonical } from "@/hooks/useCanonical";
 
 const phoneScreenshots: string[] = [
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy01.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy02.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy03.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy04.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy05.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy06.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy07.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy08.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy09.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy10.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy11.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy12.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy13.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy14.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy15.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy16.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy17.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy18.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy19.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy20.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy21.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy22.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy23.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy24.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy25.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy26.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy27.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy28.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy29.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy30.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy31.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy32.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy33.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy34.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy35.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy36.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy37.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy38.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy39.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy40.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy41.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy42.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy43.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy44.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy45.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy46.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy47.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy48.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy49.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy50.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy51.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy52.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/voizy53.webp",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_033.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_034.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_001.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_002.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_003.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_004.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_005.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_006.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_007.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_008.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_009.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_010.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_011.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_012.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_013.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_014.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_015.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_016.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_017.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_018.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_019.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_020.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_021.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_022.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_023.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_024.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_025.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_026.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_027.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_028.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_029.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_030.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_031.jpg",
+  "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_032.jpg",
 ];
 
 export default function VoizyPage() {
@@ -501,7 +482,7 @@ export default function VoizyPage() {
                   !
                 </p>
 
-                <div className="flex flex-col justify-center mb-6">
+                {/* <div className="flex flex-col justify-center mb-6">
                   <span className="text-yellow-300 font-bold text-lg">
                     Note: There are currently issues accessing these images,
                     they will be back up soon.
@@ -514,7 +495,7 @@ export default function VoizyPage() {
                     access issues
                     <ExternalLink className="w-4 h-4" />
                   </Link>
-                </div>
+                </div> */}
 
                 {/* Device Toggle */}
                 <div className="flex justify-center mb-6">
