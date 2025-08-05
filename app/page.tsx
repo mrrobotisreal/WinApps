@@ -317,29 +317,6 @@ export default function Home() {
                 <SiLinktree />
               </Link>
             </Button>
-            <Button variant="secondary" size="icon" className="size-8" asChild>
-              <Link
-                href="https://winapps.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white"
-                onClick={() =>
-                  handleSocialClick(
-                    "winapps",
-                    "https://www.winapps.io/",
-                    "WinApps"
-                  )
-                }
-              >
-                <Image
-                  src="/WinAppsIcon.webp"
-                  alt="WinApps Logo"
-                  width={18}
-                  height={18}
-                  className="rounded-full"
-                />
-              </Link>
-            </Button>
           </div>
 
           <div className="flex justify-center">
@@ -383,6 +360,66 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/portfolio/people-inc"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("People Inc.", "portfolio");
+                          trackButtonClick(
+                            "work_experience_link",
+                            "internal_link",
+                            "People Inc."
+                          );
+                        }}
+                        onMouseEnter={() =>
+                          handleHoverCardView("People Inc.", "work_experience")
+                        }
+                      >
+                        People Inc.{" "}
+                        <span className="text-xs font-normal italic">
+                          (Current)
+                        </span>
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/WinApps_PeopleIncLogo.webp"
+                            alt="People Inc. Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">
+                            People Inc.{" "}
+                            <span className="text-xs font-normal italic">
+                              (Current)
+                            </span>
+                          </h4>
+                          <Separator />
+                          <p className="text-sm">
+                            I&apos;m a senior software engineer at People Inc.,
+                            formerly known as Dotdash Meredith. I&apos;m
+                            responsible for the design and development of the
+                            ads and revenue management system for the People
+                            mobile app, which is a news and entertainment app
+                            that allows users to read news and watch videos, as
+                            well as many of their other apps in development.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            August 2025 - Present
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>
