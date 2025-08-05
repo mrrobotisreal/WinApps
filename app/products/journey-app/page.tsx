@@ -197,7 +197,7 @@ export default function JourneyAppPage() {
                     🚀 Massive Update Coming Soon!
                   </span>
                 </p>
-                <p>
+                <p className="text-black dark:text-white">
                   Get ready for an incredible JourneyApp.me update that
                   completely revamps the UI, improves the experience
                   tremendously with tons of new features, and fixes lots of
