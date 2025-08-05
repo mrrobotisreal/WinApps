@@ -11,11 +11,12 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { ExternalLink, Smartphone } from "lucide-react";
+import { ExternalLink, Smartphone, Zap } from "lucide-react";
 import RollingGallery from "@/components/blocks/Components/RollingGallery/RollingGallery";
 import Link from "next/link";
 import Image from "next/image";
 import { useCanonical } from "@/hooks/useCanonical";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const phoneScreenshots: string[] = [
   "https://pub-2c90fb271b9b4f08bffffbf1179f9627.r2.dev/voizy_033.jpg",
@@ -96,7 +97,7 @@ export default function VoizyPage() {
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <span className="text-muted-foreground">Voizy (Android)</span>
+                <span className="text-muted-foreground">Voizy</span>
               </div>
             </li>
           </ol>
@@ -106,14 +107,57 @@ export default function VoizyPage() {
           {/* Header */}
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-b from-orange-300 to-orange-900 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-b from-orange-500 to-purple-500 bg-clip-text text-transparent">
                 Voizy
-              </span>{" "}
-              <span className="bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-transparent">
-                (Android)
               </span>
             </h1>
           </div>
+
+          {/* Update Alert */}
+          <Alert className="border-4 border-gradient-to-r from-purple-500 to-orange-500 bg-gradient-to-r from-orange-400/30 to-purple-500/30 shadow-xl">
+            <Zap className="h-5 w-5 text-orange-500" />
+            <AlertDescription className="text-base leading-relaxed">
+              <div className="space-y-2">
+                <p className="font-semibold">
+                  <span className="bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent">
+                    🚀 Massive Update Coming Soon!
+                  </span>
+                </p>
+                <p className="text-black dark:text-white">
+                  Get ready for an incredible Voizy update that completely
+                  revamps the UI, improves the experience tremendously with tons
+                  of new features, and fixes lots of bugs!
+                </p>
+                <div className="flex flex-wrap items-center gap-4 mt-3">
+                  <span className="text-sm font-medium">Coming soon to:</span>
+                  <span className="bg-gradient-to-b from-blue-400 to-blue-700 bg-clip-text text-transparent flex items-center justify-center flex-row gap-1">
+                    <svg
+                      className="w-5 h-5 mx-auto text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>{" "}
+                    iOS
+                  </span>
+                  <span>and</span>
+                  <span className="bg-gradient-to-b from-green-400 to-green-700 bg-clip-text text-transparent flex items-center justify-center flex-row gap-1">
+                    <svg
+                      className="w-5 h-5 mx-auto text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z" />
+                    </svg>{" "}
+                    Android
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Stay tuned for the release! 🎉
+                </p>
+              </div>
+            </AlertDescription>
+          </Alert>
 
           {/* Main Content Card */}
           <Card>

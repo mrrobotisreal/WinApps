@@ -84,7 +84,8 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <p className="text-muted-foreground">
-                  iOS journaling app for personal growth and reflection.
+                  iOS journaling app for personal growth and reflection written
+                  in Swift + SwiftUI/UIKit. Coming soon to Android as well!
                 </p>
                 <Link
                   href="/projects/journey-app"
@@ -114,7 +115,8 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <p className="text-muted-foreground">
-                  Android social media app.
+                  Android social media app written in Kotlin. Coming soon to iOS
+                  as well!
                 </p>
                 <Link
                   href="/projects/voizy"
