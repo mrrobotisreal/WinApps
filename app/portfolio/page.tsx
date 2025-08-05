@@ -1,10 +1,184 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Layout from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  trackPageView,
+  trackUserSession,
+  trackScrollDepth,
+  trackTimeOnPage,
+  trackButtonClick,
+  trackFeatureUsage,
+  trackProjectView,
+  trackNavigation,
+} from "@/lib/analytics";
+
+interface PortfolioItem {
+  title: string;
+  description: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  slug: string;
+  type: "portfolio" | "project";
+}
+
+const portfolioItems: PortfolioItem[] = [
+  {
+    title: "FlashMock",
+    description:
+      "Lead Senior Frontend and Mobile Software Engineer at FlashMock.",
+    href: "/portfolio/flashmock",
+    imageSrc:
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-flashmock-banner.webp",
+    imageAlt: "FlashMock",
+    slug: "flashmock",
+    type: "portfolio",
+  },
+  {
+    title: "Double Raven Solutions LLC",
+    description: "Frontend Software Engineer at Double Raven Solutions LLC.",
+    href: "/portfolio/double-raven",
+    imageSrc:
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-doubleraven-banner.webp",
+    imageAlt: "Double Raven Solutions LLC",
+    slug: "double-raven",
+    type: "portfolio",
+  },
+  {
+    title: "Amazon Connect Customer Profiles",
+    description: "Frontend Software Engineer at Amazon Web Services.",
+    href: "/portfolio/amazon-connect",
+    imageSrc:
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-amazon-banner.webp",
+    imageAlt: "Amazon Connect Customer Profiles",
+    slug: "amazon-connect",
+    type: "portfolio",
+  },
+  {
+    title: "VMware",
+    description: "Backend Software Engineer at VMware.",
+    href: "/portfolio/vmware",
+    imageSrc:
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-vmware-banner.webp",
+    imageAlt: "VMware",
+    slug: "vmware",
+    type: "portfolio",
+  },
+  {
+    title: "Personal Projects",
+    description:
+      "Various mobile apps, web applications, and open source contributions.",
+    href: "/projects",
+    imageSrc:
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_ProjectsBanner.webp",
+    imageAlt: "Personal Projects",
+    slug: "personal-projects",
+    type: "project",
+  },
+];
 
 export default function PortfolioPage() {
+  const [pageStartTime] = useState(Date.now());
+  const scrollDepthRef = useRef(0);
+  const lastScrollUpdate = useRef(0);
+
+  useEffect(() => {
+    trackPageView("Portfolio");
+
+    // Set user session data
+    const isReturningUser = localStorage.getItem("hasVisited") === "true";
+    trackUserSession({
+      user_type: isReturningUser ? "returning" : "new",
+      preferred_content: "portfolio",
+    });
+
+    // Track that user is interested in viewing portfolio
+    trackFeatureUsage("portfolio_page_visit", {
+      section: "portfolio",
+      content_type: "professional_work",
+      total_items: portfolioItems.length,
+    });
+
+    // Track scroll depth
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / documentHeight) * 100;
+
+      scrollDepthRef.current = Math.max(scrollDepthRef.current, scrollPercent);
+
+      // Update tracking every 25% milestone
+      const milestone = Math.floor(scrollPercent / 25) * 25;
+      if (milestone > lastScrollUpdate.current && milestone <= 100) {
+        trackScrollDepth(scrollTop, documentHeight);
+        lastScrollUpdate.current = milestone;
+      }
+    };
+
+    // Track time on page when user leaves
+    const handleBeforeUnload = () => {
+      const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+      trackTimeOnPage(timeSpent, window.location.href);
+    };
+
+    // Track page visibility changes
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+        trackTimeOnPage(timeSpent, window.location.href);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [pageStartTime]);
+
+  const handlePortfolioItemClick = (item: PortfolioItem) => {
+    trackProjectView(item.title, item.type);
+    trackNavigation(item.href, "portfolio_index");
+    trackButtonClick(
+      `portfolio_${item.slug}`,
+      "internal_link",
+      "portfolio_page"
+    );
+    trackFeatureUsage("portfolio_item_click", {
+      item_title: item.title,
+      item_slug: item.slug,
+      item_type: item.type,
+      destination: item.href,
+    });
+  };
+
+  const handlePortfolioImageLoad = (item: PortfolioItem) => {
+    trackFeatureUsage("portfolio_image_loaded", {
+      item_title: item.title,
+      item_slug: item.slug,
+      page: "portfolio",
+    });
+  };
+
+  const handlePortfolioCardHover = (item: PortfolioItem) => {
+    trackFeatureUsage("portfolio_card_hover", {
+      item_title: item.title,
+      item_slug: item.slug,
+      page: "portfolio",
+    });
+  };
+
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
@@ -17,165 +191,49 @@ export default function PortfolioPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex justify-center">FlashMock</CardTitle>
-              <Separator />
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-center w-full">
-                  <Image
-                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-flashmock-banner.webp"
-                    alt="FlashMock"
-                    width={1500}
-                    height={300}
-                    className="rounded-md"
-                  />
-                </div>
-                <p className="text-muted-foreground">
-                  Lead Senior Frontend and Mobile Software Engineer at
-                  FlashMock.
-                </p>
-                <Link
-                  href="/portfolio/flashmock"
-                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
+          {portfolioItems.map((item) => (
+            <Card
+              key={item.slug}
+              onMouseEnter={() => handlePortfolioCardHover(item)}
+              className="transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+            >
+              <CardHeader>
+                <CardTitle
+                  className="flex justify-center cursor-pointer"
+                  onClick={() => handlePortfolioItemClick(item)}
                 >
-                  View Project Page →
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex justify-center">
-                Amazon Connect Customer Profiles
-              </CardTitle>
-              <Separator />
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-center w-full">
-                  <Image
-                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/AmazonConnectBanner.webp"
-                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_AmazonConnectBanner.webp"
-                    alt="Amazon Connect"
-                    width={1500}
-                    height={300}
-                    className="rounded-md"
-                  />
+                  {item.title}
+                </CardTitle>
+                <Separator />
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-center w-full">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
+                      width={1500}
+                      height={300}
+                      className="rounded-md cursor-pointer transition-transform duration-200 hover:scale-105"
+                      onLoad={() => handlePortfolioImageLoad(item)}
+                      onClick={() => handlePortfolioItemClick(item)}
+                    />
+                  </div>
+                  <p className="text-muted-foreground">{item.description}</p>
+                  <Link
+                    href={item.href}
+                    className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2 transition-colors duration-200"
+                    onClick={() => handlePortfolioItemClick(item)}
+                  >
+                    {item.type === "portfolio"
+                      ? "View Project Page"
+                      : "View Projects"}{" "}
+                    →
+                  </Link>
                 </div>
-                <p className="text-muted-foreground">
-                  Software Engineer at Amazon Web Services working on Customer
-                  Profiles service for Amazon Connect.
-                </p>
-                <Link
-                  href="/portfolio/amazon-connect"
-                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
-                >
-                  View Project Page →
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex justify-center">VMware</CardTitle>
-              <Separator />
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-center w-full">
-                  <Image
-                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/vmware/VMwareBanner.webp"
-                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VMwareBanner.webp"
-                    alt="VMware"
-                    width={1500}
-                    height={300}
-                    className="rounded-md"
-                  />
-                </div>
-                <p className="text-muted-foreground">
-                  Software engineering work at VMware contributing to enterprise
-                  virtualization solutions.
-                </p>
-                <Link
-                  href="/portfolio/vmware"
-                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
-                >
-                  View Project Page →
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex justify-center">
-                Double Raven Solutions LLC
-              </CardTitle>
-              <Separator />
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-center w-full">
-                  <Image
-                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/DoubleRavenBanner.webp"
-                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenBanner.webp"
-                    alt="Double Raven"
-                    width={1500}
-                    height={300}
-                    className="rounded-md"
-                  />
-                </div>
-                <p className="text-muted-foreground">
-                  Freelance development and consulting work for various clients
-                  and projects.
-                </p>
-              </div>
-              <Link
-                href="/portfolio/double-raven"
-                className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
-              >
-                View Project Page →
-              </Link>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex justify-center">
-                Personal Projects
-              </CardTitle>
-              <Separator />
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-center w-full">
-                  <Image
-                    // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/ProjectsBanner.webp"
-                    src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_ProjectsBanner.webp"
-                    alt="Personal Projects"
-                    width={1500}
-                    height={300}
-                    className="rounded-md"
-                  />
-                </div>
-                <p className="text-muted-foreground">
-                  Various mobile apps, web applications, and open source
-                  contributions.
-                </p>
-              </div>
-              <Link
-                href="/projects"
-                className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
-              >
-                View Projects →
-              </Link>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </Layout>

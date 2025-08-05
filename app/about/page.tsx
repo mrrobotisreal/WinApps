@@ -1,18 +1,106 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Layout from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import {
+  trackPageView,
+  trackUserSession,
+  trackScrollDepth,
+  trackTimeOnPage,
+  trackButtonClick,
+  trackFeatureUsage,
+} from "@/lib/analytics";
 import mixpanel from "mixpanel-browser";
 
 export default function AboutPage() {
+  const [pageStartTime] = useState(Date.now());
+  const scrollDepthRef = useRef(0);
+  const lastScrollUpdate = useRef(0);
+
   useEffect(() => {
+    // Enhanced tracking with both Mixpanel and our dual analytics
     mixpanel.track("Page View", {
       page_name: "About",
       page_path: "/about",
     });
-  }, []);
+
+    trackPageView("About");
+
+    // Set user session data
+    const isReturningUser = localStorage.getItem("hasVisited") === "true";
+    trackUserSession({
+      user_type: isReturningUser ? "returning" : "new",
+      preferred_content: "about_page",
+    });
+
+    // Track that user is interested in learning about Mitchell
+    trackFeatureUsage("about_page_visit", {
+      section: "about",
+      content_type: "personal_info",
+    });
+
+    // Track scroll depth
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / documentHeight) * 100;
+
+      scrollDepthRef.current = Math.max(scrollDepthRef.current, scrollPercent);
+
+      // Update tracking every 25% milestone
+      const milestone = Math.floor(scrollPercent / 25) * 25;
+      if (milestone > lastScrollUpdate.current && milestone <= 100) {
+        trackScrollDepth(scrollTop, documentHeight);
+        lastScrollUpdate.current = milestone;
+      }
+    };
+
+    // Track time on page when user leaves
+    const handleBeforeUnload = () => {
+      const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+      trackTimeOnPage(timeSpent, window.location.href);
+    };
+
+    // Track page visibility changes
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+        trackTimeOnPage(timeSpent, window.location.href);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [pageStartTime]);
+
+  const handleSectionView = (sectionName: string) => {
+    trackFeatureUsage("about_section_view", {
+      section_name: sectionName,
+      page: "about",
+    });
+  };
+
+  const handleCardInteraction = (
+    cardTitle: string,
+    interactionType: string
+  ) => {
+    trackButtonClick(
+      `about_card_${cardTitle.toLowerCase().replace(/\s+/g, "_")}`,
+      interactionType,
+      "about_page"
+    );
+  };
 
   return (
     <Layout>
@@ -31,12 +119,14 @@ export default function AboutPage() {
           </h1>
           <div className="max-w-4xl mx-auto">
             <Image
-              // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/mitchProfilePic.webp"
               src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_mitchProfilePic.webp"
               alt="Mitchell Wintrow"
               width={256}
               height={256}
               className="rounded-full mx-auto mb-8 shadow-lg"
+              onLoad={() =>
+                trackFeatureUsage("profile_image_loaded", { page: "about" })
+              }
             />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Software Engineer passionate about creating innovative mobile
@@ -48,9 +138,21 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Card>
+          <Card
+            onMouseEnter={() => handleSectionView("professional_experience")}
+          >
             <CardHeader>
-              <CardTitle>Professional Experience</CardTitle>
+              <CardTitle
+                onClick={() =>
+                  handleCardInteraction(
+                    "Professional Experience",
+                    "title_click"
+                  )
+                }
+                className="cursor-pointer"
+              >
+                Professional Experience
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
@@ -83,9 +185,16 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card onMouseEnter={() => handleSectionView("technical_skills")}>
             <CardHeader>
-              <CardTitle>Technical Skills</CardTitle>
+              <CardTitle
+                onClick={() =>
+                  handleCardInteraction("Technical Skills", "title_click")
+                }
+                className="cursor-pointer"
+              >
+                Technical Skills
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
@@ -109,9 +218,16 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card onMouseEnter={() => handleSectionView("current_projects")}>
             <CardHeader>
-              <CardTitle>Current Projects</CardTitle>
+              <CardTitle
+                onClick={() =>
+                  handleCardInteraction("Current Projects", "title_click")
+                }
+                className="cursor-pointer"
+              >
+                Current Projects
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
@@ -131,9 +247,16 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card onMouseEnter={() => handleSectionView("education_learning")}>
             <CardHeader>
-              <CardTitle>Education & Learning</CardTitle>
+              <CardTitle
+                onClick={() =>
+                  handleCardInteraction("Education & Learning", "title_click")
+                }
+                className="cursor-pointer"
+              >
+                Education & Learning
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
@@ -154,9 +277,16 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12 text-center">
-          <Card>
+          <Card onMouseEnter={() => handleSectionView("get_in_touch")}>
             <CardHeader>
-              <CardTitle>Get In Touch</CardTitle>
+              <CardTitle
+                onClick={() =>
+                  handleCardInteraction("Get In Touch", "title_click")
+                }
+                className="cursor-pointer"
+              >
+                Get In Touch
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
@@ -165,7 +295,20 @@ export default function AboutPage() {
                 tech enthusiasts.
               </p>
               <div className="space-y-2">
-                <p>Email: mitchellwintrow@gmail.com</p>
+                <p
+                  onClick={() => {
+                    trackButtonClick(
+                      "email_click",
+                      "contact_info",
+                      "about_page"
+                    );
+                    navigator.clipboard.writeText("mitchellwintrow@gmail.com");
+                  }}
+                  className="cursor-pointer hover:text-primary transition-colors"
+                  title="Click to copy email"
+                >
+                  Email: mitchellwintrow@gmail.com
+                </p>
               </div>
             </CardContent>
           </Card>
