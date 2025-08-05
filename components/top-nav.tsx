@@ -151,9 +151,16 @@ export default function TopNav() {
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <Link
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md items-center"
                         href="/projects"
                       >
+                        <Image
+                          src="/WinApps_Logo_Medium.webp"
+                          alt="WinApps Logo"
+                          className="block"
+                          width={96}
+                          height={96}
+                        />
                         <div className="mb-2 mt-4 text-lg font-medium">
                           Current Projects
                         </div>
