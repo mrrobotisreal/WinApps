@@ -13,63 +13,171 @@ import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Smartphone, Tablet, ExternalLink, Zap } from "lucide-react";
-import { CircularGalleryWithPreload } from "@/components/blocks/Components/CircularGallery/CircularGallery";
+// import { CircularGalleryWithPreload } from "@/components/blocks/Components/CircularGallery/CircularGallery";
 import Link from "next/link";
 import Image from "next/image";
+import RollingGallery from "@/components/blocks/Components/RollingGallery/RollingGallery";
 
-const iPhoneScreenshots: { image: string; text: string }[] = [
+const iPhoneScreenshotsOld: { image: string; text: string }[] = [
   // {
   //   text: "Download in the AppStore!",
   //   image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
   // },
+  // {
+  //   text: "Login",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone001.png",
+  // },
+  // {
+  //   text: "Home",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone002.png",
+  // },
+  // {
+  //   text: "Filters",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone003.png",
+  // },
+  // {
+  //   text: "Search",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone004.png",
+  // },
+  // {
+  //   text: "Location Picker",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone005.png",
+  // },
+  // {
+  //   text: "Create Entry (Write)",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone006.png",
+  // },
+  // {
+  //   text: "View Entry",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone007.png",
+  // },
+  // {
+  //   text: "Edit Entry",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone008.png",
+  // },
+  // {
+  //   text: "View Image",
+  //   image:
+  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone010.png",
+  // },
   {
     text: "Login",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone001.png",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img970_sm.png",
   },
   {
-    text: "Home",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone002.png",
+    text: "Signup",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img971_sm.png",
+  },
+  {
+    text: "Home 1",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img940_sm.png",
+  },
+  {
+    text: "Home 2",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img941_sm.png",
+  },
+  {
+    text: "Home (Refresh)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img942_sm.png",
   },
   {
     text: "Filters",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone003.png",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img943_sm.png",
+  },
+  {
+    text: "Filters (Custom Timeframe 1)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img944_sm.png",
+  },
+  {
+    text: "Filters (Custom Timeframe 2)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img945_sm.png",
+  },
+  {
+    text: "Filters (Sort rule, Locations, Tags)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img946_sm.png",
   },
   {
     text: "Search",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone004.png",
-  },
-  {
-    text: "Location Picker",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone005.png",
-  },
-  {
-    text: "Create Entry (Write)",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone006.png",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img972_sm.png",
   },
   {
     text: "View Entry",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone007.png",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img947_sm.png",
+  },
+  {
+    text: "View Entry (View Image)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img948_sm.png",
+  },
+  {
+    text: "View Entry (Tag Details)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img949_sm.png",
+  },
+  {
+    text: "View Entry (Location Details)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img950_sm.png",
   },
   {
     text: "Edit Entry",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone008.png",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img952_sm.png",
   },
   {
-    text: "View Image",
-    image:
-      "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone010.png",
+    text: "Edit Entry (Scrolled Down)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img953_sm.png",
+  },
+  {
+    text: "Edit Entry (Preview)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img954_sm.png",
+  },
+  {
+    text: "Create Entry (Empty)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img955_sm.png",
+  },
+  {
+    text: "Create Entry (Add Location)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img956_sm.png",
+  },
+  {
+    text: "Create Entry (Add Location - Search Places)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img958_sm.png",
+  },
+  {
+    text: "Create Entry (Add Tag)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img961_sm.png",
+  },
+  {
+    text: "Create Entry (Markdown Help 1)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img965_sm.png",
+  },
+  {
+    text: "Create Entry (Markdown Help 2)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img966_sm.png",
+  },
+  {
+    text: "Create Entry (Markdown Help 3)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img967_sm.png",
+  },
+  {
+    text: "Create Entry (Markdown Help 4)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img968_sm.png",
+  },
+  {
+    text: "Create Entry (Markdown Help 5)",
+    image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img969_sm.png",
   },
 ];
+const iPhoneScreenshots: string[] = iPhoneScreenshotsOld.map(
+  (screenshot) => screenshot.image
+);
 
-const iPadScreenshots: { image: string; text: string }[] = [
+const iPadScreenshotsOld: { image: string; text: string }[] = [
   // {
   //   text: "Download in the AppStore!",
   //   image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
@@ -125,11 +233,13 @@ const iPadScreenshots: { image: string; text: string }[] = [
       "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPad010.png",
   },
 ];
+const iPadScreenshots: string[] = iPadScreenshotsOld.map(
+  (screenshot) => screenshot.image
+);
 
 export default function JourneyAppPage() {
   const [device, setDevice] = useState<string>("iPhone");
-  const [screenshots, setScreenshots] =
-    useState<{ image: string; text: string }[]>(iPhoneScreenshots);
+  const [screenshots, setScreenshots] = useState<string[]>(iPhoneScreenshots);
 
   const handleDeviceChange = (newDevice: string) => {
     if (newDevice && newDevice !== device) {
@@ -649,12 +759,17 @@ export default function JourneyAppPage() {
                   </div>
 
                   <div className="w-full h-full">
-                    <CircularGalleryWithPreload
+                    {/* <CircularGalleryWithPreload
                       items={screenshots}
                       bend={2}
                       textColor="#ffffff"
                       borderRadius={0.05}
                       font="bold 30px ubuntu"
+                    /> */}
+                    <RollingGallery
+                      images={screenshots}
+                      autoplay={true}
+                      pauseOnHover={true}
                     />
                   </div>
                 </div>
