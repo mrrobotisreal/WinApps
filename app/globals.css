@@ -138,3 +138,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .bg-success-gradient {
+    background: linear-gradient(135deg, #008000 0%, #1ca800 50%, #4dd200 100%);
+  }
+}

@@ -4,6 +4,7 @@ import Layout from "@/components/layout";
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import AdBanner from "@/components/ad-banner";
 
 export default function FlashMockPage() {
   return (
@@ -39,6 +40,17 @@ export default function FlashMockPage() {
             </li>
           </ol>
         </nav>
+
+        <div className="flex w-full max-w-full justify-center mb-8">
+          <AdBanner
+            adSlot="6671038874"
+            adFormat="leaderboard"
+            adPosition="header"
+            className="w-full max-w-full"
+            style={{ minHeight: "90px" }}
+            isFlashMock={true}
+          />
+        </div>
 
         <div className="space-y-8">
           {/* Header */}

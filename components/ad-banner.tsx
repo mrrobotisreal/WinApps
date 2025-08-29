@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { trackAdInteraction } from "@/lib/analytics";
+import Image from "next/image";
 
 interface AdBannerProps {
   adSlot: string;
@@ -9,6 +10,7 @@ interface AdBannerProps {
   className?: string;
   adPosition: string;
   style?: React.CSSProperties;
+  isFlashMock?: boolean;
 }
 
 declare global {
@@ -23,6 +25,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   className = "",
   adPosition,
   style = {},
+  isFlashMock = false,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
@@ -30,6 +33,8 @@ const AdBanner: React.FC<AdBannerProps> = ({
   const [showAd, setShowAd] = useState(false);
 
   useEffect(() => {
+    if (isFlashMock) return;
+
     const loadAd = async () => {
       try {
         if (
@@ -99,35 +104,69 @@ const AdBanner: React.FC<AdBannerProps> = ({
     } else {
       setAdError(true);
     }
-  }, [adPosition, adSlot]);
+  }, [adPosition, adSlot, isFlashMock]);
 
-  if (
-    process.env.NEXT_PUBLIC_NODE_ENV === "development" ||
-    adError ||
-    !showAd
-  ) {
-    return null;
-  }
+  console.log("isFlashMock", isFlashMock);
+
+  // if (
+  //   // process.env.NEXT_PUBLIC_NODE_ENV === "development" ||
+  //   process.env.NEXT_PUBLIC_NODE_ENV === "production" ||
+  //   adError ||
+  //   !showAd
+  // ) {
+  //   console.log("exiting ad...");
+  //   return null;
+  // }
+
+  console.log("adError", adError);
+  console.log("showAd", showAd);
 
   return (
-    <div className={`ad-container w-full flex justify-center ${className}`}>
-      <ins
-        ref={adRef}
-        className="adsbygoogle block w-full max-w-full"
-        style={{
-          display: adLoaded ? "block" : "none",
-          minHeight: adLoaded ? "auto" : "0px",
-          backgroundColor: "transparent",
-          ...style,
-        }}
-        data-ad-client="ca-pub-3413790368941825"
-        data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive="true"
-        onClick={() =>
-          trackAdInteraction("adsense_banner", adPosition, "click")
-        }
-      />
+    <div
+      className={`ad-container flex justify-center items-center ${className}`}
+    >
+      {!isFlashMock && (
+        <ins
+          ref={adRef}
+          className="adsbygoogle block w-full max-w-full"
+          style={{
+            display: adLoaded ? "block" : "none",
+            minHeight: adLoaded ? "auto" : "0px",
+            backgroundColor: "transparent",
+            ...style,
+          }}
+          data-ad-client="ca-pub-3413790368941825"
+          data-ad-slot={adSlot}
+          data-ad-format={adFormat}
+          data-full-width-responsive="true"
+          onClick={() =>
+            trackAdInteraction("adsense_banner", adPosition, "click")
+          }
+        />
+      )}
+      {isFlashMock && (
+        <div
+          className="flex justify-center items-center w-full max-w-full"
+          style={{
+            ...style,
+          }}
+          onClick={() => {
+            trackAdInteraction("flashmock_banner", adPosition, "click");
+            window.open(
+              "https://www.flashmock.com/auth?referral_code=MITCHELLWINTROW4331",
+              "_blank"
+            );
+          }}
+        >
+          <Image
+            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMock_LeaderboardAd_Video.gif"
+            alt="Join FlashMock by September 5th and get 5 FREE mock interviews!"
+            width={728}
+            height={90}
+            className="justify-center cursor-pointer"
+          />
+        </div>
+      )}
     </div>
   );
 };

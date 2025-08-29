@@ -16,6 +16,7 @@ import {
   trackProjectView,
   trackNavigation,
 } from "@/lib/analytics";
+import { Badge } from "@/components/ui/badge";
 
 interface PortfolioItem {
   title: string;
@@ -25,49 +26,78 @@ interface PortfolioItem {
   imageAlt: string;
   slug: string;
   type: "portfolio" | "project";
+  timeframe: string;
+  role: string;
+  isCurrent: boolean;
 }
 
 const portfolioItems: PortfolioItem[] = [
+  {
+    title: "People Inc.",
+    description:
+      "Senior Software Engineer at People Inc. (formerly known as Dotdash Meredith).",
+    href: "/portfolio/people-inc",
+    imageSrc:
+      "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/WinApps_PeopleIncBanner.webp",
+    imageAlt: "People Inc.",
+    slug: "people-inc",
+    type: "portfolio",
+    timeframe: "August 2025 - Present",
+    role: "Senior Software Engineer",
+    isCurrent: true,
+  },
   {
     title: "FlashMock",
     description:
       "Lead Senior Frontend and Mobile Software Engineer at FlashMock.",
     href: "/portfolio/flashmock",
     imageSrc:
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-flashmock-banner.webp",
+      "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMockLogoGradient_White.png",
     imageAlt: "FlashMock",
     slug: "flashmock",
     type: "portfolio",
+    timeframe: "May 2025 - Present",
+    role: "Lead Senior Frontend and Mobile Software Engineer",
+    isCurrent: true,
   },
   {
     title: "Double Raven Solutions LLC",
     description: "Frontend Software Engineer at Double Raven Solutions LLC.",
     href: "/portfolio/double-raven",
     imageSrc:
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-doubleraven-banner.webp",
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenBanner.webp",
     imageAlt: "Double Raven Solutions LLC",
     slug: "double-raven",
     type: "portfolio",
+    timeframe: "June 2020 - January 2022, January 2025 - May 2025",
+    role: "Full Stack Software Engineer, Frontend Software Engineer",
+    isCurrent: false,
   },
   {
     title: "Amazon Connect Customer Profiles",
     description: "Frontend Software Engineer at Amazon Web Services.",
     href: "/portfolio/amazon-connect",
     imageSrc:
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-amazon-banner.webp",
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_AmazonConnectBanner.webp",
     imageAlt: "Amazon Connect Customer Profiles",
     slug: "amazon-connect",
     type: "portfolio",
+    timeframe: "August 2022 - November 2024",
+    role: "Frontend Software Engineer",
+    isCurrent: false,
   },
   {
     title: "VMware",
     description: "Backend Software Engineer at VMware.",
     href: "/portfolio/vmware",
     imageSrc:
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-vmware-banner.webp",
+      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VMwareBanner.webp",
     imageAlt: "VMware",
     slug: "vmware",
     type: "portfolio",
+    timeframe: "June 2022 - August 2022",
+    role: "Backend Software Engineer",
+    isCurrent: false,
   },
   {
     title: "Personal Projects",
@@ -79,6 +109,9 @@ const portfolioItems: PortfolioItem[] = [
     imageAlt: "Personal Projects",
     slug: "personal-projects",
     type: "project",
+    timeframe: "7+ years",
+    role: "Mobile App Engineer, Frontend Software Engineer, Backend Software Engineer, Full Stack Software Engineer",
+    isCurrent: true,
   },
 ];
 
@@ -219,7 +252,32 @@ export default function PortfolioPage() {
                       onClick={() => handlePortfolioItemClick(item)}
                     />
                   </div>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-muted-foreground">
+                    <span className="font-bold text-purple-200">
+                      Description:
+                    </span>{" "}
+                    {item.description}
+                  </p>
+                  <div className="flex flex-row items-center gap-2">
+                    <p className="text-muted-foreground">
+                      <span className="font-bold text-purple-200">
+                        Timeframe:
+                      </span>{" "}
+                      {item.timeframe}
+                    </p>
+                    {item.isCurrent && (
+                      <Badge
+                        variant="outline"
+                        className="bg-success-gradient text-white font-bold px-3 rounded-md"
+                      >
+                        Current
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="text-muted-foreground">
+                    <span className="font-bold text-purple-200">Role:</span>{" "}
+                    {item.role}
+                  </p>
                   <Link
                     href={item.href}
                     className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2 transition-colors duration-200"

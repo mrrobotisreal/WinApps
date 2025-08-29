@@ -151,13 +151,21 @@ export default function Home() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8 space-y-12">
-        <div className="flex justify-center">
-          <AdBanner
+        <div className="flex w-full max-w-full justify-center">
+          {/* <AdBanner
             adSlot="6671038874"
             adFormat="leaderboard"
             adPosition="header"
             className="w-full max-w-6xl"
             style={{ minHeight: "90px" }}
+          /> */}
+          <AdBanner
+            adSlot="6671038874"
+            adFormat="leaderboard"
+            adPosition="header"
+            className="w-full max-w-full"
+            style={{ minHeight: "90px" }}
+            isFlashMock={true}
           />
         </div>
 

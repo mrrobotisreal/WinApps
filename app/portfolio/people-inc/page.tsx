@@ -78,7 +78,7 @@ export default function PeopleIncPage() {
                       Start & End Dates
                     </h2>
                     <p className="text-muted-foreground">
-                      August 2025 - Present (Contract)
+                      August 2025 - Present (Full-Time)
                     </p>
                   </div>
                 </div>
