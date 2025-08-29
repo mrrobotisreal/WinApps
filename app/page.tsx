@@ -1571,7 +1571,7 @@ export default function Home() {
         <section className="flex justify-center items-center">
           <ProfileCard
             name="Mitch Wintrow"
-            title="Software Engineer"
+            title="Senior Software Engineer"
             handle="mitchwintrow"
             // avatarUrl="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/NewProfilePic.webp"
             avatarUrl="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_MyProfilePicture.png"
