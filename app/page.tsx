@@ -166,6 +166,8 @@ export default function Home() {
             className="w-full max-w-full"
             style={{ minHeight: "90px" }}
             isFlashMock={true}
+            utmMedium="homepage_leaderboard_banner"
+            utmCampaign="september_5th_signup"
           />
         </div>
 

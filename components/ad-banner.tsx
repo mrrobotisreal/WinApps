@@ -11,6 +11,8 @@ interface AdBannerProps {
   adPosition: string;
   style?: React.CSSProperties;
   isFlashMock?: boolean;
+  utmMedium?: string;
+  utmCampaign?: string;
 }
 
 declare global {
@@ -26,6 +28,8 @@ const AdBanner: React.FC<AdBannerProps> = ({
   adPosition,
   style = {},
   isFlashMock = false,
+  utmMedium = "homepage_leaderboard_banner",
+  utmCampaign = "september_5th_signup",
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
@@ -153,7 +157,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
           onClick={() => {
             trackAdInteraction("flashmock_banner", adPosition, "click");
             window.open(
-              "https://www.flashmock.com/auth?referral_code=MITCHELLWINTROW4331",
+              `https://www.flashmock.com/auth?referral_code=MITCHELLWINTROW4331&utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
               "_blank"
             );
           }}

@@ -49,6 +49,8 @@ export default function FlashMockPage() {
             className="w-full max-w-full"
             style={{ minHeight: "90px" }}
             isFlashMock={true}
+            utmMedium="portfolio_flashmock_leaderboard_banner"
+            utmCampaign="september_5th_signup"
           />
         </div>
 
