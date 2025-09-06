@@ -167,7 +167,7 @@ export default function Home() {
             style={{ minHeight: "90px" }}
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
-            utmCampaign="september_5th_signup"
+            utmCampaign="subscribe_to_the_dreamy_man_on_youtube"
           />
         </div>
 

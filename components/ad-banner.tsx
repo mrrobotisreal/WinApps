@@ -29,7 +29,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   style = {},
   isFlashMock = false,
   utmMedium = "homepage_leaderboard_banner",
-  utmCampaign = "september_5th_signup",
+  utmCampaign = "subscribe_to_the_dreamy_man_on_youtube",
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
@@ -157,14 +157,14 @@ const AdBanner: React.FC<AdBannerProps> = ({
           onClick={() => {
             trackAdInteraction("flashmock_banner", adPosition, "click");
             window.open(
-              `https://www.flashmock.com/auth?referral_code=MITCHELLWINTROW4331&utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
+              `https://www.youtube.com/@TheDreamyManOfficial?utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
               "_blank"
             );
           }}
         >
           <Image
-            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMock_LeaderboardAd_Video.gif"
-            alt="Join FlashMock by September 5th and get 5 FREE mock interviews!"
+            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/DreamyManLeaderboardAd.gif"
+            alt="Come subscribe to The Dreamy Man on YouTube!"
             width={728}
             height={90}
             className="justify-center cursor-pointer"
