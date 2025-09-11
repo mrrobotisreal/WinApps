@@ -13,6 +13,7 @@ interface AdBannerProps {
   isFlashMock?: boolean;
   utmMedium?: string;
   utmCampaign?: string;
+  linkURL?: string;
 }
 
 declare global {
@@ -30,6 +31,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   isFlashMock = false,
   utmMedium = "homepage_leaderboard_banner",
   utmCampaign = "charlie_kirk_memorial_givesendgo",
+  linkURL,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
@@ -161,7 +163,11 @@ const AdBanner: React.FC<AdBannerProps> = ({
               "click"
             );
             window.open(
-              `https://www.givesendgo.com/UVU-Charlie-Kirk?utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
+              `${
+                linkURL
+                  ? linkURL
+                  : "https://www.givesendgo.com/UVU-Charlie-Kirk"
+              }?utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
               "_blank"
             );
           }}

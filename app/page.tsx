@@ -168,6 +168,7 @@ export default function Home() {
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
             utmCampaign="charlie_kirk_memorial_givesendgo"
+            linkURL="https://www.givesendgo.com/UVU-Charlie-Kirk"
           />
         </div>
 
@@ -2044,6 +2045,10 @@ export default function Home() {
             adPosition="footer"
             className="w-full max-w-6xl"
             style={{ minHeight: "90px" }}
+            isFlashMock={true}
+            utmMedium="homepage_leaderboard_banner"
+            utmCampaign="charlie_kirk_memorial_givesendgo"
+            linkURL="https://www.givesendgo.com/UVU-Charlie-Kirk"
           />
         </div>
       </div>
