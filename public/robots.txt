@@ -7,7 +7,7 @@ Sitemap: https://www.winapps.io/sitemap.xml
 # Allow crawling of main assets
 Allow: /fonts/
 Allow: /images/
-Allow: /WinApps_Logo_Medium.webp
+Allow: /WinApps_Icon.webp
 Allow: /MitchellWintrow_Resume.docx
 Allow: /MitchellWintrow_Resume.pdf
 Allow: /*.css

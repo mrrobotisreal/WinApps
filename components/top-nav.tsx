@@ -121,14 +121,14 @@ export default function TopNav() {
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
           <Image
-            src="/WinApps_Logo_Medium.webp"
+            src="/WinApps_Icon.webp"
             alt="WinApps Logo"
             className="hidden dark:block"
             width={56}
             height={56}
           />
           <Image
-            src="/WinApps_Logo_Medium.webp"
+            src="/WinApps_Icon.webp"
             alt="WinApps Logo"
             className="block dark:hidden"
             width={56}
@@ -155,7 +155,7 @@ export default function TopNav() {
                         href="/projects"
                       >
                         <Image
-                          src="/WinApps_Logo_Medium.webp"
+                          src="/WinApps_Icon.webp"
                           alt="WinApps Logo"
                           className="block"
                           width={96}

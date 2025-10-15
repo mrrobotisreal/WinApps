@@ -105,7 +105,7 @@ const portfolioItems: PortfolioItem[] = [
       "Various mobile apps, web applications, and open source contributions.",
     href: "/projects",
     imageSrc:
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_ProjectsBanner.webp",
+      "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/NEW_WinApps_ProjectsBanner.webp",
     imageAlt: "Personal Projects",
     slug: "personal-projects",
     type: "project",
