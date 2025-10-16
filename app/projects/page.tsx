@@ -37,6 +37,41 @@ export default function ProjectsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex justify-center">
+                Finance Flow
+              </CardTitle>
+              <Separator />
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/finance-flow-banner.png"
+                    alt="Finance Flow"
+                    width={1500}
+                    height={300}
+                    className="rounded-md"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  A web app for tracking your finances, investments, stocks, and
+                  getting personalized AI insights into your spending and saving
+                  habits as well as how the stock market is performing including
+                  how your portfolio is doing and personalized stock
+                  recommendations.
+                </p>
+                <Link
+                  href="/projects/finance-flow"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline justify-end items-end flex mt-2"
+                >
+                  View Project Page →
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex justify-center">
                 MP3 Drive Player
               </CardTitle>
               <Separator />
