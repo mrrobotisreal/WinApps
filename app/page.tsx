@@ -167,8 +167,8 @@ export default function Home() {
             style={{ minHeight: "90px" }}
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
-            utmCampaign="charlie_kirk_memorial_givesendgo"
-            linkURL="https://www.givesendgo.com/UVU-Charlie-Kirk"
+            utmCampaign="october_31st_signup"
+            linkURL="https://www.flashmock.com/auth"
           />
         </div>
 
@@ -2047,8 +2047,8 @@ export default function Home() {
             style={{ minHeight: "90px" }}
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
-            utmCampaign="charlie_kirk_memorial_givesendgo"
-            linkURL="https://www.givesendgo.com/UVU-Charlie-Kirk"
+            utmCampaign="october_31st_signup"
+            linkURL="https://www.flashmock.com/auth"
           />
         </div>
       </div>

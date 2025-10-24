@@ -30,7 +30,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   style = {},
   isFlashMock = false,
   utmMedium = "homepage_leaderboard_banner",
-  utmCampaign = "charlie_kirk_memorial_givesendgo",
+  utmCampaign = "october_31st_signup",
   linkURL,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
@@ -164,17 +164,15 @@ const AdBanner: React.FC<AdBannerProps> = ({
             );
             window.open(
               `${
-                linkURL
-                  ? linkURL
-                  : "https://www.givesendgo.com/UVU-Charlie-Kirk"
-              }?utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
+                linkURL ? linkURL : "https://www.flashmock.com/auth"
+              }?referral_code=MITCHELLWINTROW4331&utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
               "_blank"
             );
           }}
         >
           <Image
-            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/CharlieKirkMemorialAd.gif"
-            alt="Let's donate to the Charlie Kirk Memorial fund to forever remember his life and legacy!"
+            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/New_FlashMock_LeaderboardAd_Video.gif"
+            alt="Join FlashMock by October 31st to get 5 free mock interviews!"
             width={728}
             height={90}
             className="justify-center cursor-pointer"
