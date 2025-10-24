@@ -190,7 +190,7 @@ export default function Home() {
           {/* Intro Video */}
           <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
             <video
-              src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/NewIntroVideo_720p.mp4"
+              src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/NewestIntroVideo_720.mp4"
               autoPlay
               muted
               playsInline
