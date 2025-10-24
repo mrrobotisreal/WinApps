@@ -173,7 +173,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
           <Image
             src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMock_Large_LeaderboardAd_Video.gif"
             alt="Join FlashMock by October 31st to get 5 free mock interviews!"
-            width={728}
+            width={970}
             height={90}
             className="justify-center cursor-pointer"
           />
