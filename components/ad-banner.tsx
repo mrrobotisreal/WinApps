@@ -30,7 +30,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   style = {},
   isFlashMock = false,
   utmMedium = "homepage_leaderboard_banner",
-  utmCampaign = "october_31st_signup",
+  utmCampaign = "creatv_launch_promo",
   linkURL,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
@@ -158,22 +158,22 @@ const AdBanner: React.FC<AdBannerProps> = ({
           }}
           onClick={() => {
             trackAdInteraction(
-              "charlie_kirk_memorial_banner",
+              "creatv_leaderboard_banner",
               adPosition,
               "click"
             );
             window.open(
               `${
-                linkURL ? linkURL : "https://www.flashmock.com/auth"
+                linkURL ? linkURL : "https://www.creatv.io/auth"
               }?referral_code=MITCHELLWINTROW4331&utm_source=WinApps.io&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`,
               "_blank"
             );
           }}
         >
           <Image
-            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMock_Large_LeaderboardAd_Video.gif"
-            alt="Join FlashMock by October 31st to get 5 free mock interviews!"
-            width={970}
+            src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/CreaTV_VideoAd_Leaderboard.gif"
+            alt="Come check out CreaTV! Where ideas are brought to life."
+            width={728}
             height={90}
             className="justify-center cursor-pointer"
           />

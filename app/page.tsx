@@ -167,8 +167,8 @@ export default function Home() {
             style={{ minHeight: "90px" }}
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
-            utmCampaign="october_31st_signup"
-            linkURL="https://www.flashmock.com/auth"
+            utmCampaign="creatv_launch_promo"
+            linkURL="https://www.creatv.io/auth"
           />
         </div>
 
@@ -342,6 +342,10 @@ export default function Home() {
             adPosition="mobile_content_top"
             className="w-full max-w-md"
             style={{ minHeight: "250px" }}
+            isFlashMock={true}
+            utmMedium="homepage_leaderboard_banner"
+            utmCampaign="creatv_launch_promo"
+            linkURL="https://www.creatv.io/auth"
           />
         </div>
 
@@ -352,6 +356,10 @@ export default function Home() {
             adPosition="sidebar_main"
             className="w-full h-full"
             style={{ minHeight: "400px" }}
+            isFlashMock={true}
+            utmMedium="homepage_leaderboard_banner"
+            utmCampaign="creatv_launch_promo"
+            linkURL="https://www.creatv.io/auth"
           />
         </div>
 
@@ -1028,6 +1036,10 @@ export default function Home() {
               adPosition="content_middle"
               className="w-full h-full"
               style={{ minHeight: "400px" }}
+              isFlashMock={true}
+              utmMedium="homepage_leaderboard_banner"
+              utmCampaign="creatv_launch_promo"
+              linkURL="https://www.creatv.io/auth"
             />
           </div>
 
@@ -2047,8 +2059,8 @@ export default function Home() {
             style={{ minHeight: "90px" }}
             isFlashMock={true}
             utmMedium="homepage_leaderboard_banner"
-            utmCampaign="october_31st_signup"
-            linkURL="https://www.flashmock.com/auth"
+            utmCampaign="creatv_launch_promo"
+            linkURL="https://www.creatv.io/auth"
           />
         </div>
       </div>
