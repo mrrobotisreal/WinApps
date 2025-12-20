@@ -439,7 +439,7 @@ export default function Home() {
                     </HoverCardContent>
                   </HoverCard>
                 </li>
-                <li>
+                {/* <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
@@ -499,7 +499,7 @@ export default function Home() {
                       </div>
                     </HoverCardContent>
                   </HoverCard>
-                </li>
+                </li> */}
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>

@@ -46,20 +46,20 @@ const portfolioItems: PortfolioItem[] = [
     role: "Senior Software Engineer",
     isCurrent: true,
   },
-  {
-    title: "FlashMock",
-    description:
-      "Lead Senior Frontend and Mobile Software Engineer at FlashMock.",
-    href: "/portfolio/flashmock",
-    imageSrc:
-      "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMockLogoGradient_White.png",
-    imageAlt: "FlashMock",
-    slug: "flashmock",
-    type: "portfolio",
-    timeframe: "May 2025 - Present",
-    role: "Lead Senior Frontend and Mobile Software Engineer",
-    isCurrent: true,
-  },
+  // {
+  //   title: "FlashMock",
+  //   description:
+  //     "Lead Senior Frontend and Mobile Software Engineer at FlashMock.",
+  //   href: "/portfolio/flashmock",
+  //   imageSrc:
+  //     "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMockLogoGradient_White.png",
+  //   imageAlt: "FlashMock",
+  //   slug: "flashmock",
+  //   type: "portfolio",
+  //   timeframe: "May 2025 - Present",
+  //   role: "Lead Senior Frontend and Mobile Software Engineer",
+  //   isCurrent: true,
+  // },
   {
     title: "Double Raven Solutions LLC",
     description: "Frontend Software Engineer at Double Raven Solutions LLC.",
