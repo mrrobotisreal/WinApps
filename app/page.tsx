@@ -383,6 +383,59 @@ export default function Home() {
                   <HoverCard>
                     <HoverCardTrigger asChild>
                       <Link
+                        href="/projects/creatv"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("CreaTV", "project");
+                          trackButtonClick(
+                            "projects_link",
+                            "internal_link",
+                            "CreaTV"
+                          );
+                        }}
+                        onMouseEnter={() =>
+                          handleHoverCardView("CreaTV", "projects")
+                        }
+                      >
+                        CreaTV{" "}
+                        <span className="text-xs font-normal italic">
+                          (Current)
+                        </span>
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="/WinApps_Icon.webp"
+                            alt="CreaTV Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">CreaTV</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            It&apos;s like YouTube, but with a creator-driven
+                            focus, better monetization, and an amazing UI/UX
+                            that outshines Rumble.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Vite, TypeScript, Tailwind, Supabase, Stripe,
+                            Postgres, Redis, RabbitMQ, HLS/DASH, FFmpeg, Go, and
+                            more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
                         href="/portfolio/people-inc"
                         className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
                         onClick={() => {
@@ -748,6 +801,59 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
+                <li>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href="/projects/creatv"
+                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
+                        onClick={() => {
+                          handleProjectClick("CreaTV", "project");
+                          trackButtonClick(
+                            "projects_link",
+                            "internal_link",
+                            "CreaTV"
+                          );
+                        }}
+                        onMouseEnter={() =>
+                          handleHoverCardView("CreaTV", "projects")
+                        }
+                      >
+                        CreaTV{" "}
+                        <span className="text-xs font-normal italic">
+                          (Current)
+                        </span>
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent>
+                      <div className="flex justify-between gap-4">
+                        <div className="h-48 w-48">
+                          <Image
+                            src="/WinApps_Icon.webp"
+                            alt="CreaTV Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className="text-sm font-semibold">CreaTV</h4>
+                          <Separator />
+                          <p className="text-sm">
+                            It&apos;s like YouTube, but with a creator-driven
+                            focus, better monetization, and an amazing UI/UX
+                            that outshines Rumble.
+                          </p>
+                          <div className="text-muted-foreground text-xs">
+                            Vite, TypeScript, Tailwind, Supabase, Stripe,
+                            Postgres, Redis, RabbitMQ, HLS/DASH, FFmpeg, Go, and
+                            more.
+                          </div>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </li>
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>

@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,6 +35,43 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex justify-center">CreaTV</CardTitle>
+              <Separator />
+            </CardHeader>
+            <CardContent className="flex flex-col gap-2 h-full">
+              <div className="flex justify-center w-full">
+                <Image
+                  src="https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/CreaTV_WinAppsProjectCard.png"
+                  alt="CreaTV"
+                  width={1500}
+                  height={300}
+                  className="rounded-md"
+                />
+              </div>
+              <p className="text-muted-foreground flex-1">
+                It&apos;s like YouTube, but with a content creator driven focus,
+                much better creator monetization, and an amazing UI/UX
+                that&apos;s much better than Rumble.
+              </p>
+              <div className="flex items-center justify-between mt-2">
+                <Badge
+                  variant="outline"
+                  className="bg-success-gradient text-white font-bold px-3 rounded-md"
+                >
+                  Current
+                </Badge>
+                <Link
+                  href="/projects/creatv"
+                  className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline flex items-center"
+                >
+                  View Project Page →
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle className="flex justify-center">
