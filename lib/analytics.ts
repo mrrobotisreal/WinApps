@@ -425,3 +425,72 @@ export const trackSocialClick = (
     });
   }
 };
+
+// Track redirect engagement for album links (page load, CTA click, auto redirect)
+export const trackRedirects = (params: {
+  albumName: string;
+  albumSlug: string;
+  redirectUrl: string;
+  action: "view_start" | "cta_click" | "auto_redirect";
+  countdownRemaining?: number;
+  extra?: Record<string, string | number | boolean | null | undefined>;
+}) => {
+  if (typeof window === "undefined") return;
+
+  const visitKey = `redirect_album_${params.albumSlug}`;
+  const lastVisit = window.localStorage.getItem(visitKey);
+  const isReturning = Boolean(lastVisit);
+  window.localStorage.setItem(visitKey, new Date().toISOString());
+
+  const currentUrl = new URL(window.location.href);
+  const referrer = document.referrer || "direct";
+
+  type NetworkInfo = {
+    effectiveType?: string;
+    downlink?: number;
+  };
+
+  const networkInfo = (navigator as Navigator & { connection?: NetworkInfo })
+    .connection;
+  const deviceMemory = (navigator as Navigator & { deviceMemory?: number })
+    .deviceMemory;
+
+  const payload = {
+    album_name: params.albumName,
+    album_slug: params.albumSlug,
+    redirect_url: params.redirectUrl,
+    action: params.action,
+    countdown_remaining: params.countdownRemaining ?? null,
+    is_returning: isReturning,
+    referrer,
+    page_path: window.location.pathname,
+    page_search: window.location.search,
+    page_hash: window.location.hash,
+    page_location: window.location.href,
+    utm_source: currentUrl.searchParams.get("utm_source") || "unknown",
+    utm_medium: currentUrl.searchParams.get("utm_medium") || "unknown",
+    utm_campaign: currentUrl.searchParams.get("utm_campaign") || "unknown",
+    utm_content: currentUrl.searchParams.get("utm_content") || "unknown",
+    utm_term: currentUrl.searchParams.get("utm_term") || "unknown",
+    share_code: currentUrl.searchParams.get("share") || null,
+    user_agent: navigator.userAgent,
+    language: navigator.language,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    screen_resolution: `${screen.width}x${screen.height}`,
+    viewport_size: `${window.innerWidth}x${window.innerHeight}`,
+    connection_type: networkInfo?.effectiveType || null,
+    connection_downlink: networkInfo?.downlink ?? null,
+    device_memory: deviceMemory ?? null,
+    hardware_concurrency: navigator.hardwareConcurrency ?? null,
+    timestamp: new Date().toISOString(),
+    ...params.extra,
+  };
+
+  if (analytics) {
+    logEvent(analytics, "redirect_track", payload);
+  }
+
+  if (isPostHogAvailable()) {
+    posthog.capture("redirect_track", payload);
+  }
+};

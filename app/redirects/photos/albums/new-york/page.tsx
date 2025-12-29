@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import { trackRedirects } from "@/lib/analytics";
 
 const REDIRECT_URL = "https://photos.app.goo.gl/1CHWjNXHvTGEbXoA9";
+const ALBUM_NAME = "New York";
+const ALBUM_SLUG = "new-york";
 
 export default function NewYorkRedirectPage() {
   const [isPreparingRedirect, setIsPreparingRedirect] = useState(true);
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(25);
 
   useEffect(() => {
     // Small pause to show the preparing state before the countdown begins
@@ -20,6 +23,15 @@ export default function NewYorkRedirectPage() {
   }, []);
 
   useEffect(() => {
+    trackRedirects({
+      albumName: ALBUM_NAME,
+      albumSlug: ALBUM_SLUG,
+      redirectUrl: REDIRECT_URL,
+      action: "view_start",
+    });
+  }, []);
+
+  useEffect(() => {
     let timer: NodeJS.Timeout;
 
     if (!isPreparingRedirect && countdown > 0) {
@@ -27,11 +39,29 @@ export default function NewYorkRedirectPage() {
         setCountdown((prev) => prev - 1);
       }, 1000);
     } else if (!isPreparingRedirect && countdown === 0) {
+      trackRedirects({
+        albumName: ALBUM_NAME,
+        albumSlug: ALBUM_SLUG,
+        redirectUrl: REDIRECT_URL,
+        action: "auto_redirect",
+        countdownRemaining: countdown,
+      });
       window.location.href = REDIRECT_URL;
     }
 
     return () => clearTimeout(timer);
   }, [isPreparingRedirect, countdown]);
+
+  const handleImmediateRedirect = () => {
+    trackRedirects({
+      albumName: ALBUM_NAME,
+      albumSlug: ALBUM_SLUG,
+      redirectUrl: REDIRECT_URL,
+      action: "cta_click",
+      countdownRemaining: countdown,
+    });
+    window.location.href = REDIRECT_URL;
+  };
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 py-10">
@@ -74,7 +104,7 @@ export default function NewYorkRedirectPage() {
           </span>
           <span className="bg-gradient-to-b dark:from-white dark:to-gray-400 from-gray-400 to-black bg-clip-text text-transparent">
             {" "}
-            ablum in Mitch&apos;s Google Photos
+            album in Mitch&apos;s Google Photos
           </span>
         </h1>
 
@@ -99,6 +129,13 @@ export default function NewYorkRedirectPage() {
             </span>
           </div>
         )}
+
+        <button
+          onClick={handleImmediateRedirect}
+          className="mt-8 inline-flex w-full justify-center rounded-lg bg-gradient-to-br from-emerald-300 to-emerald-600 border border-amber-300 px-6 py-3 text-lg font-bold text-white shadow-lg shadow-emerald-900/30 transition hover:scale-[1.02] hover:shadow-emerald-800/40 focus:outline-none focus:ring-2 focus:ring-amber-300/60 cursor-pointer"
+        >
+          View Now
+        </button>
       </div>
     </div>
   );
