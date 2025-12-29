@@ -11,7 +11,7 @@ const ALBUM_SLUG = "new-york";
 
 export default function NewYorkRedirectPage() {
   const [isPreparingRedirect, setIsPreparingRedirect] = useState(true);
-  const [countdown, setCountdown] = useState(25);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     // Small pause to show the preparing state before the countdown begins

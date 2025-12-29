@@ -11,7 +11,7 @@ const ALBUM_SLUG = "gabe-christmas-concert-2025";
 
 export default function GabeChristmasConcertRedirectPage() {
   const [isPreparingRedirect, setIsPreparingRedirect] = useState(true);
-  const [countdown, setCountdown] = useState(25);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     // Small pause to show the preparing state before the countdown begins
