@@ -173,14 +173,14 @@ export default function TopNav() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/projects/journey-app"
+                        href="/projects/creatv"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">
-                          Journey App
+                          CreaTV
                         </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customized journaling app for iOS|Android|Web.
+                          Content creator driven video platform.
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -425,14 +425,14 @@ export default function TopNav() {
                         </p>
                       </Link>
                       <Link
-                        href="/projects/journey-app"
+                        href="/projects/creatv"
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       >
                         <div className="text-sm font-medium leading-none">
-                          Journey App
+                          CreaTV
                         </div>
                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                          Customized journaling app for iOS|Android|Web.
+                          Content creator driven video platform.
                         </p>
                       </Link>
                       <Link
