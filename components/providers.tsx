@@ -3,6 +3,7 @@
 import { PostHogProvider } from "posthog-js/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/components/theme-provider";
+import { WinnyAssistant } from "@/components/assistant/winny-assistant";
 import { Toaster } from "@/components/ui/sonner";
 import { useState } from "react";
 
@@ -68,6 +69,7 @@ export function Providers({ children }: ProvidersProps) {
           disableTransitionOnChange
         >
           {children}
+          <WinnyAssistant />
           <Toaster
             position="top-right"
             expand={true}
