@@ -10,7 +10,7 @@ interface AdBannerProps {
   className?: string;
   adPosition: string;
   style?: React.CSSProperties;
-  isFlashMock?: boolean;
+  showCreaTVPromo?: boolean;
   utmMedium?: string;
   utmCampaign?: string;
   linkURL?: string;
@@ -28,18 +28,16 @@ const AdBanner: React.FC<AdBannerProps> = ({
   className = "",
   adPosition,
   style = {},
-  isFlashMock = false,
+  showCreaTVPromo = false,
   utmMedium = "homepage_leaderboard_banner",
   utmCampaign = "creatv_launch_promo",
   linkURL,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
-  const [adError, setAdError] = useState(false);
-  const [showAd, setShowAd] = useState(false);
 
   useEffect(() => {
-    if (isFlashMock) return;
+    if (showCreaTVPromo) return;
 
     const loadAd = async () => {
       try {
@@ -57,7 +55,6 @@ const AdBanner: React.FC<AdBannerProps> = ({
           }
 
           if (!window.adsbygoogle) {
-            setAdError(true);
             return;
           }
 
@@ -78,26 +75,17 @@ const AdBanner: React.FC<AdBannerProps> = ({
 
                   if (adHeight > 0 && adWidth > 0) {
                     setAdLoaded(true);
-                    setShowAd(true);
                     trackAdInteraction("adsense_banner", adPosition, "view");
-                  } else {
-                    setAdError(true);
                   }
-                } else {
-                  setAdError(true);
                 }
-              } else {
-                setAdError(true);
               }
             }, 2000);
           } catch (error) {
             console.error("AdSense push error:", error);
-            setAdError(true);
           }
         }
       } catch (error) {
         console.error("AdSense error:", error);
-        setAdError(true);
       }
     };
 
@@ -107,12 +95,8 @@ const AdBanner: React.FC<AdBannerProps> = ({
     ) {
       const timer = setTimeout(loadAd, 100);
       return () => clearTimeout(timer);
-    } else {
-      setAdError(true);
     }
-  }, [adPosition, adSlot, isFlashMock]);
-
-  console.log("isFlashMock", isFlashMock);
+  }, [adPosition, adSlot, showCreaTVPromo]);
 
   // if (
   //   // process.env.NEXT_PUBLIC_NODE_ENV === "development" ||
@@ -124,14 +108,11 @@ const AdBanner: React.FC<AdBannerProps> = ({
   //   return null;
   // }
 
-  console.log("adError", adError);
-  console.log("showAd", showAd);
-
   return (
     <div
       className={`ad-container flex justify-center items-center ${className}`}
     >
-      {!isFlashMock && (
+      {!showCreaTVPromo && (
         <ins
           ref={adRef}
           className="adsbygoogle block w-full max-w-full"
@@ -150,7 +131,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
           }
         />
       )}
-      {isFlashMock && (
+      {showCreaTVPromo && (
         <div
           className="flex justify-center items-center w-full max-w-full"
           style={{

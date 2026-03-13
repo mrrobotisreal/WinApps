@@ -31,7 +31,7 @@ const WINNY_API_BASE =
   process.env.NEXT_PUBLIC_WINNY_API_URL || "https://winny-ai.winapps.dev";
 
 const WINNY_WELCOME =
-  "Hi! I'm Winny. Ask me about anything on WinApps.io, Mitch's portfolio, project pages, product pages, blog content, downloads, or contact info.";
+  "Hi! I'm Winny. Ask me about WinApps.io, Mitch, CreaTV, Mirror, this page, or any project, download, blog, or contact info on the site. I can answer in multiple languages too!";
 
 function createMessage(role: ChatRole, content: string): ChatMessage {
   return {
@@ -70,7 +70,9 @@ export function WinnyAssistant() {
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [model, setModel] = useState("deepseek-r1:8b-llama-distill-q8_0");
-  const [thinkingMessageId, setThinkingMessageId] = useState<string | null>(null);
+  const [thinkingMessageId, setThinkingMessageId] = useState<string | null>(
+    null,
+  );
   const [thinkingDots, setThinkingDots] = useState(1);
 
   const abortRef = useRef<AbortController | null>(null);
@@ -78,8 +80,9 @@ export function WinnyAssistant() {
   const thinkingStartedAtRef = useRef<number | null>(null);
 
   const hintText = useMemo(
-    () => "Tab-only memory. It survives page navigation, but disappears when you leave the site.",
-    []
+    () =>
+      "Tab-only memory. It survives page navigation, and Winny can answer site questions in multiple languages.",
+    [],
   );
 
   useEffect(() => {
@@ -174,15 +177,13 @@ export function WinnyAssistant() {
 
     thinkingStartedAtRef.current = null;
     const elapsed = Date.now() - startedAt;
-    setThinkingMessageId((current) =>
-      current === messageId ? null : current
-    );
+    setThinkingMessageId((current) => (current === messageId ? null : current));
     setMessages((chatMessages) =>
       chatMessages.map((message) =>
         message.id === messageId && message.thoughtDurationMs === undefined
           ? { ...message, thoughtDurationMs: elapsed }
-          : message
-      )
+          : message,
+      ),
     );
     setThinkingDots(1);
   };
@@ -226,6 +227,8 @@ export function WinnyAssistant() {
           pageUrl: window.location.href,
           pageTitle: document.title,
           pagePath: pathname || "/",
+          browserLanguage:
+            typeof navigator !== "undefined" ? navigator.language : undefined,
         }),
       });
 
@@ -246,8 +249,8 @@ export function WinnyAssistant() {
           current.map((message) =>
             message.id === assistantMessage.id
               ? { ...message, content: message.content + chunk }
-              : message
-          )
+              : message,
+          ),
         );
       };
 
@@ -296,8 +299,8 @@ export function WinnyAssistant() {
                 content:
                   "I couldn't squeeze a useful answer out of the model that time. Please try asking that a slightly different way.",
               }
-            : message
-        )
+            : message,
+        ),
       );
     } catch (err) {
       if ((err as Error).name === "AbortError") {
@@ -321,8 +324,8 @@ export function WinnyAssistant() {
                   chatMessage.content ||
                   "Something went wrong while I was trying to answer that. Please try again in a moment.",
               }
-            : chatMessage
-        )
+            : chatMessage,
+        ),
       );
     } finally {
       if (!controller.signal.aborted) {
@@ -340,7 +343,7 @@ export function WinnyAssistant() {
           "fixed right-3 bottom-24 z-[70] w-[calc(100vw-1.5rem)] max-w-sm transition-all duration-200 sm:right-6 sm:w-[24rem]",
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none translate-y-4 opacity-0"
+            : "pointer-events-none translate-y-4 opacity-0",
         )}
       >
         <div className="overflow-hidden rounded-3xl border bg-background/95 shadow-2xl backdrop-blur supports-[backdrop-filter]:bg-background/85">
@@ -358,7 +361,7 @@ export function WinnyAssistant() {
                     </span>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Ask about anything on WinApps.io.
+                    Ask about WinApps.io, Mitch, CreaTV, Mirror, or this page.
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">
                     Model: {model}
@@ -392,7 +395,7 @@ export function WinnyAssistant() {
                   "max-w-[90%] rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm",
                   message.role === "user"
                     ? "ml-auto bg-primary text-primary-foreground"
-                    : "bg-muted text-foreground"
+                    : "bg-muted text-foreground",
                 )}
               >
                 <p className="mb-1 text-[11px] font-medium uppercase tracking-wide opacity-70">
@@ -410,7 +413,8 @@ export function WinnyAssistant() {
                 {message.role === "assistant" &&
                 message.thoughtDurationMs !== undefined ? (
                   <p className="mb-2 text-[11px] font-medium opacity-70">
-                    Thought for {formatThoughtDuration(message.thoughtDurationMs)}
+                    Thought for{" "}
+                    {formatThoughtDuration(message.thoughtDurationMs)}
                   </p>
                 ) : null}
 
@@ -447,7 +451,7 @@ export function WinnyAssistant() {
                 }
               }}
               rows={3}
-              placeholder="Ask Winny about this website..."
+              placeholder="Ask Winny about this site, Mitch, CreaTV, or Mirror..."
               className="min-h-24 resize-none"
             />
 

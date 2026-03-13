@@ -31,11 +31,27 @@ interface PortfolioItem {
   isCurrent: boolean;
 }
 
+const MIRROR_BANNER_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="300" viewBox="0 0 1500 300" fill="none">
+    <defs>
+      <linearGradient id="mirror-bg" x1="0" y1="0" x2="1500" y2="300" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#fb923c" />
+        <stop offset="1" stop-color="#9333ea" />
+      </linearGradient>
+    </defs>
+    <rect width="1500" height="300" rx="28" fill="url(#mirror-bg)" />
+    <circle cx="1210" cy="78" r="120" fill="white" fill-opacity="0.08" />
+    <circle cx="1330" cy="214" r="164" fill="white" fill-opacity="0.06" />
+    <text x="92" y="138" fill="white" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="700">Mirror Inc.</text>
+    <text x="92" y="202" fill="white" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">AI interviews for teams and candidates</text>
+  </svg>`
+)}`;
+
 const portfolioItems: PortfolioItem[] = [
   {
     title: "People Inc.",
     description:
-      "Senior Software Engineer at People Inc. (formerly known as Dotdash Meredith).",
+      "Senior Software Engineer on the mobile app ad revenue team at People Inc.",
     href: "/portfolio/people-inc",
     imageSrc:
       "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/WinApps_PeopleIncBanner.webp",
@@ -46,20 +62,19 @@ const portfolioItems: PortfolioItem[] = [
     role: "Senior Software Engineer",
     isCurrent: true,
   },
-  // {
-  //   title: "FlashMock",
-  //   description:
-  //     "Lead Senior Frontend and Mobile Software Engineer at FlashMock.",
-  //   href: "/portfolio/flashmock",
-  //   imageSrc:
-  //     "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/FlashMockLogoGradient_White.png",
-  //   imageAlt: "FlashMock",
-  //   slug: "flashmock",
-  //   type: "portfolio",
-  //   timeframe: "May 2025 - Present",
-  //   role: "Lead Senior Frontend and Mobile Software Engineer",
-  //   isCurrent: true,
-  // },
+  {
+    title: "Mirror Inc.",
+    description:
+      "Lead Senior Software Engineer & Founding Engineer at Mirror Inc., an AI interview platform for businesses and candidates.",
+    href: "/portfolio/mirror",
+    imageSrc: MIRROR_BANNER_SVG,
+    imageAlt: "Mirror Inc. banner",
+    slug: "mirror",
+    type: "portfolio",
+    timeframe: "May 2025 - Present",
+    role: "Lead Senior Software Engineer & Founding Engineer",
+    isCurrent: true,
+  },
   {
     title: "Double Raven Solutions LLC",
     description: "Frontend Software Engineer at Double Raven Solutions LLC.",
@@ -247,6 +262,7 @@ export default function PortfolioPage() {
                       alt={item.imageAlt}
                       width={1500}
                       height={300}
+                      unoptimized={item.imageSrc.startsWith("data:")}
                       className="rounded-md cursor-pointer transition-transform duration-200 hover:scale-105"
                       onLoad={() => handlePortfolioImageLoad(item)}
                       onClick={() => handlePortfolioItemClick(item)}

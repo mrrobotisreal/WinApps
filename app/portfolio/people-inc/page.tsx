@@ -84,18 +84,13 @@ export default function PeopleIncPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">
-                    🚧 Coming Soon... 🚧
-                  </h2>
-                </div>
-
-                {/* Responsibilities */}
-                {/* <div>
-                  <h2 className="text-2xl font-bold mb-4">Responsibilities</h2>
-                  <p className="text-muted-foreground mb-4">
-                    Some of my responsibilities as a Lead Senior Frontend and Mobile Software Engineer at FlashMock include:
+                  <h2 className="text-2xl font-bold mb-4">Current Focus</h2>
+                  <p className="text-muted-foreground">
+                    I currently work on the mobile app ad revenue team at People
+                    Inc., helping build ad revenue systems and related mobile
+                    platform experiences for the People app.
                   </p>
-                </div> */}
+                </div>
               </CardContent>
             </Card>
           </div>

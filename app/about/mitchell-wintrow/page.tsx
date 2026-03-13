@@ -122,12 +122,19 @@ export default function AboutPage() {
               }
             />
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Senior Software Engineer passionate about creating innovative
-              mobile apps, web applications, and cloud solutions. With
-              experience at major tech companies and startups alike, as well as
-              a drive for continuous learning, I specialize in front-end and
-              mobile app development using modern technologies and I also
-              specialize in building distributed backend services.
+              Senior Software Engineer focused on mobile, web, AI, and
+              distributed backend systems. I currently work on the mobile app ad
+              revenue team at People Inc., and outside of work my primary
+              mission is building CreaTV Ltd., a creator-first UGC video
+              platform, like YouTube but better. My very close second mission is
+              learning foreign languages including Russian, Ukrainian, Hebrew,
+              Farsi, Modern Standard Arabic, Vietnamese, Mandarin Chinese, and
+              Spanish, and building software that helps people learn faster,
+              communicate across cultures, and connect around the world.
+              I&apos;m also a Lead Senior Software Engineer & Founding Engineer
+              at Mirror Inc., an AI interview platform for businesses to conduct
+              AI interviews and for candidates to practice and improve for
+              technical interviews.
             </p>
           </div>
         </div>
@@ -153,11 +160,11 @@ export default function AboutPage() {
               <ul className="space-y-2 text-muted-foreground">
                 <li>
                   • Senior Software Engineer at People Inc. (Full-time, Aug 2025
-                  - Present)
+                  - Present) - working on the mobile app ad revenue team
                 </li>
                 <li>
-                  • Lead Senior Frontend & Mobile Software Engineer at FlashMock
-                  (Contract, May 2025 - Present)
+                  • Lead Senior Software Engineer & Founding Engineer at Mirror
+                  Inc. (Contract, May 2025 - Present)
                 </li>
                 <li>
                   • Frontend Software Engineer at Double Raven Solutions LLC
@@ -235,12 +242,15 @@ export default function AboutPage() {
                   content creator driven video platform like YouTube but better.
                 </li>
                 <li>
-                  • Media Manipulator - Image, Video, Audio editing and more web
-                  app
+                  • Mirror - AI interview platform for businesses and candidates
                 </li>
-                <li>• Voizy - Android social media app</li>
-                <li>• Journey App - iOS journaling application and website</li>
-                <li>• Various web, desktop, and mobile tools and utilities</li>
+                <li>
+                  • Media Manipulator - Image, video, and audio editing and
+                  transformation tools
+                </li>
+                <li>• Voizy - Social/mobile app</li>
+                <li>• Journey App - Journaling and reflection app</li>
+                <li>• Various web, desktop, mobile, AI, and internal tools</li>
               </ul>
             </CardContent>
           </Card>
@@ -295,8 +305,27 @@ export default function AboutPage() {
                   </a>
                 </li>
                 <li>
-                  • Passionate about language learning and I speak several
-                  languages (Русский язык, עִברִית, Tiếng Việt)
+                  • Passionate about software engineering, AI, and building
+                  systems end-to-end across product, infrastructure, and tooling
+                </li>
+                <li>
+                  • Built a custom full tower server / workstation and runs
+                  custom AI models locally, with ongoing AI server and home-lab
+                  experiments
+                </li>
+                <li>
+                  • Passionate about language learning; I speak several
+                  languages (Русский язык, עִברִית, Tiếng Việt) and I actively
+                  study several languages including Spanish, Ukrainian, Farsi,
+                  Mandarin Chinese, and Modern Standard Arabic
+                </li>
+                <li>
+                  • Loves traveling the world with my fiancée Alina, who is from
+                  Ukraine
+                </li>
+                <li>
+                  • Loves bringing a DJI Mini 4 Pro to scenic places and filming
+                  drone flyover videos
                 </li>
               </ul>
             </CardContent>

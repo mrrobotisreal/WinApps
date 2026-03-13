@@ -113,7 +113,7 @@ export default function Home() {
 
   const handleProjectClick = (
     projectName: string,
-    projectType: "portfolio" | "project" | "demo"
+    projectType: "portfolio" | "project" | "demo",
   ) => {
     trackProjectView(projectName, projectType);
   };
@@ -165,7 +165,7 @@ export default function Home() {
             adPosition="header"
             className="w-full max-w-full"
             style={{ minHeight: "90px" }}
-            isFlashMock={true}
+            showCreaTVPromo={true}
             utmMedium="homepage_leaderboard_banner"
             utmCampaign="creatv_launch_promo"
             linkURL="https://www.creatv.io/auth"
@@ -236,7 +236,7 @@ export default function Home() {
                   handleSocialClick(
                     "linkedin",
                     "https://www.linkedin.com/in/mitchell-wintrow/",
-                    "LinkedIn"
+                    "LinkedIn",
                   )
                 }
               >
@@ -253,7 +253,7 @@ export default function Home() {
                   handleSocialClick(
                     "github",
                     "https://github.com/mrrobotisreal",
-                    "GitHub"
+                    "GitHub",
                   )
                 }
               >
@@ -270,7 +270,7 @@ export default function Home() {
                   handleSocialClick(
                     "medium",
                     "https://medium.com/@90mitchwintrow",
-                    "Medium"
+                    "Medium",
                   )
                 }
               >
@@ -287,7 +287,7 @@ export default function Home() {
                   handleSocialClick(
                     "twitter",
                     "https://x.com/mitchwintrow",
-                    "Twitter"
+                    "Twitter",
                   )
                 }
               >
@@ -304,7 +304,7 @@ export default function Home() {
                   handleSocialClick(
                     "youtube",
                     "https://www.youtube.com/@mitchwintrow",
-                    "YouTube"
+                    "YouTube",
                   )
                 }
               >
@@ -321,7 +321,7 @@ export default function Home() {
                   handleSocialClick(
                     "linktree",
                     "https://linktr.ee/wintrow",
-                    "Linktree"
+                    "Linktree",
                   )
                 }
               >
@@ -342,7 +342,7 @@ export default function Home() {
             adPosition="mobile_content_top"
             className="w-full max-w-md"
             style={{ minHeight: "250px" }}
-            isFlashMock={true}
+            showCreaTVPromo={true}
             utmMedium="homepage_leaderboard_banner"
             utmCampaign="creatv_launch_promo"
             linkURL="https://www.creatv.io/auth"
@@ -356,7 +356,7 @@ export default function Home() {
             adPosition="sidebar_main"
             className="w-full h-full"
             style={{ minHeight: "400px" }}
-            isFlashMock={true}
+            showCreaTVPromo={true}
             utmMedium="homepage_leaderboard_banner"
             utmCampaign="creatv_launch_promo"
             linkURL="https://www.creatv.io/auth"
@@ -390,7 +390,7 @@ export default function Home() {
                           trackButtonClick(
                             "projects_link",
                             "internal_link",
-                            "CreaTV"
+                            "CreaTV",
                           );
                         }}
                         onMouseEnter={() =>
@@ -443,7 +443,7 @@ export default function Home() {
                           trackButtonClick(
                             "work_experience_link",
                             "internal_link",
-                            "People Inc."
+                            "People Inc.",
                           );
                         }}
                         onMouseEnter={() =>
@@ -492,67 +492,6 @@ export default function Home() {
                     </HoverCardContent>
                   </HoverCard>
                 </li>
-                {/* <li>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <Link
-                        href="/portfolio/flashmock"
-                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
-                        onClick={() => {
-                          handleProjectClick("FlashMock", "portfolio");
-                          trackButtonClick(
-                            "work_experience_link",
-                            "internal_link",
-                            "FlashMock"
-                          );
-                        }}
-                        onMouseEnter={() =>
-                          handleHoverCardView("FlashMock", "work_experience")
-                        }
-                      >
-                        FlashMock{" "}
-                        <span className="text-xs font-normal italic">
-                          (Current)
-                        </span>
-                      </Link>
-                    </HoverCardTrigger>
-                    <HoverCardContent>
-                      <div className="flex justify-between gap-4">
-                        <div className="h-48 w-48">
-                          <Image
-                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/winapps-portfolio-images-flashmock-logo.png"
-                            alt="FlashMock Logo"
-                            width={48}
-                            height={48}
-                            className="rounded-full"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <h4 className="text-sm font-semibold">
-                            FlashMock{" "}
-                            <span className="text-xs font-normal italic">
-                              (Current)
-                            </span>
-                          </h4>
-                          <Separator />
-                          <p className="text-sm">
-                            I&apos;m the lead senior frontend and mobile
-                            software engineer at FlashMock. I&apos;m responsible
-                            for the design, architecture, development, and
-                            deployment of staging and production of the frontend
-                            and mobile app. This includes landing pages,
-                            marketing pages, app features such as AI-assitant,
-                            job q&a generation, events and event registration,
-                            chat, video streaming, Stripe payments, and more.
-                          </p>
-                          <div className="text-muted-foreground text-xs">
-                            May 2025 - Present
-                          </div>
-                        </div>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                </li> */}
                 <li>
                   <HoverCard>
                     <HoverCardTrigger asChild>
@@ -562,18 +501,18 @@ export default function Home() {
                         onClick={() => {
                           handleProjectClick(
                             "Double Raven Solutions LLC",
-                            "portfolio"
+                            "portfolio",
                           );
                           trackButtonClick(
                             "work_experience_link",
                             "internal_link",
-                            "Double Raven Solutions LLC"
+                            "Double Raven Solutions LLC",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Double Raven Solutions LLC",
-                            "work_experience"
+                            "work_experience",
                           )
                         }
                       >
@@ -627,18 +566,18 @@ export default function Home() {
                         onClick={() => {
                           handleProjectClick(
                             "Amazon Connect Customer Profiles",
-                            "portfolio"
+                            "portfolio",
                           );
                           trackButtonClick(
                             "work_experience_link",
                             "internal_link",
-                            "Amazon Connect Customer Profiles"
+                            "Amazon Connect Customer Profiles",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Amazon Connect Customer Profiles",
-                            "work_experience"
+                            "work_experience",
                           )
                         }
                       >
@@ -686,7 +625,7 @@ export default function Home() {
                           trackButtonClick(
                             "work_experience_link",
                             "internal_link",
-                            "VMware"
+                            "VMware",
                           );
                         }}
                         onMouseEnter={() =>
@@ -734,18 +673,18 @@ export default function Home() {
                         onClick={() => {
                           handleProjectClick(
                             "Double Raven Solutions LLC",
-                            "portfolio"
+                            "portfolio",
                           );
                           trackButtonClick(
                             "work_experience_link",
                             "internal_link",
-                            "Double Raven Solutions LLC"
+                            "Double Raven Solutions LLC",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Double Raven Solutions LLC",
-                            "work_experience"
+                            "work_experience",
                           )
                         }
                       >
@@ -812,7 +751,7 @@ export default function Home() {
                           trackButtonClick(
                             "projects_link",
                             "internal_link",
-                            "CreaTV"
+                            "CreaTV",
                           );
                         }}
                         onMouseEnter={() =>
@@ -865,7 +804,7 @@ export default function Home() {
                           trackButtonClick(
                             "projects_link",
                             "internal_link",
-                            "MP3 Drive Player"
+                            "MP3 Drive Player",
                           );
                         }}
                         onMouseEnter={() =>
@@ -921,12 +860,12 @@ export default function Home() {
                           handleProjectClick("JourneyApp.me (Web)", "project");
                           handleExternalLinkClick(
                             "https://github.com/mrrobotisreal/JourneyAppWeb",
-                            "JourneyApp.me Web GitHub"
+                            "JourneyApp.me Web GitHub",
                           );
                           trackButtonClick(
                             "projects_link",
                             "external_link",
-                            "JourneyApp.me Web GitHub"
+                            "JourneyApp.me Web GitHub",
                           );
                         }}
                         onMouseEnter={() =>
@@ -978,12 +917,12 @@ export default function Home() {
                           handleProjectClick("JourneyApp.me (iOS)", "project");
                           handleExternalLinkClick(
                             "https://apps.apple.com/us/app/journeyapp-me/id6741499202?platform=iphone",
-                            "JourneyApp.me iOS App Store"
+                            "JourneyApp.me iOS App Store",
                           );
                           trackButtonClick(
                             "projects_link",
                             "external_link",
-                            "JourneyApp.me iOS App Store"
+                            "JourneyApp.me iOS App Store",
                           );
                         }}
                         onMouseEnter={() =>
@@ -1035,7 +974,7 @@ export default function Home() {
                           trackButtonClick(
                             "projects_link",
                             "internal_link",
-                            "Voizy (Android)"
+                            "Voizy (Android)",
                           );
                         }}
                         onMouseEnter={() =>
@@ -1088,7 +1027,7 @@ export default function Home() {
                           trackButtonClick(
                             "projects_link",
                             "internal_link",
-                            "Aspire To Expand"
+                            "Aspire To Expand",
                           );
                         }}
                         onMouseEnter={() =>
@@ -1142,7 +1081,7 @@ export default function Home() {
               adPosition="content_middle"
               className="w-full h-full"
               style={{ minHeight: "400px" }}
-              isFlashMock={true}
+              showCreaTVPromo={true}
               utmMedium="homepage_leaderboard_banner"
               utmCampaign="creatv_launch_promo"
               linkURL="https://www.creatv.io/auth"
@@ -1174,22 +1113,22 @@ export default function Home() {
                         onClick={() => {
                           handleProjectClick(
                             "Media Manipulator Pro (Media Converter)",
-                            "demo"
+                            "demo",
                           );
                           handleExternalLinkClick(
                             "https://www.media-manipulator.com",
-                            "Media Manipulator Pro"
+                            "Media Manipulator Pro",
                           );
                           trackButtonClick(
                             "demos_link",
                             "external_link",
-                            "Media Manipulator Pro"
+                            "Media Manipulator Pro",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Media Manipulator Pro (Media Converter)",
-                            "demos"
+                            "demos",
                           )
                         }
                       >
@@ -1240,22 +1179,22 @@ export default function Home() {
                         onClick={() => {
                           handleProjectClick(
                             "Quantum River (Custom QR Code Generator)",
-                            "demo"
+                            "demo",
                           );
                           handleExternalLinkClick(
                             "https://ui.qr-gen.winapps.io",
-                            "Quantum River"
+                            "Quantum River",
                           );
                           trackButtonClick(
                             "demos_link",
                             "external_link",
-                            "Quantum River"
+                            "Quantum River",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Quantum River (Custom QR Code Generator)",
-                            "demos"
+                            "demos",
                           )
                         }
                       >
@@ -1305,18 +1244,18 @@ export default function Home() {
                           handleProjectClick("Text Formatter", "demo");
                           handleExternalLinkClick(
                             "https://ui.formatter.winapps.io",
-                            "Text Formatter"
+                            "Text Formatter",
                           );
                           trackButtonClick(
                             "demos_link",
                             "external_link",
-                            "Text Formatter"
+                            "Text Formatter",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Text Formatter (Site-Agnostic Text Formatter)",
-                            "demos"
+                            "demos",
                           )
                         }
                       >
@@ -1366,18 +1305,18 @@ export default function Home() {
                           handleProjectClick("RSS Today", "demo");
                           handleExternalLinkClick(
                             "https://www.rss-today.com",
-                            "RSS Today"
+                            "RSS Today",
                           );
                           trackButtonClick(
                             "demos_link",
                             "external_link",
-                            "RSS Today"
+                            "RSS Today",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "RSS Today (RSS News Feed Reader)",
-                            "demos"
+                            "demos",
                           )
                         }
                       >
@@ -1406,69 +1345,6 @@ export default function Home() {
                           <div className="text-muted-foreground text-xs">
                             React, TypeScript, shadcn/ui, TailwindCSS, Vercel,
                             Firebase, Go, Gin, and more.
-                          </div>
-                        </div>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                </li>
-                <li>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <Link
-                        href="https://carvana.ui.winapps.io"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-orange-600 hover:text-purple-800 dark:text-orange-400 dark:hover:text-purple-300 font-semibold hover:underline"
-                        onClick={() => {
-                          handleProjectClick(
-                            "CarvanaServer (GraphQL Cursor-Based Pagination)",
-                            "demo"
-                          );
-                          handleExternalLinkClick(
-                            "https://carvana.ui.winapps.io",
-                            "CarvanaServer"
-                          );
-                          trackButtonClick(
-                            "demos_link",
-                            "external_link",
-                            "CarvanaServer"
-                          );
-                        }}
-                        onMouseEnter={() =>
-                          handleHoverCardView(
-                            "CarvanaServer (GraphQL Cursor-Based Pagination)",
-                            "demos"
-                          )
-                        }
-                      >
-                        CarvanaServer (GraphQL Cursor-Based Pagination)
-                      </Link>
-                    </HoverCardTrigger>
-                    <HoverCardContent>
-                      <div className="flex justify-between gap-4">
-                        <div className="h-48 w-48">
-                          <Image
-                            // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/CarvanaLogo.webp"
-                            src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_CarvanaLogo.webp"
-                            alt="Carvana Logo"
-                            width={48}
-                            height={48}
-                            className="rounded-full"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <h4 className="text-sm font-semibold">
-                            CarvanaServer
-                          </h4>
-                          <Separator />
-                          <p className="text-sm">
-                            CarvanaServer is a GraphQL cursor-based pagination
-                            server that allows you to paginate through data.
-                          </p>
-                          <div className="text-muted-foreground text-xs">
-                            React, TypeScript, GraphQL, shadcn/ui, TailwindCSS,
-                            Vercel, Node.js, MongoDB, and more.
                           </div>
                         </div>
                       </div>
@@ -1504,18 +1380,18 @@ export default function Home() {
                         onClick={() => {
                           handleExternalLinkClick(
                             "https://javascript.plainenglish.io/the-react-files-what-they-dont-want-you-to-know-318fb8b11374",
-                            "The React Files Blog"
+                            "The React Files Blog",
                           );
                           trackButtonClick(
                             "blog_posts_link",
                             "external_link",
-                            "The React Files Blog"
+                            "The React Files Blog",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "The React Files: What They Don't Want You to Know",
-                            "blog_posts"
+                            "blog_posts",
                           )
                         }
                       >
@@ -1572,18 +1448,18 @@ export default function Home() {
                         onClick={() => {
                           handleExternalLinkClick(
                             "https://medium.com/@90mitchwintrow/11-javascript-power-ups-you-probably-arent-using-yet-and-how-they-ll-turbo-boost-your-code-718e52c670a7",
-                            "JavaScript Power-Ups Blog"
+                            "JavaScript Power-Ups Blog",
                           );
                           trackButtonClick(
                             "blog_posts_link",
                             "external_link",
-                            "JavaScript Power-Ups Blog"
+                            "JavaScript Power-Ups Blog",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "11 JavaScript Power-Ups You Probably Aren't Using (Yet)",
-                            "blog_posts"
+                            "blog_posts",
                           )
                         }
                       >
@@ -1633,18 +1509,18 @@ export default function Home() {
                         onClick={() => {
                           handleExternalLinkClick(
                             "https://medium.com/@90mitchwintrow/optimize-your-multimedia-and-make-your-readmes-pop-on-github-866a018c1e13",
-                            "Optimize Multimedia Blog"
+                            "Optimize Multimedia Blog",
                           );
                           trackButtonClick(
                             "blog_posts_link",
                             "external_link",
-                            "Optimize Multimedia Blog"
+                            "Optimize Multimedia Blog",
                           );
                         }}
                         onMouseEnter={() =>
                           handleHoverCardView(
                             "Optimize Your Multimedia and Make Your READMEs Pop on GitHub",
-                            "blog_posts"
+                            "blog_posts",
                           )
                         }
                       >
@@ -2163,7 +2039,7 @@ export default function Home() {
             adPosition="footer"
             className="w-full max-w-6xl"
             style={{ minHeight: "90px" }}
-            isFlashMock={true}
+            showCreaTVPromo={true}
             utmMedium="homepage_leaderboard_banner"
             utmCampaign="creatv_launch_promo"
             linkURL="https://www.creatv.io/auth"
