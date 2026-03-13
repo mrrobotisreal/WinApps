@@ -86,12 +86,12 @@ export default function AboutPage() {
 
   const handleCardInteraction = (
     cardTitle: string,
-    interactionType: string
+    interactionType: string,
   ) => {
     trackButtonClick(
       `about_card_${cardTitle.toLowerCase().replace(/\s+/g, "_")}`,
       interactionType,
-      "about_page"
+      "about_page",
     );
   };
 
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 onClick={() =>
                   handleCardInteraction(
                     "Professional Experience",
-                    "title_click"
+                    "title_click",
                   )
                 }
                 className="cursor-pointer"
@@ -231,8 +231,8 @@ export default function AboutPage() {
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  • MP3 Drive Player - Web and mobile language
-                  learning/listening/reading/practicing/chatting app
+                  • CreaTV - Web and mobile app for creating and sharing videos;
+                  content creator driven video platform like YouTube but better.
                 </li>
                 <li>
                   • Media Manipulator - Image, Video, Audio editing and more web
@@ -240,7 +240,6 @@ export default function AboutPage() {
                 </li>
                 <li>• Voizy - Android social media app</li>
                 <li>• Journey App - iOS journaling application and website</li>
-                <li>• RSS Today - RSS news reader web app and mobile app</li>
                 <li>• Various web, desktop, and mobile tools and utilities</li>
               </ul>
             </CardContent>
@@ -259,9 +258,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  • Bachelor of Science in Computer Science from WGU (current)
-                </li>
+                <li>• Bachelor of Science in Computer Science from WGU</li>
                 <li>
                   • Hack Reactor bootcamp (Full-time 576 hours certification)
                   graduate (voted class President)
@@ -288,12 +285,18 @@ export default function AboutPage() {
             <CardContent>
               <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  • Business owner of WinApps Solutions LLC (a custom software
-                  development company and the umbrella that all of my products
-                  are under)
+                  • Founder & Principal Engineer of{" "}
+                  <a
+                    href="https://www.creatv.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CreaTV Ltd.
+                  </a>
                 </li>
                 <li>
-                  • Passionate about language learning and I speak 4 languages
+                  • Passionate about language learning and I speak several
+                  languages (Русский язык, עִברִית, Tiếng Việt)
                 </li>
               </ul>
             </CardContent>
@@ -324,7 +327,7 @@ export default function AboutPage() {
                     trackButtonClick(
                       "email_click",
                       "contact_info",
-                      "about_page"
+                      "about_page",
                     );
                     navigator.clipboard.writeText("mitchellwintrow@gmail.com");
                   }}
