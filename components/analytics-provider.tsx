@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { attachClient } from "@/lib/analytics";
+import { attachViaHook } from "@/lib/analytics";
 
 /**
  * Loads posthog-js after hydration (dynamic import, off the critical path) and
@@ -28,7 +28,7 @@ export function AnalyticsProvider() {
           if (process.env.NODE_ENV === "development") ph.debug();
           ph.register({ website_version: "2.0.0", platform: "web", framework: "nextjs" });
           ph.startSessionRecording();
-          attachClient(ph);
+          attachViaHook(ph);
         },
       });
     });

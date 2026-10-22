@@ -48,6 +48,19 @@ export function attachClient(next: AnalyticsClient | null) {
   for (const [event, props] of queue.splice(0)) client.capture(event, props);
 }
 
+// Debug hook: window.__winappsAnalytics.attachClient can be wrapped (e.g. by a
+// test harness) before the SDK loads; the provider always attaches through it.
+type Hook = { attachClient: (c: AnalyticsClient | null) => void };
+if (typeof window !== "undefined") {
+  (window as unknown as { __winappsAnalytics?: Hook }).__winappsAnalytics ??= { attachClient };
+}
+
+/** Attach via the debug hook so a wrapped attachClient (if any) sees the client. */
+export function attachViaHook(next: AnalyticsClient | null) {
+  const hook = (window as unknown as { __winappsAnalytics?: Hook }).__winappsAnalytics;
+  (hook?.attachClient ?? attachClient)(next);
+}
+
 /** Test hook: inspect and clear the pending queue. */
 export function drainQueue(): Array<[string, EventProperties]> {
   return queue.splice(0);
