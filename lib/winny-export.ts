@@ -68,14 +68,14 @@ function doc({ title, route, category, notes, keywords, links, snapshot }: DocIn
 }
 
 const projectNotes = (p: Project) => [
-  `Current reality: status ${p.status}; ${p.role}; ${formatDateRange(p.start, p.end, present)}.`,
+  `Status: ${p.status}; ${p.role}; ${formatDateRange(p.start, p.end, present)}.`,
   p.slug === "sumrak" ? "Сумрак is private and will never be in an app store; there is no public repo or download." : "",
   p.slug === "creatv" ? "CreaTV is public with creators onboarding; auth is moving from Supabase to Firebase." : "",
   "Never state dollar figures or revenue numbers.",
 ].filter(Boolean);
 
 const experienceNotes = (e: Experience) => [
-  `Current reality: ${e.title} at ${e.company}, ${formatDateRange(e.start, e.end, present)} (${site.copy.labels.employment[e.employment]}).`,
+  `Status: ${e.title} at ${e.company}, ${formatDateRange(e.start, e.end, present)} (${site.copy.labels.employment[e.employment]}).`,
   e.end === null ? "This role is ongoing." : `This role has ended (${formatYearMonth(e.end)}). Never describe it as current.`,
   e.slug === "people-inc" ? "Impact is qualitative only: never give a dollar figure or percentage for People Inc revenue." : "",
 ].filter(Boolean);
@@ -134,7 +134,7 @@ export function factsMarkdown(): string {
     ...ended.map((e) => `- Past role (ended ${formatYearMonth(e.end!)}): ${e.title} at ${e.company}, ${formatDateRange(e.start, e.end, present)}.`),
     ...flagship.map((p) => `- Project: ${p.displayName ?? p.name} (${p.status}): ${p.tagline}`),
     `- Languages he is learning: ${profile.languages.map((l) => `${l.name} (${l.level.toLowerCase()})`).join(", ")}.`,
-    "- Mirror Inc.: the contract ended in May 2026. Never say Mitch currently works at Mirror.",
+    "- Mirror Inc.: the contract ended in May 2026. Mirror is a past role only.",
     "- Never give dollar figures or percentages for People Inc revenue impact; describe it qualitatively.",
     "",
   ].join("\n");
