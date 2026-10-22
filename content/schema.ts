@@ -55,6 +55,12 @@ export const Profile = z.object({
   ),
   languages: z.array(z.object({ name: z.string(), level: z.string() })),
   personal: z.array(z.string()), // short "outside work" lines
+  skills: z.array(
+    z.object({
+      group: z.string(), // "Backend", "Frontend", "Mobile"
+      items: z.array(z.object({ name: z.string(), icon: urlOrPath })),
+    })
+  ),
 });
 export type Profile = z.infer<typeof Profile>;
 
@@ -142,6 +148,54 @@ export const SiteConfig = z.object({
     rightsNotice: z.string(),
     email: z.string().email(),
     socials: z.array(Link),
+  }),
+  /** Page headings, intros and UI labels; pages render these, never literals. */
+  copy: z.object({
+    home: z.object({
+      greeting: z.string(),
+      introVideo: Media,
+      ctaEmail: z.string(),
+      ctaResume: z.string(),
+      ctaBuilding: z.string(),
+      buildingHeading: z.string(),
+      readCaseStudy: z.string(),
+      flagshipHeading: z.string(),
+      workHeading: z.string(),
+      moreProjectsHeading: z.string(),
+      blogHeading: z.string(),
+      skillsHeading: z.string(),
+    }),
+    pages: z.record(z.string(), z.object({ title: z.string(), intro: z.string(), description: z.string().max(160) })),
+    labels: z.object({
+      home: z.string(),
+      present: z.string(),
+      archived: z.string(),
+      highlights: z.string(),
+      tech: z.string(),
+      links: z.string(),
+      gallery: z.string(),
+      viewProject: z.string(),
+      viewRole: z.string(),
+      readPost: z.string(),
+      liveSite: z.string(),
+      source: z.string(),
+      employment: z.record(z.string(), z.string()),
+      education: z.string(),
+      languages: z.string(),
+      personal: z.string(),
+      experience: z.string(),
+      email: z.string(),
+      resumePdf: z.string(),
+      resumeDocx: z.string(),
+      socials: z.string(),
+      notFoundTitle: z.string(),
+      notFoundBody: z.string(),
+      toggleTheme: z.string(),
+      openMenu: z.string(),
+      menu: z.string(),
+      resume: z.string(),
+      sponsored: z.string(),
+    }),
   }),
   excludeFromSitemap: z.array(RoutePattern),
   excludeFromLlms: z.array(RoutePattern),

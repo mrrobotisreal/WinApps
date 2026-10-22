@@ -1,4 +1,7 @@
+import { R2_LEGACY } from "./cdn";
 import { Profile } from "./schema";
+
+const skill = (name: string, file: string) => ({ name, icon: `${R2_LEGACY}/WinApps%3Askills%3A${file}` });
 import { site } from "./site";
 
 export const profile = Profile.parse({
@@ -38,5 +41,55 @@ export const profile = Profile.parse({
   ],
   personal: [
     "I run a home-lab GPU server that hosts my AI workloads and Winny, this site's assistant.",
+  ],
+  skills: [
+    {
+      group: "Backend",
+      items: [
+        skill("Java", "JavaLogo.webp"),
+        skill("Python", "PythonLogo.webp"),
+        skill("LightFM", "LightFM_Logo.webp"),
+        skill("Go", "GoLogo.webp"),
+        skill("Docker", "DockerLogo.webp"),
+        skill("Kubernetes", "KubernetesLogo.webp"),
+        skill("PostgreSQL", "PostgresLogo.webp"),
+        skill("MySQL", "mysql_logo.webp"),
+        skill("MongoDB", "MongoLeaf.webp"),
+        skill("Firebase", "firebase_logo.webp"),
+        skill("GraphQL", "GraphQLLogo.webp"),
+        skill("Let's Encrypt", "LetsEncryptLogo.webp"),
+        skill("Kotlin", "Kotlin_Icon.webp"),
+        skill("Vercel", "Vercel_logo.svg"),
+      ],
+    },
+    {
+      group: "Frontend",
+      items: [
+        skill("TypeScript", "TypescriptLogo.webp"),
+        skill("JavaScript", "JavaScriptLogo.webp"),
+        skill("React", "ReactLogo.webp"),
+        skill("React Query", "ReactQueryLogo.webp"),
+        skill("Testing Library", "TestingLibraryLogo.webp"),
+        skill("Cypress", "CypressLogo.webp"),
+        skill("Svelte", "Svelte_Logo.webp"),
+        skill("Webpack", "WebpackLogo.webp"),
+        skill("Next.js", "NextJS_Logo.jpeg"),
+        skill("Vite", "vite_Logo.svg"),
+      ],
+    },
+    {
+      group: "Mobile",
+      items: [
+        skill("Kotlin", "Kotlin_Icon.webp"),
+        skill("Swift", "SwiftLogo.webp"),
+        skill("Dart", "DartLogo.webp"),
+        skill("Flutter", "FlutterLogo.webp"),
+        skill("TypeScript", "TypescriptLogo.webp"),
+        skill("JavaScript", "JavaScriptLogo.webp"),
+        skill("React Native", "ReactLogo.webp"),
+        skill("React Query", "ReactQueryLogo.webp"),
+        skill("Expo", "ExpoLogoWithBackground.webp"),
+      ],
+    },
   ],
 });
