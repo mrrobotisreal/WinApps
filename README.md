@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# winapps_next
 
-## Getting Started
+Source for [www.winapps.io](https://www.winapps.io), Mitch Wintrow's portfolio: projects, client and employer work, and Winny, the site's AI assistant.
 
-First, run the development server:
+## Stack
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui · framer-motion · PostHog. Winny's backend lives in the separate `winapps-api` repo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Scripts
+| Command | What it does |
+|---|---|
+| `npm run dev` | Dev server (Turbopack) on http://localhost:3000 |
+| `npm run build` / `npm start` | Production build / serve it |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | `eslint .` (flat config, `eslint-config-next`) |
+| `npm run test` | Vitest (`content/**`, `lib/**`) |
+| `npm run check` | typecheck + lint + test; run with `build` before every commit |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requires Node 20+. `scripts/convert.*` are local media helpers (video → GIF), not part of the build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
+Set in `.env.local` for development and in Vercel for production. Names only, never commit values.
+- `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`: analytics
+- `NEXT_PUBLIC_WINNY_API_URL`: Winny backend base URL (defaults to `https://winny-ai.winapps.dev`)
+- `NEXT_PUBLIC_FB_API_KEY`, `NEXT_PUBLIC_FB_AUTH_DOMAIN`, `NEXT_PUBLIC_FB_PROJECT_ID`, `NEXT_PUBLIC_FB_STORAGE_BUCKET`, `NEXT_PUBLIC_FB_MESSAGING_SENDER_ID`, `NEXT_PUBLIC_FB_APP_ID`, `NEXT_PUBLIC_FB_MEASUREMENT_ID`, `NEXT_PUBLIC_MP_TOKEN`: legacy Firebase / Mixpanel analytics, slated for removal
+- `NEXT_PUBLIC_NODE_ENV`: gates the ad banner in `components/ad-banner.tsx`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
+Vercel, from `main`. Images and video are served from Cloudflare R2 (hosts listed in `next.config.ts`).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Plans
+The 2026 revamp plan, tickets and decisions live in [`../docs-winapps/`](../docs-winapps/README.md).
