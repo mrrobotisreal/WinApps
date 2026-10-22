@@ -13,6 +13,7 @@ import {
 } from "@/components/site";
 import { Card, CardContent } from "@/components/ui/card";
 import { experience } from "@/content/experience";
+import type { Experience } from "@/content/schema";
 import { site } from "@/content/site";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
@@ -66,9 +67,20 @@ export default async function ExperiencePage({ params }: Params) {
                 className="w-full rounded-lg"
               />
             )}
-            <div className="grid gap-4 md:grid-cols-2">
-              <p className="text-xl font-bold">{entry.title}</p>
-              <p className="text-muted-foreground md:text-right">
+            <div className="flex flex-wrap items-center gap-4">
+              {entry.logo && (
+                <Image
+                  src={entry.logo.src}
+                  alt={entry.logo.alt}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 shrink-0 rounded-full object-contain"
+                />
+              )}
+              <div className="min-w-0 flex-1">
+                <p className="text-xl font-bold">{entry.title}</p>
+              </div>
+              <p className="text-muted-foreground">
                 <DateRange start={entry.start} end={entry.end} /> · {labels.employment[entry.employment]}
               </p>
             </div>
@@ -86,21 +98,21 @@ export default async function ExperiencePage({ params }: Params) {
             <LinkRow links={entry.links} />
           </CardContent>
         </Card>
-        <nav className="flex flex-wrap justify-between gap-4">
-          {prev ? (
-            <Link href={`/portfolio/${prev.slug}`} className={`${linkClass} font-semibold`}>
-              ← {prev.company}
-            </Link>
-          ) : (
-            <span />
-          )}
-          {next && (
-            <Link href={`/portfolio/${next.slug}`} className={`${linkClass} font-semibold`}>
-              {next.company} →
-            </Link>
-          )}
+        <nav aria-label={pages.portfolio.title} className="flex flex-wrap justify-between gap-4">
+          {prev ? <NeighbourLink entry={prev} direction="prev" /> : <span />}
+          {next && <NeighbourLink entry={next} direction="next" />}
         </nav>
       </div>
     </Layout>
+  );
+}
+
+/** Prev/next link; the start year tells two roles at the same company apart. */
+function NeighbourLink({ entry, direction }: { entry: Experience; direction: "prev" | "next" }) {
+  const label = `${entry.shortName} (${entry.start.slice(0, 4)})`;
+  return (
+    <Link href={`/portfolio/${entry.slug}`} className={`${linkClass} font-semibold`}>
+      {direction === "prev" ? `← ${label}` : `${label} →`}
+    </Link>
   );
 }
