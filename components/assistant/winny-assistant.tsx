@@ -365,16 +365,15 @@ export function WinnyAssistant() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-semibold">Winny</p>
+                    <p className="font-semibold" title={model}>
+                      Winny
+                    </p>
                     <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
                       Website-only assistant
                     </span>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Ask about WinApps.io, Mitch, CreaTV, Mirror, or this page.
-                  </p>
-                  <p className="mt-1 text-[11px] text-muted-foreground">
-                    Model: {model}
+                    Ask about Mitch, Сумрак, Media Manipulator, CreaTV, or this page.
                   </p>
                 </div>
               </div>
