@@ -19,10 +19,8 @@ Requires Node 24 (`.nvmrc`; `nvm use`). `scripts/convert.*` are local media help
 
 ## Environment variables
 Set in `.env.local` for development and in Vercel for production. Names only, never commit values.
-- `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`: analytics
+- `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`: PostHog, the only analytics SDK (loaded after hydration; no key = no analytics)
 - `NEXT_PUBLIC_WINNY_API_URL`: Winny backend base URL (defaults to `https://winny-ai.winapps.dev`)
-- `NEXT_PUBLIC_FB_API_KEY`, `NEXT_PUBLIC_FB_AUTH_DOMAIN`, `NEXT_PUBLIC_FB_PROJECT_ID`, `NEXT_PUBLIC_FB_STORAGE_BUCKET`, `NEXT_PUBLIC_FB_MESSAGING_SENDER_ID`, `NEXT_PUBLIC_FB_APP_ID`, `NEXT_PUBLIC_FB_MEASUREMENT_ID`, `NEXT_PUBLIC_MP_TOKEN`: legacy Firebase / Mixpanel analytics, slated for removal
-- `NEXT_PUBLIC_NODE_ENV`: gates the ad banner in `components/ad-banner.tsx`
 
 ## Deploy
 Vercel, from `main`. Images and video are served from Cloudflare R2 (hosts listed in `next.config.ts`).
