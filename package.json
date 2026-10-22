@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm run typecheck && npm run lint && npm run test",
-    "export:winny": "tsx scripts/export-winny.ts"
+    "export:winny": "tsx scripts/export-winny.ts",
+    "linkcheck": "tsx scripts/linkcheck.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
