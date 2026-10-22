@@ -31,7 +31,7 @@ const WINNY_API_BASE =
   process.env.NEXT_PUBLIC_WINNY_API_URL || "https://winny-ai.winapps.dev";
 
 const WINNY_WELCOME =
-  "Hi! I'm Winny. Ask me about WinApps.io, Mitch, CreaTV, Mirror, this page, or any project, download, blog, or contact info on the site. I can answer in multiple languages too!";
+  "Hi! I'm Winny. Ask me about Mitch, Сумрак, Media Manipulator, CreaTV, his work history, or anything on this site. I can answer in several languages.";
 
 function createMessage(role: ChatRole, content: string): ChatMessage {
   return {
