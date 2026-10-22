@@ -1,6 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/projects/rss-today", destination: "/projects", permanent: true },
+      { source: "/projects/media-manipulator-pro", destination: "/projects/media-manipulator", permanent: true },
+      { source: "/projects/aspire-to-expand", destination: "/projects", permanent: true },
+      { source: "/about/mitchell-wintrow", destination: "/about", permanent: true },
+      { source: "/products/journey-app", destination: "/projects/journey-app", permanent: true },
+      { source: "/portfolio/flashmock", destination: "/portfolio/mirror", permanent: true },
+      { source: "/portfolio/double-raven", destination: "/portfolio/double-raven-2025", permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {
