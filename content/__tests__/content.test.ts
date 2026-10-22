@@ -97,6 +97,38 @@ describe("projects", () => {
   });
 });
 
+describe("sumrak case study", () => {
+  const sumrak = projects.find((p) => p.slug === "sumrak")!;
+
+  it("has the nine approved sections in order", () => {
+    expect(sumrak.sections.map((s) => s.id)).toEqual([
+      "overview",
+      "content",
+      "reader",
+      "review",
+      "speech",
+      "scenarios",
+      "exam",
+      "sync",
+      "progress",
+      "process",
+    ]);
+  });
+
+  it("gives every video a local poster and never links a repo or store", () => {
+    const videos = media(sumrak).filter((m) => (m as { kind?: string }).kind === "video");
+    expect(videos.length).toBeGreaterThanOrEqual(3);
+    for (const v of videos) expect(v.poster, v.src).toMatch(/^\/sumrak\/.+-poster\.jpg$/);
+    expect(sumrak.links).toEqual([]);
+    expect(strings(sumrak).filter(([, s]) => /github\.com|play\.google|apps\.apple/.test(s))).toEqual([]);
+  });
+
+  it("mentions the iOS port exactly once outside the summary", () => {
+    const hits = strings(sumrak.sections).filter(([, s]) => /iOS port/.test(s));
+    expect(hits).toHaveLength(1);
+  });
+});
+
 describe("experience", () => {
   it("has unique slugs and the decided order", () => {
     expect(experience.map((e) => e.slug)).toEqual([

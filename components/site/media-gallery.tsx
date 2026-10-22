@@ -51,6 +51,8 @@ export function MediaItem({
         width={item.width}
         height={item.height}
         controls
+        muted
+        loop
         playsInline
         preload="none"
         aria-label={item.alt}
