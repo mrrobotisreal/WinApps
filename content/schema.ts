@@ -199,6 +199,7 @@ export const SiteConfig = z.object({
       menu: z.string(),
       resume: z.string(),
       sponsored: z.string(),
+      forAgents: z.string(),
     }),
   }),
   excludeFromSitemap: z.array(RoutePattern),

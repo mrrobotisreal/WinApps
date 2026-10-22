@@ -25,6 +25,9 @@ export default function Footer() {
         <a href={`mailto:${footer.email}`} className="hover:underline">
           {footer.email}
         </a>
+        <a href="/llms.txt" className="text-xs opacity-70 hover:underline">
+          {site.copy.labels.forAgents}
+        </a>
       </div>
     </footer>
   );

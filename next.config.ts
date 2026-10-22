@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    // Markdown twins of each project and role page (for /llms.txt readers).
+    return [
+      { source: "/projects/:slug.md", destination: "/md/projects/:slug" },
+      { source: "/portfolio/:slug.md", destination: "/md/portfolio/:slug" },
+    ];
+  },
   async redirects() {
     return [
       { source: "/projects/rss-today", destination: "/projects", permanent: true },
