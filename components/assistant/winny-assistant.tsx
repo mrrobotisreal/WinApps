@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { BsRobot } from "react-icons/bs";
 import { Loader2, SendHorizontal, Sparkles, Trash2, X } from "lucide-react";
 
-import { AssistantMarkdown } from "@/components/assistant/assistant-markdown";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { trackFeatureUsage } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+
+// react-markdown + remark-gfm (~46 KB gz) load only when the chat panel first
+// renders a message, not on every page.
+const AssistantMarkdown = dynamic(
+  () => import("@/components/assistant/assistant-markdown").then((m) => m.AssistantMarkdown),
+  { ssr: false }
+);
 
 type ChatRole = "assistant" | "user";
 
