@@ -15,7 +15,7 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui
 | `npm run test` | Vitest (`content/**`, `lib/**`) |
 | `npm run check` | typecheck + lint + test; run with `build` before every commit |
 
-Requires Node 20+. `scripts/convert.*` are local media helpers (video → GIF), not part of the build.
+Requires Node 24 (`.nvmrc`; `nvm use`). `scripts/convert.*` are local media helpers (video → GIF), not part of the build.
 
 ## Environment variables
 Set in `.env.local` for development and in Vercel for production. Names only, never commit values.
