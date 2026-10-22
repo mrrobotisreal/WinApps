@@ -129,6 +129,25 @@ describe("sumrak case study", () => {
   });
 });
 
+describe("media manipulator case study", () => {
+  const mm = projects.find((p) => p.slug === "media-manipulator")!;
+
+  it("has the six approved sections in order", () => {
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "tools", "ai", "backend", "frontend"]);
+  });
+
+  it("never mentions the private partner portal or the old Pro name", () => {
+    expect(strings(mm).filter(([, s]) => /double raven|doubleraven|\/dr\b|Pro\b/i.test(s))).toEqual([]);
+  });
+
+  it("links only the two public URLs", () => {
+    expect(mm.links.map((l) => l.href)).toEqual([
+      "https://www.media-manipulator.com",
+      "https://www.media-manipulator.com/tools/content-studio",
+    ]);
+  });
+});
+
 describe("experience", () => {
   it("has unique slugs and the decided order", () => {
     expect(experience.map((e) => e.slug)).toEqual([
