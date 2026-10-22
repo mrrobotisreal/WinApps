@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { FaFilePdf, FaFileWord } from "react-icons/fa"
+import { trackResumeDownload } from "@/lib/analytics"
 
 const asciiLogo = `
                                                         %%#####%%
@@ -81,7 +82,32 @@ const asciiTitle = `
 ........................................................................................................................
 `;
 
-export function ResumeButtons() {
+function handlePDFResumeDownload() {
+  trackResumeDownload("pdf");
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.pdf";
+  link.setAttribute("download", "MitchellWintrow_Resume.pdf");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function handleWordResumeDownload() {
+  trackResumeDownload("docx");
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.docx";
+  link.setAttribute("download", "MitchellWintrow_Resume.docx");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+interface ResumeButtonsProps {
+  pdfLabel: string;
+  docxLabel: string;
+}
+
+/** Resume downloads, plus ⇧⌘P / ⇧⌘D (⇧Ctrl on Windows) shortcuts and the console logo. */
+export function ResumeButtons({ pdfLabel, docxLabel }: ResumeButtonsProps) {
   useEffect(() => {
     const isMacOS = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 
@@ -108,22 +134,6 @@ export function ResumeButtons() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  const handlePDFResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.pdf";
-    link.setAttribute("download", "MitchellWintrow_Resume.pdf");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-  const handleWordResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.docx";
-    link.setAttribute("download", "MitchellWintrow_Resume.docx");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
 
   return (
     <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
@@ -134,7 +144,7 @@ export function ResumeButtons() {
         size="sm"
       >
         <FaFilePdf className="mr-2 h-4 w-4" />
-        My Resumé
+        {pdfLabel}
       </Button>
       <Button
         variant="secondary"
@@ -143,7 +153,7 @@ export function ResumeButtons() {
         onClick={handleWordResumeDownload}
       >
         <FaFileWord className="mr-2 h-4 w-4" />
-        My Resumé
+        {docxLabel}
       </Button>
     </div>
   )

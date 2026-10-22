@@ -1,14 +1,22 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { BsRobot } from "react-icons/bs";
 import { Loader2, SendHorizontal, Sparkles, Trash2, X } from "lucide-react";
 
-import { AssistantMarkdown } from "@/components/assistant/assistant-markdown";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { trackFeatureUsage } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+
+// react-markdown + remark-gfm (~46 KB gz) load only when the chat panel first
+// renders a message, not on every page.
+const AssistantMarkdown = dynamic(
+  () => import("@/components/assistant/assistant-markdown").then((m) => m.AssistantMarkdown),
+  { ssr: false }
+);
 
 type ChatRole = "assistant" | "user";
 
@@ -31,7 +39,7 @@ const WINNY_API_BASE =
   process.env.NEXT_PUBLIC_WINNY_API_URL || "https://winny-ai.winapps.dev";
 
 const WINNY_WELCOME =
-  "Hi! I'm Winny. Ask me about WinApps.io, Mitch, CreaTV, Mirror, this page, or any project, download, blog, or contact info on the site. I can answer in multiple languages too!";
+  "Hi! I'm Winny. Ask me about Mitch, Сумрак, Media Manipulator, CreaTV, his work history, or anything on this site. I can answer in several languages.";
 
 function createMessage(role: ChatRole, content: string): ChatMessage {
   return {
@@ -57,6 +65,18 @@ async function extractErrorMessage(response: Response) {
     return payload.error || `Request failed with status ${response.status}`;
   } catch {
     return `Request failed with status ${response.status}`;
+  }
+}
+
+async function resetRemoteSession(keepalive = false) {
+  try {
+    await fetch(`${WINNY_API_BASE}/api/v1/chat/reset`, {
+      method: "POST",
+      mode: "cors",
+      keepalive,
+    });
+  } catch {
+    // Best-effort only. The backend is stateless anyway.
   }
 }
 
@@ -110,7 +130,6 @@ export function WinnyAssistant() {
 
   useEffect(() => {
     if (!isStreaming || !thinkingMessageId) {
-      setThinkingDots(1);
       return;
     }
 
@@ -122,18 +141,6 @@ export function WinnyAssistant() {
       window.clearInterval(intervalId);
     };
   }, [isStreaming, thinkingMessageId]);
-
-  const resetRemoteSession = async (keepalive = false) => {
-    try {
-      await fetch(`${WINNY_API_BASE}/api/v1/chat/reset`, {
-        method: "POST",
-        mode: "cors",
-        keepalive,
-      });
-    } catch {
-      // Best-effort only. The backend is stateless anyway.
-    }
-  };
 
   const stopStreaming = (shouldReset = true) => {
     abortRef.current?.abort();
@@ -162,11 +169,13 @@ export function WinnyAssistant() {
         void resetRemoteSession();
       }
       setIsOpen(false);
+      trackFeatureUsage("winny", { action: "close" });
       return;
     }
 
     setIsOpen(true);
     setError(null);
+    trackFeatureUsage("winny", { action: "open" });
   };
 
   const finalizeThinking = (messageId: string) => {
@@ -194,6 +203,7 @@ export function WinnyAssistant() {
       return;
     }
 
+    trackFeatureUsage("winny", { action: "message" });
     const userMessage = createMessage("user", content);
     const assistantMessage = createMessage("assistant", "");
     const nextMessages = [...messages, userMessage];
@@ -355,16 +365,15 @@ export function WinnyAssistant() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-semibold">Winny</p>
+                    <p className="font-semibold" title={model}>
+                      Winny
+                    </p>
                     <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
                       Website-only assistant
                     </span>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Ask about WinApps.io, Mitch, CreaTV, Mirror, or this page.
-                  </p>
-                  <p className="mt-1 text-[11px] text-muted-foreground">
-                    Model: {model}
+                    Ask about Mitch, Сумрак, Media Manipulator, CreaTV, or this page.
                   </p>
                 </div>
               </div>

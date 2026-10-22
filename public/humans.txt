@@ -1,39 +1,31 @@
 /* TEAM */
 Developer: Mitchell Wintrow
 Contact: mitchellwintrow@gmail.com
-Location: Seattle, WA, USA
+Location: Colorado, USA
 
 /* SITE */
-Last update: 2025-06-06
-Standards: HTML5, CSS3, ES2020+
-Components: React, TypeScript, Next.js
+Last update: 2026-10-22
+Standards: HTML5, CSS3, ES2022
+Components: React 19, TypeScript, Next.js 16 (App Router)
 Doctype: HTML5
-IDE: Cursor, VS Code
 
 /* TECHNOLOGIES */
-Frontend Framework: React 19
-Build Tool: Next.js
 Language: TypeScript
-Styling: Tailwind CSS
-State Management: TanStack Query
-Analytics: Firebase Analytics, Google Analytics
-Monetization: Google AdSense, Infoclicks, Carbon Ads, Propeller Ads
-Icons: Lucide React
+Styling: Tailwind CSS 4
 UI Components: shadcn/ui, Radix UI
-Utilities: Class Variance Authority, clsx
-Development: ESLint, PostCSS
+Content: typed modules validated with Zod (content/)
+Testing: Vitest
+Icons: Lucide React
 
 /* INFRASTRUCTURE */
 Hosting: Vercel
 Domain: winapps.io
-CDN: Modern web hosting with global distribution
+Media: Cloudflare R2
+
+/* FOR AI AGENTS */
+llms.txt: https://www.winapps.io/llms.txt
+llms-full.txt: https://www.winapps.io/llms-full.txt
 
 /* CONTACT ORGANIZATION */
 Organization: WinApps Solutions LLC
 Website: https://www.winapps.io
-
-          .-.
-         /   \
-        | @ @ |    Thank you for visiting!
-         \   /     I built this with ❤️
-          '-'      as my portfolio to share with you.

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { profile } from "@/content/profile";
+import { site } from "@/content/site";
+import { defaultOgImage } from "@/lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,62 +16,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const { home } = site.copy.pages;
+
+
+/** Site-wide defaults; each page overrides title, description and canonical. */
 export const metadata: Metadata = {
-  title: "WinApps.io - Mitchell Wintrow",
-  description:
-    "Welcome to WinApps.io! I'm Mitchell Wintrow, a software engineer specializing in mobile apps, web development, and cloud solutions. Explore my portfolio, projects, and technical blog posts.",
-  keywords: [
-    "Mitchell Wintrow",
-    "WinApps",
-    "Software Engineer",
-    "Mobile Apps",
-    "Web Development",
-    "React",
-    "React Native",
-    "AWS",
-    "Portfolio",
-    "Next.js",
-    "Blog",
-    "Go",
-    "Golang",
-    "MySQL",
-    "PostgreSQL",
-    "MongoDB",
-    "Node.js",
-  ],
-  authors: [{ name: "Mitchell Wintrow" }],
-  creator: "Mitchell Wintrow",
-  publisher: "WinApps.io",
-  alternates: {
-    canonical: "https://www.winapps.io",
-  },
+  metadataBase: new URL(site.baseUrl),
+  title: { default: home.title, template: `%s · ${profile.shortName}` },
+  description: home.description,
+  authors: [{ name: profile.name }],
+  creator: profile.name,
+  publisher: site.siteName,
   openGraph: {
-    title: "WinApps.io - Mitchell Wintrow",
-    description:
-      "Software engineer specializing in mobile apps, web development, and cloud solutions",
+    title: home.title,
+    description: home.description,
     type: "website",
     locale: "en_US",
-    url: "https://www.winapps.io",
-    siteName: "WinApps.io",
-    images: [
-      {
-        // url: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/WinAppsOpenGraph.jpg",
-        url: "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinAppsOpenGraph.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Mitchell Wintrow",
-      },
-    ],
+    url: site.baseUrl,
+    siteName: site.siteName,
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WinApps.io - Mitchell Wintrow",
-    description:
-      "Software engineer specializing in mobile apps, web development, and cloud solutions",
-    // images: ["https://www.winapps.io/WinAppsOpenGraph.jpg"],
-    images: [
-      "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinAppsOpenGraph.jpg",
-    ],
+    title: home.title,
+    description: home.description,
+    images: [defaultOgImage.url],
   },
   robots: {
     index: true,
@@ -94,13 +66,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3413790368941825"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
