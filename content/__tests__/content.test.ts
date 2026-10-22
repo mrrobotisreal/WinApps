@@ -148,6 +148,26 @@ describe("media manipulator case study", () => {
   });
 });
 
+describe("creatv case study", () => {
+  const creatv = projects.find((p) => p.slug === "creatv")!;
+
+  it("has the six approved sections in order", () => {
+    expect(creatv.sections.map((s) => s.id)).toEqual([
+      "overview",
+      "architecture",
+      "studio",
+      "mobile",
+      "operations",
+      "status",
+    ]);
+  });
+
+  it("stays plain: no hype, no Rumble, no emoji", () => {
+    const banned = /amazing|outshines|much better|Rumble|\p{Extended_Pictographic}/iu;
+    expect(strings(creatv).filter(([, s]) => banned.test(s))).toEqual([]);
+  });
+});
+
 describe("experience", () => {
   it("has unique slugs and the decided order", () => {
     expect(experience.map((e) => e.slug)).toEqual([
