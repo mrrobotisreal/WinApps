@@ -13,61 +13,11 @@ import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Smartphone, Tablet, ExternalLink, Zap } from "lucide-react";
-// import { CircularGalleryWithPreload } from "@/components/blocks/Components/CircularGallery/CircularGallery";
 import Link from "next/link";
 import Image from "next/image";
 import RollingGallery from "@/components/blocks/Components/RollingGallery/RollingGallery";
 
 const iPhoneScreenshotsOld: { image: string; text: string }[] = [
-  // {
-  //   text: "Download in the AppStore!",
-  //   image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
-  // },
-  // {
-  //   text: "Login",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone001.png",
-  // },
-  // {
-  //   text: "Home",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone002.png",
-  // },
-  // {
-  //   text: "Filters",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone003.png",
-  // },
-  // {
-  //   text: "Search",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone004.png",
-  // },
-  // {
-  //   text: "Location Picker",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone005.png",
-  // },
-  // {
-  //   text: "Create Entry (Write)",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone006.png",
-  // },
-  // {
-  //   text: "View Entry",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone007.png",
-  // },
-  // {
-  //   text: "Edit Entry",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone008.png",
-  // },
-  // {
-  //   text: "View Image",
-  //   image:
-  //     "https://pub-78793ece177d4113887533c21c99d3b4.r2.dev/JourneyApp_iPhone010.png",
-  // },
   {
     text: "Login",
     image: "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev/img970_sm.png",
@@ -178,10 +128,6 @@ const iPhoneScreenshots: string[] = iPhoneScreenshotsOld.map(
 );
 
 const iPadScreenshotsOld: { image: string; text: string }[] = [
-  // {
-  //   text: "Download in the AppStore!",
-  //   image: "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/portfolio/journey-app/JourneyAppQR.png",
-  // },
   {
     text: "Login",
     image:
@@ -350,7 +296,6 @@ export default function JourneyAppPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/journey-app/JourneyAppBanner.webp"
                   src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_JourneyAppBanner.webp"
                   alt="JourneyApp Banner"
                   width={1200}
@@ -759,13 +704,6 @@ export default function JourneyAppPage() {
                   </div>
 
                   <div className="w-full h-full">
-                    {/* <CircularGalleryWithPreload
-                      items={screenshots}
-                      bend={2}
-                      textColor="#ffffff"
-                      borderRadius={0.05}
-                      font="bold 30px ubuntu"
-                    /> */}
                     <RollingGallery
                       images={screenshots}
                       autoplay={true}

@@ -17,17 +17,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const images: string[] = [
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr01.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr02.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr03.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr04.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr05.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr06.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr07.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr08.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr09.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr10.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/qr11.webp",
 ];
 
 export default function QuantumRiverPage() {
@@ -94,7 +83,6 @@ export default function QuantumRiverPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/quantum-river/QuantumRiverBanner.webp"
                   src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_QuantumRiverBanner.webp"
                   alt="Quantum River Banner"
                   width={1200}

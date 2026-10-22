@@ -14,17 +14,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const screenshots: string[] = [
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/dr1.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/dr2.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/dr3.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/dr4.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/dr5.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb1.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb2.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb3.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb4.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb5.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/drWeb6.webp",
 ];
 
 export default function DoubleRavenSolutionsLLCPage() {
@@ -83,7 +72,6 @@ export default function DoubleRavenSolutionsLLCPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/double-raven/DoubleRavenBanner.webp"
                   src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_DoubleRavenBanner.webp"
                   alt="Double Raven Solutions LLC Cover"
                   width={1200}

@@ -15,15 +15,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const screenshots: string[] = [
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac01.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac02.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac03.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac04.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac05.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac06.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac07.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac08.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/amazon-connect/ac09.webp",
 ];
 
 export default function AmazonConnectCustomerProfilesPage() {

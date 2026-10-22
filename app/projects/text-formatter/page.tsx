@@ -17,11 +17,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const images: string[] = [
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/tf01.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/tf02.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/tf03.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/tf04.webp",
-  // "https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/tf05.webp",
 ];
 
 export default function TextFormatterPage() {
@@ -88,7 +83,6 @@ export default function TextFormatterPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/text-formatter/TextFormatterBanner.webp"
                   src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_TextFormatterBanner.webp"
                   alt="Text Formatter Banner"
                   width={1200}

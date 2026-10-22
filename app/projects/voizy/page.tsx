@@ -165,7 +165,6 @@ export default function VoizyPage() {
               {/* Banner Image */}
               <div className="w-full">
                 <Image
-                  // src="https://winapps-solutions-llc.s3.us-west-2.amazonaws.com/images/portfolio/voizy/VoizyBanner.webp"
                   src="https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev/WinApps_VoizyBanner.webp"
                   alt="Voizy Cover"
                   width={1200}
