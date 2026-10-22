@@ -67,7 +67,7 @@ export function MediaItem({
       width={item.width}
       height={item.height}
       priority={priority}
-      sizes={sizes}
+      sizes={sizes ?? `${Math.round((Math.min(item.height, 540) / item.height) * item.width)}px`}
       className={className}
     />
   );
