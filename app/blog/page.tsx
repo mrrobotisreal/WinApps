@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Layout from "@/components/layout";
-import { AnalyticsPageView, linkClass, PageHeader } from "@/components/site";
+import { AnalyticsPageView, linkClass, PageHeader, TrackedLink } from "@/components/site";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { blog } from "@/content/blog";
 import { site } from "@/content/site";
@@ -27,9 +27,9 @@ export default function BlogPage() {
               <Card className="h-full">
                 <CardHeader>
                   <CardTitle>
-                    <a href={post.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} hover:underline`}>
+                    <TrackedLink href={post.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} hover:underline`}>
                       {post.title}
-                    </a>
+                    </TrackedLink>
                   </CardTitle>
                   <p className="text-sm text-muted-foreground">
                     {post.publisher} · {formatYearMonth(post.date)}
@@ -47,9 +47,9 @@ export default function BlogPage() {
                     />
                   )}
                   <p className="text-muted-foreground">{post.summary}</p>
-                  <a href={post.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} font-semibold hover:underline`}>
+                  <TrackedLink href={post.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} font-semibold hover:underline`}>
                     {labels.readPost} →
-                  </a>
+                  </TrackedLink>
                 </CardContent>
               </Card>
             </li>

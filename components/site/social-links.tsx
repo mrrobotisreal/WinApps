@@ -3,6 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SiLinktree } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import type { Link } from "@/content/schema";
+import { TrackedLink } from "./tracked-link";
 
 const ICONS: Record<string, React.ComponentType> = {
   LinkedIn: AiFillLinkedin,
@@ -22,9 +23,17 @@ export function SocialLinks({ links }: { links: Link[] }) {
         return (
           <li key={link.href}>
             <Button variant="secondary" size="icon" className="size-8" asChild>
-              <a href={link.href} target="_blank" rel="noopener noreferrer me" aria-label={link.label} className="text-white">
+              <TrackedLink
+                href={link.href}
+                kind="social"
+                trackLabel={link.label}
+                target="_blank"
+                rel="noopener noreferrer me"
+                aria-label={link.label}
+                className="text-white"
+              >
                 {Icon ? <Icon /> : link.label}
-              </a>
+              </TrackedLink>
             </Button>
           </li>
         );

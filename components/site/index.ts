@@ -17,3 +17,4 @@ export { SocialLinks } from "./social-links";
 export { IntroVideo } from "./intro-video";
 export { EmbedOnClick } from "./embed-on-click";
 export { JsonLd } from "./json-ld";
+export { TrackedLink } from "./tracked-link";

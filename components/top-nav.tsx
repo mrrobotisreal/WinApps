@@ -18,6 +18,7 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
+import { trackNavigation, trackResumeDownload } from "@/lib/analytics";
 
 const { labels } = site.copy;
 
@@ -66,7 +67,7 @@ export default function TopNav() {
                       {item.children.map((child) => (
                         <li key={child.href + child.label}>
                           <NavigationMenuLink asChild>
-                            <Link href={child.href} className={itemClass}>
+                            <Link href={child.href} className={itemClass} onClick={() => trackNavigation(child.href, "top_nav")}>
                               {child.label}
                             </Link>
                           </NavigationMenuLink>
@@ -78,7 +79,7 @@ export default function TopNav() {
               ) : (
                 <NavigationMenuItem key={item.label}>
                   <NavigationMenuLink asChild>
-                    <Link href={item.href} className={topLinkClass}>
+                    <Link href={item.href} className={topLinkClass} onClick={() => trackNavigation(item.href, "top_nav")}>
                       {item.label}
                     </Link>
                   </NavigationMenuLink>
@@ -89,7 +90,12 @@ export default function TopNav() {
         </NavigationMenu>
 
         <div className="flex items-center gap-2">
-          <a href={profile.resume.pdf} className={`${topLinkClass} hidden md:inline-block`} download>
+          <a
+            href={profile.resume.pdf}
+            className={`${topLinkClass} hidden md:inline-block`}
+            download
+            onClick={() => trackResumeDownload("pdf")}
+          >
             {labels.resume}
           </a>
           <ThemeToggle />
@@ -116,7 +122,7 @@ export default function TopNav() {
                           <ul className="flex flex-col gap-1">
                             {item.children!.map((child) => (
                               <li key={child.href + child.label}>
-                                <Link href={child.href} className={itemClass}>
+                                <Link href={child.href} className={itemClass} onClick={() => trackNavigation(child.href, "top_nav")}>
                                   {child.label}
                                 </Link>
                               </li>
@@ -129,11 +135,21 @@ export default function TopNav() {
                 {site.nav
                   .filter((item) => !item.children)
                   .map((item) => (
-                    <Link key={item.label} href={item.href} className={`${itemClass} text-lg font-bold`}>
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={`${itemClass} text-lg font-bold`}
+                      onClick={() => trackNavigation(item.href, "mobile_nav")}
+                    >
                       <span className={gradientLabel}>{item.label}</span>
                     </Link>
                   ))}
-                <a href={profile.resume.pdf} className={`${itemClass} text-lg font-bold`} download>
+                <a
+                  href={profile.resume.pdf}
+                  className={`${itemClass} text-lg font-bold`}
+                  download
+                  onClick={() => trackResumeDownload("pdf")}
+                >
                   <span className={gradientLabel}>{labels.resume}</span>
                 </a>
               </div>

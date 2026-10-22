@@ -16,6 +16,7 @@ import {
   Section,
   SkillGrid,
   SocialLinks,
+  TrackedLink,
 } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,12 +56,14 @@ export default function Home() {
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground">{profile.positioning}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Button asChild>
-              <a href={`mailto:${profile.email}`}>{home.ctaEmail}</a>
+              <TrackedLink href={`mailto:${profile.email}`} trackLabel="hero_email">
+                {home.ctaEmail}
+              </TrackedLink>
             </Button>
             <Button variant="secondary" asChild>
-              <a href={profile.resume.pdf} download>
+              <TrackedLink href={profile.resume.pdf} kind="resume" download>
                 {home.ctaResume}
-              </a>
+              </TrackedLink>
             </Button>
             <Button variant="outline" asChild>
               <a href={`#${hero.slug}`}>{home.ctaBuilding}</a>
@@ -136,9 +139,14 @@ export default function Home() {
           <ul className="mx-auto max-w-3xl space-y-4">
             {blog.map((post) => (
               <li key={post.href} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                <a href={post.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} font-semibold hover:underline`}>
+                <TrackedLink
+                  href={post.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${linkClass} font-semibold hover:underline`}
+                >
                   {post.title}
-                </a>
+                </TrackedLink>
                 <span className="shrink-0 text-sm text-muted-foreground">
                   {post.publisher} · {formatYearMonth(post.date)}
                 </span>

@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { FaFilePdf, FaFileWord } from "react-icons/fa"
+import { trackResumeDownload } from "@/lib/analytics"
 
 const asciiLogo = `
                                                         %%#####%%
@@ -82,6 +83,7 @@ const asciiTitle = `
 `;
 
 function handlePDFResumeDownload() {
+  trackResumeDownload("pdf");
   const link = document.createElement("a");
   link.href = "/MitchellWintrow_Resume.pdf";
   link.setAttribute("download", "MitchellWintrow_Resume.pdf");
@@ -90,6 +92,7 @@ function handlePDFResumeDownload() {
   document.body.removeChild(link);
 }
 function handleWordResumeDownload() {
+  trackResumeDownload("docx");
   const link = document.createElement("a");
   link.href = "/MitchellWintrow_Resume.docx";
   link.setAttribute("download", "MitchellWintrow_Resume.docx");

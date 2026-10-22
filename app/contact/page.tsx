@@ -1,6 +1,6 @@
 import Layout from "@/components/layout";
 import { ResumeButtons } from "@/components/resume-buttons";
-import { AnalyticsPageView, linkClass, PageHeader, SocialLinks } from "@/components/site";
+import { AnalyticsPageView, linkClass, PageHeader, TrackedLink, SocialLinks } from "@/components/site";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
@@ -26,9 +26,9 @@ export default function ContactPage() {
               <CardTitle>{labels.email}</CardTitle>
             </CardHeader>
             <CardContent>
-              <a href={`mailto:${profile.email}`} className={`${linkClass} break-all font-semibold hover:underline`}>
+              <TrackedLink href={`mailto:${profile.email}`} trackLabel="contact_email" className={`${linkClass} break-all font-semibold hover:underline`}>
                 {profile.email}
-              </a>
+              </TrackedLink>
             </CardContent>
           </Card>
           <Card>
@@ -48,9 +48,9 @@ export default function ContactPage() {
               <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
                 {profile.socials.map((s) => (
                   <li key={s.href}>
-                    <a href={s.href} target="_blank" rel="noopener noreferrer me" className={`${linkClass} hover:underline`}>
+                    <TrackedLink href={s.href} kind="social" target="_blank" rel="noopener noreferrer me" className={`${linkClass} hover:underline`}>
                       {s.label}
-                    </a>
+                    </TrackedLink>
                   </li>
                 ))}
               </ul>

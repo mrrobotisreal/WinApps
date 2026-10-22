@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import type { Project } from "@/content/schema";
 import { site } from "@/content/site";
 import { linkClass } from "./page-header";
+import { TrackedLink } from "./tracked-link";
 
 const { labels } = site.copy;
 
@@ -44,14 +45,15 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
           {isArchive ? (
             external && (
-              <a
+              <TrackedLink
                 href={external.href}
+                trackLabel={`${project.name}: ${external.label}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${linkClass} font-semibold hover:underline`}
               >
                 {external.href.includes("github.com") ? labels.source : labels.liveSite} →
-              </a>
+              </TrackedLink>
             )
           ) : (
             <Link href={`/projects/${project.slug}`} className={`${linkClass} font-semibold hover:underline`}>

@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: Params) {
 
   return (
     <Layout>
-      <AnalyticsPageView pageName={`project_${project.slug}`} />
+      <AnalyticsPageView pageName={`project_${project.slug}`} project={{ slug: project.slug, tier: project.tier }} />
       <JsonLd
         data={[
           breadcrumbLd([

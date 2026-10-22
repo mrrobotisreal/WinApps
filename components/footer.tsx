@@ -1,3 +1,4 @@
+import { TrackedLink } from "@/components/site/tracked-link";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
 
@@ -9,9 +10,9 @@ export default function Footer() {
         <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm">
           {profile.socials.map((s) => (
             <li key={s.href}>
-              <a href={s.href} target="_blank" rel="noopener noreferrer me" className="hover:underline">
+              <TrackedLink href={s.href} kind="social" target="_blank" rel="noopener noreferrer me" className="hover:underline">
                 {s.label}
-              </a>
+              </TrackedLink>
             </li>
           ))}
         </ul>

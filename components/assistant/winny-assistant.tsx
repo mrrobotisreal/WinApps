@@ -8,6 +8,7 @@ import { Loader2, SendHorizontal, Sparkles, Trash2, X } from "lucide-react";
 import { AssistantMarkdown } from "@/components/assistant/assistant-markdown";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { trackFeatureUsage } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type ChatRole = "assistant" | "user";
@@ -161,11 +162,13 @@ export function WinnyAssistant() {
         void resetRemoteSession();
       }
       setIsOpen(false);
+      trackFeatureUsage("winny", { action: "close" });
       return;
     }
 
     setIsOpen(true);
     setError(null);
+    trackFeatureUsage("winny", { action: "open" });
   };
 
   const finalizeThinking = (messageId: string) => {
@@ -193,6 +196,7 @@ export function WinnyAssistant() {
       return;
     }
 
+    trackFeatureUsage("winny", { action: "message" });
     const userMessage = createMessage("user", content);
     const assistantMessage = createMessage("assistant", "");
     const nextMessages = [...messages, userMessage];
