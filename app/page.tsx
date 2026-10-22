@@ -5,6 +5,7 @@ import {
   AnalyticsPageView,
   ExperienceCard,
   GradientHeading,
+  JsonLd,
   IntroVideo,
   linkClass,
   MediaItem,
@@ -24,6 +25,7 @@ import { profile } from "@/content/profile";
 import { projects, projectsByTier } from "@/content/projects";
 import { site } from "@/content/site";
 import { formatYearMonth } from "@/lib/prose";
+import { personLd } from "@/lib/structured-data";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
 const { home, labels, pages } = site.copy;
@@ -31,6 +33,7 @@ const { home, labels, pages } = site.copy;
 export const metadata = createMetadata({
   title: pages.home.title,
   description: pages.home.description,
+  absoluteTitle: true,
 });
 
 export default function Home() {
@@ -41,6 +44,7 @@ export default function Home() {
   return (
     <Layout>
       <AnalyticsPageView pageName="Home" />
+      <JsonLd data={personLd(profile)} />
       <div className="container mx-auto space-y-16 px-4 py-8">
         <PromoSlot id="home-top" />
 

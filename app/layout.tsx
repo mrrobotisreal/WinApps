@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
-import { R2_LEGACY } from "@/content/cdn";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
+import { defaultOgImage } from "@/lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 const { home } = site.copy.pages;
-const ogImage = `${R2_LEGACY}/WinAppsOpenGraph.jpg`;
+
 
 /** Site-wide defaults; each page overrides title, description and canonical. */
 export const metadata: Metadata = {
   metadataBase: new URL(site.baseUrl),
-  title: home.title,
+  title: { default: home.title, template: `%s · ${profile.shortName}` },
   description: home.description,
   authors: [{ name: profile.name }],
   creator: profile.name,
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.baseUrl,
     siteName: site.siteName,
-    images: [{ url: ogImage, width: 1200, height: 630, alt: profile.name }],
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
     title: home.title,
     description: home.description,
-    images: [ogImage],
+    images: [defaultOgImage.url],
   },
   robots: {
     index: true,

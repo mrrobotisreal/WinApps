@@ -5,6 +5,7 @@ import Layout from "@/components/layout";
 import {
   AnalyticsPageView,
   DateRange,
+  JsonLd,
   LinkRow,
   linkClass,
   PageHeader,
@@ -16,6 +17,7 @@ import { experience } from "@/content/experience";
 import type { Experience } from "@/content/schema";
 import { site } from "@/content/site";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
+import { experienceBreadcrumb } from "@/lib/structured-data";
 
 const { labels, pages } = site.copy;
 
@@ -32,9 +34,10 @@ export async function generateMetadata({ params }: Params) {
   const entry = experience.find((e) => e.slug === slug);
   if (!entry) return {};
   return createMetadata({
-    title: `${entry.title}, ${entry.company} | Mitchell Wintrow`,
+    title: `${entry.title}, ${entry.company}`,
     description: entry.summary.slice(0, 160),
     path: `portfolio/${entry.slug}`,
+    generatedImage: true,
   });
 }
 
@@ -49,6 +52,7 @@ export default async function ExperiencePage({ params }: Params) {
   return (
     <Layout>
       <AnalyticsPageView pageName={`portfolio_${entry.slug}`} />
+      <JsonLd data={experienceBreadcrumb(entry, pages.portfolio.title, labels.home)} />
       <div className="container mx-auto space-y-8 px-4 py-8">
         <PageHeader
           title={entry.company}

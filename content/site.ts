@@ -97,7 +97,7 @@ export const site = SiteConfig.parse({
           "Projects by Mitchell Wintrow: Сумрак, Media Manipulator, CreaTV, and earlier mobile and web apps.",
       },
       home: {
-        title: "Mitchell Wintrow, Senior Software Engineer",
+        title: "Mitch Wintrow — Senior Software Engineer",
         intro: "",
         description:
           "Mitchell Wintrow builds mobile ad tech at People Inc. and ships Сумрак, Media Manipulator and CreaTV. Projects, work history, writing and contact.",
