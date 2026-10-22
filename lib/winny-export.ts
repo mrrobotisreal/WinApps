@@ -80,6 +80,8 @@ const experienceNotes = (e: Experience) => [
   e.slug === "people-inc" ? "Impact is qualitative only: never give a dollar figure or percentage for People Inc revenue." : "",
 ].filter(Boolean);
 
+const PRESERVED_NOTE = "This page is unchanged by the 2026 site revamp.";
+
 /** Routes whose pages are untouched by the revamp; their previous snapshots are reused. */
 export const PRESERVED_ROUTES = [
   "/download/creatv-mobile/android",
@@ -113,7 +115,7 @@ function refreshPreserved(route: string, previous: string): string {
     title,
     route,
     category,
-    notes: [...bullets(section("Winny Notes")), "This page is unchanged by the 2026 site revamp."],
+    notes: [...new Set([...bullets(section("Winny Notes")), PRESERVED_NOTE])],
     keywords,
     links,
     snapshot: section("Page Content Snapshot") || title,

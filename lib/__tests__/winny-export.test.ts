@@ -31,6 +31,11 @@ describe("winny export", () => {
     expect(PRESERVED_ROUTES).toHaveLength(22);
   });
 
+  it("is idempotent: exporting over its own output changes nothing", () => {
+    const again = buildWinnyDocs((file) => docs[file]);
+    expect(again).toEqual(docs);
+  });
+
   it("uses the header shape the Go loader reads", () => {
     const sumrak = docs["projects/sumrak/page.md"];
     expect(sumrak).toMatch(/^# Сумрак \(Sumrak\)\n\n- Route: `\/projects\/sumrak`\n- Canonical URL: `https:\/\/www\.winapps\.io\/projects\/sumrak`\n- Category: `projects`/);

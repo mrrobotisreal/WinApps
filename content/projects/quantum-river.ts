@@ -16,7 +16,7 @@ export const quantumRiver = Project.parse({
   sections: [],
   tech: ["Vite", "TypeScript", "React", "shadcn/ui", "Radix UI", "Tailwind CSS", "Vercel"],
   links: [
-    { label: "Open Quantum River", href: "https://quantum-river-qr-code-gen.vercel.app/", external: true },
+    { label: "Open Quantum River", href: "https://ui.qr-gen.winapps.io/", external: true },
     { label: "Source on GitHub", href: "https://github.com/mrrobotisreal/quantum_river_ui", external: true },
   ],
   media: {

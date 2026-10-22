@@ -16,7 +16,7 @@ export const textFormatter = Project.parse({
   sections: [],
   tech: ["Vite", "TypeScript", "React", "shadcn/ui", "Radix UI", "Tailwind CSS", "Vercel"],
   links: [
-    { label: "Open Text Formatter", href: "https://text-formatter-navy.vercel.app/", external: true },
+    { label: "Open Text Formatter", href: "https://ui.formatter.winapps.io/", external: true },
     { label: "Source on GitHub", href: "https://github.com/mrrobotisreal/text_formatter", external: true },
     { label: "Privacy policy", href: "/projects/text-formatter/privacy-policy" },
   ],
