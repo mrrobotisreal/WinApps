@@ -99,6 +99,10 @@ export const Project = z.object({
   numbers: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
   tech: z.array(z.string()),
   links: z.array(Link).default([]), // live site, repo, store
+  /** Third-party player embedded on click only (never loads with the page). */
+  embed: z
+    .object({ src: z.string().url(), title: z.string(), poster: Media, buttonLabel: z.string() })
+    .optional(),
   media: z.object({
     hero: Media.optional(),
     gallery: z.array(Media).default([]),

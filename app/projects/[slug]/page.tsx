@@ -3,6 +3,7 @@ import Layout from "@/components/layout";
 import {
   AnalyticsPageView,
   DateRange,
+  EmbedOnClick,
   LinkRow,
   MediaGallery,
   MediaItem,
@@ -95,6 +96,7 @@ export default async function ProjectPage({ params }: Params) {
               )}
             </div>
             <NumberStrip numbers={project.numbers} />
+            {project.embed && <EmbedOnClick embed={project.embed} />}
             <ProseSections sections={project.sections} />
             {gallery.length > 0 && (
               <div className="space-y-3">
