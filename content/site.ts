@@ -1,4 +1,10 @@
+import { experience } from "./experience";
 import { SiteConfig } from "./schema";
+
+/** One Work menu link per company, newest role first (Double Raven appears once). */
+const workLinks = experience
+  .filter((e, i, all) => all.findIndex((x) => x.shortName === e.shortName) === i)
+  .map((e) => ({ label: e.shortName, href: `/portfolio/${e.slug}` }));
 
 const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mitchell-wintrow/", external: true },
@@ -26,14 +32,7 @@ export const site = SiteConfig.parse({
     {
       label: "Work",
       href: "/portfolio",
-      children: [
-        { label: "People Inc", href: "/portfolio/people-inc" },
-        { label: "Mirror", href: "/portfolio/mirror" },
-        { label: "Double Raven", href: "/portfolio/double-raven-2025" },
-        { label: "Amazon Connect", href: "/portfolio/amazon-connect" },
-        { label: "VMware", href: "/portfolio/vmware" },
-        { label: "All", href: "/portfolio" },
-      ],
+      children: [...workLinks, { label: "All", href: "/portfolio" }],
     },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },

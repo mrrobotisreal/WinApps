@@ -1,15 +1,5 @@
+import { banner, logo96, R2, R2_LEGACY } from "./cdn";
 import { Experience } from "./schema";
-
-const R2_LEGACY = "https://pub-c0247ba91a4a415a9ff6d54583d7667c.r2.dev";
-const R2 = "https://pub-5e3f5f69f6bd4f2fb6bc741e03f34851.r2.dev";
-
-const banner = (src: string, company: string) => ({
-  kind: "image" as const,
-  src,
-  alt: `${company} banner`,
-  width: 1500,
-  height: 300,
-});
 
 const entries = [
   {
@@ -339,13 +329,7 @@ const entries = [
       "Kubernetes",
       "GitLab CI/CD",
     ],
-    logo: {
-      kind: "image",
-      src: `${R2_LEGACY}/WinApps_VMwareLogo.webp`,
-      alt: "VMware logo",
-      width: 96,
-      height: 96,
-    },
+    logo: logo96(`${R2_LEGACY}/WinApps_VMwareLogo.webp`, "VMware"),
     banner: banner(`${R2_LEGACY}/WinApps_VMwareBanner.webp`, "VMware"),
     order: 5,
   },
