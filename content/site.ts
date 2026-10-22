@@ -88,7 +88,7 @@ export const site = SiteConfig.parse({
         title: "Work history",
         intro: "Where I've worked and what I built there.",
         description:
-          "Mitchell Wintrow's work history: People Inc., Mirror, Double Raven Solutions, Amazon Web Services and VMware.",
+          "Mitchell Wintrow's work history, from People Inc., Amazon Web Services and VMware to founding-engineer roles at early-stage companies.",
       },
       projects: {
         title: "Projects",
