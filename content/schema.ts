@@ -1,0 +1,149 @@
+/**
+ * Zod schemas for the site's content layer (contract: ../docs-winapps/CONTENT_SCHEMA.md).
+ * Every module under content/ exports values already parsed through these, so a bad
+ * entry fails at import time, in tests and in the build.
+ */
+import { z } from "zod";
+
+const yearMonth = z.string().regex(/^\d{4}-\d{2}$/, "expected YYYY-MM");
+const urlOrPath = z.string().url().or(z.string().startsWith("/"));
+
+export const Link = z.object({
+  label: z.string(),
+  href: urlOrPath,
+  external: z.boolean().default(false),
+});
+export type Link = z.infer<typeof Link>;
+
+export const Media = z.object({
+  kind: z.enum(["image", "video"]),
+  src: urlOrPath, // R2 URL or a local /public path
+  poster: urlOrPath.optional(), // videos
+  alt: z.string().min(1), // descriptive, never "screenshot of"
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  caption: z.string().optional(),
+});
+export type Media = z.infer<typeof Media>;
+
+export const Section = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/), // anchor slug
+  heading: z.string(),
+  paragraphs: z.array(z.string()), // plain prose; **bold** and `code` allowed, no HTML
+  bullets: z.array(z.string()).optional(),
+  media: z.array(Media).optional(),
+});
+export type Section = z.infer<typeof Section>;
+
+export const Profile = z.object({
+  name: z.literal("Mitchell Wintrow"),
+  shortName: z.literal("Mitch Wintrow"),
+  title: z.string(),
+  positioning: z.string(), // hero one-liner
+  bio: z.array(z.string()), // about page paragraphs
+  email: z.string().email(),
+  location: z.string(),
+  socials: z.array(Link),
+  resume: z.object({ pdf: z.string(), docx: z.string() }),
+  education: z.array(
+    z.object({
+      school: z.string(),
+      credential: z.string(),
+      dates: z.object({ start: yearMonth, end: yearMonth }).optional(),
+      note: z.string().optional(),
+    })
+  ),
+  languages: z.array(z.object({ name: z.string(), level: z.string() })),
+  personal: z.array(z.string()), // short "outside work" lines
+});
+export type Profile = z.infer<typeof Profile>;
+
+export const Experience = z.object({
+  slug: z.string().regex(/^[a-z0-9-]+$/), // route: /portfolio/<slug>
+  company: z.string(),
+  shortName: z.string(), // nav and compact cards, e.g. "Amazon Connect"
+  title: z.string(),
+  employment: z.enum(["full-time", "part-time", "contract", "apprenticeship", "co-founder"]),
+  start: yearMonth,
+  end: yearMonth.nullable(), // null = present
+  summary: z.string(), // one sentence for cards
+  highlights: z.array(z.string()).min(1).max(8), // impact-first
+  sections: z.array(Section), // long-form for the detail page
+  tech: z.array(z.string()),
+  logo: Media.optional(),
+  banner: Media.optional(),
+  links: z.array(Link).default([]),
+  featured: z.boolean().default(false),
+  order: z.number(),
+});
+export type Experience = z.infer<typeof Experience>;
+
+export const Project = z.object({
+  slug: z.string().regex(/^[a-z0-9-]+$/), // route: /projects/<slug>
+  name: z.string(),
+  displayName: z.string().optional(), // e.g. "Сумрак (Sumrak)"
+  tier: z.enum(["hero", "flagship", "standard", "archive"]),
+  status: z.enum(["active", "shipped", "paused", "archived"]),
+  role: z.string(),
+  start: yearMonth,
+  end: yearMonth.nullable(),
+  tagline: z.string().max(120), // card text
+  summary: z.array(z.string()).min(1).max(3),
+  sections: z.array(Section), // case-study body (empty for archive tier)
+  numbers: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
+  tech: z.array(z.string()),
+  links: z.array(Link).default([]), // live site, repo, store
+  media: z.object({
+    hero: Media.optional(),
+    gallery: z.array(Media).default([]),
+    banner: Media.optional(),
+    logo: Media.optional(),
+  }),
+  seo: z.object({ title: z.string(), description: z.string().max(160) }),
+  order: z.number(),
+});
+export type Project = z.infer<typeof Project>;
+
+export const BlogPost = z.object({
+  title: z.string(),
+  href: z.string().url(),
+  publisher: z.string(),
+  date: yearMonth,
+  summary: z.string(),
+  image: Media.optional(), // card banner
+});
+export type BlogPost = z.infer<typeof BlogPost>;
+
+export const PromoSlot = z.object({
+  id: z.enum(["home-top", "home-bottom"]),
+  product: z.enum(["creatv", "media-manipulator"]),
+  creative: Media,
+  href: z.string().url(),
+  referral: z.string().optional(),
+  enabled: z.boolean(),
+});
+export type PromoSlot = z.infer<typeof PromoSlot>;
+
+const NavItem = z.object({
+  label: z.string(),
+  href: z.string().startsWith("/"),
+  children: z.array(z.object({ label: z.string(), href: z.string().startsWith("/") })).optional(),
+});
+
+/** Route patterns: an exact path, or a prefix ending in "/*". */
+const RoutePattern = z.string().regex(/^\/[^*]*(\/\*)?$/);
+
+export const SiteConfig = z.object({
+  baseUrl: z.string().url(),
+  siteName: z.string(),
+  nav: z.array(NavItem),
+  footer: z.object({
+    copyrightHolder: z.string(),
+    rightsNotice: z.string(),
+    email: z.string().email(),
+    socials: z.array(Link),
+  }),
+  excludeFromSitemap: z.array(RoutePattern),
+  excludeFromLlms: z.array(RoutePattern),
+});
+export type SiteConfig = z.infer<typeof SiteConfig>;
