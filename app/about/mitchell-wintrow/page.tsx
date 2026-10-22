@@ -14,7 +14,7 @@ import {
 } from "@/lib/analytics";
 
 export default function AboutPage() {
-  const [pageStartTime] = useState(Date.now());
+  const [pageStartTime] = useState(() => Date.now());
   const scrollDepthRef = useRef(0);
   const lastScrollUpdate = useRef(0);
 

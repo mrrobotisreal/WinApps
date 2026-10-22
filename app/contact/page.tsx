@@ -92,7 +92,7 @@ const contactMethods: ContactMethod[] = [
 ];
 
 export default function ContactPage() {
-  const [pageStartTime] = useState(Date.now());
+  const [pageStartTime] = useState(() => Date.now());
   const scrollDepthRef = useRef(0);
   const lastScrollUpdate = useRef(0);
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useSyncExternalStore } from "react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -128,12 +128,32 @@ const asciiTitle = `
 ........................................................................................................................
 `;
 
+function handlePDFResumeDownload() {
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.pdf";
+  link.setAttribute("download", "MitchellWintrow_Resume.pdf");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function handleWordResumeDownload() {
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.docx";
+  link.setAttribute("download", "MitchellWintrow_Resume.docx");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+const subscribeNoop = () => () => {};
+const getIsMac = () => navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+const getIsMacServer = () => false;
+
 export function ActionButtons() {
-  const [isMac, setIsMac] = useState(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+  const isMac = useSyncExternalStore(subscribeNoop, getIsMac, getIsMacServer);
 
   useEffect(() => {
-    const isMacOS = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-    setIsMac(isMacOS);
+    const isMacOS = getIsMac();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       const modifier = isMacOS ? event.metaKey : event.ctrlKey;
@@ -158,22 +178,6 @@ export function ActionButtons() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  const handlePDFResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.pdf";
-    link.setAttribute("download", "MitchellWintrow_Resume.pdf");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-  const handleWordResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.docx";
-    link.setAttribute("download", "MitchellWintrow_Resume.docx");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
 
   const handleContactClick = () => {
     // This can be expanded to open a contact modal or navigate to contact page

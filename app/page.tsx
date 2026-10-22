@@ -47,7 +47,7 @@ mixpanel.init(process.env.NEXT_PUBLIC_MP_TOKEN || "", {
 // from-blue-600 from-10% via-orange-500 via-[percentage:20%_70%] to-pink-400 to-100%
 
 export default function Home() {
-  const [pageStartTime] = useState(Date.now());
+  const [pageStartTime] = useState(() => Date.now());
   const scrollDepthRef = useRef(0);
   const lastScrollUpdate = useRef(0);
 

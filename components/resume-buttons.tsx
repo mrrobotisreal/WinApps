@@ -81,6 +81,23 @@ const asciiTitle = `
 ........................................................................................................................
 `;
 
+function handlePDFResumeDownload() {
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.pdf";
+  link.setAttribute("download", "MitchellWintrow_Resume.pdf");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function handleWordResumeDownload() {
+  const link = document.createElement("a");
+  link.href = "/MitchellWintrow_Resume.docx";
+  link.setAttribute("download", "MitchellWintrow_Resume.docx");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 export function ResumeButtons() {
   useEffect(() => {
     const isMacOS = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
@@ -108,22 +125,6 @@ export function ResumeButtons() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  const handlePDFResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.pdf";
-    link.setAttribute("download", "MitchellWintrow_Resume.pdf");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-  const handleWordResumeDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/MitchellWintrow_Resume.docx";
-    link.setAttribute("download", "MitchellWintrow_Resume.docx");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
 
   return (
     <div className="flex flex-col justify-center items-center sm:flex-row gap-4">

@@ -60,6 +60,18 @@ async function extractErrorMessage(response: Response) {
   }
 }
 
+async function resetRemoteSession(keepalive = false) {
+  try {
+    await fetch(`${WINNY_API_BASE}/api/v1/chat/reset`, {
+      method: "POST",
+      mode: "cors",
+      keepalive,
+    });
+  } catch {
+    // Best-effort only. The backend is stateless anyway.
+  }
+}
+
 export function WinnyAssistant() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -110,7 +122,6 @@ export function WinnyAssistant() {
 
   useEffect(() => {
     if (!isStreaming || !thinkingMessageId) {
-      setThinkingDots(1);
       return;
     }
 
@@ -122,18 +133,6 @@ export function WinnyAssistant() {
       window.clearInterval(intervalId);
     };
   }, [isStreaming, thinkingMessageId]);
-
-  const resetRemoteSession = async (keepalive = false) => {
-    try {
-      await fetch(`${WINNY_API_BASE}/api/v1/chat/reset`, {
-        method: "POST",
-        mode: "cors",
-        keepalive,
-      });
-    } catch {
-      // Best-effort only. The backend is stateless anyway.
-    }
-  };
 
   const stopStreaming = (shouldReset = true) => {
     abortRef.current?.abort();

@@ -3,7 +3,7 @@
 */
 "use client"
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useSyncExternalStore } from "react";
 import {
   motion,
   useMotionValue,
@@ -32,6 +32,11 @@ interface RollingGalleryProps {
   images?: string[];
 }
 
+const subscribeResize = (onChange: () => void) => {
+  window.addEventListener("resize", onChange);
+  return () => window.removeEventListener("resize", onChange);
+};
+
 const RollingGallery: React.FC<RollingGalleryProps> = ({
   autoplay = false,
   pauseOnHover = false,
@@ -40,14 +45,11 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   // Use default images if none are provided
   const galleryImages = images.length > 0 ? images : IMGS;
 
-  const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsScreenSizeSm(window.innerWidth <= 640);
-    const handleResize = () => setIsScreenSizeSm(window.innerWidth <= 640);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isScreenSizeSm = useSyncExternalStore(
+    subscribeResize,
+    () => window.innerWidth <= 640,
+    () => false
+  );
 
   // Preload images to ensure they're available
   useEffect(() => {
