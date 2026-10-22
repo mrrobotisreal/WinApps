@@ -108,7 +108,7 @@ const entries = [
         heading: "The product",
         paragraphs: [
           "Mirror is an AI interview platform with two sides. Businesses use it to run AI interviews of job candidates. Candidates use it to practise and improve before real technical interviews.",
-          "As the founding engineer I owned the product architecture and the engineering leadership, and built the web and mobile experiences around interview workflows, candidate preparation, and AI-assisted evaluation.",
+          "As the founding engineer I owned the product architecture and the engineering leadership. I built the web and mobile experiences around interview workflows, candidate preparation, and AI-assisted evaluation.",
         ],
       },
     ],
@@ -131,8 +131,7 @@ const entries = [
       "Primary engineer on ODIN (Open-source Data Intelligence Network), responsible for the backend engineering and tooling.",
       "Built ODIN's relational graph tools on Neo4j for exploring the connections inside a case.",
       "Built a suite of OSINT (open-source intelligence) tools inside the platform.",
-      "Built automatic OCR and handwriting recognition that extracts text from uploaded documents and handwritten notes.",
-      "Built the data management and sanitization layer for everything detectives upload and enter.",
+      "Built automatic OCR and handwriting extraction, plus the data management and sanitization layer behind everything detectives upload.",
       "Built AI tooling on local and external models trained for investigative work.",
       "Took over the web front end and have improved it substantially.",
     ],
@@ -142,14 +141,14 @@ const entries = [
         heading: "ODIN",
         paragraphs: [
           "ODIN (Open-source Data Intelligence Network) is a suite of investigation tools backed by local and external AI models trained for this work. Detectives upload documentation and provide information and evidence directly, and ODIN organizes it and speeds up the work around it.",
-          "It gives detectives relational graph tools, OSINT tools, automatic OCR and handwriting extraction, and alert triggers that notify them as soon as new information is detected. The focus is missing persons, human trafficking, and wanted fugitive cases.",
+          "It gives detectives relational graph tools, OSINT tools, and automatic OCR and handwriting extraction. Alert triggers notify them as soon as new information is detected. The focus is missing persons, human trafficking, and wanted fugitive cases.",
         ],
       },
       {
         id: "role",
         heading: "My role",
         paragraphs: [
-          "I'm the primary engineer, and I own the backend and the tooling: the graph layer on Neo4j, the OSINT tools, document and handwriting extraction, data management and sanitization, and the AI tooling. I have also taken over the web front end and improved it substantially.",
+          "I'm the primary engineer, and I own the backend and the tooling. That covers the graph layer on Neo4j, the OSINT tools, document and handwriting extraction, data management and sanitization, and the AI tooling. I have also taken over the web front end and improved it substantially.",
           "This is a continuation of the work I started as Double Raven's first engineer in 2020.",
         ],
       },
@@ -190,8 +189,7 @@ const entries = [
       "Front-end engineer on Amazon Connect Customer Profiles, building AWS Console and Connect admin website features for contact-center customers.",
     highlights: [
       "Built the CTR-AutoAssociateOnly contact record template, which looks up a caller's unified profile by phone number without creating duplicate profiles.",
-      "Rewrote the public documentation for contact record templates and added a new section for the auto-associate flow.",
-      "Built the profile creation and auto-association settings in the AWS Console, with a help panel that links to the documentation.",
+      "Built the AWS Console settings for the new template and rewrote its public documentation, adding a section for the auto-associate flow.",
       "Built the Customer Segments list, segment details and CSV export in the Connect admin website.",
       "Raised test coverage from 64% to 91% and made 90% coverage a required gate for code reviews.",
       "Cut false on-call alarms with CloudWatch anomaly detection on 4xx errors, with 403s split into their own dashboard and alarm.",
@@ -202,7 +200,7 @@ const entries = [
         id: "role",
         heading: "Role",
         paragraphs: [
-          "I was a front-end engineer on the Customer Profiles team, working in React and TypeScript with Node.js, Java 11 and Python where a feature needed it.",
+          "I was a front-end engineer on the Customer Profiles team. I worked in React and TypeScript, with Node.js, Java 11 and Python where a feature needed it.",
         ],
         bullets: [
           "Took feature specifications through to maintainable, extensible code.",
@@ -217,28 +215,28 @@ const entries = [
         id: "contact-record-templates",
         heading: "Contact record templates",
         paragraphs: [
-          "Both existing contact trace record (CTR) templates created a new customer profile automatically, which led to duplicate profiles and inconsistent data. Customers had raised it many times. I built a new template, `CTR-AutoAssociateOnly`, that still looks up the caller's unified profile by incoming phone number in real time but never creates a new one.",
-          "I then updated the public documentation: a new section on associating contact records with the `_phone` key, diagrams of the CTR flows, and a rewrite of the existing template docs, which customers had called confusing.",
-          "Finally I built the front end: the profile creation and auto-association section on the Create domain page, the same section on the Domain details page for viewing and changing the applied template, and an info help panel that explains each template and links to the documentation.",
+          "Both existing contact trace record (CTR) templates created a new customer profile automatically, which led to duplicate profiles and inconsistent data. Customers had raised it many times. I built a new template, `CTR-AutoAssociateOnly`. It still looks up the caller's unified profile by incoming phone number in real time, but it never creates a new one.",
+          "I then updated the public documentation. I added a section on associating contact records with the `_phone` key and diagrams of the CTR flows. I also rewrote the existing template docs, which customers had called confusing.",
+          "Finally I built the front end. The profile creation and auto-association section appears on the Create domain page, and on the Domain details page for viewing and changing the applied template. An info help panel explains each template and links to the documentation.",
         ],
       },
       {
         id: "customer-segments",
         heading: "Customer Segments",
         paragraphs: [
-          "In the Connect admin website I designed and built the Customer Segments landing page: a searchable, filterable table of a customer's segments, or an empty state with a Create Segment button. Segments come from a paginated API and are cached with React Query to keep the table in sync with the server and reduce API calls.",
+          "In the Connect admin website I designed and built the Customer Segments landing page. It shows a searchable, filterable table of a customer's segments, or an empty state with a Create Segment button. Segments come from a paginated API and are cached with React Query to keep the table in sync and reduce API calls.",
           "The segment details page shows the profile count, name, ID, description, creation date, and the audience definition (audience groups, filter groups, and include/exclude operators). From there customers can delete, duplicate, or export the segment.",
-          "Export to CSV is available from both pages and covers up to 350,000 profiles. Larger exports are left to the AWS Console, because a file that size can run to several gigabytes and the console gives IT admins better controls than the contact-center admins who use the admin website.",
+          "Export to CSV is available from both pages and covers up to 350,000 profiles. Larger exports are left to the AWS Console, because a file that size can run to several gigabytes. The console also gives IT admins better controls than the admin website offers contact-center admins.",
         ],
       },
       {
         id: "operations",
         heading: "Operations and tooling",
         paragraphs: [
-          "Setting up a realistic Customer Profiles domain for testing or demos took engineers and product managers a long time. I wrote a script with Bash, PowerShell and Cmd entry points that installs the right Python if needed, then provisions a domain, enables every feature, and loads 1,000,000 generated profiles and products. The team used it for development and for customer demos.",
-          "Our 4xx alarms fired on any spike, so on-call engineers kept chasing customers' permission errors and harmless 404s. I added CloudWatch anomaly detection so only unusual spikes alarm, and moved 403s to their own dashboard and alarm to track customers who were struggling with permissions setup.",
+          "Setting up a realistic Customer Profiles domain for testing or demos took engineers and product managers a long time. I wrote a script with Bash, PowerShell and Cmd entry points that installs the right Python if needed. It then provisions a domain, enables every feature, and loads 1,000,000 generated profiles and products. The team used it for development and for customer demos.",
+          "Our 4xx alarms fired on any spike, so on-call engineers kept chasing customers' permission errors and harmless 404s. I added CloudWatch anomaly detection so only unusual spikes alarm. I also moved 403s to their own dashboard and alarm, to track customers struggling with permissions setup.",
           "Code reviews had no coverage requirement, and simple bugs were reaching production. I made 90% coverage a required gate and raised the codebase from 64% to 91%.",
-          "Adding a new UI string meant copying it into every locale file in exactly the right place by hand. I wrote a Node.js script that takes new strings from the English file and inserts them into every other locale, and the whole front-end team adopted it.",
+          "Adding a new UI string meant copying it into every locale file in exactly the right place by hand. I wrote a Node.js script that takes new strings from the English file and inserts them into every other locale. The whole front-end team adopted it.",
         ],
       },
     ],
