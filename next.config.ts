@@ -4,10 +4,13 @@ const nextConfig: NextConfig = {
   async headers() {
     // Content-addressed by filename and never edited in place: cache for a year.
     const immutable = [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }];
-    return ["/fonts/:path*", "/sumrak/:path*", "/media-manipulator/:path*", "/creatv/:path*"].map((source) => ({
+    const rules = ["/fonts/:path*", "/sumrak/:path*", "/media-manipulator/:path*", "/creatv/:path*"].map((source) => ({
       source,
       headers: immutable,
     }));
+    // Correct type for Ogg Opus so every browser picks it up as audio.
+    rules.push({ source: "/:path*.opus", headers: [{ key: "Content-Type", value: "audio/ogg; codecs=opus" }] });
+    return rules;
   },
   async rewrites() {
     // Markdown twins of each project and role page (for /llms.txt readers).

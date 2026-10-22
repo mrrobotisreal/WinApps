@@ -26,12 +26,22 @@ export const Media = z.object({
 });
 export type Media = z.infer<typeof Media>;
 
+/** A short audio clip with fallbacks, listed best-first (e.g. .opus, .webm, .m4a). */
+export const AudioClip = z.object({
+  title: z.string(),
+  description: z.string(),
+  sources: z.array(z.object({ src: urlOrPath, type: z.string() })).min(1),
+  durationSeconds: z.number().positive(),
+});
+export type AudioClip = z.infer<typeof AudioClip>;
+
 export const Section = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/), // anchor slug
   heading: z.string(),
   paragraphs: z.array(z.string()), // plain prose; **bold** and `code` allowed, no HTML
   bullets: z.array(z.string()).optional(),
   media: z.array(Media).optional(),
+  audio: z.array(AudioClip).optional(),
   links: z.array(Link).optional(),
 });
 export type Section = z.infer<typeof Section>;

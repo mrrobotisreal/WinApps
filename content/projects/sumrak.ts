@@ -18,6 +18,13 @@ const video = (file: string, poster: string, alt: string, width: number) => ({
   height: 540,
 });
 
+/** Voice demo in three containers: Opus (smallest), Opus-in-WebM, AAC for older Safari. */
+const voiceDemo = (name: string) => [
+  { src: `/sumrak/voices/${name}.opus`, type: 'audio/ogg; codecs="opus"' },
+  { src: `/sumrak/voices/${name}.webm`, type: 'audio/webm; codecs="opus"' },
+  { src: `/sumrak/voices/${name}.m4a`, type: "audio/mp4" },
+];
+
 const s = {
   today: shot("001", "Today screen with goal rings, a finished quest and 95 cards due"),
   lobby: shot("002", "Hotel path: the lift door on floor 0, the lobby, under the ТРКИ-А1 floor counter"),
@@ -102,7 +109,21 @@ export const sumrak = Project.parse({
       heading: "My voices on ElevenLabs",
       paragraphs: [
         "Most of Сумрак's audio is read in my own voice. I created two professional voice clones on ElevenLabs: **Mr. Wintrow**, which narrates the stories, and **Obsidian**, a character voice that is starting to appear in the stories as well. The other characters use custom voices designed for each cast.",
-        "Both voices are public in the ElevenLabs voice library, so you can use them in your own projects.",
+        "Both voices are public in the ElevenLabs voice library, so you can use them in your own projects. The two short scenes below were rendered on Eleven v4 with its audio tags, with sound effects and an ambient score generated on ElevenLabs too.",
+      ],
+      audio: [
+        {
+          title: "Mr. Wintrow: The Last Exit",
+          description: "A night-drive horror narration: calm, amused, terrified, breathless, broken, and back.",
+          sources: voiceDemo("mr-wintrow-demo"),
+          durationSeconds: 138,
+        },
+        {
+          title: "Obsidian: The Tower at Vaelmoor",
+          description: "A necromancer duels his old teacher, Cornelius (an ElevenLabs library voice), in a storm.",
+          sources: voiceDemo("obsidian-demo"),
+          durationSeconds: 108,
+        },
       ],
       links: [
         {

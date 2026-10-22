@@ -126,6 +126,15 @@ describe("sumrak case study", () => {
     expect(strings(sumrak).filter(([, s]) => /github\.com|play\.google|apps\.apple/.test(s))).toEqual([]);
   });
 
+  it("ships both voice demos as local Opus with fallbacks", () => {
+    const audio = sumrak.sections.find((s) => s.id === "voices")?.audio ?? [];
+    expect(audio.map((a) => a.title)).toEqual(["Mr. Wintrow: The Last Exit", "Obsidian: The Tower at Vaelmoor"]);
+    for (const clip of audio) {
+      expect(clip.sources[0].src).toMatch(/^\/sumrak\/voices\/.+\.opus$/);
+      expect(clip.sources.map((s) => s.src.split(".").pop())).toEqual(["opus", "webm", "m4a"]);
+    }
+  });
+
   it("mentions the iOS port exactly once outside the summary", () => {
     const hits = strings(sumrak.sections).filter(([, s]) => /iOS port/.test(s));
     expect(hits).toHaveLength(1);
