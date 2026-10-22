@@ -8,8 +8,6 @@ const nextConfig: NextConfig = {
       source,
       headers: immutable,
     }));
-    // Correct type for Ogg Opus so every browser picks it up as audio.
-    rules.push({ source: "/:path*.opus", headers: [{ key: "Content-Type", value: "audio/ogg; codecs=opus" }] });
     return rules;
   },
   async rewrites() {

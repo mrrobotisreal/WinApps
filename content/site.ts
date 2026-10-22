@@ -139,6 +139,7 @@ export const site = SiteConfig.parse({
       resume: "Resume",
       sponsored: "Sponsored",
       forAgents: "For AI agents: /llms.txt",
+      audioLanguage: "Language:",
     },
   },
   excludeFromSitemap: [

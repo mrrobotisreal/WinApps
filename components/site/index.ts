@@ -18,4 +18,4 @@ export { IntroVideo } from "./intro-video";
 export { EmbedOnClick } from "./embed-on-click";
 export { JsonLd } from "./json-ld";
 export { TrackedLink } from "./tracked-link";
-export { AudioPlayer } from "./audio-player";
+export { AudioGroup } from "./audio-player";

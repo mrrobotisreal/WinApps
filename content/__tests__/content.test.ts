@@ -126,12 +126,16 @@ describe("sumrak case study", () => {
     expect(strings(sumrak).filter(([, s]) => /github\.com|play\.google|apps\.apple/.test(s))).toEqual([]);
   });
 
-  it("ships both voice demos as local Opus with fallbacks", () => {
-    const audio = sumrak.sections.find((s) => s.id === "voices")?.audio ?? [];
-    expect(audio.map((a) => a.title)).toEqual(["Mr. Wintrow: The Last Exit", "Obsidian: The Tower at Vaelmoor"]);
-    for (const clip of audio) {
-      expect(clip.sources[0].src).toMatch(/^\/sumrak\/voices\/.+\.opus$/);
-      expect(clip.sources.map((s) => s.src.split(".").pop())).toEqual(["opus", "webm", "m4a"]);
+  it("ships both voice demos in eight languages, English first, with WebM-Opus + AAC", () => {
+    const voices = sumrak.sections.find((s) => s.id === "voices")!;
+    expect(voices.audioLanguages?.map((l) => l.code)).toEqual(["en", "ru", "he", "uk", "de", "fr", "ja", "es"]);
+    expect(voices.audio?.map((a) => a.title)).toEqual(["Mr. Wintrow: The Last Exit", "Obsidian: The Tower at Vaelmoor"]);
+    for (const clip of voices.audio ?? []) {
+      expect(clip.versions.map((v) => v.lang)).toEqual(["en", "ru", "he", "uk", "de", "fr", "ja", "es"]);
+      for (const v of clip.versions) {
+        expect(v.sources.map((s) => s.src.split(".").pop())).toEqual(["webm", "m4a"]);
+        expect(v.sources[0].src).toMatch(new RegExp(`^/sumrak/voices/.+-${v.lang}\\.webm$`));
+      }
     }
   });
 

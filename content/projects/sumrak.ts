@@ -18,12 +18,28 @@ const video = (file: string, poster: string, alt: string, width: number) => ({
   height: 540,
 });
 
-/** Voice demo in three containers: Opus (smallest), Opus-in-WebM, AAC for older Safari. */
-const voiceDemo = (name: string) => [
-  { src: `/sumrak/voices/${name}.opus`, type: 'audio/ogg; codecs="opus"' },
-  { src: `/sumrak/voices/${name}.webm`, type: 'audio/webm; codecs="opus"' },
-  { src: `/sumrak/voices/${name}.m4a`, type: "audio/mp4" },
+/** The demo languages, in display order; English is the default. */
+const DEMO_LANGUAGES = [
+  { code: "en", label: "English", dir: "ltr" as const },
+  { code: "ru", label: "Русский", dir: "ltr" as const },
+  { code: "he", label: "עברית", dir: "rtl" as const },
+  { code: "uk", label: "Українська", dir: "ltr" as const },
+  { code: "de", label: "Deutsch", dir: "ltr" as const },
+  { code: "fr", label: "Français", dir: "ltr" as const },
+  { code: "ja", label: "日本語", dir: "ltr" as const },
+  { code: "es", label: "Español", dir: "ltr" as const },
 ];
+
+/** One rendition per language: Opus in WebM first, AAC for older Safari. */
+const voiceDemo = (scene: string, seconds: Record<string, number>) =>
+  DEMO_LANGUAGES.map(({ code }) => ({
+    lang: code,
+    durationSeconds: seconds[code],
+    sources: [
+      { src: `/sumrak/voices/${scene}-${code}.webm`, type: 'audio/webm; codecs="opus"' },
+      { src: `/sumrak/voices/${scene}-${code}.m4a`, type: "audio/mp4" },
+    ],
+  }));
 
 const s = {
   today: shot("001", "Today screen with goal rings, a finished quest and 95 cards due"),
@@ -109,22 +125,21 @@ export const sumrak = Project.parse({
       heading: "My voices on ElevenLabs",
       paragraphs: [
         "Most of Сумрак's audio is read in my own voice. I created two professional voice clones on ElevenLabs: **Mr. Wintrow**, which narrates the stories, and **Obsidian**, a character voice that is starting to appear in the stories as well. The other characters use custom voices designed for each cast.",
-        "Both voices are public in the ElevenLabs voice library, so you can use them in your own projects. The two short scenes below were rendered on Eleven v4 with its audio tags, with sound effects and an ambient score generated on ElevenLabs too.",
+        "Both voices are public in the ElevenLabs voice library, so you can use them in your own projects, and both are tested and verified in over 14 languages. The two short scenes below play in eight of them: pick a language and both scenes switch. They were rendered on Eleven v4 with its audio tags, with sound effects from ElevenLabs and original scores made in Suno.",
       ],
       audio: [
         {
           title: "Mr. Wintrow: The Last Exit",
           description: "A night-drive horror narration: calm, amused, terrified, breathless, broken, and back.",
-          sources: voiceDemo("mr-wintrow-demo"),
-          durationSeconds: 138,
+          versions: voiceDemo("mr-wintrow", { en: 180, ru: 180, he: 180, uk: 180, de: 180, fr: 180, ja: 192, es: 180 }),
         },
         {
           title: "Obsidian: The Tower at Vaelmoor",
           description: "A necromancer duels his old teacher, Cornelius (an ElevenLabs library voice), in a storm.",
-          sources: voiceDemo("obsidian-demo"),
-          durationSeconds: 108,
+          versions: voiceDemo("obsidian", { en: 114, ru: 114, he: 114, uk: 114, de: 114, fr: 114, ja: 114, es: 114 }),
         },
       ],
+      audioLanguages: DEMO_LANGUAGES,
       links: [
         {
           label: "Mr. Wintrow (narration) on ElevenLabs",

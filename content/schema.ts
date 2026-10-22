@@ -26,14 +26,27 @@ export const Media = z.object({
 });
 export type Media = z.infer<typeof Media>;
 
-/** A short audio clip with fallbacks, listed best-first (e.g. .opus, .webm, .m4a). */
+const AudioSource = z.object({ src: urlOrPath, type: z.string() });
+
+/** A short audio clip with one rendition per language; each lists sources best-first. */
 export const AudioClip = z.object({
   title: z.string(),
   description: z.string(),
-  sources: z.array(z.object({ src: urlOrPath, type: z.string() })).min(1),
-  durationSeconds: z.number().positive(),
+  versions: z
+    .array(
+      z.object({
+        lang: z.string(), // BCP 47, e.g. "en", "he"
+        sources: z.array(AudioSource).min(1),
+        durationSeconds: z.number().positive(),
+      })
+    )
+    .min(1),
 });
 export type AudioClip = z.infer<typeof AudioClip>;
+
+/** Languages offered for a group of clips, in display order; the first is the default. */
+export const AudioLanguage = z.object({ code: z.string(), label: z.string(), dir: z.enum(["ltr", "rtl"]).default("ltr") });
+export type AudioLanguage = z.infer<typeof AudioLanguage>;
 
 export const Section = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/), // anchor slug
@@ -42,6 +55,7 @@ export const Section = z.object({
   bullets: z.array(z.string()).optional(),
   media: z.array(Media).optional(),
   audio: z.array(AudioClip).optional(),
+  audioLanguages: z.array(AudioLanguage).optional(),
   links: z.array(Link).optional(),
 });
 export type Section = z.infer<typeof Section>;
@@ -211,6 +225,7 @@ export const SiteConfig = z.object({
       resume: z.string(),
       sponsored: z.string(),
       forAgents: z.string(),
+      audioLanguage: z.string(),
     }),
   }),
   excludeFromSitemap: z.array(RoutePattern),

@@ -1,5 +1,6 @@
 import type { Section as SectionData } from "@/content/schema";
-import { AudioPlayer } from "./audio-player";
+import { site } from "@/content/site";
+import { AudioGroup } from "./audio-player";
 import { LinkRow } from "./link-row";
 import { MediaGallery } from "./media-gallery";
 import { Prose } from "./prose";
@@ -28,11 +29,7 @@ export function ProseSections({ sections }: { sections: SectionData[] }) {
           )}
           {section.media && <MediaGallery items={section.media} />}
           {section.audio && (
-            <div className="grid gap-4 md:grid-cols-2">
-              {section.audio.map((clip) => (
-                <AudioPlayer key={clip.title} clip={clip} />
-              ))}
-            </div>
+            <AudioGroup clips={section.audio} languages={section.audioLanguages} label={site.copy.labels.audioLanguage} />
           )}
           {section.links && <LinkRow links={section.links} />}
         </section>
