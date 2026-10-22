@@ -48,8 +48,7 @@ const entries = [
         id: "mute",
         heading: "The mute bug",
         paragraphs: [
-          "A video-ad mute bug had been open for months. Two things were wrong. The app's own video scenes and the video ad SDK each kept their own mute state and never agreed, so ads came in loud or silent at random. On iOS, background audio such as Spotify changed the behaviour again because the audio session category was being set inconsistently.",
-          "I traced both, introduced one shared mute source of truth that both players observe, and fixed the audio-session handling so background music behaves the way users expect.",
+          "A video-ad mute bug had been open for months. Two things were wrong. The app's own video scenes and the video ad SDK each kept their own mute state and never agreed, so ads came in loud or silent at random. On iOS, background audio such as Spotify changed the behaviour again because the audio session category was being set inconsistently. I traced both, introduced one shared mute source of truth that both players observe, and fixed the audio-session handling so background music behaves the way users expect.",
         ],
       },
       {
