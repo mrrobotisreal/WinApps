@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Layout from "@/components/layout";
-import { AnalyticsPageView, DateRange, linkClass, PageHeader, Prose } from "@/components/site";
+import { AnalyticsPageView, DateRange, JsonLd, linkClass, PageHeader, Prose } from "@/components/site";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
+import { breadcrumbLd, personLd } from "@/lib/structured-data";
 
 const { labels, pages } = site.copy;
 
@@ -19,6 +20,15 @@ export default function AboutPage() {
   return (
     <Layout>
       <AnalyticsPageView pageName="About" />
+      <JsonLd
+        data={[
+          personLd(profile),
+          breadcrumbLd([
+            { name: labels.home, path: "/" },
+            { name: pages.about.title, path: "/about" },
+          ]),
+        ]}
+      />
       <div className="container mx-auto space-y-8 px-4 py-8">
         <PageHeader title={pages.about.title} crumbs={[{ label: pages.about.title }]} intro={pages.about.intro} />
         <Card>

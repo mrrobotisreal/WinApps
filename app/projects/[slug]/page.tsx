@@ -4,6 +4,7 @@ import {
   AnalyticsPageView,
   DateRange,
   EmbedOnClick,
+  JsonLd,
   LinkRow,
   MediaGallery,
   MediaItem,
@@ -16,7 +17,9 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { profile } from "@/content/profile";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
+import { breadcrumbLd, organizationLd, softwareApplicationLd } from "@/lib/structured-data";
 
 
 const { labels, pages } = site.copy;
@@ -36,14 +39,11 @@ export async function generateMetadata({ params }: Params) {
   const { slug } = await params;
   const project = withPages.find((p) => p.slug === slug);
   if (!project) return {};
-  const image = project.media.banner ?? project.media.hero;
   return createMetadata({
     title: project.seo.title,
     description: project.seo.description,
     path: `projects/${project.slug}`,
-    image: image && image.kind === "image"
-      ? { url: image.src.startsWith("/") ? `${site.baseUrl}${image.src}` : image.src, width: image.width, height: image.height, alt: image.alt }
-      : undefined,
+    generatedImage: true,
   });
 }
 
@@ -60,6 +60,17 @@ export default async function ProjectPage({ params }: Params) {
   return (
     <Layout>
       <AnalyticsPageView pageName={`project_${project.slug}`} />
+      <JsonLd
+        data={[
+          breadcrumbLd([
+            { name: labels.home, path: "/" },
+            { name: pages.projects.title, path: "/projects" },
+            { name: title, path: `/projects/${project.slug}` },
+          ]),
+          ...(project.tier === "hero" || project.tier === "flagship" ? [softwareApplicationLd(project, profile)] : []),
+          ...(project.slug === "creatv" ? [organizationLd("CreaTV Ltd", "https://www.creatv.io", profile)] : []),
+        ]}
+      />
       <div className="container mx-auto space-y-8 px-4 py-8">
         <PageHeader
           title={title}
