@@ -1,4 +1,5 @@
 import type { Section as SectionData } from "@/content/schema";
+import { LinkRow } from "./link-row";
 import { MediaGallery } from "./media-gallery";
 import { Prose } from "./prose";
 
@@ -25,6 +26,7 @@ export function ProseSections({ sections }: { sections: SectionData[] }) {
             </ul>
           )}
           {section.media && <MediaGallery items={section.media} />}
+          {section.links && <LinkRow links={section.links} />}
         </section>
       ))}
     </div>

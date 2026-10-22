@@ -100,10 +100,11 @@ describe("projects", () => {
 describe("sumrak case study", () => {
   const sumrak = projects.find((p) => p.slug === "sumrak")!;
 
-  it("has the nine approved sections in order", () => {
+  it("has the approved sections in order", () => {
     expect(sumrak.sections.map((s) => s.id)).toEqual([
       "overview",
       "content",
+      "voices",
       "reader",
       "review",
       "speech",
@@ -120,6 +121,8 @@ describe("sumrak case study", () => {
     expect(videos.length).toBeGreaterThanOrEqual(3);
     for (const v of videos) expect(v.poster, v.src).toMatch(/^\/sumrak\/.+-poster\.jpg$/);
     expect(sumrak.links).toEqual([]);
+    const sectionLinks = sumrak.sections.flatMap((s) => s.links ?? []);
+    expect(sectionLinks.map((l) => new URL(l.href).hostname)).toEqual(["elevenlabs.io", "elevenlabs.io"]);
     expect(strings(sumrak).filter(([, s]) => /github\.com|play\.google|apps\.apple/.test(s))).toEqual([]);
   });
 

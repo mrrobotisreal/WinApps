@@ -32,6 +32,7 @@ export const Section = z.object({
   paragraphs: z.array(z.string()), // plain prose; **bold** and `code` allowed, no HTML
   bullets: z.array(z.string()).optional(),
   media: z.array(Media).optional(),
+  links: z.array(Link).optional(),
 });
 export type Section = z.infer<typeof Section>;
 

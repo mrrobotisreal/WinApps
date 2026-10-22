@@ -18,7 +18,7 @@ const abs = (route: string) => (route === "/" ? site.baseUrl : `${site.baseUrl}$
 
 /** Extra search terms per slug, beyond names, slugs and tech. */
 const ALIASES: Record<string, string[]> = {
-  sumrak: ["Sumrak", "Сумрак", "Russian learning", "language learning", "ТРКИ", "TORFL", "FSRS", "creepypasta", "Alina"],
+  sumrak: ["Sumrak", "Сумрак", "Russian learning", "language learning", "ТРКИ", "TORFL", "FSRS", "creepypasta", "Alina", "ElevenLabs", "voice clone", "Mr. Wintrow", "Obsidian"],
   "media-manipulator": ["Darkroom", "Content Studio", "video editor", "media converter", "AI restoration", "document scan"],
   creatv: ["CreaTV Studio", "creator platform", "video platform", "streaming", "creatv.io"],
   "people-inc": ["People app", "prebid", "prebidding", "Nimbus", "Liftoff", "Vungle", "GAM", "GMA", "ad revenue", "mute bug"],
@@ -137,6 +137,7 @@ export function factsMarkdown(): string {
     ...flagship.map((p) => `- Project: ${p.displayName ?? p.name} (${p.status}): ${p.tagline}`),
     `- Languages he is learning: ${profile.languages.map((l) => `${l.name} (${l.level.toLowerCase()})`).join(", ")}.`,
     "- Mirror Inc.: the contract ended in May 2026. Mirror is a past role only.",
+    "- Mitch's ElevenLabs voices (public, anyone can use them): \"Mr. Wintrow\" for narration https://elevenlabs.io/app/voice-lab/share/437b6c647ef328e2535d05d610a2cc1f1813a37ba51d58b502d655f8e1ed97f7/HQ4Xi3gPf8Q6bJUlao6z and \"Obsidian\" for characters https://elevenlabs.io/app/voice-lab/share/98f56dc987320f0d940cd99d45980b44a5b07a67a621c0f0cc4f091d2087b97a/QjEdRoRdZC2i3ncmFpNy",
     "- Never give dollar figures or percentages for People Inc revenue impact; describe it qualitatively.",
     "",
   ].join("\n");

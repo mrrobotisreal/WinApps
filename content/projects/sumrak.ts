@@ -98,6 +98,26 @@ export const sumrak = Project.parse({
       media: [s.library, s.series, s.chapter, s.pack],
     },
     {
+      id: "voices",
+      heading: "My voices on ElevenLabs",
+      paragraphs: [
+        "Most of Сумрак's audio is read in my own voice. I created two professional voice clones on ElevenLabs: **Mr. Wintrow**, which narrates the stories, and **Obsidian**, a character voice that is starting to appear in the stories as well. The other characters use custom voices designed for each cast.",
+        "Both voices are public in the ElevenLabs voice library, so you can use them in your own projects.",
+      ],
+      links: [
+        {
+          label: "Mr. Wintrow (narration) on ElevenLabs",
+          href: "https://elevenlabs.io/app/voice-lab/share/437b6c647ef328e2535d05d610a2cc1f1813a37ba51d58b502d655f8e1ed97f7/HQ4Xi3gPf8Q6bJUlao6z",
+          external: true,
+        },
+        {
+          label: "Obsidian (characters) on ElevenLabs",
+          href: "https://elevenlabs.io/app/voice-lab/share/98f56dc987320f0d940cd99d45980b44a5b07a67a621c0f0cc4f091d2087b97a/QjEdRoRdZC2i3ncmFpNy",
+          external: true,
+        },
+      ],
+    },
+    {
       id: "reader",
       heading: "Reader and word bank",
       paragraphs: [

@@ -28,6 +28,7 @@ function sectionsMarkdown(sections: Section[], level = "##"): string[] {
     "",
     ...s.paragraphs.flatMap((p) => [p, ""]),
     ...(s.bullets ? [...s.bullets.map((b) => `- ${b}`), ""] : []),
+    ...(s.links ? [...s.links.map((l) => `- [${l.label}](${abs(l.href)})`), ""] : []),
   ]);
 }
 
