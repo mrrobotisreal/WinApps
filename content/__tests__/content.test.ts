@@ -148,8 +148,8 @@ describe("sumrak case study", () => {
 describe("media manipulator case study", () => {
   const mm = projects.find((p) => p.slug === "media-manipulator")!;
 
-  it("has the six approved sections in order", () => {
-    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "tools", "ai", "backend", "frontend"]);
+  it("has the approved sections in order", () => {
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "viewers", "metadata", "tools", "ai", "backend", "accounts", "frontend"]);
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
