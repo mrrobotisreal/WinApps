@@ -27,7 +27,7 @@ export const mediaManipulator = Project.parse({
   start: "2025-05",
   end: null,
   tagline:
-    "65+ browser media tools and Darkroom, a multi-track video editor, on GPU servers I run myself.",
+    "75+ browser media tools and Darkroom, a multi-track video editor, on GPU servers I run myself.",
   summary: [
     "Media Manipulator converts, compresses, trims, transcribes, restores and edits images, video and audio in the browser, with the heavy work done on my own GPU servers so large files and AI models are no problem. Darkroom, its multi-track timeline editor, brings colour grading, chroma key, keyframes, transitions, titles and captions to a web page and exports through ffmpeg with preview-to-export parity.",
     "The AI tools (restoration, upscaling, transcription, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
@@ -37,7 +37,7 @@ export const mediaManipulator = Project.parse({
       id: "overview",
       heading: "What it is",
       paragraphs: [
-        "Media Manipulator started as a converter and became a media workbench. It has 65+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run, deleted within 24 hours, and no account is needed for the standard tools.",
+        "Media Manipulator started as a converter and became a media workbench. It has 75+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
         "The site ships in six locales, including a right-to-left one, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
       ],
       media: [shots.home],
@@ -48,6 +48,7 @@ export const mediaManipulator = Project.parse({
       paragraphs: [
         "Darkroom composites video, image, audio and LUT tracks in a WebGL2 pipeline: crop, fit, transform, colour grade, 3D LUT, chroma key, opacity and blend, in that order, with a CSS-filter fallback if the GPU context is lost. Audio mixes through a Web Audio graph. Decoders are pooled and Safari's decoder cap is respected.",
         "Editing features: trim, split and ripple delete at frame accuracy; a media bin with server-rendered proxies, filmstrips and waveform peaks; a Lumetri-style grade with exposure, contrast, saturation, temperature, tint and vibrance; chroma key with an eyedropper; eight blend modes; fifteen transitions; keyframes on position, scale, rotation, opacity, volume, pan and any effect parameter with five easing curves; title clips with text and shape layers; audio ducking and loudness presets; a captions lane with Whisper auto-captions and SRT/VTT export or burn-in.",
+        "Still images can be imported and held on the timeline for any length, Premiere-style, and they export like any other clip.",
         "Projects are safe to work in: snapshot undo/redo, revision-numbered saves that refuse to clobber, crash-recovery drafts in IndexedDB, and version history with checkpoints. Export is a server-side ffmpeg graph with hardware encoding when available, and a golden-image harness keeps the preview and the export within a documented tolerance.",
       ],
       bullets: [
@@ -58,11 +59,26 @@ export const mediaManipulator = Project.parse({
       media: [shots.darkroom],
     },
     {
+      id: "viewers",
+      heading: "See the result before you download it",
+      paragraphs: [
+        "Every tool shows its output in the browser before anything is downloaded, with viewers for images, video, GIF and audio. Compare modes include a wipe slider, side-by-side, synced A/B video with an fps readout, and audio A/B. Transcripts and captions open in viewers with click-to-seek and a two-column translation view; there is also a ZIP archive gallery, a PDF viewer, and HLS and DASH stream playback. For AI video restoration, the original can be compared against each model's output.",
+      ],
+    },
+    {
+      id: "metadata",
+      heading: "Metadata inspector",
+      paragraphs: [
+        "The inspector reads EXIF, XMP, IPTC and QuickTime metadata through exiftool and ffprobe and explains it instead of dumping raw tags. It is backed by a catalogue of about 1,800 tags in 22 categories, flags what matters for privacy (location, identity, device, history), plots GPS coordinates on a locator, and shows a before/after diff in split or unified view. \"Strip everything\" covers video and audio as well as images.",
+      ],
+    },
+    {
       id: "tools",
       heading: "The tool catalogue",
       paragraphs: [
-        "Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, compress, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI and MKV; compress, trim, crop, resize, rotate; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion, waveform rendering, vocal isolation.",
+        "Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, compress, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI and MKV; compress, trim, crop, resize, rotate; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion, waveform rendering, vocal isolation, voice cleanup and background-noise removal. Image: upscaling.",
         "Privacy: EXIF, GPS, IPTC and XMP removal; face blur; text and PII redaction; object removal.",
+        "Seven of the tools are recent AI additions: upscale, blur faces, redact text, remove object, clean voice, remove background noise and remove vocals.",
       ],
       media: [shots.tools],
     },
@@ -83,21 +99,29 @@ export const mediaManipulator = Project.parse({
       id: "backend",
       heading: "Backend",
       paragraphs: [
-        "A Go API (Gin, pgx, Redis) with roughly 130 routes, Postgres with 50+ migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 490+ Go tests.",
+        "A Go API (Gin, pgx, Redis) with roughly 130 routes, Postgres with 50+ migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits, Stripe billing for the Premium tier, user-selectable data retention with export and delete, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 490+ Go tests.",
+      ],
+    },
+    {
+      id: "accounts",
+      heading: "Accounts and Premium",
+      paragraphs: [
+        "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, and guests get a browser-side Recent history. Premium is 7 USD a month or 70 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue.",
       ],
     },
     {
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
-        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query and Zustand. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics, and an ads architecture that is off by default and audited in CI.",
+        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query and Zustand. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (including a revenue page), and an ads architecture that is off by default and audited in CI.",
       ],
     },
   ],
   numbers: [
-    { label: "Tools", value: "65+" },
+    { label: "Tool pages", value: "75+" },
     { label: "Locales", value: "6" },
     { label: "Transition types", value: "15" },
+    { label: "Metadata tags catalogued", value: "1,800+" },
     { label: "Blend modes", value: "8" },
     { label: "AI models served", value: "15+" },
     { label: "API routes", value: "~130" },
@@ -117,6 +141,7 @@ export const mediaManipulator = Project.parse({
     "Tailwind",
     "WebGL2",
     "Web Audio",
+    "Stripe",
     "Whisper",
     "Real-ESRGAN",
     "Demucs",
@@ -156,7 +181,7 @@ export const mediaManipulator = Project.parse({
   seo: {
     title: "Media Manipulator — browser media tools and the Darkroom video editor",
     description:
-      "65+ image, video and audio tools plus Darkroom, a multi-track browser video editor, backed by a Go API and self-hosted GPU AI. Built by Mitch Wintrow.",
+      "75+ image, video and audio tools plus Darkroom, a multi-track browser video editor, backed by a Go API and self-hosted GPU AI. Built by Mitch Wintrow.",
   },
   order: 2,
 });
