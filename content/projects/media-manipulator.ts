@@ -106,7 +106,7 @@ export const mediaManipulator = Project.parse({
       id: "accounts",
       heading: "Accounts and Premium",
       paragraphs: [
-        "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, and guests get a browser-side Recent history. Premium is 7 USD a month or 70 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue.",
+        "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, and guests get a browser-side Recent history. Premium is 8 USD a month or 80 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue.",
       ],
     },
     {
