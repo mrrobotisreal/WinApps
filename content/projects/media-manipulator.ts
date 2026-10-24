@@ -48,13 +48,15 @@ export const mediaManipulator = Project.parse({
       paragraphs: [
         "Darkroom composites video, image, audio and LUT tracks in a WebGL2 pipeline: crop, fit, transform, colour grade, 3D LUT, chroma key, opacity and blend, in that order, with a CSS-filter fallback if the GPU context is lost. Audio mixes through a Web Audio graph. Decoders are pooled and Safari's decoder cap is respected.",
         "Editing features: trim, split and ripple delete at frame accuracy; a media bin with server-rendered proxies, filmstrips and waveform peaks; a Lumetri-style grade with exposure, contrast, saturation, temperature, tint and vibrance; chroma key with an eyedropper; eight blend modes; fifteen transitions; keyframes on position, scale, rotation, opacity, volume, pan and any effect parameter with five easing curves; title clips with text and shape layers; audio ducking and loudness presets; a captions lane with Whisper auto-captions and SRT/VTT export or burn-in.",
-        "Still images can be imported and held on the timeline for any length, Premiere-style, and they export like any other clip.",
-        "Projects are safe to work in: snapshot undo/redo, revision-numbered saves that refuse to clobber, crash-recovery drafts in IndexedDB, and version history with checkpoints. Export is a server-side ffmpeg graph with hardware encoding when available, and a golden-image harness keeps the preview and the export within a documented tolerance.",
+        "Still images can be imported and held on the timeline for any length, Premiere-style, and they export like any other clip. Clips can be sped up or slowed down from 0.1x to 10x with pitch kept, reversed, or frozen on a frame. The timeline has a full keyboard-driven tool set (razor, slip, slide, roll and ripple edits, markers, groups, track lock, solo and hide, and detaching audio from video), and a mixer gives each track a fader, pan, three-band EQ, a compressor and live meters, with a master bus.",
+        "The media bin has search, folders, colour labels and rename, a safe delete that lists every clip still using a file, a parallel upload queue, and voiceover recorded straight from the microphone onto the timeline.",
+        "Projects are safe to work in: snapshot undo/redo, revision-numbered saves that refuse to clobber, crash-recovery drafts in IndexedDB, and version history with checkpoints. Export is a server-side ffmpeg graph with hardware encoding when available: H.264 or HEVC video, or MP3 and WAV audio, at source resolution or 720p to 2160p, with captions burned in or as SRT/VTT, canvas presets for 16:9, 9:16, 1:1 and 4:5, a frame grab as PNG, and an exports panel with progress and re-render. A golden-image harness keeps the preview and the export within a documented tolerance, and solo and hide apply to the export exactly as they do to the preview.",
       ],
       bullets: [
         "Target scale: 60-minute timelines, 12 tracks, 1,000 clips",
         "Keyframed parameters export through ffmpeg sendcmd",
-        "Embedded in CreaTV Studio over a versioned, origin-checked postMessage protocol",
+        "Embedded in CreaTV Studio over a versioned, origin-checked postMessage protocol, with capability flags and published integration docs",
+        "End-to-end browser tests cover a full edit-save-export journey and crash recovery",
       ],
       media: [shots.darkroom],
     },
@@ -99,21 +101,21 @@ export const mediaManipulator = Project.parse({
       id: "backend",
       heading: "Backend",
       paragraphs: [
-        "A Go API (Gin, pgx, Redis) with roughly 130 routes, Postgres with 50+ migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits, Stripe billing for the Premium tier, user-selectable data retention with export and delete, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 490+ Go tests.",
+        "A Go API (Gin, pgx, Redis) with roughly 180 routes, Postgres with versioned migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits, Stripe billing for the Premium tier, user-selectable data retention with export and delete, transactional email through Resend, a public status page fed by a health endpoint, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 900+ Go tests.",
       ],
     },
     {
       id: "accounts",
       heading: "Accounts and Premium",
       paragraphs: [
-        "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, and guests get a browser-side Recent history. Premium is 8 USD a month or 80 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue.",
+        "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, share a result through an expiring, revocable link, and choose which emails they get. Guests get a browser-side Recent history. Premium is 8 USD a month or 80 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue. Cancelling keeps Premium until the end of the paid period, with a clear end date and an offer to stay.",
       ],
     },
     {
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
-        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query and Zustand. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (including a revenue page), and an ads architecture that is off by default and audited in CI.",
+        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query and Zustand. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, and a Darkroom page with its funnel, feature use, editor performance and export health), a public changelog with an RSS feed, and an ads architecture that is off by default and audited in CI.",
       ],
     },
   ],
@@ -124,8 +126,8 @@ export const mediaManipulator = Project.parse({
     { label: "Metadata tags catalogued", value: "1,800+" },
     { label: "Blend modes", value: "8" },
     { label: "AI models served", value: "15+" },
-    { label: "API routes", value: "~130" },
-    { label: "Go tests", value: "490+" },
+    { label: "API routes", value: "~180" },
+    { label: "Go tests", value: "900+" },
   ],
   tech: [
     "Go",
