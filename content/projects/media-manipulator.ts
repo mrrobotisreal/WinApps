@@ -106,9 +106,10 @@ export const mediaManipulator = Project.parse({
     },
     {
       id: "accounts",
-      heading: "Accounts and Premium",
+      heading: "Accounts, Premium and Pro",
       paragraphs: [
         "Accounts use Firebase Auth. The account screen has tabs for history, projects, billing, privacy and data, and profile; users can export their data or delete their account, share a result through an expiring, revocable link, and choose which emails they get. Guests get a browser-side Recent history. Premium is 8 USD a month or 80 USD a year through Stripe, and brings larger files, more jobs and exports, output up to 2160p, and priority on the GPU queue. Cancelling keeps Premium until the end of the paid period, with a clear end date and an offer to stay.",
+        "Pro sits above Premium at 15 USD a month or 150 USD a year. It raises the daily allowance to 700 operations and 120 AI jobs, keeps Premium's file, length and resolution limits, and carries the largest allowance for Motion, the SVG animation editor that is rolling out. Moving up is immediate, with a prorated charge and the same renewal date; moving down to Premium waits until the end of the paid period, so nothing is refunded mid-cycle. The Stripe price id decides the plan on the server, and an unknown price can never grant Pro. The pricing page and the billing panel read every number and price from the API.",
       ],
     },
     {

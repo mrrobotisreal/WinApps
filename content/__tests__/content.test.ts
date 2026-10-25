@@ -153,7 +153,16 @@ describe("media manipulator case study", () => {
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
-    expect(strings(mm).filter(([, s]) => /double raven|doubleraven|\/dr\b|Pro\b/i.test(s))).toEqual([]);
+    // The product was once called "Media Manipulator Pro" (W05). Since MM40, Pro is a plan
+    // name, so only the old product name is banned.
+    expect(strings(mm).filter(([, s]) => /double raven|doubleraven|\/dr\b|Media Manipulator Pro\b|Manipulator Pro\b/i.test(s))).toEqual([]);
+  });
+
+  it("lists the Pro plan with its prices in the accounts section (MM40)", () => {
+    const accounts = mm.sections.find((s) => s.id === "accounts")!;
+    const text = accounts.paragraphs.join(" ");
+    expect(text).toMatch(/Pro sits above Premium at 15 USD a month or 150 USD a year/);
+    expect(text).toMatch(/700 operations and 120 AI jobs/);
   });
 
   it("links only the two public URLs", () => {
