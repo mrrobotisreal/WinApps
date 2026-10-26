@@ -12,8 +12,8 @@ import { voizy } from "./voizy";
 
 /** Every project, validated at import and sorted by `order`. */
 export const projects: Project[] = [
-  sumrak,
   mediaManipulator,
+  sumrak,
   creatv,
   financeFlow,
   mp3DrivePlayer,

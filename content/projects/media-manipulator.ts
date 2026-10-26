@@ -1,3 +1,4 @@
+import { R2 } from "../cdn";
 import { Project } from "../schema";
 
 const capture = (file: string, alt: string) => ({
@@ -21,7 +22,7 @@ const shots = {
 export const mediaManipulator = Project.parse({
   slug: "media-manipulator",
   name: "Media Manipulator",
-  tier: "flagship",
+  tier: "hero",
   status: "shipped",
   role: "Founder, sole engineer",
   start: "2025-05",
@@ -164,6 +165,15 @@ export const mediaManipulator = Project.parse({
     },
   ],
   media: {
+    // Mitch's 25 s launch film (new brand, uploaded 2026-10-26); the poster is its end card.
+    film: {
+      kind: "video",
+      src: `${R2}/sumrak/MM_Launch_v2.mp4`,
+      poster: "/media-manipulator/launch-poster.webp",
+      alt: "Media Manipulator launch film: one video no longer needs five apps, Face Blur hides a face in a photo, Darkroom edits a waterfall clip, and the aperture logo ends on media-manipulator.com",
+      width: 1920,
+      height: 1080,
+    },
     banner: {
       kind: "image",
       src: "/media-manipulator/MMOpenGraph.jpg",
@@ -186,5 +196,5 @@ export const mediaManipulator = Project.parse({
     description:
       "75+ image, video and audio tools plus Darkroom, a multi-track browser video editor, backed by a Go API and self-hosted GPU AI. Built by Mitch Wintrow.",
   },
-  order: 2,
+  order: 1,
 });

@@ -130,6 +130,8 @@ export const Project = z.object({
     .optional(),
   media: z.object({
     hero: Media.optional(),
+    /** Launch film: autoplays muted and loops near the top of the project page and the home feature. */
+    film: Media.optional(),
     gallery: z.array(Media).default([]),
     banner: Media.optional(),
     logo: Media.optional(),
@@ -226,6 +228,8 @@ export const SiteConfig = z.object({
       sponsored: z.string(),
       forAgents: z.string(),
       audioLanguage: z.string(),
+      soundOn: z.string(),
+      soundOff: z.string(),
     }),
   }),
   excludeFromSitemap: z.array(RoutePattern),

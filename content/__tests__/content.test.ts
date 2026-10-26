@@ -61,9 +61,9 @@ describe("content modules", () => {
     expect(bad).toEqual([]);
   });
 
-  it("never use a Media Manipulator asset from R2 (old brand)", () => {
+  it("never use a Media Manipulator asset from R2 (old brand), except the 2026-10-26 launch film", () => {
     const mm = projects.find((p) => p.slug === "media-manipulator");
-    const r2 = media(mm).filter((m) => m.src.includes(".r2.dev"));
+    const r2 = media(mm).filter((m) => m.src.includes(".r2.dev") && !m.src.endsWith("/sumrak/MM_Launch_v2.mp4"));
     expect(r2).toEqual([]);
   });
 });
@@ -75,9 +75,10 @@ describe("projects", () => {
   });
 
   it("use the hero tier exactly once and flagship exactly twice", () => {
-    expect(projects.filter((p) => p.tier === "hero").map((p) => p.slug)).toEqual(["sumrak"]);
+    // Media Manipulator leads the site (Mitch, 2026-10-26); Сумрак stays on the home page as a flagship.
+    expect(projects.filter((p) => p.tier === "hero").map((p) => p.slug)).toEqual(["media-manipulator"]);
     expect(projects.filter((p) => p.tier === "flagship").map((p) => p.slug)).toEqual([
-      "media-manipulator",
+      "sumrak",
       "creatv",
     ]);
   });

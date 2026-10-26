@@ -10,6 +10,7 @@ describe("sitemap", () => {
   });
 
   it("includes the hero project and every role, never an excluded or archive route", () => {
+    expect(paths).toContain("/projects/media-manipulator");
     expect(paths).toContain("/projects/sumrak");
     expect(paths).toContain("/portfolio/people-inc");
     expect(paths).not.toContain("/projects/quantum-river");

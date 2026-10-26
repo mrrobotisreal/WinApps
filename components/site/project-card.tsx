@@ -36,6 +36,17 @@ export function ProjectCard({ project }: { project: Project }) {
             className="w-full rounded-md"
           />
         )}
+        {/* Phone apps have no wide banner: show the portrait hero screenshot, centred. */}
+        {banner && !isArchive && banner.width <= banner.height && (
+          <Image
+            src={banner.src}
+            alt={banner.alt}
+            width={banner.width}
+            height={banner.height}
+            sizes={`${Math.round((224 / banner.height) * banner.width)}px`}
+            className="mx-auto h-56 w-auto rounded-md border"
+          />
+        )}
         <p className="flex-1 text-muted-foreground">{project.tagline}</p>
         <div className="flex flex-wrap items-center justify-between gap-2">
           {project.status === "archived" ? (
