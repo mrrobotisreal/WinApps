@@ -175,6 +175,14 @@ describe("media manipulator case study", () => {
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
 
+  it("names the Pro Motion row (MM49) and no longer says video waits for Pro", () => {
+    const text = JSON.stringify(mm);
+    expect(mm.numbers).toContainEqual({ label: "Pro Motion exports a day", value: "150" });
+    expect(text).toMatch(/2 without an account, 5 free, 30 Premium, 150 Pro/);
+    expect(text).toMatch(/MP4, WebM and PNG sequence on Pro \(up to 4K, 60 fps, 60 seconds\)/);
+    expect(text).not.toMatch(/wait (for|on) the Pro plan/);
+  });
+
   it("links only the two public URLs", () => {
     expect(mm.links.map((l) => l.href)).toEqual([
       "https://www.media-manipulator.com",
