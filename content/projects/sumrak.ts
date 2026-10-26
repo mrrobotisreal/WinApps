@@ -86,7 +86,7 @@ export const sumrak = Project.parse({
   slug: "sumrak",
   name: "Сумрак",
   displayName: "Сумрак (Sumrak)",
-  tier: "hero",
+  tier: "flagship",
   status: "active",
   role: "Creator, sole engineer",
   start: "2026-08",
@@ -257,5 +257,5 @@ export const sumrak = Project.parse({
     description:
       "Offline-first Android app: graded horror fiction, FSRS review, on-device speech, spoken role-plays, ТРКИ exam prep, self-hosted sync. Built by Mitch Wintrow.",
   },
-  order: 1,
+  order: 2,
 });

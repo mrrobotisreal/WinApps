@@ -7,6 +7,7 @@ import {
   GradientHeading,
   JsonLd,
   IntroVideo,
+  LaunchFilm,
   linkClass,
   MediaItem,
   NumberStrip,
@@ -85,6 +86,11 @@ export default function Home() {
               <p className="text-center text-lg text-muted-foreground">{hero.tagline}</p>
             </CardHeader>
             <CardContent className="space-y-8">
+              {hero.media.film && (
+                <div className="mx-auto w-full max-w-5xl">
+                  <LaunchFilm film={hero.media.film} name={hero.name} />
+                </div>
+              )}
               <div className="grid items-start gap-8 md:grid-cols-[1fr_auto]">
                 <div className="space-y-4">
                   {hero.summary.map((p, i) => (

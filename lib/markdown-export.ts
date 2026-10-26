@@ -59,6 +59,7 @@ export function projectToMarkdown(project: Project): string {
     lines.push("## Links", "", ...project.links.map((l) => `- [${l.label}](${abs(l.href)})`), "");
   }
   const allMedia = [
+    ...(project.media.film ? [project.media.film] : []),
     ...(project.media.hero ? [project.media.hero] : []),
     ...project.media.gallery.filter((m) => m.src !== project.media.hero?.src),
   ];

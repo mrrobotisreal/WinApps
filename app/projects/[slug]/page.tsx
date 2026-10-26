@@ -5,6 +5,7 @@ import {
   DateRange,
   EmbedOnClick,
   JsonLd,
+  LaunchFilm,
   LinkRow,
   MediaGallery,
   MediaItem,
@@ -51,7 +52,7 @@ export default async function ProjectPage({ params }: Params) {
   const { slug } = await params;
   const project = withPages.find((p) => p.slug === slug);
   if (!project) notFound();
-  const { hero, banner } = project.media;
+  const { hero, banner, film } = project.media;
   // Section media renders in place; the gallery shows only what no section shows.
   const inSections = new Set(project.sections.flatMap((sec) => sec.media ?? []).map((m) => m.src));
   const gallery = project.media.gallery.filter((m) => !inSections.has(m.src));
@@ -79,13 +80,19 @@ export default async function ProjectPage({ params }: Params) {
         />
         <Card>
           <CardContent className="space-y-8 p-6">
-            {banner && (
-              <MediaItem
-                item={banner}
-                priority
-                sizes="(min-width: 1280px) 1200px, 100vw"
-                className="mx-auto h-auto w-full max-w-5xl rounded-lg"
-              />
+            {film ? (
+              <div className="mx-auto w-full max-w-5xl">
+                <LaunchFilm film={film} name={project.name} priority />
+              </div>
+            ) : (
+              banner && (
+                <MediaItem
+                  item={banner}
+                  priority
+                  sizes="(min-width: 1280px) 1200px, 100vw"
+                  className="mx-auto h-auto w-full max-w-5xl rounded-lg"
+                />
+              )
             )}
             <p className="text-sm text-muted-foreground">
               {project.role} · <DateRange start={project.start} end={project.end} />
@@ -101,7 +108,7 @@ export default async function ProjectPage({ params }: Params) {
               {hero && (
                 <MediaItem
                   item={hero}
-                  priority={!banner}
+                  priority={!banner && !film}
                   className="mx-auto h-auto max-h-[540px] w-auto rounded-lg border"
                 />
               )}

@@ -15,6 +15,7 @@ export { SkillGrid } from "./skill-grid";
 export { TechBadges } from "./tech-badges";
 export { SocialLinks } from "./social-links";
 export { IntroVideo } from "./intro-video";
+export { LaunchFilm } from "./launch-film";
 export { EmbedOnClick } from "./embed-on-click";
 export { JsonLd } from "./json-ld";
 export { TrackedLink } from "./tracked-link";

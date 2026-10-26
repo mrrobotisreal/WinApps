@@ -24,8 +24,8 @@ export const site = SiteConfig.parse({
       label: "Projects",
       href: "/projects",
       children: [
-        { label: "Сумрак", href: "/projects/sumrak" },
         { label: "Media Manipulator", href: "/projects/media-manipulator" },
+        { label: "Сумрак", href: "/projects/sumrak" },
         { label: "CreaTV", href: "/projects/creatv" },
         { label: "All projects", href: "/projects" },
       ],
@@ -72,7 +72,7 @@ export const site = SiteConfig.parse({
         title: "About Mitchell Wintrow",
         intro: "Senior software engineer across mobile, web and backend systems.",
         description:
-          "Mitchell Wintrow is a senior software engineer at People Inc. who builds Сумрак, Media Manipulator and CreaTV outside work.",
+          "Mitchell Wintrow is a senior software engineer at People Inc. who builds Media Manipulator, Сумрак and CreaTV outside work.",
       },
       contact: {
         title: "Contact",
@@ -94,13 +94,13 @@ export const site = SiteConfig.parse({
         title: "Projects",
         intro: "What I'm building now, my flagship products, and earlier work.",
         description:
-          "Projects by Mitchell Wintrow: Сумрак, Media Manipulator, CreaTV, and earlier mobile and web apps.",
+          "Projects by Mitchell Wintrow: Media Manipulator, Сумрак, CreaTV, and earlier mobile and web apps.",
       },
       home: {
         title: "Mitch Wintrow — Senior Software Engineer",
         intro: "",
         description:
-          "Mitchell Wintrow builds mobile ad tech at People Inc. and ships Сумрак, Media Manipulator and CreaTV. Projects, work history, writing and contact.",
+          "Mitchell Wintrow builds mobile ad tech at People Inc. and ships Media Manipulator, Сумрак and CreaTV. Projects, work history, writing and contact.",
       },
     },
     labels: {
@@ -140,6 +140,8 @@ export const site = SiteConfig.parse({
       sponsored: "Sponsored",
       forAgents: "For AI agents: /llms.txt",
       audioLanguage: "Language:",
+      soundOn: "Sound on",
+      soundOff: "Sound off",
     },
   },
   excludeFromSitemap: [

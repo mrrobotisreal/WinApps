@@ -161,11 +161,11 @@ export function buildWinnyDocs(previous: (file: string) => string | undefined): 
       route: "/",
       category: "home",
       notes: [
-        "Home page: hero, the Сумрак feature, flagship projects, work history, more projects, writing, skills.",
-        "What Mitch is building now: Сумрак. Flagships: Media Manipulator and CreaTV.",
+        "Home page: hero, the Media Manipulator feature with its launch film, flagship projects, work history, more projects, writing, skills.",
+        "What Mitch is building now: Media Manipulator. Flagships: Сумрак and CreaTV.",
       ],
       keywords: [profile.name, profile.shortName, "WinApps", "home", ...withPages.map((p) => p.name)],
-      links: [abs("/projects/sumrak"), abs("/projects"), abs("/portfolio"), abs("/contact")],
+      links: [abs("/projects/media-manipulator"), abs("/projects"), abs("/portfolio"), abs("/contact")],
       snapshot: [profile.positioning, ...profile.bio].join("\n\n"),
     })
   );
