@@ -162,8 +162,17 @@ describe("media manipulator case study", () => {
   it("lists the Pro plan with its prices in the accounts section (MM40)", () => {
     const accounts = mm.sections.find((s) => s.id === "accounts")!;
     const text = accounts.paragraphs.join(" ");
-    expect(text).toMatch(/Pro sits above Premium at 15 USD a month or 150 USD a year/);
+    expect(text).toMatch(/Pro sits above Premium at 15 USD or 15 EUR a month, or 150 USD or 150 EUR a year/);
     expect(text).toMatch(/700 operations and 120 AI jobs/);
+  });
+
+  it("states USD or EUR pricing, chosen by the visitor (MM69)", () => {
+    const accounts = mm.sections.find((s) => s.id === "accounts")!;
+    const text = accounts.paragraphs.join(" ");
+    expect(text).toMatch(/Premium is 8 USD or 8 EUR a month, or 80 USD or 80 EUR a year/);
+    expect(text).toMatch(/Visitors choose the currency/);
+    expect(text).toMatch(/a subscription keeps the currency it was bought in/);
+    expect(text).toMatch(/no tax is added on top/);
   });
 
   it("has a Motion section and code-counted Motion numbers (MM48)", () => {
