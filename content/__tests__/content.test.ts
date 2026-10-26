@@ -150,7 +150,7 @@ describe("media manipulator case study", () => {
   const mm = projects.find((p) => p.slug === "media-manipulator")!;
 
   it("has the approved sections in order", () => {
-    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "viewers", "metadata", "tools", "ai", "backend", "accounts", "frontend"]);
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "viewers", "metadata", "tools", "ai", "backend", "accounts", "frontend"]);
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
@@ -164,6 +164,15 @@ describe("media manipulator case study", () => {
     const text = accounts.paragraphs.join(" ");
     expect(text).toMatch(/Pro sits above Premium at 15 USD a month or 150 USD a year/);
     expect(text).toMatch(/700 operations and 120 AI jobs/);
+  });
+
+  it("has a Motion section and code-counted Motion numbers (MM48)", () => {
+    const motion = mm.sections.find((s) => s.id === "motion")!;
+    expect(motion.heading).toMatch(/^Motion/);
+    expect(motion.paragraphs.join(" ")).toMatch(/GSAP/);
+    expect(mm.numbers).toContainEqual({ label: "Motion export formats", value: "11" });
+    expect(mm.numbers).toContainEqual({ label: "Motion animators", value: "6" });
+    for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
 
   it("links only the two public URLs", () => {

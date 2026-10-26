@@ -28,7 +28,7 @@ export const mediaManipulator = Project.parse({
   start: "2025-05",
   end: null,
   tagline:
-    "75+ browser media tools and Darkroom, a multi-track video editor, on GPU servers I run myself.",
+    "75+ browser media tools, a multi-track video editor and an SVG animator, on GPU servers I run myself.",
   summary: [
     "Media Manipulator converts, compresses, trims, transcribes, restores and edits images, video and audio in the browser, with the heavy work done on my own GPU servers so large files and AI models are no problem. Darkroom, its multi-track timeline editor, brings colour grading, chroma key, keyframes, transitions, titles and captions to a web page and exports through ffmpeg with preview-to-export parity.",
     "The AI tools (restoration, upscaling, transcription, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
@@ -39,6 +39,7 @@ export const mediaManipulator = Project.parse({
       heading: "What it is",
       paragraphs: [
         "Media Manipulator started as a converter and became a media workbench. It has 75+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
+        "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser.",
         "The site ships in six locales, including a right-to-left one, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
       ],
       media: [shots.home],
@@ -60,6 +61,21 @@ export const mediaManipulator = Project.parse({
         "End-to-end browser tests cover a full edit-save-export journey and crash recovery",
       ],
       media: [shots.darkroom],
+    },
+    {
+      id: "motion",
+      heading: "Motion: SVG animation in the browser",
+      paragraphs: [
+        "Motion is a separate editor from Darkroom, with its own document model: a versioned, additive-only VectorDoc (Zod on the client, a Go sanitizer mirror on the server, shared byte-parity fixtures). An imported SVG becomes a layer tree of groups, paths, shapes, text, images, gradients, masks and clip paths; markup it cannot model is kept as an opaque layer that round-trips unchanged, and anything unsafe (scripts, event handlers, external references, foreignObject) is dropped on import and rebuilt from an allow-list, never inserted as HTML. New artwork comes from rectangle, ellipse, line, pen and text tools.",
+        "Every animated property is its own track of keyframes with linear, ease-in, ease-out and ease-in-out presets, a cubic-bezier curve editor and hold keys. Six one-click animators cover stroke draw-on, motion along a path, shape morphing (an in-house normaliser that matches command counts, start points and winding), gradient stops, masks and clip paths, and blur. One sampler is the single definition of a value at time t: the preview renders from it, and every exporter is tested against it.",
+        "Export happens in the browser, and the server only counts it against a separate daily Motion allowance before the file is built. Animated SVG is pure CSS when Chrome, Firefox and Safari can all play it, and otherwise embeds a tree-shaken anime.js runtime of about 14 KB gzip. The Lottie writer targets spec 1.0.1 and has a matching reader; a single unsupported-feature list means nothing is dropped silently in either direction. The React, JavaScript/TypeScript and Flutter exporters (a native flutter_svg widget when the animation allows, otherwise a WebView player) are pure functions with golden fixtures. GIF uses a clean-room GIF89a encoder in a Worker, PNG sequences stream into a zip, and MP4 and WebM go through WebCodecs and mediabunny, waiting on the Pro plan's video formats.",
+        "Licensing is a design constraint, not an afterthought. GSAP is excluded because its free licence forbids no-code animation builders, and Theatre.js Studio is excluded because it is AGPL. A test fails the build if either enters the dependency tree. Every runtime that ships inside an export carries its licence header, and an open-source licences page lists the MPL-2.0 muxer.",
+      ],
+      bullets: [
+        "Formats: static SVG (free), animated SVG, Lottie JSON, React, JavaScript, TypeScript, Flutter and GIF; MP4, WebM and PNG sequence are built and wait for the Pro plan",
+        "Projects: browser-only drafts in IndexedDB, or account projects with revision-checked saves, autosave and a thumbnail",
+        "Plan table on the tool page rendered from the live tier API, so a retuned allowance needs no deploy",
+      ],
     },
     {
       id: "viewers",
@@ -117,16 +133,24 @@ export const mediaManipulator = Project.parse({
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
-        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query and Zustand. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, and a Darkroom page with its funnel, feature use, editor performance and export health), a public changelog with an RSS feed, and an ads architecture that is off by default and audited in CI.",
+        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query, Zustand and Zod. Six locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, and a Darkroom page with its funnel, feature use, editor performance and export health), a public changelog with an RSS feed, and an ads architecture that is off by default and audited in CI.",
       ],
     },
   ],
   numbers: [
+    // media-manipulator-ui content/toolPages.ts: 76 `slug:` entries (incl. Darkroom and Motion).
     { label: "Tool pages", value: "75+" },
     { label: "Locales", value: "6" },
     { label: "Transition types", value: "15" },
     { label: "Metadata tags catalogued", value: "1,800+" },
     { label: "Blend modes", value: "8" },
+    // media-manipulator-ui components/vector/export-dialog.tsx `type Format`: svg_animated, svg_static,
+    // CODE_FORMATS (lib/vector/export/formats.ts: lottie, react_tsx, js, ts, flutter) and
+    // RASTER_FORMATS (lib/vector/raster/caps.ts: gif, png_sequence, mp4, webm) = 2 + 5 + 4 = 11.
+    { label: "Motion export formats", value: "11" },
+    // media-manipulator-ui lib/vector/animators.ts ANIMATOR_IDS: drawOn, motionPath, morph,
+    // gradient, maskClip, blur.
+    { label: "Motion animators", value: "6" },
     { label: "AI models served", value: "15+" },
     { label: "API routes", value: "~180" },
     { label: "Go tests", value: "900+" },
@@ -145,6 +169,10 @@ export const mediaManipulator = Project.parse({
     "Tailwind",
     "WebGL2",
     "Web Audio",
+    "Zod",
+    "WebCodecs",
+    "mediabunny",
+    "anime.js",
     "Stripe",
     "Whisper",
     "Real-ESRGAN",
@@ -192,9 +220,9 @@ export const mediaManipulator = Project.parse({
     gallery: Object.values(shots),
   },
   seo: {
-    title: "Media Manipulator — browser media tools and the Darkroom video editor",
+    title: "Media Manipulator — browser media tools, Darkroom and Motion",
     description:
-      "75+ image, video and audio tools plus Darkroom, a multi-track browser video editor, backed by a Go API and self-hosted GPU AI. Built by Mitch Wintrow.",
+      "75+ image, video and audio tools, Darkroom (a multi-track browser video editor) and Motion (an SVG animator), backed by a Go API and GPU AI. By Mitch Wintrow.",
   },
   order: 1,
 });
