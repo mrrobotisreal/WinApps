@@ -6,7 +6,7 @@ import {
   ExperienceCard,
   GradientHeading,
   JsonLd,
-  IntroVideo,
+  // IntroVideo, // hidden 2026-10-27; restore with the block below
   LaunchFilm,
   linkClass,
   MediaItem,
@@ -74,9 +74,16 @@ export default function Home() {
           <div className="flex justify-center">
             <ResumeButtons pdfLabel={labels.resumePdf} docxLabel={labels.resumeDocx} />
           </div>
+          {/* Original intro video, hidden 2026-10-27 (Mitch may bring it back):
           <div className="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-2xl">
             <IntroVideo video={home.introVideo} />
           </div>
+          */}
+          {hero.media.film && (
+            <div className="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-2xl">
+              <LaunchFilm film={hero.media.film} name={hero.name} priority />
+            </div>
+          )}
         </section>
 
         <Section id={hero.slug} heading={home.buildingHeading}>
