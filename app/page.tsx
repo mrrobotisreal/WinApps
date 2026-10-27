@@ -122,7 +122,7 @@ export default function Home() {
           <ul className="grid gap-6 md:grid-cols-2">
             {flagships.map((p) => (
               <li key={p.slug}>
-                <ProjectCard project={p} />
+                <ProjectCard project={p} withFilm />
               </li>
             ))}
           </ul>

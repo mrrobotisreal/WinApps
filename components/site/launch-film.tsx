@@ -65,7 +65,7 @@ export function LaunchFilm({ film, name, priority }: { film: Media; name: string
           alt=""
           fill
           priority={priority}
-          sizes="(min-width: 1280px) 1024px, 100vw"
+          sizes={film.height > film.width ? "(min-width: 768px) 420px, 100vw" : "(min-width: 1280px) 1024px, 100vw"}
           className="object-cover"
         />
       )}

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Project } from "@/content/schema";
 import { site } from "@/content/site";
+import { LaunchFilm } from "./launch-film";
 import { linkClass } from "./page-header";
 import { TrackedLink } from "./tracked-link";
 
@@ -13,11 +14,13 @@ const { labels } = site.copy;
 /**
  * Card for any tier. Hero/flagship/standard cards link to the project page;
  * archive tiles have no page, so they link to the live site or the source.
+ * `withFilm` shows the project's launch film in place of its still (the home page's flagships).
  */
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, withFilm }: { project: Project; withFilm?: boolean }) {
   const isArchive = project.tier === "archive";
   const external = project.links.find((l) => l.external);
   const banner = project.media.banner ?? project.media.hero;
+  const film = withFilm ? project.media.film : undefined;
 
   return (
     <Card className="h-full">
@@ -26,7 +29,13 @@ export function ProjectCard({ project }: { project: Project }) {
         <Separator />
       </CardHeader>
       <CardContent className="flex h-full flex-col gap-3">
-        {banner && !isArchive && banner.width > banner.height && (
+        {/* A portrait film (Сумрак's) stays phone-width inside the card. */}
+        {film && !isArchive && (
+          <div className={`mx-auto w-full ${film.height > film.width ? "max-w-[280px]" : ""}`}>
+            <LaunchFilm film={film} name={project.name} />
+          </div>
+        )}
+        {banner && !film && !isArchive && banner.width > banner.height && (
           <Image
             src={banner.src}
             alt={banner.alt}
@@ -37,7 +46,7 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         )}
         {/* Phone apps have no wide banner: show the portrait hero screenshot, centred. */}
-        {banner && !isArchive && banner.width <= banner.height && (
+        {banner && !film && !isArchive && banner.width <= banner.height && (
           <Image
             src={banner.src}
             alt={banner.alt}

@@ -81,7 +81,8 @@ export default async function ProjectPage({ params }: Params) {
         <Card>
           <CardContent className="space-y-8 p-6">
             {film ? (
-              <div className="mx-auto w-full max-w-5xl">
+              // A portrait film (Сумрак's is a phone screen) stays phone-width instead of filling the column.
+              <div className={`mx-auto w-full ${film.height > film.width ? "max-w-sm" : "max-w-5xl"}`}>
                 <LaunchFilm film={film} name={project.name} priority />
               </div>
             ) : (
