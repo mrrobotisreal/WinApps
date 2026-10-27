@@ -182,7 +182,7 @@ describe("media manipulator case study", () => {
     expect(mm.numbers).toContainEqual({ label: "Motion export formats", value: "11" });
     expect(mm.numbers).toContainEqual({ label: "Motion animators", value: "6" });
     // Counts only locales with `translated: true` in media-manipulator-ui i18n/locales.ts (Mitch, 2026-10-27).
-    expect(mm.numbers).toContainEqual({ label: "Locales", value: "9" });
+    expect(mm.numbers).toContainEqual({ label: "Locales", value: "10" });
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
 
