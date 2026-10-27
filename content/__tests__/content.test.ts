@@ -61,9 +61,9 @@ describe("content modules", () => {
     expect(bad).toEqual([]);
   });
 
-  it("never use a Media Manipulator asset from R2 (old brand), except the 2026-10-26 launch film", () => {
+  it("never use a Media Manipulator asset from R2 (old brand), except the launch film in its new-brand folder", () => {
     const mm = projects.find((p) => p.slug === "media-manipulator");
-    const r2 = media(mm).filter((m) => m.src.includes(".r2.dev") && !m.src.endsWith("/sumrak/MM_Launch_v2.mp4"));
+    const r2 = media(mm).filter((m) => m.src.includes(".r2.dev") && !m.src.endsWith("/media-manipulator/MM_Launch_90.mp4"));
     expect(r2).toEqual([]);
   });
 });

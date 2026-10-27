@@ -196,12 +196,12 @@ export const mediaManipulator = Project.parse({
     },
   ],
   media: {
-    // Mitch's 25 s launch film (new brand, uploaded 2026-10-26); the poster is its end card.
+    // Mitch's 90 s launch film (uploaded 2026-10-27; replaced the 25 s v2); the poster is its end card.
     film: {
       kind: "video",
-      src: `${R2}/sumrak/MM_Launch_v2.mp4`,
-      poster: "/media-manipulator/launch-poster.webp",
-      alt: "Media Manipulator launch film: one video no longer needs five apps, Face Blur hides a face in a photo, Darkroom edits a waterfall clip, and the aperture logo ends on media-manipulator.com",
+      src: `${R2}/media-manipulator/MM_Launch_90.mp4`,
+      poster: "/media-manipulator/launch-90-poster.webp",
+      alt: "Media Manipulator launch film: a photo converted to sepia, a background removed, GPS and 120 metadata tags stripped, a face blurred, an SVG animated in Motion and a clip edited in Darkroom, ending on the aperture logo and media-manipulator.com",
       width: 1920,
       height: 1080,
     },
