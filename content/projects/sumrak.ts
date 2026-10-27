@@ -248,6 +248,15 @@ export const sumrak = Project.parse({
   links: [],
   media: {
     hero: s.today,
+    // Mitch's 60 s promo (HyperFrames, uploaded 2026-10-27), portrait like the app; the poster is its end card.
+    film: {
+      kind: "video",
+      src: `${R2}/sumrak/sumrak-promo-final.mp4`,
+      poster: "/sumrak/promo-poster.jpg",
+      alt: "Сумрак promo film: a review session, the 60-second quest, the hotel lift to floor 1, a spoken bank scenario, a narrated horror story and a word unpacked into its forms, ending on the crimson moon and the Сумрак wordmark",
+      width: 1080,
+      height: 1920,
+    },
     // Every screenshot and video shown in the sections; the page renders section
     // media in place, and exporters (llms.txt, Winny) read the full set here.
     gallery: Object.values({ ...v, ...s }),
