@@ -248,14 +248,14 @@ export const sumrak = Project.parse({
   links: [],
   media: {
     hero: s.today,
-    // Mitch's 60 s promo (HyperFrames, uploaded 2026-10-27), portrait like the app; the poster is its end card.
+    // Mitch's 60 s promo (HyperFrames, 16:9, uploaded 2026-10-28; replaced the portrait cut); the poster is its end card.
     film: {
       kind: "video",
-      src: `${R2}/sumrak/sumrak-promo-final.mp4`,
-      poster: "/sumrak/promo-poster.jpg",
-      alt: "Сумрак promo film: a review session, the 60-second quest, the hotel lift to floor 1, a spoken bank scenario, a narrated horror story and a word unpacked into its forms, ending on the crimson moon and the Сумрак wordmark",
-      width: 1080,
-      height: 1920,
+      src: `${R2}/sumrak/sumrak-promo-16x9.mp4`,
+      poster: "/sumrak/promo-16x9-poster.jpg",
+      alt: "Сумрак promo film: the app's screens beside Russian titles that burn into English, through a review session, the 60-second quest, the hotel lift to floor 1, a spoken bank scenario, a narrated horror story and a word unpacked into its forms, ending on the crimson moon and the Сумрак wordmark",
+      width: 1920,
+      height: 1080,
     },
     // Every screenshot and video shown in the sections; the page renders section
     // media in place, and exporters (llms.txt, Winny) read the full set here.
