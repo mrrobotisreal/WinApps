@@ -40,7 +40,7 @@ export const mediaManipulator = Project.parse({
       paragraphs: [
         "Media Manipulator started as a converter and became a media workbench. It has 75+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
         "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser.",
-        "The site is fully translated into twelve languages, including a right-to-left one, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
+        "The site is fully translated into thirteen languages, including a right-to-left one, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
       ],
       media: [shots.home],
     },
@@ -134,14 +134,14 @@ export const mediaManipulator = Project.parse({
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
-        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query, Zustand and Zod. Twelve translated locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, and a Darkroom page with its funnel, feature use, editor performance and export health), a public changelog with an RSS feed, an ads architecture that is off by default and audited in CI, and per-locale translator deployments where a hired translator edits the live page in context and submits a reviewed GitHub pull request.",
+        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query, Zustand and Zod. Thirteen translated locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, and a Darkroom page with its funnel, feature use, editor performance and export health), a public changelog with an RSS feed, an ads architecture that is off by default and audited in CI, and per-locale translator deployments where a hired translator edits the live page in context and submits a reviewed GitHub pull request.",
       ],
     },
   ],
   numbers: [
     // media-manipulator-ui content/toolPages.ts: 76 `slug:` entries (incl. Darkroom and Motion).
     { label: "Tool pages", value: "75+" },
-    { label: "Locales", value: "12" },
+    { label: "Locales", value: "13" },
     { label: "Transition types", value: "15" },
     { label: "Metadata tags catalogued", value: "1,800+" },
     { label: "Blend modes", value: "8" },
