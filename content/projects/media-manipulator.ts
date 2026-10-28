@@ -115,6 +115,21 @@ export const mediaManipulator = Project.parse({
       ],
       media: [shots.restoration, shots.docscan],
     },
+    // MM78: Voices (design media_manipulator docs/design/VOICES.md, ADR-0015).
+    {
+      id: "voices",
+      heading: "Voices: clone, design and change a voice",
+      paragraphs: [
+        "Three voice tools run on self-hosted models with commercial-use licences. Voice cloning makes a saved voice from 5 to 60 seconds of speech recorded in the browser or uploaded, then reads any text in 23 languages with an emotion control. The voice designer turns a written description (gender, age, accent, tone, pace) into free previews and keeps the one you pick by its seed. The voice changer either shifts pitch and formant instantly with rubberband, or converts a recording to a saved or preset voice with AI, with a synced A/B player to compare.",
+        "The models are Chatterbox Multilingual (MIT) for cloning, speech and voice conversion, and Qwen3-TTS (Apache 2.0) for voice design and preset voices. A designed voice is stored as its description, seed and a 10-second rendered reference, and from then on Chatterbox speaks it, so one voice sounds the same everywhere. Both engines live in one small resident FastAPI service on the GPU host that loads models on first use and unloads them when idle, behind a VRAM-aware GPU lease; the page says when the engine is warming up.",
+        "Consent and safety are built in rather than bolted on. Creating a voice from a recording requires an explicit confirmation that it is your voice or that you have the speaker's permission, stored with the voice together with the version of that text. Every generated or converted file carries an inaudible PerTh watermark; shifted audio is plain signal processing and is not marked. Recordings never leave the servers I run and are never used to train anything; a voice can be deleted from the account page at any time and is deleted with the account, and the Terms forbid impersonation, fraud and political deepfakes.",
+      ],
+      bullets: [
+        "Saved voices by plan: 1 free, 5 Premium, 25 Pro; anonymous visitors can use the shifter and the preset voices",
+        "A failed or refused request gives its daily unit back; design previews are free, three per description an hour",
+        "Results open in the shared result viewer with MP3 and WAV downloads and audio A/B compare",
+      ],
+    },
     {
       id: "backend",
       heading: "Backend",
@@ -139,8 +154,9 @@ export const mediaManipulator = Project.parse({
     },
   ],
   numbers: [
-    // media-manipulator-ui content/toolPages.ts: 76 `slug:` entries (incl. Darkroom and Motion).
-    { label: "Tool pages", value: "75+" },
+    // media-manipulator-ui content/toolPages.ts TOOL_PAGES: 76 entries + 32 catalog pages (MM73)
+    // + 3 voice pages (MM78) = 111, incl. Darkroom and Motion.
+    { label: "Tool pages", value: "110+" },
     { label: "Locales", value: "18" },
     { label: "Transition types", value: "15" },
     { label: "Metadata tags catalogued", value: "1,800+" },
@@ -155,6 +171,8 @@ export const mediaManipulator = Project.parse({
     // media-manipulator_api internal/config/config.go TIER_PRO_VECTOR_EXPORTS_PER_DAY default (MM49).
     { label: "Pro Motion exports a day", value: "150" },
     { label: "AI models served", value: "15+" },
+    // media_manipulator_api internal/services/voices_client.go VoiceLanguages (Chatterbox Multilingual).
+    { label: "Voice languages", value: "23" },
     { label: "API routes", value: "~180" },
     { label: "Go tests", value: "900+" },
   ],
@@ -181,6 +199,10 @@ export const mediaManipulator = Project.parse({
     "Real-ESRGAN",
     "Demucs",
     "Ollama",
+    "Chatterbox",
+    "Qwen3-TTS",
+    "FastAPI",
+    "rubberband",
     "S3",
     "Firebase Auth",
     "Vercel",

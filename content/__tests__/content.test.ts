@@ -150,7 +150,7 @@ describe("media manipulator case study", () => {
   const mm = projects.find((p) => p.slug === "media-manipulator")!;
 
   it("has the approved sections in order", () => {
-    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "viewers", "metadata", "tools", "ai", "backend", "accounts", "frontend"]);
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "viewers", "metadata", "tools", "ai", "voices", "backend", "accounts", "frontend"]);
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
@@ -192,6 +192,20 @@ describe("media manipulator case study", () => {
     expect(text).toMatch(/2 without an account, 5 free, 30 Premium, 150 Pro/);
     expect(text).toMatch(/MP4, WebM and PNG sequence on Pro \(up to 4K, 60 fps, 60 seconds\)/);
     expect(text).not.toMatch(/wait (for|on) the Pro plan/);
+  });
+
+  it("has a Voices section: self-hosted models, consent and watermark, honest numbers (MM78)", () => {
+    const voices = mm.sections.find((s) => s.id === "voices")!;
+    const text = [voices.heading, ...voices.paragraphs, ...(voices.bullets ?? [])].join(" ");
+    expect(text).toMatch(/Chatterbox Multilingual \(MIT\)/);
+    expect(text).toMatch(/Qwen3-TTS \(Apache 2\.0\)/);
+    expect(text).toMatch(/explicit confirmation/);
+    expect(text).toMatch(/PerTh watermark; shifted audio .* not marked/);
+    expect(text).toMatch(/never used to train/);
+    expect(text).not.toMatch(/indistinguishable|ElevenLabs/i);
+    for (const t of ["Chatterbox", "Qwen3-TTS", "FastAPI", "rubberband"]) expect(mm.tech).toContain(t);
+    expect(mm.numbers).toContainEqual({ label: "Tool pages", value: "110+" });
+    expect(mm.numbers).toContainEqual({ label: "Voice languages", value: "23" });
   });
 
   it("links only the two public URLs", () => {
