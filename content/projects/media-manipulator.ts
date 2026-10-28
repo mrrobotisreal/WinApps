@@ -11,7 +11,7 @@ const capture = (file: string, alt: string) => ({
 
 const shots = {
   home: capture("home", "Media Manipulator home page: the upload panel, quick-tool chips and the Darkroom entry point"),
-  tools: capture("tools", "Tool catalogue listing Darkroom first, then image tools such as compress, resize and background removal"),
+  tools: capture("tools", "Tool catalogue with search and category tabs, listing Darkroom and Motion first, then every image, video, audio, AI and privacy tool"),
   darkroom: capture("darkroom", "Darkroom landing page with its quick guide to the multi-track timeline, supported media and export"),
   restoration: capture("restoration", "AI image restoration tool describing its pre-clean, upscaler and face-enhancement model pipeline"),
   docscan: capture("docscan", "AI document scan tool that turns printed pages and handwriting into a searchable PDF or Word file"),
@@ -96,7 +96,7 @@ export const mediaManipulator = Project.parse({
       id: "tools",
       heading: "The tool catalogue",
       paragraphs: [
-        "Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, compress, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI and MKV; compress, trim, crop, resize, rotate; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion, waveform rendering, vocal isolation, voice cleanup and background-noise removal. Image: upscaling.",
+        "The catalogue page lists every tool, with a search box and category tabs; the tools a visitor is most likely to want are starred and sorted first. Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, crop, rotate, compress, sharpen, blur, filters, text overlay, metadata editing, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI, MKV and HEVC; compress, trim, crop, resize, rotate, flip, reverse, speed change, frame-rate change, stabilisation and colour adjustment; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion to MP3, WAV, FLAC, OGG, M4A and Opus; trim, speed, pitch, normalisation, volume, equaliser, reverb, waveform rendering, vocal isolation, voice cleanup and background-noise removal. A metadata inspector reads EXIF, GPS, codec, ID3 and PDF tags from any file.",
         "Privacy: EXIF, GPS, IPTC and XMP removal; face blur; text and PII redaction; object removal.",
         "Seven of the tools are recent AI additions: upscale, blur faces, redact text, remove object, clean voice, remove background noise and remove vocals.",
       ],
@@ -119,7 +119,7 @@ export const mediaManipulator = Project.parse({
       id: "backend",
       heading: "Backend",
       paragraphs: [
-        "A Go API (Gin, pgx, Redis) with roughly 180 routes, Postgres with versioned migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits, Stripe billing for the Premium tier, user-selectable data retention with export and delete, transactional email through Resend, a public status page fed by a health endpoint, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 900+ Go tests.",
+        "A Go API (Gin, pgx, Redis) with roughly 180 routes, Postgres with versioned migrations, presigned S3 uploads for large video, a job manager with polling and server-sent events, tiered quotas with per-route rate limits (a job the server refuses or that fails gives its daily unit back), Stripe billing for the Premium tier, user-selectable data retention with export and delete, transactional email through Resend, a public status page fed by a health endpoint, Prometheus metrics, and FFmpeg, ImageMagick, ExifTool, Poppler and friends behind it. It runs as a systemd service on a headless Ubuntu workstation behind nginx and Cloudflare, with 900+ Go tests.",
       ],
     },
     {
