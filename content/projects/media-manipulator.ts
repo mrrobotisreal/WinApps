@@ -31,7 +31,7 @@ export const mediaManipulator = Project.parse({
     "75+ browser media tools, a multi-track video editor and an SVG animator, on GPU servers I run myself.",
   summary: [
     "Media Manipulator converts, compresses, trims, transcribes, restores and edits images, video and audio in the browser, with the heavy work done on my own GPU servers so large files and AI models are no problem. Darkroom, its multi-track timeline editor, brings colour grading, chroma key, keyframes, transitions, titles and captions to a web page and exports through ffmpeg with preview-to-export parity.",
-    "The AI tools (restoration, upscaling, transcription, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
+    "The AI tools (restoration, upscaling, transcription, video summaries, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
   ],
   sections: [
     {
@@ -107,6 +107,8 @@ export const mediaManipulator = Project.parse({
       heading: "AI on hardware I run",
       paragraphs: [
         "The AI tools run on my own GPU server, so no user file is sent to a third-party model provider. Transcription and captions use Whisper; caption translation uses a TranslateGemma model served by Ollama; video restoration offers six models side by side; image restoration combines upscalers with face-restoration and pre-cleaning models; document scanning turns printed pages into a searchable PDF through Tesseract and transcribes handwriting with a vision model that flags uncertain passages instead of guessing. A VRAM-aware scheduler splits jobs across two GPUs.",
+        // MM75: video / audio summaries (media_manipulator docs/design/VIDEO_SUMMARY.md, ADR-0014).
+        "Video and audio summaries chain three models into one staged job. Whisper transcribes the speech while ffmpeg picks frames at scene changes, capped by the plan's frame budget (24, 48 or 96); a Qwen3-VL vision model reads them in timestamped batches of four with the transcript lines of that window; then a Qwen text model writes a title, a short summary, chapters with start and end times, topics and the on-screen text, as schema-validated JSON with one repair retry. The result viewer renders it as a document whose chapters seek the original file, with a Markdown copy that matches the server's file byte for byte, and the progress list shows each of the six stages as it runs. A larger deep-synthesis model for Pro sits behind a benchmark gate.",
       ],
       bullets: [
         "Restoration: Real-ESRGAN, SwinIR, HAT, BasicVSR++, RVRT, VRT",
@@ -155,7 +157,7 @@ export const mediaManipulator = Project.parse({
   ],
   numbers: [
     // media-manipulator-ui content/toolPages.ts TOOL_PAGES: 76 entries + 32 catalog pages (MM73)
-    // + 3 voice pages (MM78) = 111, incl. Darkroom and Motion.
+    // + 3 voice pages (MM78) + summarize-audio (MM75) = 112, incl. Darkroom and Motion.
     { label: "Tool pages", value: "110+" },
     { label: "Locales", value: "18" },
     { label: "Transition types", value: "15" },
