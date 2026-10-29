@@ -163,7 +163,15 @@ describe("media manipulator case study", () => {
     const accounts = mm.sections.find((s) => s.id === "accounts")!;
     const text = accounts.paragraphs.join(" ");
     expect(text).toMatch(/Pro sits above Premium at 15 USD or 15 EUR a month, or 150 USD or 150 EUR a year/);
-    expect(text).toMatch(/700 operations and 120 AI jobs/);
+    expect(text).toMatch(/700 everyday jobs and 200 AI jobs/);
+  });
+
+  it("states the separate AI allowance (MM90): AI jobs never count against the everyday allowance", () => {
+    const ai = mm.sections.find((s) => s.id === "ai")!;
+    const text = ai.paragraphs.join(" ");
+    expect(text).toMatch(/its own daily AI allowance, kept apart from the everyday one/);
+    expect(text).toMatch(/Premium's 300 everyday and 100 AI jobs are 400 jobs a day/);
+    expect(JSON.stringify(mm)).not.toMatch(/120 AI jobs|of them AI/);
   });
 
   it("states USD or EUR pricing, chosen by the visitor (MM69)", () => {
