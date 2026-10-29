@@ -204,7 +204,7 @@ describe("media manipulator case study", () => {
     expect(text).toMatch(/never used to train/);
     expect(text).not.toMatch(/indistinguishable|ElevenLabs/i);
     for (const t of ["Chatterbox", "Qwen3-TTS", "FastAPI", "rubberband"]) expect(mm.tech).toContain(t);
-    expect(mm.numbers).toContainEqual({ label: "Tool pages", value: "110+" });
+    expect(mm.numbers).toContainEqual({ label: "Tools", value: "95+" });
     expect(mm.numbers).toContainEqual({ label: "Voice languages", value: "23" });
   });
 
