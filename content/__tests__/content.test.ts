@@ -181,8 +181,12 @@ describe("media manipulator case study", () => {
     expect(motion.paragraphs.join(" ")).toMatch(/GSAP/);
     expect(mm.numbers).toContainEqual({ label: "Motion export formats", value: "11" });
     expect(mm.numbers).toContainEqual({ label: "Motion animators", value: "6" });
-    // Counts only locales with `translated: true` in media-manipulator-ui i18n/locales.ts (Mitch, 2026-10-27).
-    expect(mm.numbers).toContainEqual({ label: "Locales", value: "18" });
+    // MM86: "Available in 18 languages, N reviewed". 18 = rows of media-manipulator-ui
+    // i18n/locales.ts (all `translated: true`); N = rows with `reviewed: true` (en, uk, ru, de).
+    expect(mm.numbers).toContainEqual({ label: "Languages", value: "18" });
+    expect(mm.numbers).toContainEqual({ label: "Reviewed languages", value: "4" });
+    expect(JSON.stringify(mm)).toContain("available in 18 languages, 4 reviewed");
+    expect(mm.numbers.find((n) => n.label === "Locales")).toBeUndefined();
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
 
