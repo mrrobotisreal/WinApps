@@ -40,7 +40,7 @@ export const mediaManipulator = Project.parse({
       paragraphs: [
         "Media Manipulator started as a converter and became a media workbench. It has 95+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
         "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser.",
-        "The site is fully translated into eighteen languages (English, Ukrainian, Russian, Hebrew, German, Spanish for Spain and Latin America, French, Italian, Portuguese for Portugal and Brazil, Japanese, Simplified and Traditional Chinese, Korean, Arabic, Hindi and Vietnamese), two of them right to left, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
+        "The site is available in 18 languages, 4 reviewed. English, Ukrainian, Russian and German are reviewed by native speakers, and in those four the most-used tool pages are translated in full, down to the worked examples and FAQ. Hebrew, Spanish for Spain and Latin America, French, Italian, Portuguese for Portugal and Brazil, Japanese, Simplified and Traditional Chinese, Korean, Arabic, Hindi and Vietnamese are machine-translated and stay out of search engines (noindex, no hreflang) until a native speaker signs each one off; a tool page whose body would fall back to English is never indexed under a translated address. Two of the languages are right to left, and a key-parity test keeps any translation from silently lagging. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
         "The About page names me as founder and sole engineer, with CreaTV Ltd. as the operating company, and a contact page offers a short form (spam-limited by a honeypot and a per-session and per-IP rate limit, delivered to the support inbox through Resend with a reference number) next to the support and privacy addresses. The structured data matches what is on the page: a named author on every article and tutorial, a price range that agrees with the pricing page, and sitemap dates taken from the real edit history.",
       ],
       media: [shots.home],
@@ -152,7 +152,7 @@ export const mediaManipulator = Project.parse({
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
-        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query, Zustand and Zod. Eighteen translated locales served as i18next shards per feature, hreflang alternates in the sitemap, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, a Darkroom page with its funnel, feature use, editor performance and export health, and a Voices page with creations, generations, failure rate and job duration), a public changelog with an RSS feed, an ads architecture that is off by default and audited in CI, and per-locale translator deployments where a hired translator edits the live page in context and submits a reviewed GitHub pull request.",
+        "Next.js App Router on Vercel, React 19, Tailwind 4, Radix, TanStack Query, Zustand and Zod. Eighteen locales served as i18next shards per feature, a per-locale reviewed flag that decides indexing, hreflang alternates in the sitemap for reviewed locales only, consent-gated first-party analytics with its own admin dashboard (revenue, activation and return, a Darkroom page with its funnel, feature use, editor performance and export health, and a Voices page with creations, generations, failure rate and job duration), a public changelog with an RSS feed, an ads architecture that is off by default and audited in CI, and per-locale translator deployments where a hired translator edits the live page in context and submits a reviewed GitHub pull request.",
       ],
     },
   ],
@@ -161,7 +161,9 @@ export const mediaManipulator = Project.parse({
     // + 3 voice pages (MM78) + summarize-audio (MM75) = 112 pages; MM84 made 14 of them alias pages
     // (content/toolAliases.ts), which are not tools: 98 distinct tools incl. Darkroom and Motion.
     { label: "Tools", value: "95+" },
-    { label: "Locales", value: "18" },
+    // media-manipulator-ui i18n/locales.ts: 18 rows, `reviewed: true` on en-US, uk-UA, ru-RU, de-DE (MM86).
+    { label: "Languages", value: "18" },
+    { label: "Reviewed languages", value: "4" },
     { label: "Transition types", value: "15" },
     { label: "Metadata tags catalogued", value: "1,800+" },
     { label: "Blend modes", value: "8" },
