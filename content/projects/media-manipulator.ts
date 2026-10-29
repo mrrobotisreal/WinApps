@@ -28,7 +28,7 @@ export const mediaManipulator = Project.parse({
   start: "2025-05",
   end: null,
   tagline:
-    "75+ browser media tools, a multi-track video editor and an SVG animator, on GPU servers I run myself.",
+    "95+ browser media tools, a multi-track video editor and an SVG animator, on GPU servers I run myself.",
   summary: [
     "Media Manipulator converts, compresses, trims, transcribes, restores and edits images, video and audio in the browser, with the heavy work done on my own GPU servers so large files and AI models are no problem. Darkroom, its multi-track timeline editor, brings colour grading, chroma key, keyframes, transitions, titles and captions to a web page and exports through ffmpeg with preview-to-export parity.",
     "The AI tools (restoration, upscaling, transcription, video summaries, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
@@ -38,7 +38,7 @@ export const mediaManipulator = Project.parse({
       id: "overview",
       heading: "What it is",
       paragraphs: [
-        "Media Manipulator started as a converter and became a media workbench. It has 75+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
+        "Media Manipulator started as a converter and became a media workbench. It has 95+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
         "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser.",
         "The site is fully translated into eighteen languages (English, Ukrainian, Russian, Hebrew, German, Spanish for Spain and Latin America, French, Italian, Portuguese for Portugal and Brazil, Japanese, Simplified and Traditional Chinese, Korean, Arabic, Hindi and Vietnamese), two of them right to left, with a key-parity test so no translation can silently lag. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
         "The About page names me as founder and sole engineer, with CreaTV Ltd. as the operating company, and a contact page offers a short form (spam-limited by a honeypot and a per-session and per-IP rate limit, delivered to the support inbox through Resend with a reference number) next to the support and privacy addresses. The structured data matches what is on the page: a named author on every article and tutorial, a price range that agrees with the pricing page, and sitemap dates taken from the real edit history.",
@@ -97,7 +97,7 @@ export const mediaManipulator = Project.parse({
       id: "tools",
       heading: "The tool catalogue",
       paragraphs: [
-        "The catalogue page lists every tool, with a search box and category tabs; the tools a visitor is most likely to want are starred and sorted first. Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, crop, rotate, compress, sharpen, blur, filters, text overlay, metadata editing, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI, MKV and HEVC; compress, trim, crop, resize, rotate, flip, reverse, speed change, frame-rate change, stabilisation and colour adjustment; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion to MP3, WAV, FLAC, OGG, M4A and Opus; trim, speed, pitch, normalisation, volume, equaliser, reverb, waveform rendering, vocal isolation and removal (the stem comes back in the input's format, so an MP3 stays a 320 kbps MP3 instead of a WAV ten times its size, with FLAC, WAV and a free server-side “Download as MP3” for older WAV results), voice cleanup and background-noise removal. A metadata inspector reads EXIF, GPS, codec, ID3 and PDF tags from any file.",
+        "The catalogue page has a search box and category tabs; the two dozen most-used tools, each with a page rewritten from the code that runs it (two worked examples with real numbers, a \"when not to use this\" paragraph and a privacy note specific to that tool, held to a word-count and duplication test in CI), are shown first and the rest sit in a collapsible list per category. Duplicate names for the same tool (MP4 trimmer, video cutter and the like) are thin pages that point to the main one, and search finds a tool by any of its names. Image: format conversion across JPG, PNG, WebP, HEIC, AVIF, SVG and ICO; resize, crop, rotate, compress, sharpen, blur, filters, text overlay, metadata editing, background removal, image-to-PDF and PDF-to-image. Video: conversion between MP4, MOV, WebM, AVI, MKV and HEVC; compress, trim, crop, resize, rotate, flip, reverse, speed change, frame-rate change, stabilisation and colour adjustment; audio extraction and replacement; frame extraction; GIF; HLS packaging with an H.264 ladder and DASH packaging with AV1/VP9, multilingual captions, storyboards and an I-frame playlist. Audio: conversion to MP3, WAV, FLAC, OGG, M4A and Opus; trim, speed, pitch, normalisation, volume, equaliser, reverb, waveform rendering, vocal isolation and removal (the stem comes back in the input's format, so an MP3 stays a 320 kbps MP3 instead of a WAV ten times its size, with FLAC, WAV and a free server-side “Download as MP3” for older WAV results), voice cleanup and background-noise removal. A metadata inspector reads EXIF, GPS, codec, ID3 and PDF tags from any file.",
         "Privacy: EXIF, GPS, IPTC and XMP removal; face blur; text and PII redaction; object removal.",
         "Seven of the tools are recent AI additions: upscale, blur faces, redact text, remove object, clean voice, remove background noise and remove vocals.",
       ],
@@ -158,8 +158,9 @@ export const mediaManipulator = Project.parse({
   ],
   numbers: [
     // media-manipulator-ui content/toolPages.ts TOOL_PAGES: 76 entries + 32 catalog pages (MM73)
-    // + 3 voice pages (MM78) + summarize-audio (MM75) = 112, incl. Darkroom and Motion.
-    { label: "Tool pages", value: "110+" },
+    // + 3 voice pages (MM78) + summarize-audio (MM75) = 112 pages; MM84 made 14 of them alias pages
+    // (content/toolAliases.ts), which are not tools: 98 distinct tools incl. Darkroom and Motion.
+    { label: "Tools", value: "95+" },
     { label: "Locales", value: "18" },
     { label: "Transition types", value: "15" },
     { label: "Metadata tags catalogued", value: "1,800+" },
@@ -250,7 +251,7 @@ export const mediaManipulator = Project.parse({
   seo: {
     title: "Media Manipulator — browser media tools, Darkroom and Motion",
     description:
-      "75+ image, video and audio tools, Darkroom (a multi-track browser video editor) and Motion (an SVG animator), backed by a Go API and GPU AI. By Mitch Wintrow.",
+      "95+ image, video and audio tools, Darkroom (a multi-track browser video editor) and Motion (an SVG animator), backed by a Go API and GPU AI. By Mitch Wintrow.",
   },
   order: 1,
 });
