@@ -185,6 +185,7 @@ export const SiteConfig = z.object({
     home: z.object({
       greeting: z.string(),
       introVideo: Media,
+      promoFilm: Media, // the WinApps portfolio promo at the top of the home page
       ctaEmail: z.string(),
       ctaResume: z.string(),
       ctaBuilding: z.string(),

@@ -79,11 +79,10 @@ export default function Home() {
             <IntroVideo video={home.introVideo} />
           </div>
           */}
-          {hero.media.film && (
-            <div className="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-2xl">
-              <LaunchFilm film={hero.media.film} name={hero.name} priority />
-            </div>
-          )}
+          {/* The WinApps promo leads; Media Manipulator's own film plays once, in its section below. */}
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-2xl">
+            <LaunchFilm film={home.promoFilm} name="WinApps" priority />
+          </div>
         </section>
 
         <Section id={hero.slug} heading={home.buildingHeading}>
