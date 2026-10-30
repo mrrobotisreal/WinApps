@@ -91,6 +91,15 @@ export const creatv = Project.parse({
   ],
   // Demo embed, screenshots and videos: Mitch adds them later (the old embed id 404s).
   media: {
+    // Mitch's 93 s promo (HyperFrames, 16:9, 2026-10-30); the poster is its end card.
+    film: {
+      kind: "video",
+      src: `${R2}/creatv/creatv-promo-final.mp4`,
+      poster: "/creatv/promo-poster.webp",
+      alt: "CreaTV promo film: hover previews, Explore, a click into an episode that starts playing, quality settings, captions, timeline previews, a like, a comment, Watch Later and push notifications, then a switch into CreaTV Studio where that comment arrives, followed by processing details, visibility, AI analytics, retention, the discovery funnel, memberships, channel switching and community polls, ending on the creator principles and the CreaTV lockup with creatv.io",
+      width: 1920,
+      height: 1080,
+    },
     banner: {
       kind: "image",
       src: `${R2}/CreaTV_WinAppsProjectCard.png`,
