@@ -56,6 +56,15 @@ export const site = SiteConfig.parse({
         width: 1280,
         height: 720,
       },
+      // Mitch's 136 s WinApps promo (HyperFrames, 16:9, 2026-10-30, the Luminous Uplift cut); the poster is its end card.
+      promoFilm: {
+        kind: "video",
+        src: `${R2}/winapps-promo-B-final.mp4`,
+        poster: "/winapps-promo-poster.webp",
+        alt: "WinApps promo film: three products, one maker. Media Manipulator converts a photo, cuts out a background, strips 120 metadata tags, blurs faces and edits in Darkroom; Сумрак runs a review, the 60-second quest, the hotel lessons, a spoken bank scenario and a horror story read aloud; CreaTV plays an episode, posts a comment that arrives in Studio, and shows analytics, memberships and the creator principles; ending on the WinApps lockup and winapps.io",
+        width: 1920,
+        height: 1080,
+      },
       ctaEmail: "Email",
       ctaResume: "Resume",
       ctaBuilding: "See what I'm building",
