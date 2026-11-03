@@ -28,7 +28,7 @@ export const mediaManipulator = Project.parse({
   start: "2025-05",
   end: null,
   tagline:
-    "95+ browser media tools, a multi-track video editor and an SVG animator, on GPU servers I run myself.",
+    "95+ browser media tools, a video editor, an SVG animator and a photo editor, on GPU servers I run myself.",
   summary: [
     "Media Manipulator converts, compresses, trims, transcribes, restores and edits images, video and audio in the browser, with the heavy work done on my own GPU servers so large files and AI models are no problem. Darkroom, its multi-track timeline editor, brings colour grading, chroma key, keyframes, transitions, titles and captions to a web page and exports through ffmpeg with preview-to-export parity.",
     "The AI tools (restoration, upscaling, transcription, video summaries, document scanning, face and PII redaction) run on hardware I operate. No user file goes to a third-party AI provider.",
@@ -39,7 +39,7 @@ export const mediaManipulator = Project.parse({
       heading: "What it is",
       paragraphs: [
         "Media Manipulator started as a converter and became a media workbench. It has 95+ single-purpose tools for images, video and audio, each with its own page, plus Darkroom, a multi-track video editor that runs in a browser tab. Files are processed on servers I run. No account is needed for the standard tools, and guests' files are deleted within 24 hours; signed-in users choose their own retention, from 24 hours to 2 years.",
-        "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser.",
+        "Motion, an SVG animation editor in beta, sits beside Darkroom: it turns an SVG into layers on a keyframe timeline and exports animated SVG, Lottie, React, JavaScript, Flutter or GIF straight from the browser. Aperture, a photo editor in beta, completes the set with adjustment layers, masks and healing, exported at full resolution on the server.",
         "The site is available in 18 languages, 4 reviewed. Every tool's name and one-line description, the Pricing, Account and Voices pages and the site chrome are translated in all 18; English, Ukrainian, Russian and German are reviewed by native speakers, and in those four the most-used tool pages are translated in full, down to the worked examples and FAQ. Hebrew, Spanish for Spain and Latin America, French, Italian, Portuguese for Portugal and Brazil, Japanese, Simplified and Traditional Chinese, Korean, Arabic, Hindi and Vietnamese are machine-translated and stay out of search engines (noindex, no hreflang) until a native speaker signs each one off; a tool page whose body would fall back to English is never indexed under a translated address. Two of the languages are right to left, and a key-parity test keeps any translation from silently lagging. It is a CreaTV Ltd. product, and Darkroom is embedded directly in CreaTV Studio.",
         "The About page names me as founder and sole engineer, with CreaTV Ltd. as the operating company, and a contact page offers a short form (spam-limited by a honeypot and a per-session and per-IP rate limit, delivered to the support inbox through Resend with a reference number) next to the support and privacy addresses. The structured data matches what is on the page: a named author on every article and tutorial, a price range that agrees with the pricing page, and sitemap dates taken from the real edit history.",
       ],
@@ -77,6 +77,23 @@ export const mediaManipulator = Project.parse({
         "Daily Motion exports by plan: 2 without an account, 5 free, 30 Premium, 150 Pro. The export dialog locks each format a plan lacks and names the plan that adds it; the server stays the authority",
         "Projects: browser-only drafts in IndexedDB, or account projects with revision-checked saves, autosave and a thumbnail",
         "Plan table on the tool page rendered from the live tier API, so a retuned allowance needs no deploy",
+      ],
+    },
+    {
+      id: "aperture",
+      heading: "Aperture: a non-destructive photo editor",
+      paragraphs: [
+        "Aperture is the third editor in the family, in beta, and it is built around a document rather than around pixels. A versioned, additive-only PhotoDoc lists the source, the geometry, the healed areas and an ordered stack of adjustment layers, each with an opacity, a blend mode and an optional mask. It is validated by Zod in the browser and by a Go sanitizer on the server against the same byte-parity fixtures, so the original file is never touched and any step can be reordered, faded or deleted later.",
+        "Three renderers implement one specification. The reference is plain TypeScript in colorMath.ts, with a unit-tested function per adjustment; the WebGL2 preview mirrors it stage for stage in GLSL on a 1920 px copy; the export is rendered from the full-resolution original on the server in NumPy and OpenCV. A golden-image harness renders 126 fixtures through the reference and compares the server's output with tolerances written down per kind of operation (colour operations within a few 8-bit levels, grain exact), so what the preview shows is what the export delivers. Only exposure and white balance work in linear light; the rest are gamma-space stages that clamp to the unit range.",
+        "The adjustment set covers exposure, brightness and contrast, a luminance-weighted tone stage, curves (a monotone cubic through up to 16 points per channel), levels, white balance, vibrance, HSL with six ranges plus custom ones picked with an eyedropper, colour balance, black and white with six channel sliders, channel mixer, photo filter, split toning, 3D LUTs from .cube files, posterize, threshold, invert, and a detail group (unsharp mask on luma, a bilateral noise reducer on Lab, clarity, texture, a dark-channel dehaze, vignette and a hash-based grain). A colour-pop look turns every range grey except one, from a single preset.",
+        "Layers are limited by masks of six kinds: linear gradient, radial, brush, luminosity range, CIE Lab colour range, and an AI subject selection, folded with add, subtract or intersect and then feathered with a Gaussian. The subject mask and the Heal tool run on my own GPU (rembg and LaMa), so a photo never goes to a third-party service. Geometry is one inverse-mapped resample for crop, straighten, flip and four-corner perspective. Eighteen built-in looks, browser-stored user presets with JSON import and export, and a batch apply that renders one project per photo and zips the results complete the workflow.",
+        "Accounts decide what persists and what costs the server, not what the editor can do: projects are 5, 50 or unlimited by plan, export size is 12 megapixels on Free and up to 120 on Premium and Pro, and batches are 3, 10 or 25 photos. Without an account one photo lives in the browser, and only the export, subject mask or heal uploads it for that job. The 24 adjustment pages on the site each open the editor with that panel in front, and a tutorial and a changelog entry document the beta.",
+      ],
+      bullets: [
+        "One document, three renderers: TypeScript reference, WebGL2 preview, NumPy/OpenCV export",
+        "126 golden renders keep the browser and the server within documented tolerances",
+        "Six mask kinds, including a CIE Lab colour range and an AI subject selection on my own GPU",
+        "Export size and batch size follow the plan table, served live from the tier API",
       ],
     },
     {
@@ -176,6 +193,14 @@ export const mediaManipulator = Project.parse({
     { label: "Motion animators", value: "6" },
     // media-manipulator_api internal/config/config.go TIER_PRO_VECTOR_EXPORTS_PER_DAY default (MM49).
     { label: "Pro Motion exports a day", value: "150" },
+    // media-manipulator-ui lib/photo/photoTypes.ts LAYER_PARAMS: 27 layer types, counted by LAYER_TYPES.length
+    // (colour, effect, red-eye and the eight detail types).
+    { label: "Aperture adjustment types", value: "27" },
+    // media-manipulator-ui lib/photo/photoTypes.ts maskComponentSchema: gradient, radial, brush,
+    // luminosity, colorRange, subject.
+    { label: "Aperture mask kinds", value: "6" },
+    // media-manipulator-ui lib/photo/fixtures/goldens (3 images x 42 documents).
+    { label: "Aperture golden renders", value: "126" },
     { label: "AI models served", value: "15+" },
     // media_manipulator_api internal/services/voices_client.go VoiceLanguages (Chatterbox Multilingual).
     { label: "Voice languages", value: "23" },
@@ -200,6 +225,9 @@ export const mediaManipulator = Project.parse({
     "WebCodecs",
     "mediabunny",
     "anime.js",
+    "NumPy",
+    "OpenCV",
+    "LaMa",
     "Stripe",
     "Whisper",
     "Real-ESRGAN",
@@ -251,9 +279,9 @@ export const mediaManipulator = Project.parse({
     gallery: Object.values(shots),
   },
   seo: {
-    title: "Media Manipulator — browser media tools, Darkroom and Motion",
+    title: "Media Manipulator — browser media tools, Darkroom, Motion and Aperture",
     description:
-      "95+ image, video and audio tools, Darkroom (a multi-track browser video editor) and Motion (an SVG animator), backed by a Go API and GPU AI. By Mitch Wintrow.",
+      "95+ image, video and audio tools, Darkroom (video editor), Motion (SVG animator) and Aperture (photo editor), backed by a Go API and GPU AI. By Mitch Wintrow.",
   },
   order: 1,
 });
