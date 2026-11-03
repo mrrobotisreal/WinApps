@@ -150,7 +150,7 @@ describe("media manipulator case study", () => {
   const mm = projects.find((p) => p.slug === "media-manipulator")!;
 
   it("has the approved sections in order", () => {
-    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "aperture", "viewers", "metadata", "tools", "ai", "voices", "backend", "accounts", "frontend"]);
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "aperture", "viewers", "metadata", "tools", "ai", "voices", "backend", "accounts", "android", "frontend"]);
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
