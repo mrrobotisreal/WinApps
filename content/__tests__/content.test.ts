@@ -150,7 +150,7 @@ describe("media manipulator case study", () => {
   const mm = projects.find((p) => p.slug === "media-manipulator")!;
 
   it("has the approved sections in order", () => {
-    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "viewers", "metadata", "tools", "ai", "voices", "backend", "accounts", "frontend"]);
+    expect(mm.sections.map((s) => s.id)).toEqual(["overview", "darkroom", "motion", "aperture", "viewers", "metadata", "tools", "ai", "voices", "backend", "accounts", "frontend"]);
   });
 
   it("never mentions the private partner portal or the old Pro name", () => {
@@ -196,6 +196,18 @@ describe("media manipulator case study", () => {
     expect(JSON.stringify(mm)).toContain("available in 18 languages, 4 reviewed");
     expect(mm.numbers.find((n) => n.label === "Locales")).toBeUndefined();
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
+  });
+
+  it("has an Aperture section and code-counted Aperture numbers (MM100)", () => {
+    const aperture = mm.sections.find((s) => s.id === "aperture")!;
+    expect(aperture.heading).toMatch(/^Aperture/);
+    expect(aperture.paragraphs.join(" ")).toMatch(/three renderers/i);
+    expect(aperture.paragraphs.join(" ")).toMatch(/LaMa/);
+    expect(mm.numbers).toContainEqual({ label: "Aperture adjustment types", value: "27" });
+    expect(mm.numbers).toContainEqual({ label: "Aperture mask kinds", value: "6" });
+    expect(mm.numbers).toContainEqual({ label: "Aperture golden renders", value: "126" });
+    for (const t of ["NumPy", "OpenCV", "LaMa", "WebGL2"]) expect(mm.tech).toContain(t);
+    expect(mm.seo.description.length).toBeLessThanOrEqual(160);
   });
 
   it("names the Pro Motion row (MM49) and no longer says video waits for Pro", () => {
