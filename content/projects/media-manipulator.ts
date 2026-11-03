@@ -166,6 +166,14 @@ export const mediaManipulator = Project.parse({
       ],
     },
     {
+      id: "android",
+      heading: "The Android app",
+      paragraphs: [
+        "A native Android app, in closed testing, built with Expo and React Native in TypeScript, with Redux Toolkit and RTK Query on top of the same Go API and the same account as the website: it is signed-in only, so plans, limits, history and retention carry over. Files come in through Android's system pickers or the share sheet, the server-side tools run as tracked jobs, and a push notification through Firebase Cloud Messaging arrives when a long job finishes. The app is available in the same 18 languages, including right-to-left layouts for Arabic and Hebrew.",
+        "It has first-party analytics that share the website's service and catalog and add a platform dimension, opt-out and erase controls in Account, and Firebase Crashlytics for crash reports. Code updates ship over the air with EAS Update on a native-fingerprint runtime version, and a signed-in user can delete their account from the app, with a public web page for the same request. The Privacy Policy and Terms have a section for the app in all 18 languages.",
+      ],
+    },
+    {
       id: "frontend",
       heading: "Frontend",
       paragraphs: [
@@ -239,6 +247,11 @@ export const mediaManipulator = Project.parse({
     "rubberband",
     "S3",
     "Firebase Auth",
+    "Expo",
+    "React Native",
+    "Redux Toolkit",
+    "Firebase Cloud Messaging",
+    "Crashlytics",
     "Vercel",
     "nginx",
     "Cloudflare",
