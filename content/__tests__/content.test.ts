@@ -201,6 +201,11 @@ describe("media manipulator case study", () => {
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
 
+  it("says the Android app has Aperture, ported to Skia (MA52)", () => {
+    const android = mm.sections.find((s) => s.id === "android")!;
+    expect(android.paragraphs.join(" ")).toMatch(/Aperture photo editor runs on the phone with the same document and shaders ported to Skia/);
+  });
+
   it("has an Aperture section and code-counted Aperture numbers (MM100)", () => {
     const aperture = mm.sections.find((s) => s.id === "aperture")!;
     expect(aperture.heading).toMatch(/^Aperture/);
