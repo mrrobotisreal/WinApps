@@ -194,6 +194,9 @@ describe("media manipulator case study", () => {
     expect(mm.numbers).toContainEqual({ label: "Languages", value: "18" });
     expect(mm.numbers).toContainEqual({ label: "Reviewed languages", value: "4" });
     expect(JSON.stringify(mm)).toContain("available in 18 languages, 4 reviewed");
+    // MM93: every tool page body is translated in all 18 languages, not only the four reviewed ones.
+    expect(JSON.stringify(mm)).toContain("every tool page is translated in full in all 18");
+    expect(JSON.stringify(mm)).not.toContain("in those four the most-used tool pages");
     expect(mm.numbers.find((n) => n.label === "Locales")).toBeUndefined();
     for (const t of ["Zod", "WebCodecs", "mediabunny", "anime.js"]) expect(mm.tech).toContain(t);
   });
