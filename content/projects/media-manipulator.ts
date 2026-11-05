@@ -150,7 +150,7 @@ export const mediaManipulator = Project.parse({
         "Results open in the shared result viewer with MP3 and WAV downloads and audio A/B compare",
       ],
     },
-    // MM107: Medi, the site guide; MM108: the Aperture copilot; MM109: the Darkroom copilot and Looks (design media_manipulator docs/design/MEDI_ASSISTANT.md, ADR-0018).
+    // MM107: Medi, the site guide; MM108: the Aperture copilot; MM109: the Darkroom copilot and Looks; MM110: the Motion copilot and Templates (design media_manipulator docs/design/MEDI_ASSISTANT.md, ADR-0018).
     {
       id: "medi",
       heading: "Medi: an assistant that knows the whole site",
@@ -159,12 +159,14 @@ export const mediaManipulator = Project.parse({
         "The guide is free and runs on Claude Haiku 5.5 through OpenRouter, routed only to Anthropic with data collection denied, behind its own key, rate limits and a 10 USD daily spending cap; at the cap it answers from the help pages alone instead of calling a model. Off-topic questions are turned away before any model call. Signed-in users keep their conversations under the retention period they chose, guests' chats are not stored, and every turn records only content-free usage and cost.",
         "Inside Aperture, Medi is also an editing copilot: say \"make everything grey except the red jacket\" or \"it's backlit, fix the lighting\" and it makes the edit, as one step you can undo. The model never writes the photo document; it calls a closed set of nine operations (add or update a layer, grey everything except a colour, mask part of the photo, apply a look, auto tone, crop and straighten), checked against the same JSON Schema on the server before streaming and again in the browser before anything changes, then applied all or nothing through the editor's own code. It sees a small preview frame when you allow it, checks its own result once, and offers anything that costs an AI edit (subject mask, heal) as a button you click.",
         "In Darkroom the same copilot edits video: \"make it cinematic\", \"add a lower-third with my name that slides in\", \"make the voice clearer and duck the music\". It works through eighteen timeline operations (looks and grades, designed titles with entrance and exit animation, transitions, keyframes for Ken Burns moves and fades, speed and freeze frames, audio presets and ducking, splits, trims and markers) that land as one undo step, refuse anything on a locked track, and pass the server's own project sanitizer unchanged. Captions, voiceovers, voice cleanup and export stay buttons you click. The twelve looks it uses are also a Looks row in Darkroom's Effects panel, built only from the existing colour-grade parameters so the preview and the export match.",
+        "In Motion, Medi animates: \"a lower-third that slides in\", \"reveal my logo\", \"pop this title in\". It works through eleven operations on the SVG document (ready-made templates, explicit keyframes, the draw-on, motion-path, morph, gradient, mask and blur animators, new shapes and text, SVG import through the editor's own sanitiser, and the composition's length and loop), all landing as one undo step, and it suggests the right export for the destination (Lottie for an app, MP4 for social). The six templates it uses (lower third, logo reveal, title pop, bullet reveal, counter, badge bounce) are also a Templates menu in Motion's top bar, and every one produces a document the server's sanitizer keeps byte for byte.",
       ],
       bullets: [
         "One streamed endpoint for every surface, with a tool loop for help search and actions validated against a closed list of routes",
         "In 18 languages, with every guide event in the first-party analytics",
         "Aperture copilot: one undo step per edit, a plain-words list of what changed, and \"Plan my edit\" for multi-step looks",
         "Darkroom copilot and a Looks catalog of twelve one-click grades in the Effects panel",
+        "Motion copilot and a Templates menu of six ready-made animations",
       ],
     },
     {
