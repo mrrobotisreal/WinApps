@@ -150,17 +150,19 @@ export const mediaManipulator = Project.parse({
         "Results open in the shared result viewer with MP3 and WAV downloads and audio A/B compare",
       ],
     },
-    // MM107: Medi, the site guide (design media_manipulator docs/design/MEDI_ASSISTANT.md, ADR-0018).
+    // MM107: Medi, the site guide; MM108: the Aperture copilot (design media_manipulator docs/design/MEDI_ASSISTANT.md, ADR-0018).
     {
       id: "medi",
       heading: "Medi: an assistant that knows the whole site",
       paragraphs: [
         "Medi is the site's own assistant. On every public page a small button opens a guide that knows every tool, page and editor: ask which tool does a job or where something lives, and it answers in your language with buttons that open the right tool, already set up when the tool has presets. Its knowledge is generated from the site's own registries by a script (every tool page, route, editor parameter, preset and shortcut), searched with BM25 on the API, and never edited by hand, so it stays current as features ship.",
         "The guide is free and runs on Claude Haiku 5.5 through OpenRouter, routed only to Anthropic with data collection denied, behind its own key, rate limits and a 10 USD daily spending cap; at the cap it answers from the help pages alone instead of calling a model. Off-topic questions are turned away before any model call. Signed-in users keep their conversations under the retention period they chose, guests' chats are not stored, and every turn records only content-free usage and cost.",
+        "Inside Aperture, Medi is also an editing copilot: say \"make everything grey except the red jacket\" or \"it's backlit, fix the lighting\" and it makes the edit, as one step you can undo. The model never writes the photo document; it calls a closed set of nine operations (add or update a layer, grey everything except a colour, mask part of the photo, apply a look, auto tone, crop and straighten), checked against the same JSON Schema on the server before streaming and again in the browser before anything changes, then applied all or nothing through the editor's own code. It sees a small preview frame when you allow it, checks its own result once, and offers anything that costs an AI edit (subject mask, heal) as a button you click.",
       ],
       bullets: [
         "One streamed endpoint for every surface, with a tool loop for help search and actions validated against a closed list of routes",
         "In 18 languages, with every guide event in the first-party analytics",
+        "Aperture copilot: one undo step per edit, a plain-words list of what changed, and \"Plan my edit\" for multi-step looks",
       ],
     },
     {
